@@ -20,6 +20,7 @@
 			<?php  
                $success_msg = $this->session->flashdata('success_msg');
                $error_msg   = $this->session->flashdata('error_msg');
+              //  $error_msg   = $this->session->flashdata('error_msg');
 
                   if($success_msg){
                     ?>
