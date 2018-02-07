@@ -21,7 +21,7 @@ public function register_user(){
       'firstname'=>$this->input->post('firstname'),
       'username'=>$this->input->post('username'),
       'password'=>md5($this->input->post('password') 
-        );
+        ));
         print_r($user);
 
 	 $username_check = $this->user_model->username_check($user['username']);
