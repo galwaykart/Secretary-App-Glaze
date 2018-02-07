@@ -86,7 +86,7 @@ public function user_logout(){
  // redirect('user/login_view', 'refresh');
   $this->load->view("login.php");
 }
-
+public function test(){echo "testing";}
 }
 
 ?>
