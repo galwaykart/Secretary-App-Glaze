@@ -1,6 +1,7 @@
 <?php
 
-class User extends CI_Controller {
+class User extends CI_Controller 
+{
 
 public function __construct(){
 
@@ -70,7 +71,8 @@ function login_user(){
         $this->load->view('dashboard.php');
 
       }
-      else{
+      else
+	  {
          $this->session->set_flashdata('error_msg', 'Username or Password not valid.');  
          $this->load->view("login.php");
 
@@ -85,8 +87,7 @@ public function user_logout(){
   $this->session->sess_destroy();
  // redirect('user/login_view', 'refresh');
   $this->load->view("login.php");
-}
-
+		}
 }
 
 ?>
