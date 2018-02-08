@@ -13,6 +13,7 @@ public function __construct()
 
 	}
 
+<<<<<<< HEAD
 public function index(){ 
 		 //echo $this->session->username; die;
 		if($this->session->username){
@@ -21,11 +22,14 @@ public function index(){
 			$this->load->view("login");
 		}
 		
+=======
+public function index(){
+	$this->load->view("login.php");
+>>>>>>> 0c9f2f82324994f2b4b7616e23a561694c3235e7
 	}
 
 	
-	public function signUp()
-	{
+	public function signUp() {
 	$this->load->view("signup.php");
 	}
 	
@@ -49,8 +53,7 @@ public function register_user(){
 		  $this->session->set_flashdata('success_msg', 'Registered successfully.Now login to your account.');
 		  redirect('user/login_view');
 
-		}
-		else{
+		} else{
 
 		  $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
 		  redirect('user/signup');
