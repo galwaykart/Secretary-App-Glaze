@@ -13,14 +13,12 @@ public function __construct()
 
 	}
 
-public function index()
-	{
+public function index(){
 	$this->load->view("login.php");
 	}
 
 	
-	public function signUp()
-	{
+	public function signUp() {
 	$this->load->view("signup.php");
 	}
 	
@@ -43,8 +41,7 @@ public function register_user(){
 		  $this->session->set_flashdata('success_msg', 'Registered successfully.Now login to your account.');
 		  redirect('user/login_view');
 
-		}
-		else{
+		} else{
 
 		  $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
 		  redirect('user/signup');
