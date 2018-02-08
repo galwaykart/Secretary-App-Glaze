@@ -29,10 +29,9 @@ public function register_user(){
       $user=array(
       'firstname'=>$this->input->post('firstname'),
 	  'lastname'=>$this->input->post('lastname'),
-	  'email'=>$this->input->post('email'),
       'username'=>$this->input->post('username'),
       'password'=>md5($this->input->post('password')), 
-	  'phonenumber'=>$this->input->post('phonenumber'),
+	  'firstname'=>$this->input->post('firstname'),
         );
         print_r($user);
 
@@ -47,7 +46,7 @@ public function register_user(){
 		else{
 
 		  $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
-		  redirect('user/signup');
+		  redirect('user');
 
 
 		}

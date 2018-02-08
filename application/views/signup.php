@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Login Area</title>
+    <title>Signup Area</title>
     <link href="<?php echo base_url(); ?>img/galway_logo.png" rel="shortcut icon" type="image/x-icon" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
    <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" />
@@ -17,7 +17,7 @@
 	 
     <div class="panel">
         <div class="body-tag">
-            <p>Sign in to start your session</p>
+            <h4>Sign Up </h4>
 			<?php  
                $success_msg = $this->session->flashdata('success_msg');
                $error_msg   = $this->session->flashdata('error_msg');
@@ -38,20 +38,44 @@
                     <?php
                   }  
                   ?>
-			   <form role="form" method="post" action="<?php echo base_url('user/login_user'); ?>">
+			   <form role="form" method="post" action="<?php echo base_url('User/register_user'); ?>">
 					<div class="form-group">
 						 <div class="input-group">
 							 <div class="input-addon"><span class="fa fa-user"></span></div>
 							 <div class="input-feild"><input type="text" placeholder="User Name" id="username" name="username" tabindex="1"  /></div> 
 						 </div>
 					 </div>
-					<div class="form-group">
+					 <div class="form-group">
 						 <div class="input-group">
-							 <div class="input-addon"><span class="fa fa-unlock-alt"></span></div>
-							 <div class="input-feild"><input type="password" placeholder="Password" id="password" name="password" tabindex="2"  /></div>
+							 <div class="input-addon"><span class="fa fa-user"></span></div>
+							 <div class="input-feild"><input type="text" placeholder="First Name" id="firstname" name="firstname" tabindex="2"  /></div>
+						 </div>
+					 </div>	
+					  <div class="form-group">
+						 <div class="input-group">
+							 <div class="input-addon"><span class="fa fa-user"></span></div>
+							 <div class="input-feild"><input type="text" placeholder="Last Name" id="lastname" name="lastname" tabindex="3"  /></div>
 						 </div>
 					 </div>
-					<input type="submit" id="btn" value="sign In" class="btn-log " tabindex="3" /><br />
+					  <div class="form-group">
+						 <div class="input-group">
+							 <div class="input-addon"><span class="fa fa-envelope"></span></div>
+							 <div class="input-feild"><input type="text" placeholder="Email-id" id="email" name="email" tabindex="4"  /></div>
+						 </div>
+					 </div>
+					<div class="form-group">
+						 <div class="input-group">
+							 <div class="input-addon"><span class="fa fa-lock"></span></div>
+							 <div class="input-feild"><input type="password" placeholder="Password" id="password" name="password" tabindex="5"  /></div>
+						 </div>
+					 </div>
+					  <div class="form-group">
+						 <div class="input-group">
+							 <div class="input-addon"><span class="fa fa-phone"></span></div>
+							 <div class="input-feild"><input type="text" placeholder="Phone Number" id="phonenumber" name="phonenumber" tabindex="6"  /></div>
+						 </div>
+					 </div>
+					<input type="submit" id="btn" value="sign up" class="btn-log " tabindex="3" /><br />
                </form>  
             <span id="eror" style=" font-size: 10px;color: red;font-weight: 700;"></span>
             <br />
