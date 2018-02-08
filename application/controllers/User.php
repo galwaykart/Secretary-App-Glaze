@@ -13,9 +13,14 @@ public function __construct()
 
 	}
 
-public function index()
-	{
-	$this->load->view("login.php");
+public function index(){ 
+		 //echo $this->session->username; die;
+		if($this->session->username){
+			$this->load->view("dashboard");
+		}else{
+			$this->load->view("login");
+		}
+		
 	}
 
 	
@@ -33,6 +38,7 @@ public function register_user(){
       'username'=>$this->input->post('username'),
       'password'=>md5($this->input->post('password')), 
 	  'phonenumber'=>$this->input->post('phonenumber'),
+	  'type'=>$this->input->post('type')
         );
         print_r($user);
 
@@ -77,22 +83,21 @@ function login_user(){
         $this->session->set_userdata('lastname',$data['lastname']); 
         $this->session->set_userdata('email',$data['email']); 
         $this->session->set_userdata('type',$data['type']); 
-        $this->session->set_userdata('phonenumber',$data['phonenumber']); 
- 
+        $this->session->set_userdata('phonenumber',$data['phonenumber']);  
         $this->load->view('dashboard.php');
-
+		
       }
-      else
+      else 
 	  {
          $this->session->set_flashdata('error_msg', 'Username or Password not valid.');  
-         $this->load->view("login.php");
-
+         $this->load->view("login");
+		// redirect('login');
       }
+
 
 
 }
 
- 
 public function user_logout(){
 
   $this->session->sess_destroy();
