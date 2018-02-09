@@ -2,19 +2,21 @@
 
 <html>
 <head>
+<meta http-equiv=”refresh” content=”1" >
+
     <meta name="viewport" content="width=device-width" />
     <title>Login Area</title>
     <link href="<?php echo base_url(); ?>img/galway_logo.png" rel="shortcut icon" type="image/x-icon" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
    <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" />
-
-    
+<script>
+window.history.back();
+    </script>
 </head>
 <body class="log_body">
 <div >
    <div class='login-section'>
 	<h1>Secretary Application</h1>
-	 
     <div class="panel">
         <div class="body-tag">
             <p>Sign in to start your session</p>
@@ -39,13 +41,14 @@
                     <?php
                   }  
                   ?>
-			   <form role="form" method="post" action="<?php echo base_url('Dashboard'); ?>">
+			   <form role="form" method="post" action="<?php echo base_url('user/login_user'); ?>">
 					<div class="form-group">
 						 <div class="input-group">
 							 <div class="input-addon"><span class="fa fa-user"></span></div>
 							 <div class="input-feild"><input type="text" placeholder="User Name" id="username" name="username" tabindex="1" required /></div> 
 						 </div>
 					 </div>
+					<div class="form-group">
 					<div class="form-group">
 						 <div class="input-group">
 							 <div class="input-addon"><span class="fa fa-unlock-alt"></span></div>
