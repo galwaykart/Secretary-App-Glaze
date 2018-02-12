@@ -13,7 +13,6 @@ public function __construct()
 
 	}
 
-
 public function index(){ 
 		 //echo $this->session->username; die;
 		if($this->session->username){
@@ -30,12 +29,12 @@ public function index(){
 	}
 	
 public function register_user(){
-	
+	// validation 
   $this->form_validation->set_rules('username','User Name','trim|required');
   $this->form_validation->set_rules('firstname','First Name','trim|required');
   $this->form_validation->set_rules('lastname','Last Name','trim|required');
-  $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|xss_clean');
-  $this->form_validation->set_rules(  'password', 'Password', 'trim|required|min_length[6]|max_length[15]');
+  $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+  $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[15]');
   $this->form_validation->set_rules('phonenumber', 'Mobile Number ', 'required|regex_match[/^[0-9]{10}$/]'); //{10} for 10 digits number
   $this->form_validation->set_rules('type','Type','trim|required');
   
@@ -44,6 +43,7 @@ public function register_user(){
         $this->load->view('signup');
     }
 	else{
+		//insert in database
       $user=array(
       'firstname'=>$this->input->post('firstname'),
 	  'lastname'=>$this->input->post('lastname'),
@@ -54,7 +54,7 @@ public function register_user(){
 	  'type'=>$this->input->post('type')
         );
         print_r($user);
-
+		// check user
 	 $username_check = $this->user_model->username_check($user['username']);
 
 		if($username_check){
@@ -64,7 +64,7 @@ public function register_user(){
 
 		} else{
 
-		  $this->session->set_flashdata('error_msg', 'Already Exists ,please try again .');
+		  $this->session->set_flashdata('error_msg', 'User name Already Exist,please try again');
 		  redirect('user/signup');
 
 		}
@@ -95,7 +95,6 @@ function login_user(){
         $this->session->set_userdata('email',$data['email']); 
         $this->session->set_userdata('type',$data['type']); 
         $this->session->set_userdata('phonenumber',$data['phonenumber']);  
-		
         $this->load->view('dashboard');
 
       }  
@@ -107,17 +106,14 @@ function login_user(){
 		// redirect('login');	
 	
       }
-	  
-
-
 
 }
 
 public function user_logout(){
 
   $this->session->sess_destroy();
-    $this->session->set_flashdata('success_msg','You have been successfully logged out');
- // redirect('user/login_view', 'refresh');
+  $this->session->set_flashdata('success_msg','You have been successfully logged out');
+ //redirect('user/login_view', 'refresh');
   $this->load->view("login");
 		}
 

@@ -7,7 +7,7 @@
 
    <!-- globle header for comman start --> 
 
-<?php  $this->load->view('header');?>
+<?php $this->load->view('header');?>
     <aside class="aside-left" id="aside">
                 <div id="accordion">
                     <ul>

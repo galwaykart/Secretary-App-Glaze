@@ -13,7 +13,6 @@ public function __construct()
 
 	}
 
-
 public function index(){ 
 		 //echo $this->session->username; die;
 		if($this->session->username){
@@ -30,7 +29,7 @@ public function index(){
 	}
 	
 public function register_user(){
-	
+	// validation 
   $this->form_validation->set_rules('username','User Name','trim|required');
   $this->form_validation->set_rules('firstname','First Name','trim|required');
   $this->form_validation->set_rules('lastname','Last Name','trim|required');
@@ -44,6 +43,7 @@ public function register_user(){
         $this->load->view('signup');
     }
 	else{
+		//insert in database
       $user=array(
       'firstname'=>$this->input->post('firstname'),
 	  'lastname'=>$this->input->post('lastname'),
@@ -54,7 +54,7 @@ public function register_user(){
 	  'type'=>$this->input->post('type')
         );
         print_r($user);
-
+		// check username
 	 $username_check = $this->user_model->username_check($user['username']);
 
 		if($username_check){
@@ -116,7 +116,6 @@ public function user_logout(){
  //redirect('user/login_view', 'refresh');
   $this->load->view("login");
 		}
-
 }
 
 ?>
