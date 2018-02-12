@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Signup Area</title>
-    <link href="<?php echo base_url(); ?>img/galway_logo.png" rel="shortcut icon" type="image/x-icon" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-   <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" />
+<?php $this->load->view('head'); ?>
 
-    
-</head>
-<body class="log_body">
-<div >
-   <div class='login-section'>
-	<h1>Secretary Application</h1>
-	 
-    <div class="panel">
-        <div class="body-tag">
-            <h4>Sign Up </h4>
-			<?php  
+<body class="body style-6"><!-- body tag start -->
+   <!-- globle header for comman start --> 
+   <?php $this->load->view('header'); ?>
+ 
+    <!-- registration design page start -->
+    <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Registration</p></div>
+    <div class="registration">
+            <div class="container-3"><br />
+              <div class="empty-box"></div>
+                <h2>Registration form</h2>
+				
+				<?php  
                $success_msg = $this->session->flashdata('success_msg');
                $error_msg   = $this->session->flashdata('error_msg');
 
@@ -38,73 +33,155 @@
                     <?php
                   }  
                   ?>
-			   <form role="form" method="post" action="<?php echo base_url('User/register_user'); ?>">
-					<div class="form-group">
-						 <div class="input-group">
-							 <div class="input-addon"><span class="fa fa-user"></span></div>
-							 <div class="input-feild"><input type="text" placeholder="User Name" id="username" name="username" tabindex="1"   /></div> 
-						     <span class="text-danger"><?php echo form_error('username'); ?></span>
-						 </div>
-					 </div>
-					 <div class="form-group">
-						 <div class="input-group">
-							 <div class="input-addon"><span class="fa fa-user"></span></div>
-							 <div class="input-feild"><input type="text" placeholder="First Name" id="firstname" name="firstname" tabindex="2" value="<?php echo set_value('firstname'); ?>"/></div>
-							 <span class="text-danger"><?php echo form_error('firstname'); ?></span>
-						 </div>
-					 </div>	
-					  <div class="form-group">
-						 <div class="input-group">
-							 <div class="input-addon"><span class="fa fa-user"></span></div>
-							 <div class="input-feild"><input type="text" placeholder="Last Name" id="lastname" name="lastname" tabindex="3" value="<?php echo set_value('lastname'); ?>" /></div>
-							 <span class="text-danger"><?php echo form_error('lastname'); ?></span>
-						 </div>
-					 </div>
-					  <div class="form-group">
-						 <div class="input-group">
-							 <div class="input-addon"><span class="fa fa-envelope"></span></div>
-							 <div class="input-feild"><input type="text" placeholder="Email-id" id="email" name="email" tabindex="4" value="<?php echo set_value('email'); ?>"  /></div>
-							 <span class="text-danger"><?php echo form_error('email'); ?></span>				
+				  <form role="form" method="post" action="<?php echo base_url('User/register_user'); ?>">
+					 <div class="col-md-12 top-feaild">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa fa-check-square-o"></span></div> 
+												    <div class="form-control"><input type="text" placeholder="User Name" id="username" name="username" tabindex="1"/></div> 
+													 <span class="text-danger"><?php echo form_error('username'); ?></span>
+												</div>
+											</div>
+					  </div><!-- col-md12 -end -->
+					<div class="col-md-12">
+								<div class="col-md-6">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa fa-user" ></span></div> 
+													<div class="form-control"><input type="text" placeholder="First Name" id="firstname" name="firstname" tabindex="2" value="<?php echo set_value('firstname'); ?>"/></div>
+							                        <span class="text-danger"><?php echo form_error('firstname'); ?></span>
+												</div>
+											</div>
+							   </div>
+								   <div class="col-md-6">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa fa-user" ></span></div> 
+													<div class="form-control"><input type="text" placeholder="Last Name" id="lastname" name="lastname" tabindex="3" value="<?php echo set_value('lastname'); ?>" /></div>
+						                        	<span class="text-danger"><?php echo form_error('lastname'); ?></span>
+												</div>
+											</div>
+							   </div>
+					  </div><!-- col-md12 -end -->
+						<div class="col-md-12">
+								<div class="col-md-6">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa fa-lock" ></span></div> 
+													<div class="form-control"><input type="password" placeholder="Enter Password" id="password" name="password" tabindex="5" value="<?php echo set_value('password'); ?>" /></div>
+						                            <span class="text-danger"><?php echo form_error('password'); ?></span>	
+												</div>
+											</div>
+							   </div>
+								   <div class="col-md-6">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa fa-unlock-alt" ></span></div>
+													<div class="form-control"><input type="text" placeholder="Confirm Password" /></div>
+												</div>
+											</div>
+							   </div>
+					  </div><!-- col-md12 -end -->
+					 <div class="col-md-12">
+								<div class="col-md-6">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa fa-phone" ></span></div> 
+													<div class="form-control"><input type="text" placeholder="Phone Number" id="phonenumber" name="phonenumber" tabindex="6" value="<?php echo set_value('phonenumber'); ?>"  /></div>
+							                        <span class="text-danger"><?php echo form_error('phonenumber'); ?></span>	
+												</div>
+											</div>
+							   </div>
+								   <div class="col-md-6">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa  fa fa-envelope-o" ></span></div> 
+													<div class="form-control"><input type="text" placeholder="Enter Email Id" id="email" name="email" tabindex="4" value="<?php echo set_value('email'); ?>"  /></div>
+							                        <span class="text-danger"><?php echo form_error('email'); ?></span>
+												</div>
+											</div>
+							   </div>
+					  </div><!-- col-md12 -end -->
+					  <div class="col-md-12">
+								<div class="col-md-6">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa fa fa-calendar-check-o" ></span></div>
+													<div class="form-control"> 
+														<select name="type"  value="<?php echo set_value('type'); ?>">
+															<option>Select User Type</option> 
+															 <option value="1">Director</option>
+															 <option value="2">HOD</option>
+															 <option value="3">Secretary</option>
+														 </select>
+														 <span class="text-danger"><?php echo form_error('type'); ?></span>
+													</div>
+												</div>
+											</div>
+							   </div>
+								   <div class="col-md-6">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa fa fa-child"></span></div>
+													<div class="form-control"><p>Male</p>&nbsp;<input type="radio" name="gender" /><p>FeMale</p>&nbsp;<input type="radio" name="gender" /></div>
+												</div>
+											</div>
+							   </div>
+					  </div><!-- col-md12 -end -->
+					<div class="col-md-12 text-right">
+						<p class="active-para">Active/Deactive</p>
+							<label class="switch">
+							  <input type="checkbox">
+							  <span class="slider round"></span>
+							</label>
+					</div>
+					<div class="clear"></div>
+					<div class="col-md-12">
+						<div class="col-md-6 text-right"><input type="submit" value="Delete" class="btn mybtn del" /></div>
+						<div class="col-md-6 text-center">
+							<input type="submit" value="Registration" class="btn mybtn" /> 
+							<input type="reset" value="Reset" class="btn reset mybtn" />
 						</div>
-					 </div>
-					<div class="form-group">
-						 <div class="input-group">
-							 <div class="input-addon"><span class="fa fa-lock"></span></div>
-							 <div class="input-feild"><input type="password" placeholder="Password" id="password" name="password" tabindex="5" value="<?php echo set_value('password'); ?>" /></div>
-						 <span class="text-danger"><?php echo form_error('password'); ?></span>				
-						 </div>
-					 </div>
-					  <div class="form-group">
-						 <div class="input-group">
-							 <div class="input-addon"><span class="fa fa-phone"></span></div>
-							 <div class="input-feild"><input type="text" placeholder="Phone Number" id="phonenumber" name="phonenumber" tabindex="6" value="<?php echo set_value('phonenumber'); ?>"  /></div>
-							 <span class="text-danger"><?php echo form_error('phonenumber'); ?></span>										
-						</div>
-					 </div>
-					 <div class="form-group">
-						 <div class="input-group">
-						<select name="type"  value="<?php echo set_value('type'); ?>">
-						<option></option>
-						 <option value="1">Director</option>
-						 <option value="2">HOD</option>
-						 <option value="3">Secretary</option>
-						 </select>
-						<span class="text-danger"><?php echo form_error('type'); ?></span>
-						</div>
-					 </div>
-					<input type="submit" id="btn" value="sign up" class="btn-log " tabindex="3" /><br />
-               </form> 
-			   
-            <span id="eror" style=" font-size: 10px;color: red;font-weight: 700;"></span>
-            <br />
-            <span class="fa fa-spinner glyphicon-refresh glyphicon-refresh-animate"></span>
+					</div>
+				</form> 
+            </div><!-- container 3 end -->
 
-		</div>
+    </div> 
 
-    </div>
-     
-</div>
+     <!-- registration design page end --> 
+     <br /><br /><br />
+    <div style="height:50px;"></div>
+    <footer id="footer">
+        <p>&copy; Copyright By Glaze India Pvt. Ltd.</p>
+    </footer>
 
-  
+
+     <!-- globle header for comman end --> 
+    <script>
+        $(document).ready(function () {
+            $('#aside').css('width', '20%');
+            $('#sec-header #toggle-btn-box span#bar').click(function () {
+                $('#sec-header #toggle-btn-box span#bar').hide();
+                $('#sec-header #toggle-btn-box span#close').show();
+                if ($(window).width() < 769) {
+                    $('#aside').css('width', '70%').show().addClass('show');
+                }
+                else { $('#aside').css('width', '20%').show().addClass('show'); }
+            });
+
+            $('#sec-header #toggle-btn-box span#close').click(function () {
+                $('#sec-header #toggle-btn-box span#bar ').show();
+                $('#sec-header #toggle-btn-box span#close').hide();
+
+                $('#aside').css('width', '0%');
+
+
+            });
+
+        });
+
+    </script>
+     <script type="text/javascript" src="js/caleandar.js"></script>
+    <script type="text/javascript" src="js/demo.js"></script>
 </body>
 </html>

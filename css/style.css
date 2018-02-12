@@ -245,20 +245,7 @@ table.task-tag tbody tr td{      font-size: 13px;padding: 4px;color: #1e8dd0;}
 
 
 table.task-tag tbody tr:nth-child(even) {    background-color: #f9f6fd;}
-#footer {width: 100%;
-    max-width: 100%;
-    background-color: #FF9800;
-    height: 20px;
-    position: fixed;
-    bottom: 0;}
-    #footer p {margin: 0;
-    font-size: 10px;
-    line-height: 0;
-    margin-top: 10px;
-    font-weight: 700;
-    padding-left: 3%;
-    color: white;
-    }
+#footer {width: 100%;max-width: 100%;background-color: #FF9800;height: 20px;position: fixed;bottom: 0;}#footer p {margin: 0;font-size: 10px;line-height: 0;margin-top: 10px;font-weight: 700;padding-left: 3%;color: white;}
 
 
 @media screen and (min-width:481px) and (max-width:768px) {
@@ -293,3 +280,71 @@ table.app-tag tbody tr td:nth-child(2) {background-color: #dc4863;color: white;t
 table.app-tag tbody tr td:nth-child(3) {text-align:right}
 table.task-tag tbody tr td:nth-child(2) {background-color: orange;color: white;padding: 1px;border-radius: 100%;text-align: center;}
 table.task-tag tbody tr td:nth-child(3) {text-align:right}
+
+
+/*registration page design*/
+
+.registration {}
+.registration .container-3{    width: 600px;margin: 0 auto;}
+.registration .container-3 .form-group .input-group .form-control {width:90%;}
+.registration .container-3 .form-group .input-group .form-control input{height:26px;border-bottom: 1px solid #e8e4e4;width:100%;font-size: 11px;padding-left: 10px;}
+.registration .container-3 .form-group .input-group .form-control select{height:26px;border-bottom: 1px solid #e8e4e4;width:100%;font-size: 11px;padding-left: 10px;}
+.registration .container-3 .form-group .input-group  .input-addon {width:2%;}
+.registration .container-3 .form-group .input-group .form-control input[type='radio']{width:auto;height:auto;}
+.registration .container-3 .form-group .input-group .form-control p {width: auto;display: inline;font-size: 12px;}
+.registration .container-3 .form-group .input-group {margin:2%;margin-left:0%;}
+.registration .container-3 h2 {margin-bottom: 0%;font-size: 11px;text-align: center;background-color: #c17d42;padding: 5px;color: white;width: 98%;text-transform: uppercase;letter-spacing: 2px;}
+.registration .container-3 .top-feaild .form-group .input-group .form-control {width: 96%;}
+.registration .container-3 .top-feaild .form-group .input-group .form-control input{width: 100%;    padding-left: 10px;}
+.registration .container-3 .top-feaild  .form-group .input-group  .input-addon{width:1%;margin-right:1%;}
+.registration .container-3 .top-feaild  .form-group .input-group  .input-addon span{}
+.registration .container-3 .top-feaild .form-group .input-group {margin-left:0;}
+.registration .container-3 .mybtn {    margin-top: 8%;font-size: 11px;padding: 6px 44px;color: white;background-color: #03A9F4;border:1px solid #03A9F4;}
+.registration .container-3 .reset {background-color: white;border: 1px solid #cec1c1;color: black;}
+.registration .container-3 .empty-box {height:40px;}
+.registration .container-3 .mybtn:hover {box-shadow: 0px 2px 3px -1px #483b3b}
+.registration .container-3 .del {background-color: #fd5f5f;border: 1px solid #fd5f5f;}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+.registration .container-3 {width: 88%;max-width: 100%;   margin: 0% 7%;}
+.registration .container-3 .empty-box {display:none;}
+.registration .container-3 h2 {font-size:13px;}
+.registration .container-3 .top-feaild .form-group .input-group .form-control {width: 90%;}
+.registration .container-3 .top-feaild .form-group .input-group .input-addon {width: 2%;margin-right: 4%;}
+.registration .container-3 .mybtn {margin-top:0%;}
+.registration .container-3 .del {margin-right: 14.1%;width: 72%;}
+}
+.switch {position: relative;display: inline-block;width: 50px;height: 12px;margin-right: 3%;    float: left;    margin-top: 1.5%;}
+.switch input {display:none;}
+.slider {position: absolute;cursor: pointer;top: 0;left: 0;right: 0;bottom: 0;background-color: #f19763;-webkit-transition: .4s;transition: .4s;}
+.slider:before { position: absolute;content: "";height: 21px;width: 19px;left: 3px;bottom: 3px;top: -5px;background-color: white;-webkit-transition: .4s;transition: .4s;    border: 2px solid #73421e;}
+input:checked + .slider {background-color: #2196F3;}
+input:focus + .slider {box-shadow: 0 0 1px #2196F3;}
+input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transform: translateX(26px);transform: translateX(26px);}
+.slider.round {border-radius: 34px;}
+.slider.round:before {border-radius: 50%;}
+.active-para {    font-size: 10px;margin-right: 3%;font-weight: 700;float: left;line-height: 2;}
+.registration .container-3 .form-group .input-group .form-control input[type='radio']:before {}
+
+
+
+
+/*all user details panel design*/
+.all-user-panel {position:relative;}
+.all-user-panel h2{    font-size: 24px;margin: 0;padding: 0;}
+.all-user-panel .user-content-panel-view{width: 80%;margin: 0% 10%;}
+.all-user-panel .user-content-panel-view table{    width: 100%;border-collapse: collapse;margin-top: 2%;}
+.all-user-panel .user-content-panel-view table thead{}
+.all-user-panel .user-content-panel-view table thead tr{background-color: #116931;height:35px;}
+.all-user-panel .user-content-panel-view table thead tr th{font-size: 12px;padding: 4px 8px;color: white;text-align:left;}
+.all-user-panel .user-content-panel-view table tbody tr{height: 35px;}
+.all-user-panel .user-content-panel-view table tbody tr td{font-size: 12px;padding: 4px 8px;color: #116931;font-weight: 600;}
+.all-user-panel .user-content-panel-view table tbody tr:nth-child(even) {background-color: #ebe9ef;}
+.all-user-panel .left-button-fixed-panel .add{    margin-bottom: 1%;font-size: 11px;background-color: black;color: white;height: 29px;}
+
+
+@media screen and (max-width:778px) {
+
+    .user-content-panel-view .table-res {overflow:auto;}
+     .user-content-panel-view .table-res table{width: 800px;margin-bottom: 5%;}
+}

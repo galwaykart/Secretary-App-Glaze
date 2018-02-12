@@ -1,11 +1,10 @@
 <!doctype html>
-
 <html>
  <?php $this->load->view('head'); ?>
-<body class="body style-6"><!-- body tag start -->
-<input type="hidden" id="refreshed" value="no"/>
+<body class="body style-6"> 	
 
    <!-- globle header for comman start --> 
+
 
 <?php $this->load->view('header');?>
     <aside class="aside-left" id="aside">
@@ -48,6 +47,8 @@
                     </ul>
                 </div>
     </aside>
+
+
     <div class="col-md-12 heading-tag">
 
         <p><span class="fa fa-home" ></span>&nbsp;Home / Dashboard</p>

@@ -9,23 +9,24 @@ public function __construct()
   			$this->load->helper('url');
   	 		$this->load->model('user_model');
             $this->load->library('session');
-		$this->load->library(array('session', 'form_validation'));
+			$this->load->library(array('session', 'form_validation'));
 
 	}
 
-public function index(){ 
-		 //echo $this->session->username; die;
+
+public function index(){  
 		if($this->session->username){
 			$this->load->view("dashboard");
 		}else{
 			$this->load->view("login");
 		}
+    }
 
-			}
-
-	public function signUp() {
-		
-	$this->load->view("signup.php");
+public function signUp() {
+		$this->load->view("signup");
+	}
+public function userlist() {
+		$this->load->view("userlist");
 	}
 	
 public function register_user(){
@@ -108,13 +109,13 @@ function login_user(){
       }
 
 }
-
 public function user_logout(){
 
   $this->session->sess_destroy();
   $this->session->set_flashdata('success_msg','You have been successfully logged out');
  //redirect('user/login_view', 'refresh');
-  $this->load->view("login");
+  $this->load->view('login');
+
 		}
 }
 
