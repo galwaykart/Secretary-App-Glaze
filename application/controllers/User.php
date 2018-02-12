@@ -5,7 +5,6 @@ class User extends CI_Controller
 
 public function __construct()
 	{
-
         parent::__construct();
   			$this->load->helper('url');
   	 		$this->load->model('user_model');
@@ -13,6 +12,10 @@ public function __construct()
 
 	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d6dd8adf1615e3382ae80ede238ba531c1377542
 public function index(){ 
 		 //echo $this->session->username; die;
 		if($this->session->username){
@@ -20,9 +23,13 @@ public function index(){
 		}else{
 			$this->load->view("login");
 		}
+<<<<<<< HEAD
 	}
+=======
+>>>>>>> d6dd8adf1615e3382ae80ede238ba531c1377542
 
-	
+			}
+
 	public function signUp() {
 	$this->load->view("signup.php");
 	}
@@ -52,7 +59,6 @@ public function register_user(){
 		  $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
 		  redirect('user/signup');
 
-
 		}
 
 	}
@@ -70,7 +76,6 @@ function login_user(){
   'password'=>md5($this->input->post('password'))
 
     );
- 
     $data = $this->user_model->login_user($user_login['username'],$user_login['password']);
       if($data)
       {
@@ -81,15 +86,19 @@ function login_user(){
         $this->session->set_userdata('email',$data['email']); 
         $this->session->set_userdata('type',$data['type']); 
         $this->session->set_userdata('phonenumber',$data['phonenumber']);  
-        $this->load->view('dashboard.php');
 		
-      }
+        $this->load->view('dashboard');
+
+      }  
+           
       else 
 	  {
          $this->session->set_flashdata('error_msg', 'Username or Password not valid.');  
          $this->load->view("login");
-		// redirect('login');
+		// redirect('login');	
+	
       }
+	  
 
 
 
@@ -99,9 +108,8 @@ public function user_logout(){
 
   $this->session->sess_destroy();
  // redirect('user/login_view', 'refresh');
-  $this->load->view("login.php");
+  $this->load->view("login");
 		}
-
 }
 
 ?>

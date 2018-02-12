@@ -8,10 +8,12 @@
             <span id="close"> &times </span>
         </div>
         <img src="<?php echo base_url(); ?>img/galway_logo.png" alt="logo" id="img"/>
-        <h1>Secretory App</h1>
-	
+        <h1>Secratory App</h1>
+		<div>
+			<a href="<?php echo base_url('l'); ?>">Log Out</a>
+		</div>
+		
         <div class="rigth-log-box">
-
 				<?php 
 					$firstname = $this->session->firstname; 
 					$lastname   = $this->session->lastname;  ?>
@@ -21,9 +23,7 @@
                         <img src="<?php echo base_url(); ?>img/person.png" alt="person image" id="per-img" />
 
             </div>
-			<div>
-			   <a href="<?php echo base_url('user/user_logout'); ?>">Log Out</a>
-		   </div>
+
         </div>
     </header>
  
