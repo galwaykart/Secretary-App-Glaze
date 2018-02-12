@@ -6,14 +6,7 @@
 <input type="hidden" id="refreshed" value="no"/>
 
    <!-- globle header for comman start --> 
-<script>
-//window.onbeforeunload = function() { return "Your work will be lost."; };
-history.pushState(null, null, location.href);
-    window.onpopstate = function () {
-        history.go(1);
-    };
 
-</script>
 <?php  $this->load->view('header');?>
     <aside class="aside-left" id="aside">
                 <div id="accordion">

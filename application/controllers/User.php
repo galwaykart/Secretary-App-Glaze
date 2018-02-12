@@ -9,6 +9,7 @@ public function __construct()
   			$this->load->helper('url');
   	 		$this->load->model('user_model');
             $this->load->library('session');
+		$this->load->library(array('session', 'form_validation'));
 
 	}
 
@@ -31,11 +32,25 @@ public function index(){
 			}
 
 	public function signUp() {
+		
 	$this->load->view("signup.php");
 	}
 	
 public function register_user(){
-
+	
+  $this->form_validation->set_rules('username','User Name','trim|required');
+  $this->form_validation->set_rules('firstname','First Name','trim|required');
+  $this->form_validation->set_rules('lastname','Last Name','trim|required');
+  $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+  $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[15]');
+  $this->form_validation->set_rules('phonenumber', 'Mobile Number ', 'required|regex_match[/^[0-9]{10}$/]'); //{10} for 10 digits number
+  $this->form_validation->set_rules('type','Type','trim|required');
+  
+ if($this->form_validation->run() == false)
+    {
+        $this->load->view('signup');
+    }
+	else{
       $user=array(
       'firstname'=>$this->input->post('firstname'),
 	  'lastname'=>$this->input->post('lastname'),
@@ -56,12 +71,13 @@ public function register_user(){
 
 		} else{
 
-		  $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
+		  $this->session->set_flashdata('error_msg', 'User name Already Exist,please try again');
 		  redirect('user/signup');
 
 		}
 
 	}
+}
 
 public function login_view(){
 
@@ -86,7 +102,6 @@ function login_user(){
         $this->session->set_userdata('email',$data['email']); 
         $this->session->set_userdata('type',$data['type']); 
         $this->session->set_userdata('phonenumber',$data['phonenumber']);  
-		
         $this->load->view('dashboard');
 
       }  
@@ -98,18 +113,17 @@ function login_user(){
 		// redirect('login');	
 	
       }
-	  
-
-
 
 }
 
 public function user_logout(){
 
   $this->session->sess_destroy();
- // redirect('user/login_view', 'refresh');
+  $this->session->set_flashdata('success_msg','You have been successfully logged out');
+ //redirect('user/login_view', 'refresh');
   $this->load->view("login");
 		}
+
 }
 
 ?>
