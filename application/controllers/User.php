@@ -13,7 +13,6 @@ public function __construct()
 
 	}
 
-<<<<<<< HEAD
 public function index(){ 
 		 //echo $this->session->username; die;
 		if($this->session->username){
@@ -21,11 +20,6 @@ public function index(){
 		}else{
 			$this->load->view("login");
 		}
-		
-=======
-public function index(){
-	$this->load->view("login.php");
->>>>>>> 0c9f2f82324994f2b4b7616e23a561694c3235e7
 	}
 
 	
