@@ -3,7 +3,7 @@
 	<?php 
 			
 		if ($this->session->username) {   
-             redirect('/user/dashboard');
+          //   redirect('/user/dashboard');
  		}
 	?>
 
@@ -14,7 +14,7 @@
 	<h1>Secretary Application</h1>
     <div class="panel">
         <div class="body-tag">
-            <p>Sign in to start your session</p>
+            <p>Sign in to start your session</p> 
 			<?php  
                $success_msg = $this->session->flashdata('success_msg');
                $error_msg   = $this->session->flashdata('error_msg');
@@ -26,7 +26,7 @@
                       <?php echo $success_msg; ?>
                     </div>
                   <?php
-                  }
+                  }  
                   if($error_msg){
                     ?>
                     <div class="alert alert-danger">
