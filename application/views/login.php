@@ -1,15 +1,13 @@
 <!DOCTYPE html>
+<html> 
+	<?php 
+			$this->load->helper('url');
+		if ($this->session->username) {   
+             redirect('/user/dashboard');
+ 		}
+	?>
 
-<html>
-<head>
-
-    <meta name="viewport" content="width=device-width" />
-    <title>Login Area</title>
-    <link href="<?php echo base_url(); ?>img/galway_logo.png" rel="shortcut icon" type="image/x-icon" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-   <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" />
-
-</head>
+<?php $this->load->view('head'); ?>
 <body class="log_body">
 <div >
    <div class='login-section'>

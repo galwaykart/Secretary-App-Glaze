@@ -28,6 +28,10 @@ public function userlist() {
 		$this->load->view("userlist");
 	}
 	
+public function dashboard() {
+		$this->load->view("dashboard");
+	}
+	
 public function register_user(){
 	
   $this->form_validation->set_rules('username','User Name','trim|required');
@@ -52,9 +56,8 @@ public function register_user(){
 	  'phonenumber'=>$this->input->post('phonenumber'),
 	  'type'=>$this->input->post('type')
         );
-        print_r($user);
 
-	 $username_check = $this->user_model->username_check($user['username']);
+	   $username_check = $this->user_model->username_check($user['username']);
 
 		if($username_check){
 		  $this->user_model->register_user($user);
