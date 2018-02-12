@@ -2,16 +2,13 @@
 
 <html>
 <head>
-<meta http-equiv=”refresh” content=”1" >
 
     <meta name="viewport" content="width=device-width" />
     <title>Login Area</title>
     <link href="<?php echo base_url(); ?>img/galway_logo.png" rel="shortcut icon" type="image/x-icon" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
    <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" />
-<script>
-window.history.back();
-    </script>
+
 </head>
 <body class="log_body">
 <div >

@@ -42,50 +42,59 @@
 					<div class="form-group">
 						 <div class="input-group">
 							 <div class="input-addon"><span class="fa fa-user"></span></div>
-							 <div class="input-feild"><input type="text" placeholder="User Name" id="username" name="username" tabindex="1" required  /></div> 
+							 <div class="input-feild"><input type="text" placeholder="User Name" id="username" name="username" tabindex="1"   /></div> 
+						     <span class="text-danger"><?php echo form_error('username'); ?></span>
 						 </div>
 					 </div>
 					 <div class="form-group">
 						 <div class="input-group">
 							 <div class="input-addon"><span class="fa fa-user"></span></div>
-							 <div class="input-feild"><input type="text" placeholder="First Name" id="firstname" name="firstname" tabindex="2" required /></div>
+							 <div class="input-feild"><input type="text" placeholder="First Name" id="firstname" name="firstname" tabindex="2" value="<?php echo set_value('firstname'); ?>"/></div>
+							 <span class="text-danger"><?php echo form_error('firstname'); ?></span>
 						 </div>
 					 </div>	
 					  <div class="form-group">
 						 <div class="input-group">
 							 <div class="input-addon"><span class="fa fa-user"></span></div>
-							 <div class="input-feild"><input type="text" placeholder="Last Name" id="lastname" name="lastname" tabindex="3" required /></div>
+							 <div class="input-feild"><input type="text" placeholder="Last Name" id="lastname" name="lastname" tabindex="3" value="<?php echo set_value('lastname'); ?>" /></div>
+							 <span class="text-danger"><?php echo form_error('lastname'); ?></span>
 						 </div>
 					 </div>
 					  <div class="form-group">
 						 <div class="input-group">
 							 <div class="input-addon"><span class="fa fa-envelope"></span></div>
-							 <div class="input-feild"><input type="text" placeholder="Email-id" id="email" name="email" tabindex="4" required  /></div>
-						 </div>
+							 <div class="input-feild"><input type="text" placeholder="Email-id" id="email" name="email" tabindex="4" value="<?php echo set_value('email'); ?>"  /></div>
+							 <span class="text-danger"><?php echo form_error('email'); ?></span>				
+						</div>
 					 </div>
 					<div class="form-group">
 						 <div class="input-group">
 							 <div class="input-addon"><span class="fa fa-lock"></span></div>
-							 <div class="input-feild"><input type="password" placeholder="Password" id="password" name="password" tabindex="5" required /></div>
+							 <div class="input-feild"><input type="password" placeholder="Password" id="password" name="password" tabindex="5" value="<?php echo set_value('password'); ?>" /></div>
+						 <span class="text-danger"><?php echo form_error('password'); ?></span>				
 						 </div>
 					 </div>
 					  <div class="form-group">
 						 <div class="input-group">
 							 <div class="input-addon"><span class="fa fa-phone"></span></div>
-							 <div class="input-feild"><input type="text" placeholder="Phone Number" id="phonenumber" name="phonenumber" tabindex="6" required /></div>
-						 </div>
+							 <div class="input-feild"><input type="text" placeholder="Phone Number" id="phonenumber" name="phonenumber" tabindex="6" value="<?php echo set_value('phonenumber'); ?>"  /></div>
+							 <span class="text-danger"><?php echo form_error('phonenumber'); ?></span>										
+						</div>
 					 </div>
 					 <div class="form-group">
 						 <div class="input-group">
-						<select name="type">
+						<select name="type"  value="<?php echo set_value('type'); ?>">
+						<option></option>
 						 <option value="1">Director</option>
 						 <option value="2">HOD</option>
 						 <option value="3">Secretary</option>
 						 </select>
-						 </div>
+						<span class="text-danger"><?php echo form_error('type'); ?></span>
+						</div>
 					 </div>
 					<input type="submit" id="btn" value="sign up" class="btn-log " tabindex="3" /><br />
-               </form>  
+               </form> 
+			   
             <span id="eror" style=" font-size: 10px;color: red;font-weight: 700;"></span>
             <br />
             <span class="fa fa-spinner glyphicon-refresh glyphicon-refresh-animate"></span>
