@@ -1,53 +1,12 @@
 <!doctype html>
-
 <html>
  <?php $this->load->view('head'); ?>
-<body class="body style-6"><!-- body tag start -->
-<input type="hidden" id="refreshed" value="no"/>
+<body class="body style-6"> 	
 
    <!-- globle header for comman start --> 
 
 <?php  $this->load->view('header');?>
-    <aside class="aside-left" id="aside">
-                <div id="accordion">
-                    <ul>
-                        <li>
-                            <div>MENU</div>
-                        </li>
-                        <li>
-                             <a href="?31">Index Meeting in Progress</a> 
-                        </li>
-						<li>
-                             <a href="?21">Daily Notes</a> 
-                        </li>
-						<li>
-                             <a href="?21">Quick Work</a> 
-                        </li>
-						<li>
-                             <a href="?21">Appointments</a> 
-                        </li>
-                        <li>
-                            <div>Periodic tasks</div>
-                            <ul>
-                                <li><a href="?31">Yearly periodic task (Quarterly)</a></li>
-                                <li><a href="?32">Yearly periodic status sheet</a></li>
-                                <li><a href="?32">Monthly periodic Status Sheet</a></li>
-                                <li><a href="?32">Monthly periodic Status sheet</a></li>
-                                <li><a href="?32">Everyday periodic Task</a></li>
-                                <li><a href="?32">Everyday Periodic Status Sheet</a></li>
-                                <li><a href="?32">Weekly periodic Task</a></li>
-                                <li><a href="?32">Weekly periodic status sheet</a></li> 
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="?4">Reminder Sheet</a>
-                        </li>
-						<li>
-                            <a href="?4">Users</a>
-                        </li>
-                    </ul>
-                </div>
-    </aside>
+
     <div class="col-md-12 heading-tag">
 
         <p><span class="fa fa-home" ></span>&nbsp;Home / Dashboard</p>

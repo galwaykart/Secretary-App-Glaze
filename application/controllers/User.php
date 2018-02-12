@@ -12,28 +12,20 @@ public function __construct()
 		$this->load->library(array('session', 'form_validation'));
 
 	}
-
-<<<<<<< HEAD
-=======
-
->>>>>>> d6dd8adf1615e3382ae80ede238ba531c1377542
-public function index(){ 
-		 //echo $this->session->username; die;
+ 
+public function index(){  
 		if($this->session->username){
 			$this->load->view("dashboard");
 		}else{
 			$this->load->view("login");
 		}
-<<<<<<< HEAD
+    }
+
+public function signUp() {
+		$this->load->view("signup");
 	}
-=======
->>>>>>> d6dd8adf1615e3382ae80ede238ba531c1377542
-
-			}
-
-	public function signUp() {
-		
-	$this->load->view("signup.php");
+public function userlist() {
+		$this->load->view("userlist");
 	}
 	
 public function register_user(){
