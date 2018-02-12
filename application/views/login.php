@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html> 
 	<?php 
-			$this->load->helper('url');
+			
 		if ($this->session->username) {   
-             redirect('/user/dashboard');
+          //   redirect('/user/dashboard');
  		}
 	?>
 
