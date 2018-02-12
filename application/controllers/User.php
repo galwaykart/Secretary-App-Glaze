@@ -10,7 +10,6 @@ public function __construct()
   	 		$this->load->model('user_model');
             $this->load->library('session');
 			$this->load->library(array('session', 'form_validation'));
-        
 } 
 	
 
@@ -33,7 +32,6 @@ public function signUp() {
 	
 	}
 
-	
 public function dashboard() {
 		$this->load->view("dashboard");
 	}
@@ -134,9 +132,12 @@ public function user_logout(){
 
 			// get data
 public function userlist() {
-	
+	  if ($this->session->userdata('is_logged_in')) {
+        $username = $this->session->userdata('username'); 
 		$this->data['list'] = $this->user_model->get_userlist();
 		$this->load->view("userlist",$this->data);
+	  }
+	  else{  $this->load->view('login');}
 	}
 }
 

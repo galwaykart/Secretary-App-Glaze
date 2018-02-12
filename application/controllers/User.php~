@@ -134,18 +134,13 @@ public function user_logout(){
 
 			// get data
 public function userlist() {
-	 
-	 if ($this->_is_logged_in())
-        {
-        $this->data['list'] = $this->user_model->get_userlist();
+	  if ($this->session->userdata('is_logged_in')) {
+        $username = $this->session->userdata('username'); 
+		$this->data['list'] = $this->user_model->get_userlist();
 		$this->load->view("userlist",$this->data);
-        }
-       else
-        {
-            $this->load->view('user/login_user');
-        }
-		
-	}   
+	  }
+	  else{}
+	}
 }
 
 ?>
