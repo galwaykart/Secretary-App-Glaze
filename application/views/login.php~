@@ -2,7 +2,7 @@
 <html> 
 	<?php 
 			
-		if ($this->session->username) {   
+		if (!$this->session->username) {   
              redirect('/user/dashboard');
  		}
 	?>

@@ -21,7 +21,7 @@
                            <tr><th>User Name</th><th>First Name</th><th>Last Name</th><th>Mobile No</th><th>Email Id</th><th>User Type</th><th>Status</th></tr>
                        </thead>
                        <tbody>
-									<!--show data from database-->
+					   <!_
 					        <?php foreach($list as $get){?>
 							<tr>
 								  <td><?php echo $get->username;?></td>

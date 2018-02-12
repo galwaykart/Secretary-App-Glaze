@@ -1,5 +1,5 @@
 <?php
-class User_model extends CI_model{
+class user_model extends CI_model{
 
 
 
@@ -43,11 +43,8 @@ public function username_check($username){
 	}
 public function get_userlist(){
 	
-		$this->db->select("*"); 
-		$this->db->from('user');
-		$query = $this->db->get();
-		return $query->result();
-
+		$query = $this->db->get('user');  
+         return $query; 
        }
 
 	}
