@@ -1,6 +1,12 @@
 <!doctype html>
 <html>
+
 <?php $this->load->view('head'); ?>
+
+<style>
+.form_error{color:red; font-size:10px;}
+</style>
+
 
 <body class="body style-6"><!-- body tag start -->
    <!-- globle header for comman start --> 
@@ -39,7 +45,7 @@
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-check-square-o"></span></div> 
 												    <div class="form-control"><input type="text" placeholder="User Name" id="username" name="username" tabindex="1"/></div> 
-													 <span class="text-danger"><?php echo form_error('username'); ?></span>
+													 <?php echo form_error('username', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
 					  </div><!-- col-md12 -end -->
@@ -49,7 +55,7 @@
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-user" ></span></div> 
 													<div class="form-control"><input type="text" placeholder="First Name" id="firstname" name="firstname" tabindex="2" value="<?php echo set_value('firstname'); ?>"/></div>
-							                        <span class="text-danger"><?php echo form_error('firstname'); ?></span>
+							                        <?php echo form_error('firstname', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
 							   </div>
@@ -58,7 +64,7 @@
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-user" ></span></div> 
 													<div class="form-control"><input type="text" placeholder="Last Name" id="lastname" name="lastname" tabindex="3" value="<?php echo set_value('lastname'); ?>" /></div>
-						                        	<span class="text-danger"><?php echo form_error('lastname'); ?></span>
+						                        	<?php echo form_error('lastname', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
 							   </div>
@@ -69,7 +75,7 @@
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-lock" ></span></div> 
 													<div class="form-control"><input type="password" placeholder="Enter Password" id="password" name="password" tabindex="5" value="<?php echo set_value('password'); ?>" /></div>
-						                            <span class="text-danger"><?php echo form_error('password'); ?></span>	
+						                            <?php echo form_error('password', '<span class="form_error">', '</span>'); ?></span>	
 												</div>
 											</div>
 							   </div>
@@ -77,7 +83,8 @@
 											<div class="form-group">
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-unlock-alt" ></span></div>
-													<div class="form-control"><input type="text" placeholder="Confirm Password" /></div>
+													<div class="form-control"><input type="password" placeholder="Confirm Password" name="confirm_password" value=""<?php echo set_value('confirm_password'); ?>"" /></div>
+													<?php echo form_error('confirm_password', '<span class="form_error">', '</span>'); ?></span>	
 												</div>
 											</div>
 							   </div>
@@ -88,7 +95,7 @@
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-phone" ></span></div> 
 													<div class="form-control"><input type="text" placeholder="Phone Number" id="phonenumber" name="phonenumber" tabindex="6" value="<?php echo set_value('phonenumber'); ?>"  /></div>
-							                        <span class="text-danger"><?php echo form_error('phonenumber'); ?></span>	
+							                        <?php echo form_error('phonenumber', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
 							   </div>
@@ -97,7 +104,7 @@
 												<div class="input-group">
 													<div class="input-addon"><span class="fa  fa fa-envelope-o" ></span></div> 
 													<div class="form-control"><input type="text" placeholder="Enter Email Id" id="email" name="email" tabindex="4" value="<?php echo set_value('email'); ?>"  /></div>
-							                        <span class="text-danger"><?php echo form_error('email'); ?></span>
+							                       <?php echo form_error('email', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
 							   </div>
@@ -109,12 +116,12 @@
 													<div class="input-addon"><span class="fa fa fa-calendar-check-o" ></span></div>
 													<div class="form-control"> 
 														<select name="type"  value="<?php echo set_value('type'); ?>">
-															<option>Select User Type</option> 
+															<option value=""hidden>Select User Type</option> 
 															 <option value="1">Director</option>
 															 <option value="2">HOD</option>
 															 <option value="3">Secretary</option>
 														 </select>
-														 <span class="text-danger"><?php echo form_error('type'); ?></span>
+														 <?php echo form_error('type', '<span class="form_error">', '</span>'); ?></span>
 													</div>
 												</div>
 											</div>

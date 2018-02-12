@@ -41,7 +41,14 @@ public function username_check($username){
 	  }
 
 	}
+public function get_userlist(){
+	
+		$this->db->select("*"); 
+		$this->db->from('user');
+		$query = $this->db->get();
+		return $query->result();
 
+       }
 
 	}
 

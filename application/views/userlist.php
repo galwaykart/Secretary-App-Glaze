@@ -13,20 +13,27 @@
             </div>
         <div class="user-content-panel-view">
                <div class="left-button-fixed-panel col-md-12 text-right">
-                 <a href="registration.html" > <button class="add btn" title="Add New User"><span class="fa fa-plus" ></span>&nbsp;Add</button></a>
-               </div>
+					<a href="<?php echo site_url('user/signup') ?>"><button class="add btn" title="Add New User"><span class="fa fa-plus" ></span>&nbsp;Add</button></a>
+			   </div>
                <div class="table-res">
                    <table>
                        <thead>
-                           <tr><th>User Name</th><th>MObile No</th><th>Email Id</th><th>User Type</th><th>Gender</th><th>Status</th></tr>
+                           <tr><th>User Name</th><th>First Name</th><th>Last Name</th><th>Mobile No</th><th>Email Id</th><th>User Type</th><th>Status</th></tr>
                        </thead>
                        <tbody>
-                           <tr><td>xyz</td><td>7854543787</td><td>xyz@demo.com</td><td>simple</td><td>Male</td><td>Active</td></tr>
-                              <tr><td>xyz</td><td>7854543787</td><td>xyz@demo.com</td><td>simple</td><td>Male</td><td>Active</td></tr>
-                              <tr><td>xyz</td><td>7854543787</td><td>xyz@demo.com</td><td>simple</td><td>Male</td><td>Active</td></tr>
-                              <tr><td>xyz</td><td>7854543787</td><td>xyz@demo.com</td><td>simple</td><td>Male</td><td>Active</td></tr>
-                              <tr><td>xyz</td><td>7854543787</td><td>xyz@demo.com</td><td>simple</td><td>Male</td><td>Active</td></tr>
-                              <tr><td>xyz</td><td>7854543787</td><td>xyz@demo.com</td><td>simple</td><td>Male</td><td>Active</td></tr>
+									<!--show data from database-->
+					        <?php foreach($list as $get){?>
+							<tr>
+								  <td><?php echo $get->username;?></td>
+								  <td><?php echo $get->firstname;?></td>
+								  <td><?php echo $get->lastname;?></td>
+								  <td><?php echo $get->phonenumber;?></td>
+								  <td><?php echo $get->email;?></td>
+								  <td><?php echo $get->type;?></td>
+								  <td><?php echo $get->status;?></td>
+
+							</tr>
+							<?php } ?>
                        </tbody>
                    </table>
 
