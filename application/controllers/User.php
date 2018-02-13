@@ -81,6 +81,7 @@ public function __construct()
 	}
 
 	public function login_view(){
+
 		if($this->session->user == 'logged_in'){
 			$this->load->view("dashboard");
 		}else{
@@ -88,6 +89,8 @@ public function __construct()
 			 
 		}
 	}
+
+	
 
 	function login_user(){ 
 	  $user_login = array(
@@ -128,8 +131,8 @@ public function __construct()
 
 	  $this->session->sess_destroy();
 	  $this->session->set_flashdata('success_msg','You have been successfully logged out');
-	 //redirect('user/login_view', 'refresh');
-	  $this->load->view('login');
+	 // redirect('user/login_view', 'refresh'); 
+	   $this->load->view('login');
 
 	}
 
