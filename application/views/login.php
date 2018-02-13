@@ -14,6 +14,7 @@
 	<h1>Secretary Application</h1>
     <div class="panel">
         <div class="body-tag">
+		<p><?php if(isset($title)) { echo $title; } ?></p>
             <p>Sign in to start your session</p> 
 			<?php  
                $success_msg = $this->session->flashdata('success_msg');

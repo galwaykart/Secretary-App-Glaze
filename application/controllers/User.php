@@ -83,7 +83,7 @@ class User extends CI_Controller
 
 	public function login_view(){
 
-	$this->load->view("login.php");
+	$this->load->view("login");
 
 	}
 
@@ -126,10 +126,10 @@ class User extends CI_Controller
 
 	  $this->session->sess_destroy();
 	  $this->session->set_flashdata('success_msg','You have been successfully logged out');
-	 //redirect('user/login_view', 'refresh');
-	  $this->load->view('login');
+	 // redirect('user/login_view', 'refresh'); 
+	   $this->load->view('login');
 
-			}
+	}
 
 				// get data
 	public function userlist() {
