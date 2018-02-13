@@ -31,6 +31,8 @@
 								  <td><?php echo $get->email;?></td>
 								  <td><?php echo $get->type;?></td>
 								  <td><?php echo $get->status;?></td> 
+								  <td> <a href="<?php echo site_url('user/userlist'); ?>">Active/Deactive</a></td>
+
 							<?php } ?>
                        </tbody>
                    </table>

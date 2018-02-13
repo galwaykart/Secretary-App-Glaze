@@ -60,7 +60,8 @@ public function __construct()
 		  'username'=>$this->input->post('username'),
 		  'password'=>md5($this->input->post('password')), 
 		  'phonenumber'=>$this->input->post('phonenumber'),
-		  'type'=>$this->input->post('type')
+		  'type'=>$this->input->post('type'),
+		  //'status'=>($this->input->post('status')===active)?0:1,
 			); 
 			// check username 
 		    $username_check = $this->user_model->username_check($user['username']);
