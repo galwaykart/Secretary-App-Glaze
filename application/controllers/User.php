@@ -2,7 +2,7 @@
 
 class User extends CI_Controller 
 {
-
+ 
 public function __construct()
 	{
         parent::__construct();
@@ -14,63 +14,14 @@ public function __construct()
 	
 
 
-public function index(){  
-		if($this->session->username){
-			$this->load->view("dashboard");
-		}else{
-			$this->load->view("login");
-		}
-	
-}
-public function dashboard() {
-		$this->load->view("dashboard");
-	}
-	
-public function register_user(){
-	// validation 
-  $this->form_validation->set_rules('username','User Name','trim|required');
-  $this->form_validation->set_rules('firstname','First Name','trim|required');
-  $this->form_validation->set_rules('lastname','Last Name','trim|required');
-  $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-  $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[15]');
-  $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[password]');
-  $this->form_validation->set_rules('phonenumber', 'Mobile Number ','required|regex_match[/^[0-9]{10}$/]'); //{10} for 10 digits number
-  $this->form_validation->set_rules('type','Type','trim|required');
-
-  
- if($this->form_validation->run() == false)
-    {
-        $this->load->view('signup');
-    }
-	else{
-		//insert in database
-      $user=array(
-      'firstname'=>$this->input->post('firstname'),
-	  'lastname'=>$this->input->post('lastname'),
-	  'email'=>$this->input->post('email'),
-      'username'=>$this->input->post('username'),
-      'password'=>md5($this->input->post('password')), 
-	  'phonenumber'=>$this->input->post('phonenumber'),
-	  'type'=>$this->input->post('type')
-        );
-        print_r($user);
-		// check username
-	 $username_check = $this->user_model->username_check($user['username']);
-
-	   $username_check = $this->user_model->username_check($user['username']);
-
-		if($username_check){
-		  $this->user_model->register_user($user);
-		  $this->session->set_flashdata('success_msg', 'Registered successfully.Now login to your account.');
-		  redirect('user/login_view');
-
-		} else{
-
-		  $this->session->set_flashdata('error_msg', 'User name Already Exist,please try again');
-		  redirect('user/signup');
-
-
-
+	public function index(){  
+			if($this->session->user == 'logged_in'){
+				$this->load->view("dashboard");
+			}else{
+				 $this->load->view("login");
+			}
+	}  
+ 
 	public function signUp() {  
 			if($this->session->user == 'logged_in'){
 				$this->load->view("signup");
@@ -112,12 +63,12 @@ public function register_user(){
 		  'type'=>$this->input->post('type')
 			); 
 			// check username 
-		 $username_check = $this->user_model->username_check($user['username']);
+		    $username_check = $this->user_model->username_check($user['username']);
 
 			if($username_check){
 			  $this->user_model->register_user($user);
 			  $this->session->set_flashdata('success_msg', 'Registered successfully.Now login to your account.');
-			  redirect('user/login_view');
+			  redirect('user/userlist');
 
 			} else{
 
@@ -130,9 +81,12 @@ public function register_user(){
 	}
 
 	public function login_view(){
-
-	$this->load->view("login.php");
-
+		if($this->session->user == 'logged_in'){
+			$this->load->view("dashboard");
+		}else{
+			$this->load->view("login");
+			 
+		}
 	}
 
 	function login_user(){ 
@@ -168,8 +122,8 @@ public function register_user(){
 			// redirect('login');	
 		
 		  }
-
-	}
+		}
+	
 	public function user_logout(){
 
 	  $this->session->sess_destroy();
@@ -177,7 +131,7 @@ public function register_user(){
 	 //redirect('user/login_view', 'refresh');
 	  $this->load->view('login');
 
-			}
+	}
 
 				// get data
 	public function userlist() {
@@ -187,16 +141,6 @@ public function register_user(){
 		}else{
 			 $this->load->view("login");
 		}
-
-			// get data
-public function userlist() {
-	  if ($this->session->userdata('is_logged_in')) {
-        $username = $this->session->userdata('username'); 
-		$this->data['list'] = $this->user_model->get_userlist();
-		$this->load->view("userlist",$this->data);
-	  }
-	  else{  $this->load->view('login');}
-
 	}
 		 
 }

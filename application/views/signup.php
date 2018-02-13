@@ -32,7 +32,7 @@
                   }
                   if($error_msg){
                     ?>
-                    <div class="alert alert-danger">
+                    <div class="form_error">
                       <?php echo $error_msg; ?> 
 					  
                     </div>

@@ -63,7 +63,7 @@
                             <a href="?4">Reminder Sheet</a>
                         </li>
 						<li>
-                            <a href="?4">Users</a>
+							<a href="<?php echo base_url('user/userlist'); ?>">Users</a>
                         </li>
                     </ul>
                 </div>
