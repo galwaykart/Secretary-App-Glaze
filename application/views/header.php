@@ -6,10 +6,11 @@
                 <div class="three"></div>-->
              </span>
             <span id="close">&times</span>
-        </div> 
-        <img src="<?php echo base_url(); ?>img/galway_logo.png" alt="logo" id="img"/>
-
-        <h1>Secretory App</h1>
+        </div>
+        <a href="<?php echo base_url(); ?>">	
+            <img src="<?php echo base_url(); ?>img/galway_logo.png" alt="logo" id="img"/>
+		    <h1>Secretory App</h1>
+		</a>
 
         <div class="rigth-log-box">
 				<?php 
@@ -37,7 +38,7 @@
                             <div>MENU</div>
                         </li>
                         <li>
-                             <a href="?31">Index Meeting in Progress</a> 
+							<a href="<?php echo site_url('indexmeeting') ?>">Index Meeting in Progress</a> 
                         </li>
 						<li>
                              <a href="?21">Daily Notes</a> 

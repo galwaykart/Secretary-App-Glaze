@@ -23,8 +23,9 @@
                         <tr>
 							<td><?php echo $get->name;?></td>
 							<td><?php echo $get->name;?></td>
+							
 							<td><?php echo $get->name;?></td>
-                            <td><a href="<?php echo site_url('indexmeeting/metting_info') ?>"><?php echo $get->date_of_meeting;?></a></td>
+                            <td><?php echo $get->date_of_meeting;?></td>
                         </tr>
 					   <?php } ?>
                        </tbody>

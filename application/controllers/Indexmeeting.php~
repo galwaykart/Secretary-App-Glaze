@@ -29,15 +29,16 @@
 
 		}   	 
 		
-		public function metting_info(){  
+		public function metting_info($index_meeting_id){  
 			if($this->session->user == 'logged_in'){
-			$this->data['list'] = $this->user_model->get_meeting();
+			$this->data['list'] = $this->user_model->get_meeting(index_meeting_id);
 			$this->load->view('metting-info',$this->data);
 			}else{
 				$this->load->view("login");
 			}
 			
-		} 
+		}  
+		
 
 		 
 	}
