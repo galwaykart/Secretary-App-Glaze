@@ -6,8 +6,10 @@
                 <div class="three"></div>-->
              </span>
             <span id="close">&times</span>
-        </div> 
-        <img src="<?php echo base_url(); ?>img/galway_logo.png" alt="logo" id="img"/>
+        </div>
+        <a href="<?php echo base_url(); ?>">	
+            <img src="<?php echo base_url(); ?>img/galway_logo.png" alt="logo" id="img"/>
+		</a>
 
         <h1>Secretory App</h1>
 
