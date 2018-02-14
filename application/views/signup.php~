@@ -18,7 +18,7 @@
             <div class="container-3"><br />
               <div class="empty-box"></div>
                 <h2>Registration form</h2>
-				<!-- Display error or success message-->
+				<!-- Display emessages-->
 				<?php  
                $success_msg = $this->session->flashdata('success_msg');
                $error_msg   = $this->session->flashdata('error_msg');
@@ -139,7 +139,7 @@
 						<p class="active-para">Active/Deactive</p>
 							<label class="switch">
 							  <input type="checkbox" name="status">
-							   <span class="slider round"></span>	
+							  <span class="slider round"></span>
 							</label>
 					</div>-->
 					<div class="clear"></div>
