@@ -9,9 +9,8 @@
         </div>
         <a href="<?php echo base_url(); ?>">	
             <img src="<?php echo base_url(); ?>img/galway_logo.png" alt="logo" id="img"/>
+		    <h1>Secretory App</h1>
 		</a>
-
-        <h1>Secretory App</h1>
 
         <div class="rigth-log-box">
 				<?php 
