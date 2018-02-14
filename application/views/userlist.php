@@ -12,7 +12,7 @@
                 <h2>All Users</h2>
             </div>
         <div class="user-content-panel-view">
-               <div class="left-button-fixed-panel col-md-12 text-right">
+			  <div class="left-button-fixed-panel col-md-12 text-right">
 					<a href="<?php echo site_url('user/signup') ?>"><button class="add btn" title="Add New User"><span class="fa fa-plus" ></span>&nbsp;Add</button></a>
 			   </div>
                <div class="table-res">
@@ -30,7 +30,8 @@
 								  <td><?php echo $get->phonenumber;?></td>
 								  <td><?php echo $get->email;?></td>
 								  <td><?php echo $get->type;?></td>
-								  <td><?php echo $get->status;?></td> 
+								  <td><?php echo $get->status;?></td>
+							</tr>								  
 							<?php } ?>
                        </tbody>
                    </table>

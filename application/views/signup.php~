@@ -18,7 +18,7 @@
             <div class="container-3"><br />
               <div class="empty-box"></div>
                 <h2>Registration form</h2>
-				
+				<!-- Display emessages-->
 				<?php  
                $success_msg = $this->session->flashdata('success_msg');
                $error_msg   = $this->session->flashdata('error_msg');
@@ -126,18 +126,26 @@
 												</div>
 											</div>
 							   </div>
-
+								   <div class="col-md-6">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa fa fa-child"></span></div>
+													<div class="form-control"><p>Male</p>&nbsp;<input type="radio" name="gender" /><p>FeMale</p>&nbsp;<input type="radio" name="gender" /></div>
+												</div>
+											</div>
+							   </div>
 					  </div><!-- col-md12 -end -->
-					<div class="col-md-12 text-right">
+					<!--<div class="col-md-12 text-right">
 						<p class="active-para">Active/Deactive</p>
 							<label class="switch">
-							  <input type="checkbox" name="status[]" value="0>
+							  <input type="checkbox" name="status">
 							  <span class="slider round"></span>
 							</label>
-					</div>
+					</div>-->
 					<div class="clear"></div>
 					<div class="col-md-12">
-						<div class="col-md-12 text-center">
+						<div class="col-md-6 text-right"><input type="reset" value="Delete" class="btn mybtn del" /></div>
+						<div class="col-md-6 text-center">
 							<input type="submit" value="Registration" class="btn mybtn" /> 
 							<input type="reset" value="Reset" class="btn reset mybtn" />
 						</div>

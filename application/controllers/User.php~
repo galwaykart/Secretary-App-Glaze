@@ -3,7 +3,7 @@
 class User extends CI_Controller 
 {
  
-public function __construct()
+	public function __construct()
 	{
         parent::__construct();
   			$this->load->helper('url');
@@ -12,8 +12,6 @@ public function __construct()
 			$this->load->library(array('session', 'form_validation'));
 } 
 	
-
-
 	public function index(){  
 			if($this->session->user == 'logged_in'){
 				$this->load->view("dashboard");
@@ -21,7 +19,7 @@ public function __construct()
 				 $this->load->view("login");
 			}
 	}  
- 
+	// to view signup page
 	public function signUp() {  
 			if($this->session->user == 'logged_in'){
 				$this->load->view("signup");
@@ -29,14 +27,14 @@ public function __construct()
 				 $this->load->view("login");
 			}
 		}
-
 		
+	// to view dashboard
 	public function dashboard() {
 			$this->load->view("dashboard"); 
 		}
 		
 	public function register_user(){
-		// validation 
+	   // validation data
 	  $this->form_validation->set_rules('username','User Name','trim|required');
 	  $this->form_validation->set_rules('firstname','First Name','trim|required');
 	  $this->form_validation->set_rules('lastname','Last Name','trim|required');
@@ -52,7 +50,7 @@ public function __construct()
 			$this->load->view('signup');
 		}
 		else{
-			//insert in database
+			//insert data
 		  $user=array(
 		  'firstname'=>$this->input->post('firstname'),
 		  'lastname'=>$this->input->post('lastname'),
@@ -61,7 +59,7 @@ public function __construct()
 		  'password'=>md5($this->input->post('password')), 
 		  'phonenumber'=>$this->input->post('phonenumber'),
 		  'type'=>$this->input->post('type'),
-		  'status'=>($this->input->post('status')===active)?0:1,
+		  //'status'=>($this->input->post('status')===active)?0:1,
 			); 
 			// check username 
 		    $username_check = $this->user_model->username_check($user['username']);
@@ -77,7 +75,7 @@ public function __construct()
 			  redirect('user/signup');
 
 			}
-
+//end usernma
 		}
 	}
 
@@ -91,7 +89,7 @@ public function __construct()
 		}
 	}
 
-	
+	// login section
 
 	function login_user(){ 
 	  $user_login = array(
@@ -127,7 +125,7 @@ public function __construct()
 		
 		  }
 		}
-	
+	// logout section
 	public function user_logout(){
 
 	  $this->session->sess_destroy();
@@ -137,7 +135,7 @@ public function __construct()
 
 	}
 
-				// get data
+	// get data 
 	public function userlist() {
 		if($this->session->user == 'logged_in'){
 			$this->data['list'] = $this->user_model->get_userlist();
