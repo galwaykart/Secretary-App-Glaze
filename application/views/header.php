@@ -1,14 +1,12 @@
  <header id="sec-header">
         <div id="toggle-btn-box">
-                <span id="bar" >
-                    <div class="one"></div>
-                    <div class="two"></div>
-                    <div class="three"></div>
-                </span>
-            <span id="close"> &times </span>
-        </div>
-			  
-
+            <span id="bar" class="fa fa-bars" >
+                <!-- <div class="one"></div>
+				<div class="two"></div>
+                <div class="three"></div>-->
+             </span>
+            <span id="close">&times</span>
+        </div> 
         <img src="<?php echo base_url(); ?>img/galway_logo.png" alt="logo" id="img"/>
 
         <h1>Secretory App</h1>
@@ -20,11 +18,15 @@
 
             <div class="inner">
                         <p class="person-name"> <?php if($firstname){ echo $firstname; } ?> <?php if($lastname){ echo $lastname; } ?></p>
-                        <img src="<?php echo base_url(); ?>img/person.png" alt="person image" id="per-img" />
-		   <div class="inner">
-               <a href="<?php echo base_url('user/user_logout'); ?>">Log Out</a>
-			</div>
+                        <img src="<?php echo base_url(); ?>img/person.png" alt="person image" id="per-img" /> 
 		   </div>
+        </div>
+		 <div class="log-up-body">
+           <ul>
+               <li><a href="#">Profile</a></li>
+                <li><a href="#">Setting</a></li>
+                <li><a href="<?php echo base_url('user/user_logout'); ?>">LogOut</a></li>
+           </ul>
         </div>
     </header>
 	
