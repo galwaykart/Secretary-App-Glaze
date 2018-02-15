@@ -7,7 +7,7 @@
 				parent::__construct();
 					$this->load->helper('url'); 
 					$this->load->library('session');
-					$this->load->model('index_meeting');
+				//	$this->load->model('index_meeting');
 					$this->load->library(array('session', 'form_validation'));
 		} 
 			 
