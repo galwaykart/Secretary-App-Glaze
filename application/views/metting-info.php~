@@ -19,7 +19,7 @@
                                                         <div class="form-group">
                                                                   <label>Preview Metting Date</label>
                                                                         <div class="input-group">
-                                                                         <div class="form-control"><input type="date" title="Prev Meeting Date" name="previous_date"   /></div>
+                                                                         <div class="form-control"><input type="date" title="Prev Meeting Date" name="previous_date"  value="<?php if($get->date_of_meeting){ echo $get->date_of_meeting;}else {echo " ";} ?>" /></div>
                                                                         </div>
                                                             </div>
                                 </div>
@@ -91,7 +91,7 @@
                                                         <div class="form-group">
                                                                 <div class="input-group">
                                                                     <div class="input-addon"><span class="fa fa-building-o" ></span></div>
-                                                                    <div class="form-control"><input type="text" placeholder="Department" name="department" value="<?php echo $get->department; ?>" /></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Department" name="department" value="<?php if($get->department){ echo $get->department; ?>" /></div>
                                                                 </div>	
                                                         </div>
                                                         <div class="form-group">

@@ -19,7 +19,7 @@
                                                         <div class="form-group">
                                                                   <label>Preview Metting Date</label>
                                                                         <div class="input-group">
-                                                                         <div class="form-control"><input type="date" title="Prev Meeting Date" name="previous_date"  value="<?php echo $get->date_of_meeting; ?>" /></div>
+                                                                         <div class="form-control"><input type="date" title="Prev Meeting Date" name="previous_date"  value="<?php foreach($list as $get){ echo $get->date_of_meeting; }?>" /></div>
                                                                         </div>
                                                             </div>
                                 </div>
@@ -91,25 +91,25 @@
                                                         <div class="form-group">
                                                                 <div class="input-group">
                                                                     <div class="input-addon"><span class="fa fa-building-o" ></span></div>
-                                                                    <div class="form-control"><input type="text" placeholder="Department" name="department" value="<?php echo $get->department; ?>" /></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Department" name="department" value="<?php foreach($list as $get){ echo $get->department; }?>" /></div>
                                                                 </div>	
                                                         </div>
                                                         <div class="form-group">
                                                                 <div class="input-group">
                                                                     <div class="input-addon"><span class="fa fa-user-o" ></span></div>
-                                                                    <div class="form-control"><input type="text" placeholder="Employee" name="employee" value="<?php echo $get->employee; ?>" /></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Employee" name="employee" value="<?php foreach($list as $get){ echo $get->employee; }?>"/></div>
                                                                 </div>
                                                         </div>
                                                         <div class="form-group">
                                                                 <div class="input-group">
                                                                     <div class="input-addon"><span class="fa fa-edit" ></span></div>
-                                                                    <div class="form-control"><input type="text" placeholder="Name" name="name" value="<?php echo $get->name; ?>"/></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Name" name="name" value="<?php foreach($list as $get){ echo $get->name; }?>"/></div>
                                                                 </div>
                                                         </div>
                                                          <div class="form-group">
                                                                 <div class="input-group">
                                                                     <div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
-                                                                    <div class="form-control"><input type="text" placeholder="Email Id" name="email" value="<?php echo $get->email; ?>"  /></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Email Id" name="email" value="<?php foreach($list as $get){ echo $get->email; }?>" /></div>
                                                                 </div>
                                                         </div>
                                                          <div class="btn-group" style="text-align:center">

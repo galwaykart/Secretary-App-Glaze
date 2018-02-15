@@ -24,7 +24,7 @@
 							<td><?php echo $get->name;?></td>
 							<td><?php echo $get->name;?></td>
 							<td><?php echo $get->name;?></td>
-                            <td><a href="<?php echo site_url('indexmeeting/metting_info') ?>"><?php echo $get->date_of_meeting;?></a></td>
+                            <td><a href="<?php echo site_url('indexmeeting/metting_info') ?>"><?php if($get->date_of_meeting) {echo $get->date_of_meeting;} else{echo "";}?></a></td>
                         </tr>
 					   <?php } ?>
                        </tbody>
