@@ -1,5 +1,5 @@
 <?php
-class index_meeting extends CI_model{
+class Indexmeeting_model extends CI_model{
 	
 	   public function get_meeting_status(){
 		$this->db->select('*');
