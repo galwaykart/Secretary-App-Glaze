@@ -263,18 +263,18 @@
     </div>
  
     <script type="text/javascript">
-		$(function() {
-			$('a.pl').click(function(e) {
-				e.preventDefault();
-				$('#phone').append('<input type="text" value="Phone">');
-			});
-			$('a.mi').click(function (e) {
-				e.preventDefault();
-				if ($('#phone input').length > 1) {
-					$('#phone').children().last().remove();
-				}
-			});
-		});
+    $(function() {
+        $('a.pl').click(function(e) {
+            e.preventDefault();
+            $('#phone').append('<input type="text" value="Phone">');
+        });
+        $('a.mi').click(function (e) {
+            e.preventDefault();
+            if ($('#phone input').length > 1) {
+                $('#phone').children().last().remove();
+            }
+        });
+    });
     </script>
         
      <br /><br /><br />

@@ -41,7 +41,7 @@
 
                </div>
             <div class="col-md-12">
-               <a href="#" class="btn" id="addmeeingsbtn"><span class="fa fa-plus" ></span>&nbsp;Add</a>
+               <a href="<?php echo site_url('indexmeeting/metting_info'); ?>" class="btn" id="addmeeingsbtn"><span class="fa fa-plus" ></span>&nbsp;Add</a>
             </div>
         </div>
     </div> 

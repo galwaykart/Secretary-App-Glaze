@@ -31,8 +31,8 @@
 		
 		public function metting_info(){  
 			if($this->session->user == 'logged_in'){
-			$data['list'] = $this->Indexmeeting_model->get_meeting();
-			$this->load->view('metting-info',$data);
+			$this->data['list'] = $this->Indexmeeting_model->get_meeting();
+			$this->load->view('metting-info',$this->data);
 			}else{
 				$this->load->view("login");
 			}
@@ -52,14 +52,14 @@
 	     'agenda_status'=>1,
 		);
 		$data[1] = array(
-		
+		 'index_meeting_id'=>102,
 		 'name'=>$this->input->post('name'),
 		 'department'=>$this->input->post('department'),
 		 'email'=>$this->input->post('email'),
 		 'employee'=>$this->input->post('employee'),
 		  );
 		$data[2] = array(
-		 
+		 'index_meeting_id'=>102,
 		 'conclusion_type'=>$this->input->post('conclusion_type'),
 		 'conclusion_textarea'=>$this->input->post('conclusion_textarea'),
 		 'targetdate'=>$this->input->post('targetdate'),
@@ -67,7 +67,6 @@
 		 'delegated_name'=>$this->input->post('delegated_name'),
 		  );
 		$this->Indexmeeting_model->form_insert($data);
-		
 			
 		}
 			
