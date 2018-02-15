@@ -75,7 +75,7 @@
 
                                         </div>
                                          <div class="col-md-8">
-                                             <input type="text" placeholder="Ajenda of metting"  />
+                                             <input type="text" placeholder="Ajenda of metting" name="agenda" />
                                         </div>
                                 </div>
                        </div>
@@ -197,11 +197,11 @@
                                             <div class="canclution-inner-body">
                                                  <div class="body-input-tabs">
                                                     <div class="col-md-3">  <label>Conclusion of Meeting : </label></div>
-                                                      <div class="col-md-9"><textarea class="conclu-text"   ></textarea></div>
+                                                      <div class="col-md-9"><textarea class="conclu-text"  name="conclusion_meeting" ></textarea></div>
                                                  </div>
                                                 <div class="body-input-tabs">
                                                      <div class="col-md-3"> <label>Conclusion Type : </label></div>
-                                                      <div class="col-md-9"><select id="">
+                                                      <div class="col-md-9"><select id="" name="c_type">
                                                           <option>Minute</option><option>decision</option><option>reminder</option><option>Appointment/Quick Work/Periodic/Project/othe</option>
 
                                                        </select></div>
@@ -213,7 +213,7 @@
                                                  </div>
                                                  <div class="body-input-tabs">
                                                      <div class="col-md-3"> <label>Target Date : </label></div>
-                                                      <div class="col-md-9"><input type="date" /></div>
+                                                      <div class="col-md-9"><input type="date" name="date" /></div>
                                                  </div>
                                                  <div class="body-input-tabs">
                                                      <div class="col-md-3"> </div>
@@ -225,7 +225,9 @@
                                             </div>
                                     </div>
                                 
-                                   <div class="col-md-6"></div>
+                                   <div class="col-md-12">
+								   <input type="button" value="Submit" class="submit"  title="Submit"/>
+								   </div>
                                </div>
                                      </div>
                             </div><!-- conclution panel end -->
