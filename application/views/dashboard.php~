@@ -3,7 +3,7 @@
  <?php $this->load->view('head'); ?>
 <body class="body style-6"> 	
 
-   <!-- globle header for comman start --> 
+   <!-- globle header for common start --> 
 
 
 <?php $this->load->view('header');?>
@@ -14,7 +14,7 @@
                             <div>MENU</div>
                         </li>
                         <li>
-                             <a href="?31">Index Meeting in Progress</a> 
+                             <a href="<?php echo site_url('user/signup') ?>">Index Meeting in Progress</a> 
                         </li>
 						<li>
                              <a href="?21">Daily Notes</a> 
@@ -140,57 +140,57 @@
                                               <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                               <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -210,62 +210,62 @@
                                             <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                               <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                               <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                              <tr>
                                                 <td>today </td>
                                                 <td>2</td>
-                                                <td>Immideaiet effact</td>
+                                                <td>Immideaiet effect</td>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -19,7 +19,7 @@
                                                         <div class="form-group">
                                                                   <label>Preview Metting Date</label>
                                                                         <div class="input-group">
-                                                                         <div class="form-control"><input type="date" title="Prev Meeting Date" name="previous_date"  value="<?php echo $get->date_of_meeting; ?>" /></div>
+                                                                         <div class="form-control"><input type="date" title="Prev Meeting Date" name="previous_date"   /></div>
                                                                         </div>
                                                             </div>
                                 </div>

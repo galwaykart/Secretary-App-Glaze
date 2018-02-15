@@ -38,7 +38,7 @@
                             <div>MENU</div>
                         </li>
                         <li>
-                             <a href="?31">Index Meeting in Progress</a> 
+							<a href="<?php echo site_url('indexmeeting') ?>">Index Meeting in Progress</a> 
                         </li>
 						<li>
                              <a href="?21">Daily Notes</a> 
