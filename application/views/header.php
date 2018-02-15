@@ -19,7 +19,7 @@
 
             <div class="inner">
                         <p class="person-name"> <?php if($firstname){ echo $firstname; } ?> <?php if($lastname){ echo $lastname; } ?></p>
-                        <img src="<?php echo base_url(); ?>img/person.png" alt="person image" id="per-img" /> 
+                        <img src="<?php echo base_url(); ?>img/person.png" alt="person image" id="per-img" class="log-popup"/>  
 		   </div>
         </div>
 		 <div class="log-up-body">

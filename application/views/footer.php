@@ -25,10 +25,15 @@
 
 
             });
+			$('.log-popup').on('click', function () {
+              //  $('.log-up-body').toggle('slow');
+				$('.log-up-body').slideToggle('slow'); // code added by surender
 
+            });
         });
 
-    </script>
+    </script> 
+
      <script type="text/javascript" src="<?php echo base_url(); ?>js/caleandar.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/demo.js"></script>
  
