@@ -12,7 +12,7 @@ class Indexmeeting_model extends CI_model{
 			$emp = $data[1]['employee'];
 			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee)
 					values (LAST_INSERT_ID(), '$name', '$dept', '$email', '$emp')";
-
+			$this->db->query($sql1);
 		
 			// $conclusion_type= $data[2]['conclusion_type'];
 			// $conclusion_textarea= $data[2]['conclusion_textarea'];
@@ -21,7 +21,7 @@ class Indexmeeting_model extends CI_model{
 			// $delegated_name= $data[2]['delegated_name'];
 			// $sql2 = "insert into index_meeting_conclusion (index_meeting_id, conclusion_type, conclusion_textarea, targetdate, delegated_dept,delegated_name)
 					// values (LAST_INSERT_ID(), '$conclusion_type', '$conclusion_textarea', '$targetdate', '$delegated_dept','$delegated_name')";
-			// $this->db->query($sql1,$sql2);
+			// $this->db->query($sql2);
 
 		}
 		//$this->db->insert('index_meeting_participants', $data[1]);
