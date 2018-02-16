@@ -14,15 +14,14 @@ class Indexmeeting_model extends CI_model{
 					values (LAST_INSERT_ID(), '$name', '$dept', '$email', '$emp')";
 			$this->db->query($sql1);
 		
-			// $conclusion_type= $data[2]['conclusion_type'];
-			// $conclusion_textarea= $data[2]['conclusion_textarea'];
-			// $targetdate= $data[2]['targetdate'];
-			// $delegated_dept= $data[2]['delegated_dept'];
-			// $delegated_name= $data[2]['delegated_name'];
-			// $sql2 = "insert into index_meeting_conclusion (index_meeting_id, conclusion_type, conclusion_textarea, targetdate, delegated_dept,delegated_name)
-					// values (LAST_INSERT_ID(), '$conclusion_type', '$conclusion_textarea', '$targetdate', '$delegated_dept','$delegated_name')";
-			// $this->db->query($sql2);
-
+			  $conclusion_type= $data[2]['conclusion_type'];
+			  $conclusion_textarea= $data[2]['conclusion_textarea'];
+			  $targetdate = $data[2]['targetdate'];
+			  $delegated_dept= $data[2]['delegated_dept'];
+			  $delegated_name= $data[2]['delegated_name'];
+			  $sql2 = "insert into index_meeting_conclusion (index_meeting_id, conclusion_type, conclusion_textarea, targetdate, delegated_dept,delegated_name)
+					  values (LAST_INSERT_ID(), '$conclusion_type', '$conclusion_textarea', '$targetdate', '$delegated_dept','$delegated_name')";
+			  $this->db->query($sql2);
 		}
 		//$this->db->insert('index_meeting_participants', $data[1]);
 		//$this->db->insert('index_meeting_conclusion', $data[2]);
@@ -46,8 +45,7 @@ public function get_meeting(){
 		$this->db->select("*"); 
 		$this->db->from('index_meeting');
 		$this->db->join('index_meeting_participants','index_meeting.index_meeting_id=index_meeting_participants.index_meeting_id');
-		
-
+		//$this->db->where('participants_id');
 		$query = $this->db->get();
 		return $query->result();
 		if ($result->num_rows() > 0) {

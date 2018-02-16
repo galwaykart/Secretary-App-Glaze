@@ -9,7 +9,7 @@
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Users</p></div>
     <div class="col-md-12 all-mettings">
 		<form method="post" action="<?php echo base_url(); ?>/Indexmeeting/insert_meeting">
-
+<?php foreach($list as $get) {}?>
 			<div class="Mettings-View-index-panel">
 				<!-- info form start-->  
 
@@ -22,7 +22,7 @@
 					<label>Preview Metting Date</label>
 					<div class="input-group">
 						<div class="form-control">
-							<input type="date" title="Prev Meeting Date" name="previous_date" value="<?php foreach($list as $get){ echo $get->date_of_meeting; } ?>"/>
+							<input type="date" title="Prev Meeting Date" name="previous_date" value="<?php echo $get->date_of_meeting;  ?>"/>
 						</div>
 					</div>
 				</div>
@@ -94,25 +94,25 @@
 															<div class="form-group">
 																	<div class="input-group">
 																		<div class="input-addon"><span class="fa fa-building-o" ></span></div>
-																		<div class="form-control"><input type="text" placeholder="Department" name="department" value="<?php foreach($list as $get){ echo $get->department; }?>" /></div>
+																		<div class="form-control"><input type="text" placeholder="Department" name="department" value="<?php echo $get->department;?>" /></div>
 																	</div>	
 															</div>
 															<div class="form-group">
 																	<div class="input-group">
 																		<div class="input-addon"><span class="fa fa-user-o" ></span></div>
-																		<div class="form-control"><input type="text" placeholder="Employee" name="employee" value="<?php foreach($list as $get){ echo $get->employee; }?>"/></div>
+																		<div class="form-control"><input type="text" placeholder="Employee" name="employee" value="<?php list as $get){ echo $get->employee; }?>"/></div>
 																	</div>
 															</div>
 															<div class="form-group">
 																	<div class="input-group">
 																		<div class="input-addon"><span class="fa fa-edit" ></span></div>
-																		<div class="form-control"><input type="text" placeholder="Name" name="name" value="<?php foreach($list as $get){ echo $get->name; }?>"/></div>
+																		<div class="form-control"><input type="text" placeholder="Name" name="name" value="<?php echo $get->name; ?>"/></div>
 																	</div>
 															</div>
 															 <div class="form-group">
 																	<div class="input-group">
 																		<div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
-																		<div class="form-control"><input type="text" placeholder="Email Id" name="email" value="<?php foreach($list as $get){ echo $get->email; }?>" /></div>
+																		<div class="form-control"><input type="text" placeholder="Email Id" name="email" value="<?php  echo $get->email; ?>" /></div>
 																	</div>
 															</div>
 															 <div class="btn-group" style="text-align:center">
@@ -263,18 +263,18 @@
     </div>
  
     <script type="text/javascript">
-    $(function() {
-        $('a.pl').click(function(e) {
-            e.preventDefault();
-            $('#phone').append('<input type="text" value="Phone">');
-        });
-        $('a.mi').click(function (e) {
-            e.preventDefault();
-            if ($('#phone input').length > 1) {
-                $('#phone').children().last().remove();
-            }
-        });
-    });
+		$(function() {
+			$('a.pl').click(function(e) {
+				e.preventDefault();
+				$('#phone').append('<input type="text" value="Phone">');
+			});
+			$('a.mi').click(function (e) {
+				e.preventDefault();
+				if ($('#phone input').length > 1) {
+					$('#phone').children().last().remove();
+				}
+			});
+		});
     </script>
         
      <br /><br /><br />

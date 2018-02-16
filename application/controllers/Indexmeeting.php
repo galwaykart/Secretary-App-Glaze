@@ -69,9 +69,7 @@
 		$this->Indexmeeting_model->form_insert($data);
 		
 			
-		}
-			
- 
+		} 
 	}
 
 ?>
