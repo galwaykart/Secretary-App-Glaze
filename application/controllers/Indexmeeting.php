@@ -13,7 +13,8 @@
 			 
 		public function index(){  
 			if($this->session->user == 'logged_in'){
-				$this->load->view('meeting-in-progress');
+				$data1['meeting'] = $this->Indexmeeting_model->get_allmeeting();
+				$this->load->view('meeting-in-progress',$data1);
 			}else{
 				$this->load->view("login");
 			}
@@ -44,12 +45,12 @@
 		$data=array();
 		$data[0] = array(
 		 'date_of_meeting'=>$this->input->post('previous_date'),
-		  'agenda_id'=>1,
+		  'agenda_id'=>$this->input->post('agenda'),
 	     'confidentiality'=>$this->input->post('confidentiality'),
 	     'self_seating'=>$this->input->post('seating'),
-	     'participants_id'=>1,
-	     'conclusion_id'=>1,
-	     'agenda_status'=>1,
+	     // 'participants_id'=>1,
+	     // 'conclusion_id'=>1,
+	     // 'agenda_status'=>1,
 		);
 		$data[1] = array(
 		
@@ -66,8 +67,8 @@
 		 'delegated_dept'=>$this->input->post('delegated_dept'),
 		 'delegated_name'=>$this->input->post('delegated_name'),
 		  );
-		$this->Indexmeeting_model->form_insert($data);
 		
+		$this->Indexmeeting_model->form_insert($data);
 			
 		} 
 	}

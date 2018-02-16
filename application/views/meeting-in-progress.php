@@ -18,24 +18,11 @@
                            <tr><th>Ajenda</th><th>Participants</th><th>Previous Meetings Date</th><th>Next Metting Date</th><th>No of Mettings</th><th>Metting Called By (Name & Department)</th><th>Remarks</th><th>Active/Inactive</th></tr>
                        </thead>
                        <tbody>
+					   <?php foreach($meeting as $arr){?>
                          <tr>
-                             <td>design</td><td>one , two ,three</td><td><a href="#">12/02/2018</a></td><td>15/02/2018</td><td>3</td><td>xyz (IT software)</td><td>No remarks</td><td>Active</td>
+						 <td><?php echo $arr->date_of_meeting;?></td>
                          </tr>
-                            <tr>
-                             <td>design</td><td>one , two ,three</td><td><a href="#">12/02/2018</a></td><td>15/02/2018</td><td>3</td><td>xyz (IT software)</td><td>No remarks</td><td>Active</td>
-                         </tr>
-                            <tr>
-                             <td>design</td><td>one , two ,three</td><td><a href="#">12/02/2018</a></td><td>15/02/2018</td><td>3</td><td>xyz (IT software)</td><td>No remarks</td><td>Active</td>
-                         </tr>
-                            <tr>
-                             <td>design</td><td>one , two ,three</td><td><a href="#">12/02/2018</a></td><td>15/02/2018</td><td>3</td><td>xyz (IT software)</td><td>No remarks</td><td>Active</td>
-                         </tr>
-                            <tr>
-                             <td>design</td><td>one , two ,three</td><td><a href="#">12/02/2018</a></td><td>15/02/2018</td><td>3</td><td>xyz (IT software)</td><td>No remarks</td><td>Active</td>
-                         </tr>
-                            <tr>
-                             <td>design</td><td>one , two ,three</td><td><a href="#">12/02/2018</a></td><td>15/02/2018</td><td>3</td><td>xyz (IT software)</td><td>No remarks</td><td>Active</td>
-                         </tr>
+					   <?php } ?>
                        </tbody>
                    </table>
 
