@@ -30,8 +30,24 @@
 				$('.log-up-body').slideToggle('slow'); // code added by surender
 
             });
+			
+			
         });
 
+		   function openTabs(evt, Name) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(Name).style.display = "block";
+            evt.currentTarget.className += " active";
+
+        }
     </script> 
 
      <script type="text/javascript" src="<?php echo base_url(); ?>js/caleandar.js"></script>

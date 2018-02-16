@@ -83,6 +83,102 @@
 											</div>
 									</div>
 						   </div>
+						   
+						   <!-- start TAB -->
+						   
+						    <div class="col-md-12 bottompanel-one">
+                            <div class="container4">
+                                                 <div class="tab">
+                                                         <a class="tablinks active " onclick="openTabs(event, 'one')">Present Participate</a>
+                                                         <a class="tablinks " onclick="openTabs(event, 'two')">Absent Participate</a>
+                                                 </div>
+                                                 <div id="one" class="tabcontent" style="display:block;">
+                                                     <h3>Present Participate</h3>
+                                                     <div class="col-md-2">
+                                                             <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-addon"><span class="fa fa-building-o" ></span></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Department"  /></div>
+                                                                </div>
+                                                        </div>
+                                                     </div> 
+                                                     <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-addon"><span class="fa fa-user-o" ></span></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Employee"  /></div>
+                                                                </div>
+                                                        </div>
+                                                     </div>  
+                                                     <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-addon"><span class="fa fa-edit" ></span></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Name"  /></div>
+                                                                </div>
+                                                        </div>
+                                                     </div>  
+                                                     <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Email Id"  /></div>
+                                                                </div>
+                                                        </div>
+                                                     </div>  
+                                                     <div class="col-md-2">
+                                                            <div class="btn-group margin-top" style="text-align:center">
+                                                                    <a  href="#" class="btn-primary btn"  >Save</a>&nbsp;&nbsp;
+                                                                    <a  href="#" class=" btn btn-eror  "  >Reset</a>
+                                                            </div>
+                                                     </div>    
+
+                                                 </div>
+                                                 <div id="two" class="tabcontent">
+                                                      <h3>Absent Participate</h3>
+                                                        <div class="col-md-2">
+                                                             <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-addon"><span class="fa fa-building-o" ></span></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Department"  /></div>
+                                                                </div>
+                                                        </div>
+                                                     </div> 
+                                                     <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-addon"><span class="fa fa-user-o" ></span></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Employee"  /></div>
+                                                                </div>
+                                                        </div>
+                                                     </div>  
+                                                     <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-addon"><span class="fa fa-edit" ></span></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Name"  /></div>
+                                                                </div>
+                                                        </div>
+                                                     </div>  
+                                                     <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Email Id"  /></div>
+                                                                </div>
+                                                        </div>
+                                                     </div>  
+                                                     <div class="col-md-2">
+                                                            <div class="btn-group margin-top" style="text-align:center">
+                                                                    <a  href="#" class="btn-primary btn"  >Save</a>&nbsp;&nbsp;
+                                                                    <a  href="#" class=" btn btn-eror  "  >Reset</a>
+                                                            </div>
+                                                     </div>    
+                                                 </div>
+                                        </div>
+                              
+                            </div>
+                        <!-- tabs end -->
 				  
 					  <!-- next second panel end --->
 					<div class="col-md-12 bottompanel-one">
