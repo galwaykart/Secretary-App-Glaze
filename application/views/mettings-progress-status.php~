@@ -22,7 +22,7 @@
 					   <?php 
 					   $i=1;
 					   foreach($list as $get){?>
-						<?php echo "<tr onclick ='newDoc($get->index_meeting_id)'> " ?>
+						<?php echo "<tr onclick ='new'> " ?>
 							<td><?php echo $i++;?></td>
 							<td><?php echo $get->name;?></td>
 							<td><?php echo $get->name;?></td>
@@ -41,10 +41,10 @@
     <div style="height:50px;"></div> 
 	<?php $this->load->view('footer'); ?>
 	
-<script>
+		 <script>
   function newDoc(id) {
    // console.log("id ====" ,id);
-    var url = "http://localhost/Secretary-App-Glaze/indexmeeting/metting_info/"+id;
+    var url = "http://localhost/Secretary-App-Glaze/indexmeeting/metting_info"+id;
     window.location.assign(url);
 }
 </script>

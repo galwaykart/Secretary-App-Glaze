@@ -19,10 +19,10 @@
                        </thead>
                        <tbody>
 					   <?php 
-					   
+					   $i=1;
 					   foreach($meeting as $arr){?>
-                        <?php echo "<tr onclick='newDoc($arr->agenda_id)'>"?>
-						 <td><?php echo $arr->agenda_id;?></td>
+                        <?php echo "<tr onclick='new($arr->agenda_id)'>"?>
+						 <td><?php echo $i++;?></td>
 						 <td><?php echo $arr->date_of_meeting;?></td>
                          </tr>
 					   <?php } ?>
@@ -31,7 +31,7 @@
 
                </div>
             <div class="col-md-12">
-               <a href="<?php echo site_url('indexmeeting/metting_info/'); ?>" class="btn" id="addmeeingsbtn"><span class="fa fa-plus" ></span>&nbsp;Add</a>
+               <a href="<?php echo site_url('indexmeeting/metting_info'); ?>" class="btn" id="addmeeingsbtn"><span class="fa fa-plus" ></span>&nbsp;Add</a>
             </div>
 			<div style="height:80px;"></div>
         </div>
@@ -45,7 +45,7 @@
       
 function newDoc(id) {
    // console.log("id ====" ,id);
-    var url = "http://localhost/Secretary-App-Glaze/indexmeeting/mettings_status/"+id;
+    var url = "http://localhost/Secretary-App-Glaze/indexmeeting/mettings_status/?id="+id;
     window.location.assign(url);
 }
 </script>

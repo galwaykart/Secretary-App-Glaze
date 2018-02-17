@@ -50,7 +50,6 @@ class Indexmeeting_model extends CI_model{
 	   public function get_allmeeting(){
 		   $this->db->select('*');
 		   $this->db->from('index_meeting');
-		   $this->db->from('index_meeting');
 		   $query=$this->db->get();
 		   return $query->result();
 		   	  if($query->num_rows()>0){
@@ -60,23 +59,29 @@ class Indexmeeting_model extends CI_model{
 		         }
 	   }
 	
-	   public function get_meeting_status(){
+	   public function get_meeting_status($url_id){
 		$this->db->select('*');
 		$this->db->from('index_meeting');
 		$this->db->join('index_meeting_participants','index_meeting.index_meeting_id=index_meeting_participants.index_meeting_id');
+		$this->db->where('index_meeting.agenda_id',$url_id);
 		$query = $this->db->get();
 		return $query->result();
-		
 
 	   }
 	   
-public function get_meeting(){
+public function get_meeting($id){
 		$this->db->select("*"); 
 		$this->db->from('index_meeting');
 		$this->db->join('index_meeting_participants','index_meeting.index_meeting_id=index_meeting_participants.index_meeting_id');
-		//$this->db->where('participants_id');
+		$this->db->where('index_meeting_participants.index_meeting_id',$id);
 		$query = $this->db->get();
 		return $query->result();
 		
 		}
+		
+		public function updatemeeting($data ,$record_id){
+            $this->db->set($data[0]); 
+            $this->db->where("index_meeting_id", $record_id); 
+            $this->db->update("index_meeting", $data[0]);
+        }
 }

@@ -1,5 +1,8 @@
 <!doctype html>
 <html>
+<style>
+.form_error{color:red; font-size:10px;}
+</style>
  <?php $this->load->view('head'); ?>
 <body class="body style-6"><!-- body tag start -->
    <!-- globle header for comman start --> 
@@ -8,6 +11,8 @@
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Users</p></div>
     <div class="col-md-12 all-mettings">
+	action="<?php if($records){echo base_url()."Daillynote/req/".$records[0]->daily_notes_id;}else{echo base_url()."Daillynote/req/";} ?>"
+
 		<form method="post" action="<?php echo base_url(); ?>Indexmeeting/insert_meeting">
  
 			<div class="Mettings-View-index-panel"> 
@@ -18,7 +23,7 @@
 								<label>Preview Metting Date</label>
 								<div class="input-group">
 									<div class="form-control">
-										<input type="date" title="Prev Meeting Date" name="previous_date"/>
+										<input type="date" title="Prev Meeting Date" name="previous_date" value="<?php if($fetch){ echo $fetch[0]->date_of_meeting;} ?>" >
 									</div>
 								</div>
 							</div>
@@ -37,9 +42,9 @@
 																 <label>Self Seating</label>
 																	<div class="input-group">
 																		<div class="form-control">
-																		<select name="seating">
-																			<option value="Yes"> Yes</option>
-																			<option value="No"> No</option>
+																		<select name="seating" value="<?php if($fetch){ echo $fetch[0]->self_seating;} ?>">
+																			<option value="1"> Yes</option>
+																			<option value="0"> No</option>
 																		</select>
 																		 </div>
 																	</div>
@@ -75,7 +80,7 @@
 
 											</div>
 											 <div class="col-md-8">
-												 <input type="text" placeholder="Ajenda of metting" name="agenda" />
+												 <input type="text" placeholder="Ajenda of metting" name="agenda" value="<?php if($fetch){ echo $fetch[0]->agenda_id;} ?>" />
 											</div>
 									</div>
 						   </div>
@@ -94,7 +99,7 @@
                                                              <div class="form-group" >
                                                                 <div class="input-group">
                                                                     <div class="input-addon"><span class="fa fa-building-o" ></span></div>
-                                                                    <div class="form-control"><input type="text" placeholder="Department" id="department" name="department[]" /></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Department" id="department" name="department[]" value="<?php if($fetch){ echo $fetch[0]->department;} ?>" /></div>
                                                                 </div>
                                                         </div>
                                                      </div> 
@@ -102,7 +107,7 @@
                                                             <div class="form-group">
                                                                 <div class="input-group">
                                                                     <div class="input-addon"><span class="fa fa-user-o" ></span></div>
-                                                                    <div class="form-control"><input type="text" placeholder="Employee" id="employee" name="employee[]"  /></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Employee" id="employee" name="employee[]" value="<?php if($fetch){ echo $fetch[0]->employee;} ?>"  /></div>
                                                                 </div>
                                                         </div>
                                                      </div>  
@@ -110,7 +115,7 @@
                                                             <div class="form-group">
                                                                 <div class="input-group">
                                                                     <div class="input-addon"><span class="fa fa-edit" ></span></div>
-                                                                    <div class="form-control"><input type="text" placeholder="Name" id="name" name="name[]"  /></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Name" id="name" name="name[]" value="<?php if($fetch){ echo $fetch[0]->name;} ?>" /></div>
                                                                 </div>
                                                         </div>
                                                      </div>  
@@ -118,7 +123,7 @@
                                                             <div class="form-group">
                                                                 <div class="input-group">
                                                                     <div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
-                                                                    <div class="form-control"><input type="text" placeholder="Email Id" id ="email" name="email[]" /></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Email Id" id ="email" name="email[]" value="<?php if($fetch){ echo $fetch[0]->email;} ?>"/></div>
                                                                 </div>
                                                         </div>
                                                      </div>  
@@ -222,15 +227,20 @@
 														  </div>
 														  
 									
-												</div>
-										</div>
+									</div>
+							</div>
 						
-								   </div>
-										 </div>
-								</div><!-- conclution panel end -->
-			 </div>
+						</div>
+					</div>
+				</div><!-- conclution panel end -->
+					<div class="btn-group" style="text-align:center">
+						<button type="submit" class="btn-primary btn">submit</button>
+					</div>
+					<div style="height:80px;"></div>
+			</div>
 			 	
 		</form>
+			
      </div>
     <script type="text/javascript"> 
 		$(function() {

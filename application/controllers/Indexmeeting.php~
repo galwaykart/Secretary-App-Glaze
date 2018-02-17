@@ -35,19 +35,24 @@
 		
 		public function metting_info(){  
 			if($this->session->user == 'logged_in'){
-			  if($this->uri->segment(3)){
+
+				if($this->uri->segment(3)){
+									echo "gaurav";
+				die;
 				$id= $this->uri->segment(3);
 				//print_r($id);
 				$data['fetch'] = $this->Indexmeeting_model->get_meeting($id);
 				$this->load->view('metting-info',$data);
 				}
 				else{
-				$data['fetch'] = array();
-				$this->load->view('metting-info',$data);
+					$data['fe]=
+					$this->load->view('metting-info');
 				}
+
 			}else{
 				$this->load->view("login");
 			}
+			
 		} 
 		
 		public function meeting(){
@@ -62,7 +67,14 @@
 		}
 		
 		public function insert_meeting(){
+			
 		$record_id =$this->uri->segment(3); 
+		$this->form_validation->set_rules('previous_date','Previous Date','trim|required');
+		 if($this->form_validation->run() == false)
+		{
+			$this->load->view('metting-info');
+		}
+		else{
 
 		$this->load->model('Indexmeeting_model');
 
@@ -92,7 +104,6 @@
 		 'delegated_name'=>$this->input->post('delegated_name'),
 		  );
 		if($this->uri->segment(3)){
-
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
 		   
            }else{
@@ -100,6 +111,7 @@
             }
 
 			} 
+		}
 	}
 
 ?>
