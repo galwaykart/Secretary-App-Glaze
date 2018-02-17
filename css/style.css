@@ -558,3 +558,4 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 .tabcontent h3 {    margin: 1% 0%;
     font-size: 15px;
     padding-left: 1%;}
+.toggle{display:none}
