@@ -19,12 +19,14 @@
                            <tr><th>SR No</th><th>Ajenda of Metting</th><th>Participants</th><th>Previous Meetings Date</th><th>Next Metting Date</th></tr>
                        </thead>
                        <tbody>
-					   <?php foreach($list as $get){?>
-                        <tr>
+					   <?php 
+					   $i=1;
+					   foreach($list as $get){?>
+						<?php echo "<tr onclick ='newDoc($get->index_meeting_id)'> " ?>
+							<td><?php echo $i++;?></td>
 							<td><?php echo $get->name;?></td>
 							<td><?php echo $get->name;?></td>
-							<td><?php echo $get->name;?></td>
-                            <td><a href="<?php echo site_url('indexmeeting/metting_info') ?>"><?php if($get->date_of_meeting) {echo $get->date_of_meeting;} else{echo "";}?></a></td>
+                            <td><?php echo $get->date_of_meeting;?></td>
                         </tr>
 					   <?php } ?>
                        </tbody>
@@ -35,8 +37,16 @@
     </div>
    
 
-     <br /><br /><br />
+     <br/><br/><br/>
     <div style="height:50px;"></div> 
 	<?php $this->load->view('footer'); ?>
+	
+<script>
+  function newDoc(id) {
+   // console.log("id ====" ,id);
+    var url = "http://localhost/Secretary-App-Glaze/indexmeeting/metting_info/"+id;
+    window.location.assign(url);
+}
+</script>
 </body>
 </html>
