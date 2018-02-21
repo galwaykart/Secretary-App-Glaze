@@ -59,7 +59,7 @@
       
 function newDoc(id) {
     //console.log("id ====" ,id);
-    var url = "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Daillynote/daillynote_view/"+id;
+    var url = "<?php echo base_url(); ?>Daillynote/daillynote_view/"+id;
     window.location.assign(url);
 }
 </script>

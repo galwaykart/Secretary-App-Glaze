@@ -28,7 +28,7 @@
 			$existing_array = $p_data;
 			$new_array = array('daily_notes_id'=>$insert_id);
 			$new_set_array = array_merge($existing_array, $new_array);
-			print_r($new_set_array);
+			//print_r($new_set_array);
 			echo "<br>";
 			 $this->db->insert('daily_notes_participents', $new_set_array);
 		}
@@ -53,7 +53,7 @@
 			 ON daily_notes.daily_notes_id = daily_notes_participents.daily_notes_id 
 			 WHERE daily_notes.daily_notes_id = $id"); 
 			$list_daily_notesById = $query->result();
-			 print_r($list_daily_notesById);
+			// print_r($list_daily_notesById);
 			// die;
 			return $list_daily_notesById;
 

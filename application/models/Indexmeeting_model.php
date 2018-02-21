@@ -35,7 +35,7 @@ class Indexmeeting_model extends CI_model{
 			  for($i=0;$i<$totalname;$i++) {
 			  $inserttype=$conclusion_type[$i];
 			  $insertarea=$conclusion_textarea[$i];
-			  $insertdate=$targetdate[$i];
+			  $insertdate=$tarIndexmeeting_modelgetdate[$i];
 			  $insertdept=$delegated_dept[$i];
 			  $insertdelegatedname=$delegated_name[$i];
 			  
