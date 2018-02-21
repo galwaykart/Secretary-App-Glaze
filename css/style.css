@@ -717,3 +717,16 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
 @media screen and (max-width: 1000px) and (min-width: 769px) {
     .container4 {margin: 0% 5%;width: 90%;}
 }
+
+ .popup .content .form-group .input-group .form-control textarea {
+    width: 100%;    border: 1px solid #d5e2e6;
+
+}
+.auto-del {max-height:200px;width:100%;}
+.auto-del .left {float:left;width:45%;}
+.auto-del .center {float:left;width:45%;}
+.auto-del .right {float:left;width:10%;}
+.auto-del .right a {background-color: black;
+    color: white;
+    padding: 4px 7px;
+    font-size: 11px;}
