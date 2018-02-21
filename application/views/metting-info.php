@@ -346,31 +346,29 @@
 			 </div>
 		</form>
      </div>
-	  <div class="RegSpLeft" id="phone">
-           <input type="text" value="Phone">
+	  <div class="RegSpLeft" id="addmr">
+           <input type="text" value="addmr"><a href="#" class="ad btn-primary btn">Add</a>
+		   <div class="clear"></div>
         </div>
 
-    <div class="RegSpRight">
-        <a href="#" class="pl">+
-        </a>
+    <div class="RegSpRight"> 
         <br/>
-        <a href="#" class="mi">-
-        </a>
+        
     </div>
  
-    <script type="text/javascript">
+    <script type="text/javascript"> 
 		$(function() {
-			$('a.pl').click(function(e) {
+			$('a.ad').click(function(e) {
 				e.preventDefault();
-				$('#phone').append('<input type="text" value="Phone">');
+				var lnth = $('#addmr input').length; 
+				$('#addmr').append('<div id="rm'+ lnth + '"><input type="text" value="addmr"><a href="#" onclick="setValues('+ lnth + ')"  class="dlt btn-eror inputclass">Delete</a><div class="clear"></div></div>');
 			});
-			$('a.mi').click(function (e) {
-				e.preventDefault();
-				if ($('#phone input').length > 1) {
-					$('#phone').children().last().remove();
-				}
-			});
+			 
+ 
 		});
+			function setValues(id){     
+					document.getElementById("rm"+id).remove();
+			}
     </script>
         
      <br /><br /><br />

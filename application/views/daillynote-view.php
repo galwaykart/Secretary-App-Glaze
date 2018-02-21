@@ -255,25 +255,7 @@
                          <div class="col-md-2">
                                             <input type="button" value="Add" />
                              </div>
-                        <!-- div participate end -->
-                        <!-- table start -->
-                        <div class="clear"></div>
-                        <div class="table-res">
-                             <div class="table-view">
-                                        <table class="table-emp-part"> 
-                                            <thead>
-                                                <tr>
-                                                    <th>Department</th><th>Employee</th><th>Name</th><th>Email Id</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr><td>It software</td><td>xyz</td><td>xyz</td><td>xyz@gmail.com</td></tr>
-                                                 <tr><td>It software</td><td>xyz</td><td>xyz</td><td>xyz@gmail.com</td></tr>
-                                                 <tr><td>It software</td><td>xyz</td><td>xyz</td><td>xyz@gmail.com</td></tr>
-                                            </tbody>
-                                        </table>
-                             </div>
-                        </div>
+                        <!-- div participate end --> 
                         <div class="clear"></div>
                          <hr class="spalsh" />
                         <h3>Arrangements</h3>
