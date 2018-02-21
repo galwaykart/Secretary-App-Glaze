@@ -20,7 +20,7 @@
 		} 		
 		public function quickwork_view(){  
 			if($this->session->user == 'logged_in'){
-				$this->load->view('daillynote-view');
+				$this->load->view('quick-view');
 			}else{
 				$this->load->view("login");
 			}

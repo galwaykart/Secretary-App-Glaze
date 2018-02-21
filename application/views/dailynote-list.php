@@ -49,19 +49,17 @@
     </div><!-- dailly index panel end --> 
 	
      <br /><br /><br />
+	<script>
+		  
+		function newDoc(id) {
+			//console.log("id ====" ,id);
+			var url = "<?php echo base_url(); ?>Daillynote/daillynote_view/"+id;
+			window.location.assign(url);
+		}
+	</script>
+
 
     <div style="height:50px;"></div>
-      <?php $this->load->view('head'); ?>
-
-
-
-      <script>
-      
-function newDoc(id) {
-    //console.log("id ====" ,id);
-    var url = "<?php echo base_url(); ?>Daillynote/daillynote_view/"+id;
-    window.location.assign(url);
-}
-</script>
+      <?php $this->load->view('footer'); ?> 
 </body>
 </html>

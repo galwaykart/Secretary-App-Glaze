@@ -248,13 +248,13 @@ p{padding-left: 2%;font-size: 16px;line-height: 28px;margin: 5px 0px;color: #4e4
 .tab {overflow: hidden;width: auto;margin: 0% 8%;margin-top: 4%;text-align: CENTER;}
 
 /* Style the buttons inside the tab */
-.tab a {background-color: #CE8357;float: left;border: none;outline: none;cursor: pointer;transition: 0.3s;font-size: 17px;color: white;font-size: 12px;border-radius: 0%;width: 25%;height: 28px;}
+.tab button {background-color: #CE8357;float: left;border: none;outline: none;cursor: pointer;transition: 0.3s;font-size: 17px;color: white;font-size: 12px;border-radius: 0%;width: 25%;height: 28px;}
 
 /* Change background color of buttons on hover */
-.tab a:hover {background-color: #3e4c5c;color:white;}
+.tab button:hover {background-color: #3e4c5c;color:white;}
 
 /* Create an active/current tablink class */
-.tab a.active {background-color: orange;color:white;}
+.tab button.active {background-color: orange;color:white;}
 .tabcontent{
    display: none;
     padding: 6px 12px;

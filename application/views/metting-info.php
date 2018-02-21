@@ -239,30 +239,6 @@
 		</form>
 			
      </div>
-<<<<<<< HEAD
-	  <div class="RegSpLeft" id="addmr">
-           <input type="text" value="addmr"><a href="#" class="ad btn-primary btn">Add</a>
-		   <div class="clear"></div>
-        </div>
-
-    <div class="RegSpRight"> 
-        <br/>
-        
-    </div>
- 
-    <script type="text/javascript"> 
-		$(function() {
-			$('a.ad').click(function(e) {
-				e.preventDefault();
-				var lnth = $('#addmr input').length; 
-				$('#addmr').append('<div id="rm'+ lnth + '"><input type="text" value="addmr"><a href="#" onclick="setValues('+ lnth + ')"  class="dlt btn-eror inputclass">Delete</a><div class="clear"></div></div>');
-			});
-			 
- 
-		});
-			function setValues(id){     
-					document.getElementById("rm"+id).remove();
-=======
     <script type="text/javascript"> 
 		$(function() {
 			$('a.ad').click(function(e) {
@@ -290,7 +266,6 @@
 		});
 			function setValues1(id){     
 					document.getElementById("rm1"+id).remove();
->>>>>>> a08d299409fd0a06ee90666c6d36e99d5039231d
 			}
     </script>
 
