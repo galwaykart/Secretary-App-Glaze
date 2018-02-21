@@ -46,12 +46,16 @@
                     </div>
 
             </div>
+            <div class="col-md-12">
+                    <a href="<?php echo base_url('Daillynote/daillynote_view/'); ?>" class="btn" id="addmeeingsbtn"><span class="fa fa-plus" ></span>&nbsp;Add</a>
+                    </div>
+                    <div style="height:80px;"></div>
     </div><!-- dailly index panel end --> 
 	
      <br /><br /><br />
 
     <div style="height:50px;"></div>
-      <?php $this->load->view('head'); ?>
+      <?php $this->load->view('footer'); ?>
 
 
 
