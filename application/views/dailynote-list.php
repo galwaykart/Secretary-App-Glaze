@@ -46,9 +46,14 @@
                     </div>
 
             </div>
+            <div class="col-md-12">
+                    <a href="<?php echo base_url('Daillynote/daillynote_view/'); ?>" class="btn" id="addmeeingsbtn"><span class="fa fa-plus" ></span>&nbsp;Add</a>
+                    </div>
+                    <div style="height:80px;"></div>
     </div><!-- dailly index panel end --> 
 	
      <br /><br /><br />
+<<<<<<< HEAD
 	<script>
 		  
 		function newDoc(id) {
@@ -57,6 +62,11 @@
 			window.location.assign(url);
 		}
 	</script>
+=======
+
+    <div style="height:50px;"></div>
+      <?php $this->load->view('footer'); ?>
+>>>>>>> 81d664253d2c031f3c6d55a021bcc9017d50a6f6
 
 
     <div style="height:50px;"></div>
