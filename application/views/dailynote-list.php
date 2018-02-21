@@ -14,21 +14,54 @@
                                 <tr><th>Sr No</th><th>Date of Entry</th><th>Task</th><th>Task Type</th><th>Target Date</th><th>Department</th><th>Delegate To</th><th>Status</th><th>Remark</th><th>Data Send to other sheet</th></tr>
                             </thead>
                             <tbody>
-                                <tr><td>1</td><td>12/04/2018</td><td>xyz</td><td>Progess</td><td>20/04/2018</td><td>IT Software</td><td>xyz</td><td>Active</td><td>no remarks</td><td>NO</td></tr>
-                                <tr><td>2</td><td>12/04/2018</td><td>xyz</td><td>Progess</td><td>20/04/2018</td><td>IT Software</td><td>xyz</td><td>Active</td><td>no remarks</td><td>NO</td></tr>
-                                <tr><td>3</td><td>12/04/2018</td><td>xyz</td><td>Progess</td><td>20/04/2018</td><td>IT Software</td><td>xyz</td><td>Active</td><td>no remarks</td><td>NO</td></tr>
-                                <tr><td>4</td><td>12/04/2018</td><td>xyz</td><td>Progess</td><td>20/04/2018</td><td>IT Software</td><td>xyz</td><td>Active</td><td>no remarks</td><td>NO</td></tr>
-                                <tr><td>5</td><td>12/04/2018</td><td>xyz</td><td>Progess</td><td>20/04/2018</td><td>IT Software</td><td>xyz</td><td>Active</td><td>no remarks</td><td>NO</td></tr>
-                                <tr><td>6</td><td>12/04/2018</td><td>xyz</td><td>Progess</td><td>20/04/2018</td><td>IT Software</td><td>xyz</td><td>Active</td><td>no remarks</td><td>NO</td></tr>
+                              <?php 
+                              $i=1;
+                                          foreach($records as $r) { 
+                                            echo "<tr onclick='newDoc($r->daily_notes_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->task_start_date."</td>"; 
+                                            echo "<td>".$r->task_name."</td>"; 
+                                            echo "<td>".$r->task_type."</td>"; 
+                                            echo "<td>".$r->task_target_date."</td>"; 
+                                            echo "<td>".$r->department."</td>"; 
+                                            echo "<td>".$r->delegated."</td>"; 
+                                            echo "<td>"."Active"."</td>"; 
+                                            echo "<td>"."No Remark"."</td>"; 
+                                            echo "<td>"."NO"."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                              ?>
                             </tbody>
                         </table>
+
+
+
+
+
                     </div>
 
             </div>
     </div><!-- dailly index panel end --> 
 	
      <br /><br /><br />
+
     <div style="height:50px;"></div>
       <?php $this->load->view('head'); ?>
+
+
+
+      <script>
+      
+function newDoc(id) {
+    //console.log("id ====" ,id);
+    var url = "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Daillynote/daillynote_view/"+id;
+    window.location.assign(url);
+}
+</script>
 </body>
 </html>

@@ -18,35 +18,36 @@
                            <tr><th>Ajenda</th><th>Participants</th><th>Previous Meetings Date</th><th>Next Metting Date</th><th>No of Mettings</th><th>Metting Called By (Name & Department)</th><th>Remarks</th><th>Active/Inactive</th></tr>
                        </thead>
                        <tbody>
-                         <tr>
-                             <td>design</td><td>one , two ,three</td><td><a href="#">12/02/2018</a></td><td>15/02/2018</td><td>3</td><td>xyz (IT software)</td><td>No remarks</td><td>Active</td>
+					   <?php 
+					   
+					   foreach($meeting as $arr){?>
+                        <?php echo "<tr onclick='newDoc($arr->agenda_id)'>"?>
+						 <td><?php echo $arr->agenda_id;?></td>
+						 <td><?php echo $arr->date_of_meeting;?></td>
                          </tr>
-                            <tr>
-                             <td>design</td><td>one , two ,three</td><td><a href="#">12/02/2018</a></td><td>15/02/2018</td><td>3</td><td>xyz (IT software)</td><td>No remarks</td><td>Active</td>
-                         </tr>
-                            <tr>
-                             <td>design</td><td>one , two ,three</td><td><a href="#">12/02/2018</a></td><td>15/02/2018</td><td>3</td><td>xyz (IT software)</td><td>No remarks</td><td>Active</td>
-                         </tr>
-                            <tr>
-                             <td>design</td><td>one , two ,three</td><td><a href="#">12/02/2018</a></td><td>15/02/2018</td><td>3</td><td>xyz (IT software)</td><td>No remarks</td><td>Active</td>
-                         </tr>
-                            <tr>
-                             <td>design</td><td>one , two ,three</td><td><a href="#">12/02/2018</a></td><td>15/02/2018</td><td>3</td><td>xyz (IT software)</td><td>No remarks</td><td>Active</td>
-                         </tr>
-                            <tr>
-                             <td>design</td><td>one , two ,three</td><td><a href="#">12/02/2018</a></td><td>15/02/2018</td><td>3</td><td>xyz (IT software)</td><td>No remarks</td><td>Active</td>
-                         </tr>
+					   <?php } ?>
                        </tbody>
                    </table>
 
                </div>
             <div class="col-md-12">
-               <a href="<?php echo site_url('indexmeeting/metting_info'); ?>" class="btn" id="addmeeingsbtn"><span class="fa fa-plus" ></span>&nbsp;Add</a>
+               <a href="<?php echo site_url('indexmeeting/metting_info/'); ?>" class="btn" id="addmeeingsbtn"><span class="fa fa-plus" ></span>&nbsp;Add</a>
             </div>
+			<div style="height:80px;"></div>
         </div>
     </div> 
      <br /><br /><br />
     <div style="height:50px;"></div>
   		<?php $this->load->view('footer'); ?>
+		
+		
+		 <script>
+      
+function newDoc(id) {
+   // console.log("id ====" ,id);
+    var url = "http://localhost/Secretary-App-Glaze/indexmeeting/mettings_status/"+id;
+    window.location.assign(url);
+}
+</script>
 </body>
 </html>
