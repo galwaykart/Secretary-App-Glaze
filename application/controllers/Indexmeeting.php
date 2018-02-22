@@ -33,7 +33,8 @@
 
 		}   	 
 		
-		public function metting_info(){  
+		public function metting_info(){ 
+
 			if($this->session->user == 'logged_in'){
 			  if($this->uri->segment(3)){
 				$id= $this->uri->segment(3);
@@ -48,6 +49,7 @@
 			}else{
 				$this->load->view("login");
 			}
+				
 		} 
 		
 		public function meeting(){
@@ -91,12 +93,13 @@
 		 'delegated_dept'=>$this->input->post('delegated_dept'),
 		 'delegated_name'=>$this->input->post('delegated_name'),
 		  );
+		  
 		if($this->uri->segment(3)){
-
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
-		   
+			redirect('indexmeeting');
            }else{
            $this->Indexmeeting_model->form_insert($data);
+		   redirect('indexmeeting');
             }
 
 			} 
