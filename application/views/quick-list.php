@@ -20,7 +20,7 @@
                             <?php 
                               $i=1;
                                           foreach($records as $r) { 
-                                            echo "<tr onclick='newDoc($r->id)'>"; 
+                                            echo "<tr onclick='newDoc($r->quick_work_id)'>"; 
                                             echo "<td>".$i++."</td>"; 
                                             echo "<td>".$r->date."</td>"; 
                                             echo "<td>".$r->task."</td>"; 
@@ -76,7 +76,7 @@ function newDoc(id) {
     <!-- popup start -->
     <form method="POST" action="<?php echo base_url()."Quickwork/req/" ?>">
     <div class="popup" style="display: none;">
-            <div class="header">
+                        <div class="header">
                 <h3>Quick Work - <span id="work">Add</span></h3>
                 <span id="close-popup"  title="Close">&times;</span>
             </div>
@@ -102,14 +102,7 @@ function newDoc(id) {
                 </div>
                 <div class="clear"></div>
                  <div class="col-md-12">
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Delegate To</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input type="text" name="delegate_to" title="Delegate To" /></div>
-                                        </div>
-                         </div>
-                    </div>
+                   
                     <div class="col-md-6">
                             <div class="form-group">
                                        <label>Target Date</label>
@@ -117,11 +110,9 @@ function newDoc(id) {
                                             <div class="form-control"><input type="date" name="target_date" title="Target Date" /></div>
                                         </div>
                           </div>
+                        
                     </div>
-                </div>
-                <div class="clear"></div>
-                 <div class="col-md-12">
-                    <div class="col-md-6">
+                      <div class="col-md-6">
                            <div class="form-group">
                                        <label>Priority</label>
                                         <div class="input-group">
@@ -131,17 +122,21 @@ function newDoc(id) {
                                         </div>
                           </div>
                     </div>
-                    <div class="col-md-6">
+                </div>
+                <div class="clear"></div>
+                 <div class="col-md-12">
+                   
                             <div class="form-group">
                                        <label>Remark</label>
                                         <div class="input-group">
                                             <div class="form-control">
-                                                <input type="text" name="remark" placeholder="Remarks" />
+                                               <textarea id="" name="remark" class=""></textarea>
                                             </div>
                                         </div>
-                           </div>
+                           
                     </div>
                 </div>
+                     
                 <div class="clear"></div>
                  <div class="col-md-12">
                     <div class="col-md-6">
@@ -162,6 +157,37 @@ function newDoc(id) {
                                         </div>
                            </div>
                     </div>
+
+                     <!-- autometic delegates start -->
+                     <div class="auto-del">
+                                 <div class="left">
+                                     <div class="form-group">
+                                           <label>Delegate To</label>
+                                            <div class="input-group">
+                                                <div class="form-control"><input type="text" name="delegate_to" title="Delegate To" /></div>
+                                            </div>
+                              </div>
+
+                                 </div>
+                                 <div class="center">
+                                         <div class="form-group">
+                                               <label>Email Id</label>
+                                                <div class="input-group">
+                                                    <div class="form-control">
+                                                    <input type="text" />
+                                                    </div>
+                                                </div>
+                                        </div>
+                                 </div>
+                                 <div class="right text-center">
+                                            <div class="btn-group">
+                                                    <a href="#" class="" id=""><span class="fa fa-plus" ></span></a>
+                                            </div>
+                                 </div>
+
+                             </div>
+                     <!-- autometic delegates end -->
+
                 </div>
                 <div class="clear"></div>
                         
