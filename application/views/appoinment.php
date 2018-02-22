@@ -43,98 +43,116 @@
     <!-- popup start -->
     <div class="popup" style="display: none;">
             <div class="header">
-                <h3>Appoinment - <span id="work">Add</span></h3>
+                <h3>Quick Work - <span id="work">Add</span></h3>
                 <span id="close-popup"  title="Close">&times;</span>
             </div>
             <div class="content"><!-- content start -->
                 <div class="col-md-12">
                     <div class="col-md-6">
                             <div class="form-group">
-                                       <label>Start Time :</label>
+                                       <label>Date :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="time" title="Start Time" /></div>
+                                            <div class="form-control"><input type="date" title="Date" /></div>
                                         </div>
                          </div>
                     </div>
                     <div class="col-md-6">
                             <div class="form-group">
-                                       <label>End Time :</label>
+                                       <label>Task :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="time" title="End Time" /></div>
+                                            <div class="form-control"><input type="text" title="Task" /></div>
                                         </div>
                          </div>
                     </div>
                 </div>
                 <div class="clear"></div>
                  <div class="col-md-12">
+                   
                     <div class="col-md-6">
                             <div class="form-group">
-                                       <label>Apponiment With</label>
+                                       <label>Target Date</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" title="Apponiment With" /></div>
-                                        </div>
-                         </div>
-                    </div>
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Subject Details :</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input type="date" title="Subject Details & prepation" /></div>
+                                            <div class="form-control"><input type="date" title="Target Date" /></div>
                                         </div>
                           </div>
+                        
                     </div>
-                </div>
-                <div class="clear"></div>
-                 <div class="col-md-12">
-                    <div class="col-md-6">
+                      <div class="col-md-6">
                            <div class="form-group">
-                                       <label>Periodic</label>
+                                       <label>Priority</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" placeholder="Periodic" /></div>
+                                            <div class="form-control"><select>
+                                                    <option>Select Priority</option>
+                                                </select></div>
                                         </div>
                           </div>
-                    </div>
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Travel Time</label>
-                                        <div class="input-group">
-                                            <div class="form-control">
-                                                <input type="Time" placeholder="Travel Time" />
-                                            </div>
-                                        </div>
-                           </div>
                     </div>
                 </div>
                 <div class="clear"></div>
                  <div class="col-md-12">
-                    <div class="col-md-6">
+                   
                             <div class="form-group">
                                        <label>Remark</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" title="Remark" /></div>
+                                            <div class="form-control">
+                                               <textarea id="" class=""></textarea>
+                                            </div>
                                         </div>
-                           </div>
+                           
                     </div>
+                </div>
+                     
+                <div class="clear"></div>
+                 <div class="col-md-12">
                     <div class="col-md-6">
                             <div class="form-group">
                                        <label>Status</label>
                                         <div class="input-group">
-                                            <div class="form-control">
-                                                <select><option value='Done'>Done</option><option value='Postpne'>Postpne</option><option value="Cancelled">Cancelled</option></select>
-                                            </div>
+                                            <div class="form-control"><input type="text" title="Status" /></div>
                                         </div>
                            </div>
                     </div>
-                     <div class="col-md-12">
-                             <div class="form-group">
+                    <div class="col-md-6">
+                            <div class="form-group">
                                        <label>Active/Inactive</label>
                                         <div class="input-group">
                                             <div class="form-control">
                                                 <select><option value='Yes'>Yes</option><option value='No'>No</option></select>
                                             </div>
                                         </div>
-                            </div>
-                     </div>
+                           </div>
+                    </div>
+
+                     <!-- autometic delegates start -->
+                     <div class="auto-del">
+                                 <div class="left">
+                                     <div class="form-group">
+                                       <label>Delegate To</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><input type="text" title="Delegate To" /></div>
+                                        </div>
+                                  </div>
+
+                                 </div>
+                                 <div class="center">
+                                         <div class="form-group">
+                                               <label>Email Id</label>
+                                                <div class="input-group">
+                                                    <div class="form-control">
+                                                        <input type="text" />
+                                                    </div>
+                                                </div>
+                                        </div>
+                                 </div>
+                                 <div class="right text-center">
+                                            <div class="btn-group">
+                                                    <a href="#" class="" id="A1"><span class="fa fa-plus" ></span></a>
+                                            </div>
+                                 </div>
+
+                             </div>
+                     <!-- autometic delegates end -->
+
                 </div>
                 <div class="clear"></div>
                         
