@@ -173,7 +173,19 @@
                     </div>
                 
             </div><!-- footer end -->
+    <script type="text/javascript"> 
+        $(function() {
+            $('a#plus').click(function(e) {
+                e.preventDefault();
+                var lnth = $('#auto-del').length; 
+                $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input type="text" title="Delegate To" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input type="text" /></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 
+            });
+        });
+        function setValues(id){     
+            document.getElementById("rm"+id).remove();
+        }
+    </script>                                     
     </div>
     <!-- popup ends -->
 

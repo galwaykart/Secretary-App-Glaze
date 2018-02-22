@@ -44,12 +44,14 @@
 				$data[0] = array(
 					'date'=>$this->input->post('date'),
 					'task'=>$this->input->post('task'),
-					'delegated'=>$this->input->post('delegate_to'),
 					'target_date'=>$this->input->post('target_date'),
 					'priority'=>$this->input->post('priority'),
 					'remark'=>$this->input->post('remark'),
 					'status'=>$this->input->post('status'),
 					'active'=>$this->input->post('active'),
+					'delegates_name'=>$this->input->post('delegate_to'),
+					'delegates_email'=>$this->input->post('delegate_email'),
+
 				   );
 
 				//    $data[1] = array(
