@@ -41,10 +41,10 @@
 							<a href="<?php echo site_url('indexmeeting') ?>">Index Meeting in Progress</a> 
                         </li>
 						<li>
-                             <a href="?21">Daily Notes</a> 
+                             <a href="<?php echo site_url('Daillynote') ?>">Daily Notes</a> 
                         </li>
 						<li>
-                             <a href="?21">Quick Work</a> 
+                             <a href="<?php echo site_url('Quickwork') ?>">Quick Work</a> 
                         </li>
 						<li>
                              <a href="?21">Appointments</a> 

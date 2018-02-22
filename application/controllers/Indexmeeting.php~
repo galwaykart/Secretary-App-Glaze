@@ -7,14 +7,22 @@
 				parent::__construct();
 					$this->load->helper('url'); 
 					$this->load->library('session');
+<<<<<<< HEAD
+					$this->load->model('user_model');
+=======
 					$this->load->model('Indexmeeting_model');
+>>>>>>> c82288a6
 					$this->load->library(array('session', 'form_validation'));
 		} 
 			 
 		public function index(){  
 			if($this->session->user == 'logged_in'){
+<<<<<<< HEAD
+				$this->load->view('meeting-in-progress');
+=======
 				$data1['meeting'] = $this->Indexmeeting_model->get_allmeeting();
 				$this->load->view('meeting-in-progress',$data1);
+>>>>>>> c82288a6
 			}else{
 				$this->load->view("login");
 			}
@@ -22,19 +30,43 @@
 
 		public function mettings_status(){  
 			if($this->session->user == 'logged_in'){
+<<<<<<< HEAD
+			$this->data['list'] = $this->user_model->get_meeting_status();
+			$this->load->view('mettings-progress-status',$this->data);
+=======
 			//get data with id from database
 			$url_id = $this->uri->segment(3);
 				//echo $url_id;
 			$data['list'] = $this->Indexmeeting_model->get_meeting_status($url_id);
 			$this->load->view('mettings-progress-status',$data);
+>>>>>>> c82288a6
 			}else{
 				$this->load->view("login");
 			}
 
 		}   	 
 		
+<<<<<<< HEAD
 		public function metting_info(){ 
 
+=======
+<<<<<<< HEAD
+		public function metting_info($index_meeting_id){  
+			if($this->session->user == 'logged_in'){
+			$this->data['list'] = $this->user_model->get_meeting(index_meeting_id);
+			$this->load->view('metting-info',$this->data);
+			}else{
+				$this->load->view("login");
+			}
+			
+		}  
+		
+
+		 
+=======
+		public function metting_info(){ 
+
+>>>>>>> 28eb820884160dede00b05ec294052bc9bd7c91c
 			if($this->session->user == 'logged_in'){
 			  if($this->uri->segment(3)){
 				$id= $this->uri->segment(3);
@@ -109,6 +141,10 @@
 
 			} 
 		
+<<<<<<< HEAD
+=======
+>>>>>>> c82288a6
+>>>>>>> 28eb820884160dede00b05ec294052bc9bd7c91c
 	}
 
 ?>
