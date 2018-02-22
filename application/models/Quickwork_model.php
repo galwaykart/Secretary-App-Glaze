@@ -6,7 +6,18 @@
 			// print_r($list_daily_notes);
 			return $list_quickwork;
 
-		}
+        }
+        
+        public function addQuickwork($data){
+            echo $this->db->insert('quick_work', $data[0]);
+            
+           
+            }
+    
+    
+    
+    
+            
 	 
 	}
 

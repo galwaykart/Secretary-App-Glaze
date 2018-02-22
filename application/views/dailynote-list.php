@@ -54,6 +54,7 @@
 	
      <br /><br /><br />
 
+
     <div style="height:50px;"></div>
       <?php $this->load->view('footer'); ?>
 
@@ -67,5 +68,9 @@ function newDoc(id) {
     window.location.assign(url);
 }
 </script>
+
+<div style="height:50px;"></div>
+<?php $this->load->view('footer'); ?>
+
 </body>
 </html>

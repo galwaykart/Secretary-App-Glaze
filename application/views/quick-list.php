@@ -66,5 +66,134 @@ function newDoc(id) {
     window.location.assign(url);
 }
 </script>
+        <div class="clear"></div>
+        <div class="col-md-12">
+            <br />
+                <a href="#" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
+        </div>
+    </div><!-- dailly index panel end -->
+  
+    <!-- popup start -->
+    <form method="POST" action="<?php echo base_url()."Quickwork/req/" ?>">
+    <div class="popup" style="display: none;">
+            <div class="header">
+                <h3>Quick Work - <span id="work">Add</span></h3>
+                <span id="close-popup"  title="Close">&times;</span>
+            </div>
+           
+            <div class="content"><!-- content start -->
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                       <label>Date :</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><input type="date" name="date" title="Date" /></div>
+                                        </div>
+                         </div>
+                    </div>
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                       <label>Task :</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><input type="text" name="task" title="Task" /></div>
+                                        </div>
+                         </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                 <div class="col-md-12">
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                       <label>Delegate To</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><input type="text" name="delegate_to" title="Delegate To" /></div>
+                                        </div>
+                         </div>
+                    </div>
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                       <label>Target Date</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><input type="date" name="target_date" title="Target Date" /></div>
+                                        </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                 <div class="col-md-12">
+                    <div class="col-md-6">
+                           <div class="form-group">
+                                       <label>Priority</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><select name="priority">
+                                                    <option>Select Priority</option>
+                                                </select></div>
+                                        </div>
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                       <label>Remark</label>
+                                        <div class="input-group">
+                                            <div class="form-control">
+                                                <input type="text" name="remark" placeholder="Remarks" />
+                                            </div>
+                                        </div>
+                           </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                 <div class="col-md-12">
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                       <label>Status</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><input type="text" name="status" title="Status" /></div>
+                                        </div>
+                           </div>
+                    </div>
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                       <label>Active/Inactive</label>
+                                        <div class="input-group">
+                                            <div class="form-control">
+                                                <select name="active"><option value='Yes'>Yes</option><option value='No'>No</option></select>
+                                            </div>
+                                        </div>
+                           </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                        
+                                                           
+
+            </div><!-- container end -->
+            
+            <div class="footer">
+                
+                    <div class="col-md-12">
+                    <button type="submit" class="btn-primary btn">Add</button>
+                                   <!-- <a href="#">Add</a> -->
+                                   <a href="#">Reset</a>
+                    </div>
+                
+            </div><!-- footer end -->
+
+    </div>
+    </form>
+    <!-- popup ends --> 
+         
+     <br /><br /><br />
+    <div style="height:50px;"></div>
+<?php $this->load->view('footer'); ?>
+
+	 <script>
+		  
+		function newDoc(id) {
+			//console.log("id ====" ,id);
+			var url = "<?php echo base_url(); ?>Quickwork/daillynote_view/"+id;
+			window.location.assign(url);
+		}
+	</script> 
 </body>
 </html>

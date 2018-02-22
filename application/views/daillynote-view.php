@@ -303,7 +303,6 @@
                                           <div class="input-group">
                                               <div class="input-addon">
                                                   <span class="fa   fa-coffee" ></span>
-
                                               </div>
                                             <div class="form-control"><input type="number" title=""  name="seat_cont" required  value="<?php if($records){ echo $records[0]->seat_count; } ?>"/></div>
                                             </div>
@@ -315,7 +314,6 @@
                                           <div class="input-group">
                                               <div class="input-addon">
                                                   <span class="fa fa-group" ></span>
-
                                               </div>
                                             <div class="form-control"><input type="number" title="" name="deiver_cont" required   value="<?php if($records){ echo $records[0]->driver_count; } ?>"/></div>
                                             </div>
@@ -327,7 +325,6 @@
                                           <div class="input-group">
                                               <div class="input-addon">
                                                   <span class="	fa fa-car" ></span>
-
                                               </div>
                                             <div class="form-control"><input type="number" title=" " name="car_cont" required    value="<?php if($records){ echo $records[0]->car_ount; } ?>"/></div>
                                             </div>
@@ -373,7 +370,6 @@
          $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" title="Only Alphabets allowed" required  pattern="[A-Za-z]{1,30}" id="department" name="part_dept[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><input type="text" placeholder="Employee"  required  id="employee" name="Employee[]"></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" title="Only Alphabets allowed" required  pattern="[A-Za-z]{1,30}" id="name" name="parti_name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" name="parti_email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn">Delete</a></div></div></div>');
           
         });
-
     });
         function setValues(id){     
                 document.getElementById("rm"+id).remove();
