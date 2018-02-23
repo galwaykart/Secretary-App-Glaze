@@ -47,6 +47,10 @@
 		}   	 
 		
 <<<<<<< HEAD
+		public function metting_info(){ 
+
+=======
+<<<<<<< HEAD
 		public function metting_info($index_meeting_id){  
 			if($this->session->user == 'logged_in'){
 			$this->data['list'] = $this->user_model->get_meeting(index_meeting_id);
@@ -62,6 +66,7 @@
 =======
 		public function metting_info(){ 
 
+>>>>>>> 28eb820884160dede00b05ec294052bc9bd7c91c
 			if($this->session->user == 'logged_in'){
 			  if($this->uri->segment(3)){
 				$id= $this->uri->segment(3);
@@ -136,7 +141,10 @@
 
 			} 
 		
+<<<<<<< HEAD
+=======
 >>>>>>> c82288a6
+>>>>>>> 28eb820884160dede00b05ec294052bc9bd7c91c
 	}
 
 ?>

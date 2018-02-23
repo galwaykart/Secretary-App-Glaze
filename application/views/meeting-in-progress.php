@@ -15,15 +15,17 @@
                <div class="table-res">
                    <table id="mettings-table">
                        <thead>
-                           <tr><th>Ajenda</th><th>Participants</th><th>Previous Meetings Date</th><th>Next Metting Date</th><th>No of Mettings</th><th>Metting Called By (Name & Department)</th><th>Remarks</th><th>Active/Inactive</th></tr>
+                           <tr><th>Sno</th><th>Ajenda</th><th>No of Mettings</th><th>Previous Meetings Date</th><th>Next Metting Date</th><th>Participants</th><th>Metting Called By (Name & Department)</th><th>Remarks</th><th>Active/Inactive</th></tr>
                        </thead>
                        <tbody>
 					   <?php 
-					   
+					   $i=1;
 					   foreach($meeting as $arr){?>
                         <?php echo "<tr onclick='newDoc($arr->agenda_id)'>"?>
+						 <td><?php echo $i++;?></td>
 						 <td><?php echo $arr->agenda_id;?></td>
-						 <td><?php echo $arr->date_of_meeting;?></td>
+						 <td><?php echo $arr->counter;?></td>
+
                          </tr>
 					   <?php } ?>
                        </tbody>

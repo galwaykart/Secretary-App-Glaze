@@ -48,15 +48,35 @@ class Indexmeeting_model extends CI_model{
 		//$this->db->insert('index_meeting_conclusion', $data[2]);
 	}
 	   public function get_allmeeting(){
-		   $this->db->select('*');
-		   $this->db->from('index_meeting');
-		   $query=$this->db->get();
-		   return $query->result();
-		   	  if($query->num_rows()>0){
-			      return false;
-		     }else{
-			      return true;
-		         }
+		   $result = array();
+		   $query = $this->db->query("SELECT DISTINCT index_meeting.agenda_id FROM index_meeting");
+		 $res = $query->result(); 
+		  if($res){
+			  $counting = sizeof($res);
+			  for($i=0 ;$i<$counting ; $i++){
+					//echo $res[$i]->agenda_id;
+					$agenda_id = $res[$i]->agenda_id;
+					$query = $this->db->query("SELECT DISTINCT index_meeting.agenda_id,(select count(index_meeting.agenda_id) from index_meeting join index_meeting_participants on index_meeting.index_meeting_id=index_meeting_participants.index_meeting_id where index_meeting.agenda_id = $agenda_id) as counter FROM index_meeting  where index_meeting.agenda_id = $agenda_id");
+					$output = $query->result();
+					$result[$i] =  $output[0];
+			  }
+			 // print_r($result);
+		  }
+		   return $result;
+		   
+		   
+
+		  
+		   //$query = $this->db->query("SELECT DISTINCT index_meeting.agenda_id ,COUNT(index_meeting.index_meeting_id)FROM index_meeting join index_meeting_participants ON index_meeting.index_meeting_id=index_meeting_participants.index_meeting_id"); 
+		  // $list = $query->result();
+			//return $list;
+		   
+		   	// $this->db->distinct("");
+		   // $this->db->select('*');
+		   // $this->db->from('index_meeting');
+		   // $query=$this->db->get();
+		   // return $query->result();
+
 	   }
 	
 	   public function get_meeting_status($url_id){
@@ -69,7 +89,7 @@ class Indexmeeting_model extends CI_model{
 
 	   }
 	   
-	   public function get_meeting($id){
+	    public function get_meeting($id){
 		$this->db->select("*"); 
 		$this->db->from('index_meeting');
 		$this->db->join('index_meeting_participants','index_meeting.index_meeting_id=index_meeting_participants.index_meeting_id','left');
@@ -83,7 +103,6 @@ class Indexmeeting_model extends CI_model{
             $this->db->set($data[0]); 
             $this->db->where("index_meeting_id", $record_id); 
             $this->db->update("index_meeting", $data[0]);
-
 			$name = $data[1]['name'];
 			$dept = $data[1]['department'];
 			$email = $data[1]['email'];
@@ -123,4 +142,5 @@ class Indexmeeting_model extends CI_model{
 			
 			
         }
+
 }

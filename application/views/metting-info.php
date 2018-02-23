@@ -41,9 +41,9 @@
 																 <label>Self Seating</label>
 																	<div class="input-group">
 																		<div class="form-control">
-																		<select name="seating" value="<?php if($fetch){ echo $fetch[0]->self_seating;} ?>">
-																			<option value="1"> Yes</option>
-																			<option value="0"> No</option>
+																		<select name="seating">
+																			<option value="1" <?php if($fetch){ if($fetch[0]->self_seating == "1"){ echo "selected"; }} ?> > Yes</option>
+																			<option value="0" <?php if($fetch){ if($fetch[0]->self_seating == "0"){ echo "selected"; }} ?>> No</option>
 																		</select>
 																		 </div>
 																	</div>
@@ -57,9 +57,9 @@
 																		
 																				<div class="form-control">
 																				<select name="confidentiality">
-																					<option value="1">Gen</option>
-																					<option value="2">Med</option>
-																					<option value="3">Top</option>
+																					<option value="1" <?php if($fetch){ if($fetch[0]->confidentiality == "1"){ echo "selected"; }} ?> >Gen</option>
+																					<option value="2" <?php if($fetch){ if($fetch[0]->confidentiality == "2"){ echo "selected"; }} ?>>Med</option>
+																					<option value="3" <?php if($fetch){ if($fetch[0]->confidentiality == "3"){ echo "selected"; }} ?>>Top</option>
 																				</select>
 																				</div>
 																			</div>

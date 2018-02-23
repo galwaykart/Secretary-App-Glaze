@@ -14,7 +14,11 @@
                             <div>MENU</div>
                         </li>
                         <li>
+<<<<<<< HEAD
                              <a href="<?php echo site_url('user/signup') ?>">Index Meeting in Progress</a> 
+=======
+                             <a href="?31">Index Meeting in Progress</a> 
+>>>>>>> d86543267f9b6c7a6bb80ab726289af1bbcee138
                         </li>
 						<li>
                              <a href="?21">Daily Notes</a> 
@@ -61,7 +65,11 @@
                                <div class="container1">
                                <div class=" box-data-for one">
                                    <span class="fa fa fa-american-sign-language-interpreting" ></span>
+<<<<<<< HEAD
                                  <h3>Meetings</h3>
+=======
+                                 <a href="<?php echo site_url('indexmeeting/metting_info/'); ?>">h3>Meetings</h3></a>
+>>>>>>> d86543267f9b6c7a6bb80ab726289af1bbcee138
                                </div>
                                </div>
                            </div>

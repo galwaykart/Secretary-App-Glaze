@@ -11,12 +11,10 @@
         public function addQuickwork($data){
 			echo $this->db->insert('quick_work', $data[0]);
 			$insert_id = $this->db->insert_id();
-			$total_participants = $data[1]['employee'];
+			$total_participants = $data[1]['delegates_name'];
 	
-			$dept= $data[1]['department'];
-			$employee= $data[1]['employee'];
-			$name= $data[1]['name'];
-			$email= $data[1]['email'];
+			$name= $data[1]['delegates_name'];
+			$email= $data[1]['delegates_email'];
 	
 	
 			$fLen = count($total_participants);
@@ -25,19 +23,17 @@
 				echo $i;
 	
 				$p_data = array(
-					'p_department'=>$dept[$i],
-					'employee'=>$employee[$i],
-					'name'=>$name[$i],
-					'p_email'=>$email[$i],
+					'delegates_name'=>$name[$i],
+					'delegates_email'=>$email[$i],
 				   );
 	
 				$existing_array = array();
 				$existing_array = $p_data;
-				$new_array = array('daily_notes_id'=>$insert_id);
+				$new_array = array('quick_work_id'=>$insert_id);
 				$new_set_array = array_merge($existing_array, $new_array);
 				//print_r($new_set_array);
 				echo "<br>";
-				 $this->db->insert('daily_notes_participents', $new_set_array);
+				 $this->db->insert('quick_work_delegates', $new_set_array);
 			}
             
            

@@ -49,17 +49,14 @@
 					'remark'=>$this->input->post('remark'),
 					'status'=>$this->input->post('status'),
 					'active'=>$this->input->post('active'),
-					'delegates_name'=>$this->input->post('delegate_to'),
-					'delegates_email'=>$this->input->post('delegate_email'),
+
 
 				   );
 
-				//    $data[1] = array(
-				// 	'department'=>$this->input->post('part_dept'),
-				// 	'employee'=>$this->input->post('Employee'),
-				// 	'name'=>$this->input->post('parti_name'),
-				// 	'email'=>$this->input->post('parti_email'),
-				//    );
+				   $data[1] = array(
+					'delegates_name'=>$this->input->post('delegate_to'),
+					'delegates_email'=>$this->input->post('delegate_email'),
+				   );
 
 
 				    print_r($data);

@@ -57,13 +57,16 @@
     <!-- body tag different for all -->
     <div class="main-area-body-box"> 
                     <div class="col-md-12">
+					
                            <div class="col-md-new">
+						   <a href="<?php echo site_url('indexmeeting/'); ?>">
                                <div class="container1">
                                <div class=" box-data-for one">
                                    <span class="fa fa fa-american-sign-language-interpreting" ></span>
                                  <h3>Meetings</h3>
                                </div>
                                </div>
+							   </a>
                            </div>
                         <div class="col-md-new">
                                <div class="container1">

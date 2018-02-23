@@ -14,6 +14,7 @@
 			 
 		public function index(){  
 			if($this->session->user == 'logged_in'){
+				//$aid=$this->uri->segment(3);
 				$data1['meeting'] = $this->Indexmeeting_model->get_allmeeting();
 				$this->load->view('meeting-in-progress',$data1);
 			}else{
