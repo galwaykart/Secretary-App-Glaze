@@ -15,7 +15,11 @@
    <!-- globle header for comman start --> 
    <?php $this->load->view('header'); ?>
     <!-- user View design page start -->
+<<<<<<< HEAD
+    <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Users</p></div>
+=======
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Meeting Info</p></div>
+>>>>>>> d86543267f9b6c7a6bb80ab726289af1bbcee138
     <div class="col-md-12 all-mettings">
 
 		<form method="post"  action="<?php if($fetch){echo base_url()."Indexmeeting/insert_meeting/".$fetch[0]->index_meeting_id;}else{echo base_url()."Indexmeeting/insert_meeting/";} ?>">
@@ -47,9 +51,20 @@
 																 <label>Self Seating</label>
 																	<div class="input-group">
 																		<div class="form-control">
+<<<<<<< HEAD
+																		<select name="seating" value="<?php if($fetch){ echo $fetch[0]->self_seating;} ?>">
+																			<option value="1"> Yes</option>
+																			<option value="0"> No</option>
+=======
 																		<select name="seating">
+<<<<<<< HEAD
 																			<option value="1" <?php if($fetch){ if($fetch[0]->self_seating == "1"){ echo "selected"; }} ?> > Yes</option>
 																			<option value="0" <?php if($fetch){ if($fetch[0]->self_seating == "0"){ echo "selected"; }} ?>> No</option>
+=======
+																			<option value="1" <?php if($fetch) {echo $fetch[0]->self_seating==1;} ?> > Yes</option>
+																			<option value="0" <?php if($fetch) {echo $fetch[0]->self_seating=;} ?> > No</option>
+>>>>>>> d86543267f9b6c7a6bb80ab726289af1bbcee138
+>>>>>>> 21d40981447a9847f685503ee98113de50c5bb8a
 																		</select>
 																		 </div>
 																	</div>
@@ -81,6 +96,10 @@
 								<div class="container4">
 											<div class="col-md-4">
 												<label>Agenda of metting :</label>
+<<<<<<< HEAD
+
+=======
+>>>>>>> d86543267f9b6c7a6bb80ab726289af1bbcee138
 											</div>
 											 <div class="col-md-8">
 												 <input type="text" placeholder="Ajenda of metting" id="search" name="agenda"  required value="<?php if($fetch){ echo $fetch[0]->agenda_id;} ?>" />
@@ -124,7 +143,12 @@
                                                             <div class="form-group">
                                                                 <div class="input-group">
                                                                     <div class="input-addon"><span class="fa fa-edit" ></span></div>
+<<<<<<< HEAD
+                                                                    <div class="form-control"><input type="text" placeholder="Name" id="name" name="name[]" title="Name should only contain letters. e.g. john"  required pattern="[a-z\s]{1,100}" value="<?php if($fetch){ echo $fetch[0]->name;} ?>" /></div>
+																	<?php echo form_error('name', '<span class="form_error">', '</span>'); ?></span>
+=======
                                                                     <div class="form-control"><input type="text" placeholder="Name" id="name" name="name[]" title="Name should only contain letters. e.g. john"  required pattern="[a-zA-Z ]{1,100}" value="<?php if($fetch){ echo $fetch[0]->name;} ?>" /></div>
+>>>>>>> d86543267f9b6c7a6bb80ab726289af1bbcee138
 																</div>
                                                         </div>
                                                      </div>  
@@ -252,7 +276,11 @@
 								<div class="col-md-12 conclution-panel" id="conclusion"><!-- conclution panel start -->
 									 <div class="container4">
 								   <div class="col-md-12">
+<<<<<<< HEAD
+											
+=======
 
+>>>>>>> d86543267f9b6c7a6bb80ab726289af1bbcee138
 										<div class="conclution-body">
 												<div class="canclution-inner-body  col-md-6">
 													 <div class="body-input-tabs">
@@ -312,9 +340,19 @@
 		$(function(){
 			$('a.ad').click(function(e) {
 				e.preventDefault();
+<<<<<<< HEAD
 				  var lnth = $('#one .customclass').length; 
 				// var lnth = 0;  
 			   $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><input type="text" placeholder="Employee" required id="employee"  name="employee[]"></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" required pattern="[a-zA-Z ]{1,100}" title="Name should only contain letters. e.g. john"   id="name"  name="name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn">Delete</a></div></div></div>');
+=======
+				var lnth = $('#one .customclass').length; 
+<<<<<<< HEAD
+			 $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><input type="text" placeholder="Employee" required id="employee"  name="employee[]"></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" title="Name should only contain letters. e.g. john"  required pattern="[a-z\sa-z\s]{1,100}" id="name" title ="Enter Valid Email id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn">Delete</a></div></div></div>');
+=======
+			 $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><input type="text" placeholder="Employee" required id="employee"  name="employee[]"></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" required pattern="[a-zA-Z ]{1,100}" title="Name should only contain letters. e.g. john"   id="name"  name="name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn">Delete</a></div></div></div>');
+>>>>>>> d86543267f9b6c7a6bb80ab726289af1bbcee138
+			  
+>>>>>>> 21d40981447a9847f685503ee98113de50c5bb8a
 			});
 		});
 			function setValues(id){

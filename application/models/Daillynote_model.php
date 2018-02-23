@@ -81,10 +81,10 @@
 						echo $i;
 			
 						$p_data = array(
-							'department'=>$dept[$i],
+							'p_department'=>$dept[$i],
 							'employee'=>$employee[$i],
 							'name'=>$name[$i],
-							'email'=>$email[$i],
+							'p_email'=>$email[$i],
 						   );
 			
 						$existing_array = array();

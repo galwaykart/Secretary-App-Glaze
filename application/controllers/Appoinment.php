@@ -7,18 +7,70 @@
 				parent::__construct();
 					$this->load->helper('url'); 
 					$this->load->library('session');
-					// $this->load->model('Appoinment_model');
+					 $this->load->model('Appointment_model');
 					$this->load->library(array('session', 'form_validation'));
 		} 
 			 
 		public function index(){  
-			if($this->session->user == 'logged_in'){				 
-				$this->load->view('appoinment');
+			if($this->session->user == 'logged_in'){	
+				//$this->load->model('Quickwork_model');
+				$listOfData['records']	= $this->Appointment_model->getAppointmentList();
+				$this->load->view('appoinment',$listOfData);
 				
 			}else{
 				$this->load->view("login");
 			}
-		} 
+		}
+		
+		
+		public function req(){
+			//echo "gaurav";
+			 $record_id =$this->uri->segment(3); 
+			// echo $record_id;
+			// print_r($this->uri);
+			// print_r(Sizeof($this->uri->segment(3)));
+			// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			//	echo "Hello I am gaurav";
+				$this->load->model('Appointment_model');
+				$data = array();
+				$data[0] = array(
+					'appointment_start_time'=>$this->input->post('date'),
+					'appointment_subject'=>$this->input->post('task'),
+					'appointment_end_time'=>$this->input->post('target_date'),
+					'appointment_remark'=>$this->input->post('remark'),
+					'appointment_periodic'=>$this->input->post('peroidic'),
+					'appointment_travel_time'=>$this->input->post('travel_time'),
+					'appointment_status'=>$this->input->post('status'),
+					'appointment_active'=>$this->input->post('active'),
+
+
+				   );
+
+				   $data[1] = array(
+					'delegates_name'=>$this->input->post('delegate_to'),
+					'delegates_email'=>$this->input->post('delegate_email'),
+				   );
+
+
+				    print_r($data);
+				
+				//print_r($data[1]);
+				// if($this->uri->segment(3)){
+				// 	$this->Daillynote_model->updateDailyNotes($data , $record_id);
+				// 	redirect('Daillynote');
+					
+				// }else{
+				 	$this->Appointment_model->addAppointment($data);
+					redirect('Appoinment');
+				// }
+				
+				// }else {
+				// 	echo "no request made with post method";
+				// }
+				
+
+			}
+
 		 
 	}
 

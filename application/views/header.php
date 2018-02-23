@@ -47,7 +47,7 @@
                              <a href="<?php echo site_url('Quickwork') ?>">Quick Work</a> 
                         </li>
 						<li>
-                             <a href="?21">Appointments</a> 
+                             <a href="<?php echo site_url('Appoinment') ?>">Appointments</a> 
                         </li>
                         <li>
                             <div>Periodic tasks</div>
