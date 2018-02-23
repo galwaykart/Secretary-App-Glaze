@@ -20,7 +20,8 @@
 			}else{
 				$this->load->view("login");
 			}
-		}  	 
+			
+	}  	 
 
 		public function mettings_status(){  
 			if($this->session->user == 'logged_in'){
@@ -43,7 +44,11 @@
 				//print_r($id);
 				$data['fetch'] = $this->Indexmeeting_model->get_meeting($id);
 				$this->load->view('metting-info',$data);
-				}
+
+				$search=  $this->input->post('agenda');
+				$query = $this->Indexmeeting_model->getagenda($search);
+				echo json_encode ($query);
+			  }
 				else{
 				$data['fetch'] = array();
 				$this->load->view('metting-info',$data);
@@ -73,7 +78,7 @@
 		$data=array();
 		$data[0] = array(
 		 'date_of_meeting'=>$this->input->post('previous_date'),
-		 'agenda_id'=>$this->input->post('agenda'),
+		 //'agenda_id'=>$this->input->post('agenda'),
 	     'confidentiality'=>$this->input->post('confidentiality'),
 	     'self_seating'=>$this->input->post('seating'),
 	     // 'participants_id'=>1,
@@ -95,6 +100,10 @@
 		 'delegated_dept'=>$this->input->post('delegated_dept'),
 		 'delegated_name'=>$this->input->post('delegated_name'),
 		  );
+		$data[3]=array(
+		  'agenda_name'=>$this->input->post('agenda')
+		  );
+
 		  
 		if($this->uri->segment(3)){
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
@@ -104,7 +113,8 @@
 		   redirect('indexmeeting');
             }
 
-			} 
+			}
+
 	}
 
 ?>
