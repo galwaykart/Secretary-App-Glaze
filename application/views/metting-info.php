@@ -1,12 +1,5 @@
 <!doctype html>
-<html>
-<link href="link/to/jquery.ui.css" rel="stylesheet" type="text/css" />
-
-<script type="text/javascript" src="link/to/jquery.js"></script>
-<script type="text/javascript" src="link/to/jquery.ui.js"></script>
-<script type="text/javascript" language="javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/jquery.js"></script>
-<script type="text/javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/json2.js"></script>
- 
+<html> 
 <style>
 .form_error{color:red; font-size:10px;}
 </style>
@@ -306,7 +299,31 @@
 			 	
 		</form>
 			
-     </div>
+     </div>	
+	  	
+		//<script>
+ 
+       $("#search").autocomplete({
+		minLength: 1,
+		source: function(req, add){  
+		$.ajax({
+			url: 'http://localhost/Secretary-App-Glaze/indexmeeting/get_agenda', //Controller where search is performed
+			dataType: 'json',
+			type: 'POST',
+			data: 'agenda='+$("#search").val(),
+			success: function(data){
+				if(data.response =='true'){
+				   add(data.message); 
+				   
+				    console.log(data.message);
+				}
+				else {add(data.message).text("No found");}
+			}
+		});
+	 }
+  });                 
+</script>
+	 
     <script type="text/javascript"> 
 	
 		$(function(){
@@ -337,43 +354,8 @@
 			}
     </script>
 
-<script>
- $(document).ready(function(){
-   $("#search").keyup(function(){
-  if($("#search").val().length>3){
-  $.ajax({
-   type: "post",
-   url: "http://localhost/Secretary-App-Glaze/indexmeeting/metting_info/",
-   cache: false,    
-   data:'search='+$("#search").val(),
-   success: function(response){
-	   //alert('132');
-    $('#finalResult').html("");
-    var obj = JSON.parse(response);
-    if(obj.length>0){
-     try{
-      var items=[];  
-      $.each(obj, function(i,val){           
-          items.push($('<li/>').text(val.agenda));
-      }); 
-      $('#finalResult').append.apply($('#finalResult'), items);
-     }catch(e) {  
-      alert('Exception while request..');
-     }  
-    }else{
-     $('#finalResult').html($('<li/>').text("No Data Found"));  
-    }  
-    
-   },
-   error: function(){      
-    alert('Error while request..');
-   }
-  });
-  }
-  return false;
-   });
- });
-</script>
+
+
      <br /><br /><br />
     <div style="height:50px;"></div>
     <?php $this->load->view('footer'); ?>

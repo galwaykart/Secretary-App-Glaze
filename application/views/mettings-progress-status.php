@@ -1,5 +1,7 @@
 <!doctype html>
 <html>
+
+
   <?php $this->load->view('head'); ?>
 <body class="body style-6"><!-- body tag start -->
    <!-- globle header for comman start --> 

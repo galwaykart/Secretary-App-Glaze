@@ -2,10 +2,14 @@
 class Indexmeeting_model extends CI_model{
 	
 	public function form_insert($data){
+		
+		
 		$result = $this->db->insert('index_meeting_agenda', $data[3]);	
+
 		//$result = $this->db->insert('index_meeting', $data[0]);
 		
 		$insert_id=$this->db->insert_id();
+		
 		//echo $data[1]['name'];
 		
 		if($result){
@@ -150,13 +154,21 @@ class Indexmeeting_model extends CI_model{
 			  }
 
         }
-		function getagenda($search){
-		$this->db->select("*");
-		$whereCondition = array('agenda_name' =>$search);
-		$this->db->where($whereCondition);
-		$this->db->from('index_meeting_agenda');
+		public function getagenda($keyword){
+		
+		$this->db->select('*');
+        $this->db->from('index_meeting_agenda');
+       //$this->db->where('agenda_name', 0);
+        $this->db->like('agenda_name', $keyword,'after');
 		$query = $this->db->get();
-		return $query->result();
- }	
+        return $query->result();
+        }
+		
+		public function agenda(){
+		$this->db->select('*');
+        $this->db->from('index_meeting_agenda');
+		$query = $this->db->get();
+        return $query->result();
+		}
 
 }
