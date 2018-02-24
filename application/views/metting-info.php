@@ -1,12 +1,11 @@
 <!doctype html>
-<html>
+<html> 
 <style>
 .form_error{color:red; font-size:10px;}
 </style>
  <?php $this->load->view('head'); ?>
 <body class="body style-6"><!-- body tag start -->
    <!-- globle header for comman start --> 
-
    <?php $this->load->view('header'); ?>
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Meeting Info</p></div>
@@ -77,21 +76,25 @@
 												<label>Agenda of metting :</label>
 											</div>
 											 <div class="col-md-8">
-												 <input type="text" placeholder="Ajenda of metting" name="agenda" required value="<?php if($fetch){ echo $fetch[0]->agenda_id;} ?>" />
+												 <input type="text" placeholder="Ajenda of metting" id="search" name="agenda"  required value="<?php if($fetch){ echo $fetch[0]->agenda_id;} ?>" />
+													<ul id="finalResult"></ul>
 											</div>
-									</div>
+														
 						   </div>
 						   
 						   <!-- start TAB -->
 						   
 						    <div class="col-md-12 bottompanel-one">
+
                             <div class="container4">
                                                  <div class="tab">
                                                          <a class="tablinks active " onclick="openTabs(event, 'one')">Present Participate</a>
                                                          <a class="tablinks " onclick="openTabs(event, 'two')">Absent Participate</a>
                                                  </div>
-                                                 <div id="one" class="tabcontent" style="display:block;" >
+												     <div id="one" class="tabcontent" style="display:block;" >
                                                      <h3>Present Participate</h3>
+													
+ 
                                                      <div class="col-md-2" class="RegSpLeft" id="addmr" >
                                                              <div class="form-group" >
                                                                 <div class="input-group">
@@ -100,6 +103,8 @@
                                                                 </div>
                                                         </div>
                                                      </div> 
+													
+														
                                                      <div class="col-md-2" class="RegSpLeft" id="addmr">
                                                             <div class="form-group">
                                                                 <div class="input-group">
@@ -123,17 +128,71 @@
                                                                     <div class="form-control"><input type="text" placeholder="Email Id" id ="email" name="email[]" required title ="Enter Valid Email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($fetch){ echo $fetch[0]->email;} ?>"/></div>
                                                                 </div>
                                                         </div>
-                                                     </div>  
+                                                     </div> 
+													 
+																									 
                                                      <div class="col-md-2">
                                                             <div class="btn-group margin-top" style="text-align:center">
 															  <a href="#" class="ad btn-primary btn">Add Participate</a>
 																	
 																	&nbsp;&nbsp;
                                                                    <!-- <a  href="#" class=" btn btn-eror  "  >Reset</a> -->
-                                                            </div>
+                                                            </div>	
                                                      </div> 
-									</div>													 
-                                         
+						
+													<!--start foreach-->
+													<?php $i = 0; foreach($fetch as $record){	 
+														  if($i != '0'){  
+													 ?>
+													<div class="clear"></div>
+													<div id="rm<?php echo $i; ?>" class="customclass"> 
+                                                     <div class="col-md-2" class="RegSpLeft" id="addmr" >
+                                                             <div class="form-group" >
+                                                                <div class="input-group">
+                                                                    <div class="input-addon"><span class="fa fa-building-o" ></span></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]" value="<?php if($record){ echo $record->department;} ?>" /></div>
+                                                                </div>
+                                                        </div>
+                                                     </div> 
+													
+														
+                                                     <div class="col-md-2" class="RegSpLeft" id="addmr">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-addon"><span class="fa fa-user-o" ></span></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Employee"  required id="employee" name="employee[]"  value="<?php if($record){ echo $record->employee;} ?>"  /></div>
+                                                                </div>
+                                                        </div>
+                                                     </div>  
+                                                     <div class="col-md-2" class="RegSpLeft" id="name">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-addon"><span class="fa fa-edit" ></span></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Name" id="name" name="name[]" title="Name should only contain letters. e.g. john"  required pattern="[a-zA-Z ]{1,100}" value="<?php if($record){ echo $record->name;} ?>" /></div>
+																</div>
+                                                        </div>
+                                                     </div>  
+                                                     <div class="col-md-2" class="RegSpLeft" id="email">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
+                                                                    <div class="form-control"><input type="text" placeholder="Email Id" id ="email" name="email[]" required title ="Enter Valid Email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($record){ echo $record->email;} ?>"/></div>
+                                                                </div>
+                                                        </div>
+                                                     </div> 
+													 <div class="col-md-2" class="RegSpLeft">								 
+													     <div class="btn-group margin-top" style="text-align:center">
+															<a href="#"  onclick="setValues(<?php echo $i; ?>)"  class="ad btn-eror btn">Delete</a>
+														 </div>
+													 </div>
+													  <!-- end foreach-->
+													  </div>
+														  <?php } 
+														        $i++; } ?>
+
+													 </div>	
+													</div>	
+																		
                                                  <div id="two" class="tabcontent">
                                                       <h3>Absent Participate</h3>
                                                         <div class="col-md-2">
@@ -144,6 +203,7 @@
                                                                 </div>
                                                         </div>
                                                      </div> 
+													 
                                                      <div class="col-md-2">
                                                             <div class="form-group">
                                                                 <div class="input-group">
@@ -175,6 +235,7 @@
                                                             </div>
                                                      </div>    
                                                  </div>
+												 
                                         </div>
                               
                             </div>
@@ -238,23 +299,47 @@
 			 	
 		</form>
 			
-     </div>
+     </div>	
+	  	
+		//<script>
+ 
+       $("#search").autocomplete({
+		minLength: 1,
+		source: function(req, add){  
+		$.ajax({
+			url: 'http://localhost/Secretary-App-Glaze/indexmeeting/get_agenda', //Controller where search is performed
+			dataType: 'json',
+			type: 'POST',
+			data: 'agenda='+$("#search").val(),
+			success: function(data){
+				if(data.response =='true'){
+				   add(data.message); 
+				   
+				    console.log(data.message);
+				}
+				else {add(data.message).text("No found");}
+			}
+		});
+	 }
+  });                 
+</script>
+	 
     <script type="text/javascript"> 
-		$(function() {
+	
+		$(function(){
 			$('a.ad').click(function(e) {
 				e.preventDefault();
-				var lnth = $('#one .customclass').length; 
-			 $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><input type="text" placeholder="Employee" required id="employee"  name="employee[]"></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" required pattern="[a-zA-Z ]{1,100}" title="Name should only contain letters. e.g. john"   id="name"  name="name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn">Delete</a></div></div></div>');
-			  
+				  var lnth = $('#one .customclass').length; 
+				// var lnth = 0;  
+			   $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><input type="text" placeholder="Employee" required id="employee"  name="employee[]"></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" required pattern="[a-zA-Z ]{1,100}" title="Name should only contain letters. e.g. john"   id="name"  name="name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn">Delete</a></div></div></div>');
 			});
-
 		});
-			function setValues(id){     
+			function setValues(id){
 					document.getElementById("rm"+id).remove();
 			}
     </script>
         
-		  <script type="text/javascript"> 
+		 <script type="text/javascript"> 
 		$(function() {
 			$('a#add').click(function(e) {
 				e.preventDefault();
@@ -268,6 +353,8 @@
 					document.getElementById("rm1"+id).remove();
 			}
     </script>
+
+
 
      <br /><br /><br />
     <div style="height:50px;"></div>

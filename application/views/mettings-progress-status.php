@@ -1,5 +1,7 @@
 <!doctype html>
 <html>
+
+
   <?php $this->load->view('head'); ?>
 <body class="body style-6"><!-- body tag start -->
    <!-- globle header for comman start --> 
@@ -16,7 +18,7 @@
                <div class="table-res">
                    <table id="mettings-table">
                        <thead>
-                           <tr><th>SR No</th><th>Ajenda of Metting</th><th>Participants</th><th>Previous Meetings Date</th><th>Next Metting Date</th></tr>
+                           <tr><th>SR No</th><th>Ajenda of Metting</th><th>Previous Meetings Date</th><th>Participants</th><th>Next Metting Date</th></tr>
                        </thead>
                        <tbody>
 					   <?php 
@@ -24,8 +26,7 @@
 					   foreach($list as $get){?>
 						<?php echo "<tr onclick ='newDoc($get->index_meeting_id)'> " ?>
 							<td><?php echo $i++;?></td>
-							<td><?php echo $get->name;?></td>
-							<td><?php echo $get->name;?></td>
+							<td><?php echo $get->agenda_id;?></td>
                             <td><?php echo $get->date_of_meeting;?></td>
                         </tr>
 					   <?php } ?>

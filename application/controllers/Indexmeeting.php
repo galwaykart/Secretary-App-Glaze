@@ -20,7 +20,8 @@
 			}else{
 				$this->load->view("login");
 			}
-		}  	 
+			
+	}  	 
 
 		public function mettings_status(){  
 			if($this->session->user == 'logged_in'){
@@ -43,7 +44,8 @@
 				//print_r($id);
 				$data['fetch'] = $this->Indexmeeting_model->get_meeting($id);
 				$this->load->view('metting-info',$data);
-				}
+
+			  }
 				else{
 				$data['fetch'] = array();
 				$this->load->view('metting-info',$data);
@@ -56,9 +58,9 @@
 		
 		public function meeting(){
 			if($this->session->user == 'logged_in'){
-			//$id= $this->uri->segment(3);
+		//	$aid= $this->uri->segment(3);
 			//print_r($id);
-			$data['fetch'] = $this->Indexmeeting_model->get_meeting();
+			$data['fetch'] = $this->Indexmeeting_model->agenda();
 		    $this->load->view('metting-info',$data);
 			}else{
 				$this->load->view("login");
@@ -73,7 +75,7 @@
 		$data=array();
 		$data[0] = array(
 		 'date_of_meeting'=>$this->input->post('previous_date'),
-		 'agenda_id'=>$this->input->post('agenda'),
+		 //'agenda_id'=>$this->input->post('agenda'),
 	     'confidentiality'=>$this->input->post('confidentiality'),
 	     'self_seating'=>$this->input->post('seating'),
 	     // 'participants_id'=>1,
@@ -95,7 +97,10 @@
 		 'delegated_dept'=>$this->input->post('delegated_dept'),
 		 'delegated_name'=>$this->input->post('delegated_name'),
 		  );
-		  
+		$data[3]=array(
+		  'agenda_name'=>$this->input->post('agenda')
+		  );
+
 		if($this->uri->segment(3)){
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
 			redirect('indexmeeting');
@@ -104,7 +109,33 @@
 		   redirect('indexmeeting');
             }
 
-			} 
+			}
+			
+		public function get_agenda(){
+			$keyword = $this->input->post('agenda');  
+            $data['response'] = 'false'; //Set default response  
+            $query = $this->Indexmeeting_model->getagenda($keyword); //Search DB  
+            if( ! empty($query) ) {  
+            $data['response'] = 'true'; //Set response  
+            $data['message'] = array(); //Create array  
+            foreach( $query as $row )  
+            {  
+                $data['message'][] = array(   
+                                        'id'=>$row->agenda_id, 
+                                        'value' => $row->agenda_name,  
+                                     );  //Add a row to array  
+            }  
+         }
+        if('IS_AJAX')  
+        {  
+            echo json_encode($data); //echo json string if ajax request  
+        }  
+        else 
+        {  
+            $this->load->view('metting-info',$data); //Load html view of search results  
+        }  		 
 	}
+
+}
 
 ?>

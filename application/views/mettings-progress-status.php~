@@ -16,6 +16,19 @@
                <div class="table-res">
                    <table id="mettings-table">
                        <thead>
+<<<<<<< HEAD
+                           <tr><th>SR No</th><th>Ajenda of Metting</th><th>Previous Meetings Date</th><th>Previous Meetings Date</th><th>Next Metting Date</th></tr>
+                       </thead>
+                       <tbody>
+					   <?php 
+					   $i=1;
+					   foreach($list as $get){?>
+						<?php echo "<tr onclick ='newDoc($get->index_meeting_id)'> " ?>
+							<td><?php echo $i++;?></td>
+							<td><?php echo $get->agenda_id;?></td>
+							<td><?php echo $get->name;?></td>
+                            <td><?php echo $get->date_of_meeting;?></td>
+=======
                            <tr><th>SR No</th><th>Ajenda of Metting</th><th>Participants</th><th>Previous Meetings Date</th><th>Next Metting Date</th></tr>
                        </thead>
                        <tbody>
@@ -36,6 +49,7 @@
 							<td><?php echo $get->name;?></td>
                             <td><?php echo $get->date_of_meeting;?></td>
 >>>>>>> c82288a6
+>>>>>>> 21d40981447a9847f685503ee98113de50c5bb8a
                         </tr>
 					   <?php } ?>
                        </tbody>
@@ -47,14 +61,26 @@
    
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
      <br /><br /><br />
     <div style="height:50px;"></div> 
 	<?php $this->load->view('footer'); ?>
 =======
+>>>>>>> 21d40981447a9847f685503ee98113de50c5bb8a
      <br/><br/><br/>
     <div style="height:50px;"></div> 
 	<?php $this->load->view('footer'); ?>
 	
+<<<<<<< HEAD
+<script>
+  function newDoc(id) {
+   // console.log("id ====" ,id);
+    var url = "http://localhost/Secretary-App-Glaze/indexmeeting/metting_info/"+id;
+    window.location.assign(url);
+}
+</script>
+=======
 		 <script>
   function newDoc(id) {
    // console.log("id ====" ,id);
@@ -63,5 +89,6 @@
 }
 </script>
 >>>>>>> c82288a6
+>>>>>>> 21d40981447a9847f685503ee98113de50c5bb8a
 </body>
 </html>
