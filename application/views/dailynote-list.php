@@ -53,25 +53,10 @@
     </div><!-- dailly index panel end --> 
 	
      <br /><br /><br />
-<<<<<<< HEAD
-=======
-	<script>
-		  
-		function newDoc(id) {
-			//console.log("id ====" ,id);
-			var url = "<?php echo base_url(); ?>Daillynote/daillynote_view/"+id;
-			window.location.assign(url);
-		}
-	</script>
->>>>>>> d86543267f9b6c7a6bb80ab726289af1bbcee138
 
 
     <div style="height:50px;"></div>
       <?php $this->load->view('footer'); ?>
-<<<<<<< HEAD
-=======
-
->>>>>>> d86543267f9b6c7a6bb80ab726289af1bbcee138
 
 
 

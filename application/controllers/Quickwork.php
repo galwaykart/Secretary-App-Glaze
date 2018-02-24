@@ -22,9 +22,32 @@
 				$this->load->view("login");
 			}
 		} 		
-		public function quickwork_view(){  
+		// public function quickwork_view(){  
+		// 	if($this->session->user == 'logged_in'){
+		// 		$this->load->view('quick-view');
+		// 	}else{
+		// 		$this->load->view("login");
+		// 	}
+		// }
+
+		public function quickworkById(){  
+			$this->load->model('Quickwork_model');
+			
 			if($this->session->user == 'logged_in'){
-				$this->load->view('quick-view');
+				
+				if($this->uri->segment(3)){
+					//echo $this->uri->segment(3);
+					$record_id =$this->uri->segment(3); 
+					$listOfDataById['insidequickwork']	= $this->Quickwork_model->getQuickworkByList($record_id);
+					echo json_encode($listOfDataById);
+					//$this->load->view('daillynote-view',$listOfDataById);
+
+				}
+				else{
+					$listOfData['records'] = array();
+					//$this->load->view('daillynote-view',$listOfData);
+				}
+				
 			}else{
 				$this->load->view("login");
 			}
