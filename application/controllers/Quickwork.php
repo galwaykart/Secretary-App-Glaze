@@ -30,7 +30,7 @@
 		// 	}
 		// }
 
-		public function quickworkById(){  
+		public function quickwork_view(){  
 			$this->load->model('Quickwork_model');
 			
 			if($this->session->user == 'logged_in'){
@@ -44,7 +44,7 @@
 
 				}
 				else{
-					$listOfData['records'] = array();
+					$listOfData['insidequickwork'] = array();
 					//$this->load->view('daillynote-view',$listOfData);
 				}
 				
@@ -85,14 +85,17 @@
 				    print_r($data);
 				
 				//print_r($data[1]);
-				// if($this->uri->segment(3)){
-				// 	$this->Daillynote_model->updateDailyNotes($data , $record_id);
-				// 	redirect('Daillynote');
+				//echo $this->uri->segment(3);
+				 if($this->uri->segment(3)){
+					 echo "I am in updation";
+				 	$this->Quickwork_model->updateQuickwork($data , $record_id);
+				 	redirect('Quickwork');
 					
-				// }else{
+				 }else{
+					echo "I am in addition";
 				 	$this->Quickwork_model->addQuickwork($data);
-				// 	redirect('Daillynote');
-				// }
+				 	redirect('Quickwork');
+				 }
 				
 				// }else {
 				// 	echo "no request made with post method";

@@ -70,11 +70,7 @@
     </div><!-- dailly index panel end -->
   
     <!-- popup start -->
-    <form method="POST" action="<?php echo base_url()."Quickwork/req/" ?>">
-
-
-
-
+    <form id="myForm" method="POST" action="<?php echo base_url()."Quickwork/req/" ?>">
     <div class="popup" style="display: none;">
                         <div class="header">
                 <h3>Quick Work - <span id="work">Add</span></h3>
@@ -87,7 +83,7 @@
                             <div class="form-group">
                                        <label>Date :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" id="task_date" name="date" title="Date" value=""/></div>
+                                            <div class="form-control"><input required type="date" id="task_date" name="date" title="Date" value=""/></div>
                                         </div>
                          </div>
                     </div>
@@ -95,7 +91,7 @@
                             <div class="form-group">
                                        <label>Task :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input id="task_name" type="text" name="task" title="Task" /></div>
+                                            <div class="form-control"><input required id="task_name" type="text" name="task" title="Task" /></div>
                                         </div>
                          </div>
                     </div>
@@ -107,7 +103,7 @@
                             <div class="form-group">
                                        <label>Target Date</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" id="task_traget_date" name="target_date" title="Target Date" /></div>
+                                            <div class="form-control"><input required type="date" id="task_traget_date" name="target_date" title="Target Date" /></div>
                                         </div>
                           </div>
                         
@@ -143,7 +139,7 @@
                             <div class="form-group">
                                        <label>Status</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" id="task_status" name="status" title="Status" /></div>
+                                            <div class="form-control"><input required type="text" id="task_status" name="status" title="Status" /></div>
                                         </div>
                            </div>
                     </div>
@@ -165,7 +161,7 @@
 										 <div class="form-group">
 											   <label>Delegate To</label>
 												<div class="input-group">
-													<div class="form-control"><input type="text" id ="gm1" name="delegate_to[]" title="Delegate To" /></div>
+													<div class="form-control"><input required type="text" id ="gm1" name="delegate_to[]" title="Delegate To" /></div>
 												</div>
                                             </div>
 
@@ -175,7 +171,7 @@
 												   <label>Email Id</label>
 													<div class="input-group">
 														<div class="form-control">
-														<input type="text" id="gm2" name="delegate_email[]"/>
+														<input required type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/>
 														</div>
 													</div>
 											</div>
@@ -205,7 +201,7 @@
                     <div class="col-md-12">
                     <button type="submit" class="btargetDatetn-primary btn">Add</button>
                                    <!-- <a href="#">Add</a> -->
-                                   <input class="btn-primary btn" type="reset" value="Reset">
+                                   <input required class="btn-primary btn" type="reset" value="Reset">
                                    <!-- <a href="#">Reset</a> -->
                     </div>
                 
@@ -223,7 +219,7 @@
 					$('a#plus').click(function(e) {
 						e.preventDefault();
 						var lnth = $('#auto-del').length; 
-					 $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input type="text" name="delegate_email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+					 $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 					  
 					});
 				});
@@ -253,14 +249,16 @@
                     document.getElementById("active").value = data_json.insidequickwork[0].active;
                     document.getElementById("gm1").value = data_json.insidequickwork[0].delegates_name;
                     document.getElementById("gm2").value = data_json.insidequickwork[0].delegates_email;
+                    document.getElementById("myForm").action = "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Quickwork/req/"+data_json.insidequickwork[0].quick_work_id;
+                    
                     for(var i=0; i<data_json.insidequickwork.length ; i++){
                         var j = i +1 ;
-                        $('#auto-del').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input type="text" title="Delegate To" name="delegate_to[]" value="'+data_json.insidequickwork[j].delegates_name+'" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input type="text" name="delegate_email[]" value="'+data_json.insidequickwork[j].delegates_email+'"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+                        $('#auto-del').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" value="'+ data_json.insidequickwork[j].delegates_name +'" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="'+data_json.insidequickwork[j].delegates_email+'"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 
                     }
                 }
             };
-                xhttp.open("GET", "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Quickwork/quickworkById/"+id, true);
+                xhttp.open("GET", "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Quickwork/quickwork_view/"+id, true);
                 xhttp.send();
                 $('.popup').show(); 
             }
