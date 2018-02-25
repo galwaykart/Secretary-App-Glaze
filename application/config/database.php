@@ -77,8 +77,13 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
+<<<<<<< HEAD
 	'password' => 'glaze@123',
 	'database' => 'secretary',
+=======
+	'password' => '',
+	'database' => 'app',
+>>>>>>> 9dde37582a5ab6b8c6b11e55b4ac45e34e49b5f9
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

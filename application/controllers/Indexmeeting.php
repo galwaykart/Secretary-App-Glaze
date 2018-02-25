@@ -58,9 +58,9 @@
 		
 		public function meeting(){
 			if($this->session->user == 'logged_in'){
-		//	$aid= $this->uri->segment(3);
+			$aid= $this->uri->segment(3);
 			//print_r($id);
-			$data['fetch'] = $this->Indexmeeting_model->agenda();
+			$data['fetch'] = $this->Indexmeeting_model->agenda($aid);
 		    $this->load->view('metting-info',$data);
 			}else{
 				$this->load->view("login");
@@ -101,11 +101,12 @@
 		  'agenda_name'=>$this->input->post('agenda')
 		  );
 
+
 		if($this->uri->segment(3)){
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
 			redirect('indexmeeting');
            }else{
-           $this->Indexmeeting_model->form_insert($data);
+           $this->Indexmeeting_model->form_insert($data,$this->input->post('agenda'));
 		   redirect('indexmeeting');
             }
 
