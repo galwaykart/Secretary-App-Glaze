@@ -69,6 +69,7 @@
 
 									</div>
 								</div>
+							
 							<!-- next second panel start --->
 							<div class="col-md-12 meet-second-panel">
 								<div class="container4">
@@ -76,7 +77,7 @@
 												<label>Agenda of metting :</label>
 											</div>
 											 <div class="col-md-8">
-												 <input type="text" placeholder="Ajenda of metting" id="search" name="agenda"  required value="<?php if($fetch){ echo $fetch[0]->agenda_id;} ?>" />
+												 <input type="text" placeholder="Ajenda of metting" id="search" name="agenda"  required value="<?php if($fetch){ echo $fetch[0]->agenda_name;} ?>" />
 													<ul id="finalResult"></ul>
 											</div>
 														
@@ -133,7 +134,7 @@
 																									 
                                                      <div class="col-md-2">
                                                             <div class="btn-group margin-top" style="text-align:center">
-															  <a href="#" class="ad btn-primary btn">Add Participate</a>
+															  <a href="#" class="ad btn-primary btn" id="add1">Add Participate</a>
 																	
 																	&nbsp;&nbsp;
                                                                    <!-- <a  href="#" class=" btn btn-eror  "  >Reset</a> -->
@@ -182,7 +183,7 @@
                                                      </div> 
 													 <div class="col-md-2" class="RegSpLeft">								 
 													     <div class="btn-group margin-top" style="text-align:center">
-															<a href="#"  onclick="setValues(<?php echo $i; ?>)"  class="ad btn-eror btn">Delete</a>
+															<a href="#"  onclick="setValues(<?php echo $i; ?>)"  class="ad1 btn-eror btn">Delete</a>
 														 </div>
 													 </div>
 													  <!-- end foreach-->
@@ -251,6 +252,51 @@
 													 <div class="body-input-tabs">
 														<div class="col-md-3">  <label>Conclusion of Meeting : </label></div>
 														  <div class="col-md-9">
+														  <textarea class="conclu-text" required  name="conclusion_textarea[]"  ></textarea></div>
+													 </div>
+													<div class="body-input-tabs">
+														 <div class="col-md-3"> 
+														 <label>Conclusion Type : </label></div>
+														  <div class="col-md-9">
+														  <select  name="conclusion_type[]">
+															  <option value="1">Minute</option>
+															  <option value="2">decision</option>
+															  <option value="3">reminder</option>
+															  <option value="4">Appointment/Quick Work/Periodic/Project/other</option>
+
+														   </select></div>
+													 </div>
+													<div class="body-input-tabs">
+														<div class="col-md-3"> <label>Delegate To : </label></div>
+														 <div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]" value="<?php if($fetch){ echo $fetch[0]->delegated_dept;} ?>"/></div>
+					
+														<div class="col-md-3"><input type="text"  placeholder="Employee" required name="delegated_name[]" value="<?php if($fetch){ echo $fetch[0]->delegated_name;} ?>"/></div>
+													 </div>
+													 <div class="body-input-tabs">
+														 <div class="col-md-3"> <label>Target Date : </label></div>
+														  <div class="col-md-9"><input type="date" required name="targetdate[]" value="<?php if($fetch){ echo $fetch[0]->targetdate;} ?>"/></div>
+													 </div>
+													 
+												</div>
+												
+												<div class="body-input-tabs col-md-6"> 
+														  <div class="col-md-9">
+															  <a href="#" class="btn btn-primary" id="add">Add Conclusion</a>
+															  &nbsp;&nbsp; 
+														  </div>
+														  
+									
+									</div>
+							</div>
+							
+							<?php $j = 0; foreach($fetch as $record){	 
+														  if($j != '0'){  ?>
+														  <div class="clear">
+														  <div id="rm1<?php echo $j; ?>" class="customclass1"> 
+									<div class="canclution-inner-body  col-md-6">
+													 <div class="body-input-tabs">
+														<div class="col-md-3">  <label>Conclusion of Meeting : </label></div>
+														  <div class="col-md-9">
 														  <textarea class="conclu-text" required  name="conclusion_textarea[]" ></textarea></div>
 													 </div>
 													<div class="body-input-tabs">
@@ -267,30 +313,29 @@
 													 </div>
 													<div class="body-input-tabs">
 														<div class="col-md-3"> <label>Delegate To : </label></div>
-														 <div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]"/></div>
+														 <div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]" value="<?php if($record){ echo $record->delegated_dept;} ?>"/></div>
 					
-														<div class="col-md-3"><input type="text"  placeholder="Employee" required name="delegated_name[]"/></div>
+														<div class="col-md-3"><input type="text"  placeholder="Employee" required name="delegated_name[]" value="<?php if($record){ echo $record->delegated_name;} ?>"/></div>
 													 </div>
 													 <div class="body-input-tabs">
 														 <div class="col-md-3"> <label>Target Date : </label></div>
-														  <div class="col-md-9"><input type="date" required name="targetdate[]" /></div>
+														  <div class="col-md-9"><input type="date" required name="targetdate[]" value="<?php if($record){ echo $record->targetdate;} ?>" /></div>
 													 </div>
 													 
 												</div>
-												
-												<div class="body-input-tabs col-md-6"> 
-														  <div class="col-md-9">
-															  <a href="#" class="btn btn-primary" id="add">Add Conclusion</a>
-															  &nbsp;&nbsp; 
-														  </div>
-														  
-									
-									</div>
-							</div>
+													<div class="col-md-2" class="RegSpLeft">								 
+													     <div class="btn-group margin-top" style="text-align:center">
+															<a href="#"  onclick="setValues1(<?php echo $j; ?>)"  class=" btn-eror btn">Delete</a>
+														 </div>
+													 </div>												
+													 </div>												
+							<?php } 
+							 $j++; } ?>
 						
 						</div>
 					</div>
-				</div><!-- conclution panel end -->
+				</div>
+				<!-- conclution panel end -->
 					<div class="btn-group" style="text-align:center">
 						<button type="submit" class="btn-primary btn">submit</button>
 					</div>
