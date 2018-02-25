@@ -6,7 +6,16 @@
 			// print_r($list_daily_notes);
 			return $list_quickwork;
 
-        }
+		}
+		
+		public function getQuickworkByList($id){
+			$query = $this->db->query("SELECT *,DATE_FORMAT(date,'%Y-%m-%d') AS niceDate, DATE_FORMAT(target_date,'%Y-%m-%d') AS targetDate FROM quick_work
+			JOIN quick_work_delegates 
+			ON quick_work.quick_work_id = quick_work_delegates.quick_work_id 
+			WHERE quick_work.quick_work_id = $id"); 
+		   $list_quickworkById = $query->result();
+		   return $list_quickworkById;
+		}
         
         public function addQuickwork($data){
 			echo $this->db->insert('quick_work', $data[0]);

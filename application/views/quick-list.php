@@ -20,7 +20,7 @@
                             <?php 
                               $i=1;
                                           foreach($records as $r) { 
-                                            echo "<tr onclick='newDoc($r->quick_work_id)'>"; 
+                                            echo "<tr id='updatenote$r->quick_work_id' onclick='newDoc($r->quick_work_id)'>"; 
                                             echo "<td>".$i++."</td>"; 
                                             echo "<td>".$r->date."</td>"; 
                                             echo "<td>".$r->task."</td>"; 
@@ -60,11 +60,7 @@
     <?php $this->load->view('footer'); ?>
     <script>
       
-function newDoc(id) {
-    //console.log("id ====" ,id);
-    var url = "<?php echo base_url(); ?>Quickwork/daillynote_view/"+id;
-    window.location.assign(url);
-}
+
 </script>
         <div class="clear"></div>
         <div class="col-md-12">
@@ -75,6 +71,10 @@ function newDoc(id) {
   
     <!-- popup start -->
     <form method="POST" action="<?php echo base_url()."Quickwork/req/" ?>">
+
+
+
+
     <div class="popup" style="display: none;">
                         <div class="header">
                 <h3>Quick Work - <span id="work">Add</span></h3>
@@ -87,7 +87,7 @@ function newDoc(id) {
                             <div class="form-group">
                                        <label>Date :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" name="date" title="Date" /></div>
+                                            <div class="form-control"><input type="date" id="task_date" name="date" title="Date" value=""/></div>
                                         </div>
                          </div>
                     </div>
@@ -95,7 +95,7 @@ function newDoc(id) {
                             <div class="form-group">
                                        <label>Task :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" name="task" title="Task" /></div>
+                                            <div class="form-control"><input id="task_name" type="text" name="task" title="Task" /></div>
                                         </div>
                          </div>
                     </div>
@@ -107,7 +107,7 @@ function newDoc(id) {
                             <div class="form-group">
                                        <label>Target Date</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" name="target_date" title="Target Date" /></div>
+                                            <div class="form-control"><input type="date" id="task_traget_date" name="target_date" title="Target Date" /></div>
                                         </div>
                           </div>
                         
@@ -116,7 +116,7 @@ function newDoc(id) {
                            <div class="form-group">
                                        <label>Priority</label>
                                         <div class="input-group">
-                                            <div class="form-control"><select name="priority">
+                                            <div class="form-control"><select id="task_priority" name="priority">
                                                     <option>Select Priority</option>
                                                 </select></div>
                                         </div>
@@ -130,7 +130,7 @@ function newDoc(id) {
                                        <label>Remark</label>
                                         <div class="input-group">
                                             <div class="form-control">
-                                               <textarea id="" name="remark" class=""></textarea>
+                                               <textarea id="task_remark" name="remark" class=""></textarea>
                                             </div>
                                         </div>
                            
@@ -143,7 +143,7 @@ function newDoc(id) {
                             <div class="form-group">
                                        <label>Status</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" name="status" title="Status" /></div>
+                                            <div class="form-control"><input type="text" id="task_status" name="status" title="Status" /></div>
                                         </div>
                            </div>
                     </div>
@@ -152,7 +152,7 @@ function newDoc(id) {
                                        <label>Active/Inactive</label>
                                         <div class="input-group">
                                             <div class="form-control">
-                                                <select name="active"><option value='Yes'>Yes</option><option value='No'>No</option></select>
+                                                <select name="active" id="active"><option value='0'>Yes</option><option value='No'>No</option></select>
                                             </div>
                                         </div>
                            </div>
@@ -165,7 +165,7 @@ function newDoc(id) {
 										 <div class="form-group">
 											   <label>Delegate To</label>
 												<div class="input-group">
-													<div class="form-control"><input type="text" name="delegate_to[]" title="Delegate To" /></div>
+													<div class="form-control"><input type="text" id ="gm1" name="delegate_to[]" title="Delegate To" /></div>
 												</div>
                                             </div>
 
@@ -175,7 +175,7 @@ function newDoc(id) {
 												   <label>Email Id</label>
 													<div class="input-group">
 														<div class="form-control">
-														<input type="text" name="delegate_email[]"/>
+														<input type="text" id="gm2" name="delegate_email[]"/>
 														</div>
 													</div>
 											</div>
@@ -187,6 +187,9 @@ function newDoc(id) {
 									 </div>
 
 						 </div>
+                     </div>
+
+                     <div id="one">
                      </div>
                      <!-- autometic delegates end -->
 
@@ -200,9 +203,10 @@ function newDoc(id) {
             <div class="footer">
                 
                     <div class="col-md-12">
-                    <button type="submit" class="btn-primary btn">Add</button>
+                    <button type="submit" class="btargetDatetn-primary btn">Add</button>
                                    <!-- <a href="#">Add</a> -->
-                                   <a href="#">Reset</a>
+                                   <input class="btn-primary btn" type="reset" value="Reset">
+                                   <!-- <a href="#">Reset</a> -->
                     </div>
                 
             </div><!-- footer end -->
@@ -227,17 +231,45 @@ function newDoc(id) {
 							document.getElementById("rm"+id).remove();
 					}
 		</script>
-    
+        <script type="text/javascript"> 
+          function newDoc(id) {   
+            var xhttp;    
+            if (id == "") {
+            //document.getElementById("txtHint").innerHTML = "";
+            return;
+            }
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText); 
+                    var data_json = JSON.parse(this.responseText);
+                    console.log(data_json.insidequickwork.length);
+                    document.getElementById("task_name").value = data_json.insidequickwork[0].task;
+                    document.getElementById("task_date").value = data_json.insidequickwork[0].niceDate;
+                    document.getElementById("task_traget_date").value = data_json.insidequickwork[0].targetDate;
+                    document.getElementById("task_priority").value = data_json.insidequickwork[0].priority;
+                    document.getElementById("task_remark").value = data_json.insidequickwork[0].remark;
+                    document.getElementById("task_status").value = data_json.insidequickwork[0].status;
+                    document.getElementById("active").value = data_json.insidequickwork[0].active;
+                    document.getElementById("gm1").value = data_json.insidequickwork[0].delegates_name;
+                    document.getElementById("gm2").value = data_json.insidequickwork[0].delegates_email;
+                    for(var i=0; i<data_json.insidequickwork.length ; i++){
+                        var j = i +1 ;
+                        $('#auto-del').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input type="text" title="Delegate To" name="delegate_to[]" value="'+data_json.insidequickwork[j].delegates_name+'" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input type="text" name="delegate_email[]" value="'+data_json.insidequickwork[j].delegates_email+'"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+
+                    }
+                }
+            };
+                xhttp.open("GET", "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Quickwork/quickworkById/"+id, true);
+                xhttp.send();
+                $('.popup').show(); 
+            }
+
+            
+        </script>
 	
 <?php $this->load->view('footer'); ?>
 
-	 <!-- <script>
-		  
-		function newDoc(id) {
-			//console.log("id ====" ,id);
-			var url = "<?php echo base_url(); ?>Quickwork/daillynote_view/"+id;
-			window.location.assign(url);
-		}
-	</script>  -->
+
 </body>
 </html>

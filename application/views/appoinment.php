@@ -77,7 +77,7 @@
                             <div class="form-group">
                                        <label>Date :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" name="date" title="Date" /></div>
+                                            <div class="form-control"><input type="date" id="task_date" name="date" title="Date" /></div>
                                         </div>
                          </div>
                     </div>
@@ -85,7 +85,7 @@
                             <div class="form-group">
                                        <label>Subject :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" name="task" title="Task" /></div>
+                                            <div class="form-control"><input type="text" id="task_name" name="task" title="Task" /></div>
                                         </div>
                          </div>
                     </div>
@@ -97,7 +97,7 @@
                             <div class="form-group">
                                        <label>Peroidic :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" name="peroidic" title="Date" /></div>
+                                            <div class="form-control"><input type="text" id="appointment_periodic" name="peroidic" title="Date" /></div>
                                         </div>
                          </div>
                     </div>
@@ -105,7 +105,7 @@
                             <div class="form-group">
                                        <label>Travel Time :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" name="travel_time" title="Task" /></div>
+                                            <div class="form-control"><input type="text" id="appointment_travel_time" name="travel_time" title="Task" /></div>
                                         </div>
                          </div>
                     </div>
@@ -118,7 +118,7 @@
                             <div class="form-group">
                                        <label>Target Date</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" name="target_date" title="Target Date" /></div>
+                                            <div class="form-control"><input type="date" id="task_traget_date" name="target_date" title="Target Date" /></div>
                                         </div>
                           </div>
                         
@@ -141,7 +141,7 @@
                                        <label>Remark</label>
                                         <div class="input-group">
                                             <div class="form-control">
-                                               <textarea id="" name="remark" class=""></textarea>
+                                               <textarea id="appointment_remark" name="remark" class=""></textarea>
                                             </div>
                                         </div>
                            
@@ -154,7 +154,7 @@
                             <div class="form-group">
                                        <label>Status</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" name="status" title="Status" /></div>
+                                            <div class="form-control"><input type="text" id="task_status" name="status" title="Status" /></div>
                                         </div>
                            </div>
                     </div>
@@ -163,7 +163,7 @@
                                        <label>Active/Inactive</label>
                                         <div class="input-group">
                                             <div class="form-control">
-                                                <select name="active"><option value='Yes'>Yes</option><option value='No'>No</option></select>
+                                                <select name="active" id="active"><option value='Yes'>Yes</option><option value='No'>No</option></select>
                                             </div>
                                         </div>
                            </div>
@@ -211,7 +211,8 @@
                 
                     <div class="col-md-12">
                     <button type="submit" class="btn-primary btn">Add</button>
-                                   <a href="#">Reset</a>
+                    <input class="btn-primary btn" type="reset" value="Reset">
+                                   <!-- <a href="#">Reset</a> -->
                     </div>
                 
             </div><!-- footer end -->
