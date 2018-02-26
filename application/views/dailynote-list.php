@@ -53,6 +53,17 @@
     </div><!-- dailly index panel end --> 
 	
      <br /><br /><br />
+            <!-- ********************pagination code***************************  -->
+
+            <div id="container">
+
+    <div id="body">
+
+
+
+        <p><?php echo $links; ?></p>
+
+    </div>
 
 
     <div style="height:50px;"></div>

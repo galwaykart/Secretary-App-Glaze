@@ -1,10 +1,39 @@
 <?php
 class Appointment_model extends CI_model{
-    public function getAppointmentList(){
-        $query = $this->db->get("appointment"); 
-        $list_daily_notes = $query->result();
-         //print_r($list_daily_notes);
-        return $list_daily_notes;
+
+    public function record_count() {
+        
+              return $this->db->count_all("appointment");
+              
+        
+          }
+
+
+    public function getAppointmentList($limit, $start){
+        $this->db->limit($limit, $start);
+        
+              $query = $this->db->get("appointment");
+        
+        
+        
+              if ($query->num_rows() > 0) {
+        
+                  foreach ($query->result() as $row) {
+        
+                      $data[] = $row;
+        
+                  }
+        
+                  return $data;
+        
+              }
+        
+              return false;
+
+        // $query = $this->db->get("appointment"); 
+        // $list_daily_notes = $query->result();
+        //  //print_r($list_daily_notes);
+        // return $list_daily_notes;
 
     }
 
