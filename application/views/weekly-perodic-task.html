@@ -1,0 +1,1391 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>weekly Perodic Task</title>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootsnip.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet"/>
+      <script src="js/float-panel.js"></script>
+    <script src="js/accordion-menu.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body class="body style-6"><!-- body tag start -->
+   <!-- globle header for comman start --> 
+
+    <header id="sec-header">
+        <div id="toggle-btn-box">
+                <span id="bar" class="fa fa-bars" >
+                   <!-- <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three"></div>-->
+                </span>
+            <span id="close">&times</span>
+        </div>
+        <img src="img/galway_logo.png" alt="logo" id="img"/>
+        <h1>Secratory App</h1>
+        <div class="rigth-log-box">
+
+            <div class="inner">
+                        <p class="person-name">vishal rathour</p>
+                        <img src="img/person.png" alt="person image" id="per-img" class="log-popup"/>
+
+            </div>
+
+        </div>
+         <div class="log-up-body">
+           <ul>
+               <li><a href="#">Profile</a></li>
+                <li><a href="#">Setting</a></li>
+                <li><a href="#">LogOut</a></li>
+           </ul>
+        </div>
+    </header>
+
+    <aside class="aside-left" id="aside">
+                <div id="accordion">
+                    <ul>
+                        <li>
+                            <div>Registration</div>
+                            <ul>
+                                <li><a href="registration.html">Registration</a></li>
+                                <li><a href="?12">Dolor sit</a></li>
+                                <li>
+                                    <div>Commodo Rhoncus</div>
+                                    <ul>
+                                        <li><a href="demo.html">Current</a></li>
+                                        <li><a href="?132">Consectetur</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div>Quis Porttitor</div>
+                            <ul>
+                                <li><a href="?21">Finibus Bonorum</a></li>
+                                <li><a href="?22">Sed ut</a></li>
+                                <li><a href="?23">Neque porro</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div>Odio Ac</div>
+                            <ul>
+                                <li><a href="?31">Minima veniam</a></li>
+                                <li><a href="?32">Voluptate velit</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="?4">Sapien quam</a>
+                        </li>
+                    </ul>
+                </div>
+    </aside>
+
+    <!-- user View design page start -->
+    <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Weekly Periodic</p></div>
+    <div class="clear"></div>
+    <div class="monthly-periodic-task-sheet"><!-- monthly periodic panel start -->
+              <h2 id="paddin-left">Weekly Periodic </h2>
+              <a href="#" id="" class="perdoci-task-add-btn"><span class="fa fa-plus" ></span>Add</a>
+                <!--search button start-->
+                        <div class="search-btn-perodic">
+                            <input type="text" value="" placeholder="Search Task"/><button><span class="fa fa-search"></span></button>
+
+                        </div>
+                <!--search button end-->
+              <div class="tabordion">
+                          <section id="section1">
+                                        <input type="radio" name="sections" id="option1" checked>
+                                        <label for="option1">January</label>
+                                        <article>
+                                                     <h2>January 2019 Weekly Task</h2>
+                                                       <!-- january weekly tabs start -->
+                                                                <div class="tab monthly-tabs">
+                                                                          <button class="tablinks active bb1" onclick="openTabs(event, 'weekone')">Week One</button>
+                                                                          <button class="tablinks  bb2" onclick="openTabs(event, 'weektwo')">Week Two</button>
+                                                                          <button class="tablinks  bb3" onclick="openTabs(event, 'weekthree')">Week Three</button>
+                                                                          <button class="tablinks  bb4" onclick="openTabs(event, 'weekfour')">Week Four</button>
+                                                                         
+                                                                </div>
+                                                                <div id="weekone" class="tabcontent"style="display:block;">
+                                                                    <br />
+                                                                    <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="weektwo" class="tabcontent">
+                                                                    <br />
+                                                                                <div class="table-res">
+                                                                                        <table class="">
+                                                                                             <thead>
+                                                                                                 <tr>
+                                                                                                     <th>SR NO</th>
+                                                                                                     <th>Day</th>
+                                                                                                     <th>Time</th>
+                                                                                                     <th>End Date</th>
+                                                                                                     <th>Task</th>
+                                                                                                     <th>Delegate To</th>
+                                                                                                     <th>Supervised By</th>
+                                                                                                     <th>remarks</th>
+                                                                                                     <th>Active / Inactive</th>
+
+                                                                                                 </tr>
+                                                                                             </thead>
+                                                                                              <tbody>
+                                                                                                  <tr>
+                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                                  </tr>
+                                                                                                   <tr>
+                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                                  </tr>
+                                                                                                  <tr>
+                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                                  </tr>
+                                                                                                  <tr>
+                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                                  </tr>
+                                                                                              </tbody>
+                                                                                        </table>
+                                                                                </div>
+                                                                </div>
+                                                                <div id="weekthree" class="tabcontent">
+                                                                    <br />
+                                                                               <div class="table-res">
+                                                                                    <table class="">
+                                                                                         <thead>
+                                                                                             <tr>
+                                                                                                 <th>SR NO</th>
+                                                                                                 <th>Day</th>
+                                                                                                 <th>Time</th>
+                                                                                                 <th>End Date</th>
+                                                                                                 <th>Task</th>
+                                                                                                 <th>Delegate To</th>
+                                                                                                 <th>Supervised By</th>
+                                                                                                 <th>remarks</th>
+                                                                                                 <th>Active / Inactive</th>
+
+                                                                                             </tr>
+                                                                                         </thead>
+                                                                                          <tbody>
+                                                                                              <tr>
+                                                                                                  <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                              </tr>
+                                                                                               <tr>
+                                                                                                  <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                              </tr>
+                                                                                              <tr>
+                                                                                                  <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                              </tr>
+                                                                                              <tr>
+                                                                                                  <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                              </tr>
+                                                                                          </tbody>
+                                                                                    </table>
+                                                                         </div>
+                                                                </div>
+                                                                <div id="weekfour" class="tabcontent">
+                                                                    <br />
+                                                                                <div class="table-res">
+                                                                                        <table class="">
+                                                                                             <thead>
+                                                                                                 <tr>
+                                                                                                     <th>SR NO</th>
+                                                                                                     <th>Day</th>
+                                                                                                     <th>Time</th>
+                                                                                                     <th>End Date</th>
+                                                                                                     <th>Task</th>
+                                                                                                     <th>Delegate To</th>
+                                                                                                     <th>Supervised By</th>
+                                                                                                     <th>remarks</th>
+                                                                                                     <th>Active / Inactive</th>
+
+                                                                                                 </tr>
+                                                                                             </thead>
+                                                                                              <tbody>
+                                                                                                  <tr>
+                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                                  </tr>
+                                                                                                   <tr>
+                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                                  </tr>
+                                                                                                  <tr>
+                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                                  </tr>
+                                                                                                  <tr>
+                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                                  </tr>
+                                                                                              </tbody>
+                                                                                        </table>
+                                                                             </div>
+                                                                </div>
+
+                                                     <!-- january weekly tabs ends -->
+                                                   
+                             
+                                        </article>
+                          </section>
+                          <section id="section2">
+                                        <input type="radio" name="sections" id="option2">
+                                        <label for="option2">Febuary</label>
+                                        <article>
+                                                  <h2>Febuary 2019 Weekly Task</h2>
+                                                      <!-- january weekly tabs start -->
+                                                                <div class="tab monthly-tabs">
+                                                                          <button class="tablinks active bb1" onclick="openTabs(event, 'Div1')">Week One</button>
+                                                                          <button class="tablinks  bb2" onclick="openTabs(event, 'Div2')">Week Two</button>
+                                                                          <button class="tablinks  bb3" onclick="openTabs(event, 'Div3')">Week Three</button>
+                                                                          <button class="tablinks  bb4" onclick="openTabs(event, 'Div4')">Week Four</button>
+                                                                         
+                                                                </div>
+                                                                <div id="Div1" class="tabcontent"style="display:block;">
+                                                                    <br />
+                                                                         <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div2" class="tabcontent">
+                                                                    <br />
+                                                                             <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div3" class="tabcontent">
+                                                                    <br />
+                                                                            <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div4" class="tabcontent">
+                                                                    <br />
+                                                                            <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+
+                                                     <!-- january weekly tabs ends -->
+                                                  
+                                        </article>
+                          </section>
+                          <section id="section3">
+                                        <input type="radio" name="sections" id="option3">
+                                        <label for="option3">March</label>
+                                        <article>
+                                                        <h2>March 2019 Weekly Task</h2>
+                                                          <!-- january weekly tabs start -->
+                                                                <div class="tab monthly-tabs">
+                                                                          <button class="tablinks active bb1" onclick="openTabs(event, 'Div5')">Week One</button>
+                                                                          <button class="tablinks  bb2" onclick="openTabs(event, 'Div6')">Week Two</button>
+                                                                          <button class="tablinks  bb3" onclick="openTabs(event, 'Div7')">Week Three</button>
+                                                                          <button class="tablinks  bb4" onclick="openTabs(event, 'Div8')">Week Four</button>
+                                                                         
+                                                                </div>
+                                                                <div id="Div5" class="tabcontent"style="display:block;">
+                                                                    <br />
+                                                                         <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div6" class="tabcontent">
+                                                                    <br />
+                                                                            <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div7" class="tabcontent">
+                                                                    <br />
+                                                                            <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div8" class="tabcontent">
+                                                                    <br />
+                                                                            <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+
+                                                     <!-- january weekly tabs ends -->
+                                                        
+                                        </article>
+                          </section>
+                          <section id="section4">
+                                        <input type="radio" name="sections" id="option4">
+                                        <label for="option4">April</label>
+                                        <article>
+                                                            <h2>April 2019 Weekly Task</h2>
+                                                              <!-- january weekly tabs start -->
+                                                                <div class="tab monthly-tabs">
+                                                                          <button class="tablinks active bb1" onclick="openTabs(event, 'Div9')">Week One</button>
+                                                                          <button class="tablinks  bb2" onclick="openTabs(event, 'Div10')">Week Two</button>
+                                                                          <button class="tablinks  bb3" onclick="openTabs(event, 'Div11')">Week Three</button>
+                                                                          <button class="tablinks  bb4" onclick="openTabs(event, 'Div12')">Week Four</button>
+                                                                         
+                                                                </div>
+                                                                <div id="Div9" class="tabcontent"style="display:block;">
+                                                                    <br />
+                                                                           <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div10" class="tabcontent">
+                                                                    <br />
+                                                                             <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div11" class="tabcontent">
+                                                                    <br />
+                                                                            <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div12" class="tabcontent">
+                                                                    <br />
+                                                                            <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+
+                                                     <!-- january weekly tabs ends -->
+                                                            
+                                                              
+                            
+                                        </article>
+                          </section>
+                          <section id="section5">
+                                                <input type="radio" name="sections" id="option5">
+                                                <label for="option5">May</label>
+                                                <article>
+                                                            <h2>May 2019 Weekly Task</h2>
+                                                              <!-- january weekly tabs start -->
+                                                                <div class="tab monthly-tabs">
+                                                                          <button class="tablinks active bb1" onclick="openTabs(event, 'Div13')">Week One</button>
+                                                                          <button class="tablinks  bb2" onclick="openTabs(event, 'Div14')">Week Two</button>
+                                                                          <button class="tablinks  bb3" onclick="openTabs(event, 'Div15')">Week Three</button>
+                                                                          <button class="tablinks  bb4" onclick="openTabs(event, 'Div16')">Week Four</button>
+                                                                         
+                                                                </div>
+                                                                <div id="Div13" class="tabcontent"style="display:block;">
+                                                                    <br />
+                                                                            <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div14" class="tabcontent">
+                                                                    <br />
+                                                                            <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div15" class="tabcontent">
+                                                                    <br />
+                                                                            <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div16" class="tabcontent">
+                                                                    <br />
+                                                                            <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+
+                                                     <!-- january weekly tabs ends -->
+                                                           
+                            
+                                                </article>
+                          </section>
+                          <section id="section6">
+                                                <input type="radio" name="sections" id="option6">
+                                                <label for="option6">June</label>
+                                                <article>
+                                                              <h2>June 2019 Weekly Task</h2>
+                                                                  <!-- january weekly tabs start -->
+                                                                <div class="tab monthly-tabs">
+                                                                          <button class="tablinks active bb1" onclick="openTabs(event, 'Div17')">Week One</button>
+                                                                          <button class="tablinks  bb2" onclick="openTabs(event, 'Div18')">Week Two</button>
+                                                                          <button class="tablinks  bb3" onclick="openTabs(event, 'Div19')">Week Three</button>
+                                                                          <button class="tablinks  bb4" onclick="openTabs(event, 'Div20')">Week Four</button>
+                                                                         
+                                                                </div>
+                                                                <div id="Div17" class="tabcontent"style="display:block;">
+                                                                    <br />
+                                                                           <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div18" class="tabcontent">
+                                                                    <br />
+                                                                           <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div19" class="tabcontent">
+                                                                    <br />
+                                                                             <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+                                                                <div id="Div20" class="tabcontent">
+                                                                    <br />
+                                                                            <div class="table-res">
+                                                                            <table class="">
+                                                                                 <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <th>Delegate To</th>
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                       <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                      <tr>
+                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
+                                                                                      </tr>
+                                                                                  </tbody>
+                                                                            </table>
+                                                                </div>
+                                                                </div>
+
+                                                     <!-- january weekly tabs ends -->
+                                                              
+                                                </article>
+                          </section>
+                          <section id="section7">
+                                                        <input type="radio" name="sections" id="option7">
+                                                        <label for="option7">July</label>
+                                                        <article>
+                                                              <h2>July 2019 Weekly Task</h2>
+                                                                 <!-- january weekly tabs start -->
+                                                                <div class="tab monthly-tabs">
+                                                                          <button class="tablinks active bb1" onclick="openTabs(event, 'Div21')">Week One</button>
+                                                                          <button class="tablinks  bb2" onclick="openTabs(event, 'Div22')">Week Two</button>
+                                                                          <button class="tablinks  bb3" onclick="openTabs(event, 'Div23')">Week Three</button>
+                                                                          <button class="tablinks  bb4" onclick="openTabs(event, 'Div24')">Week Four</button>
+                                                                         
+                                                                </div>
+                                                                <div id="Div21" class="tabcontent"style="display:block;">
+                                                                     <table>
+                                                                         <thead></thead>
+                                                                     </table>
+                                                                </div>
+                                                                <div id="Div22" class="tabcontent">
+                                                                    two
+                                                                </div>
+                                                                <div id="Div23" class="tabcontent">
+                                                                    three
+                                                                </div>
+                                                                <div id="Div24" class="tabcontent">
+                                                                    four
+                                                                </div>
+
+                                                     <!-- january weekly tabs ends -->
+                                                              
+                                                        </article>
+                          </section>
+                          <section id="section8">
+                                                        <input type="radio" name="sections" id="option8">
+                                                        <label for="option8">Augest</label>
+                                                        <article>
+                                                            <h2>Augest 2019 Weekly Task</h2>
+                                                              <!-- january weekly tabs start -->
+                                                                <div class="tab monthly-tabs">
+                                                                          <button class="tablinks active bb1" onclick="openTabs(event, 'Div25')">Week One</button>
+                                                                          <button class="tablinks  bb2" onclick="openTabs(event, 'Div26')">Week Two</button>
+                                                                          <button class="tablinks  bb3" onclick="openTabs(event, 'Div27')">Week Three</button>
+                                                                          <button class="tablinks  bb4" onclick="openTabs(event, 'Div28')">Week Four</button>
+                                                                         
+                                                                </div>
+                                                                <div id="Div25" class="tabcontent"style="display:block;">
+                                                                     <table>
+                                                                         <thead></thead>
+                                                                     </table>
+                                                                </div>
+                                                                <div id="Div26" class="tabcontent">
+                                                                    two
+                                                                </div>
+                                                                <div id="Div27" class="tabcontent">
+                                                                    three
+                                                                </div>
+                                                                <div id="Div28" class="tabcontent">
+                                                                    four
+                                                                </div>
+
+                                                     <!-- january weekly tabs ends -->
+                                                        </article>
+                          </section>
+                          <section id="section9">
+                                                        <input type="radio" name="sections" id="option9">
+                                                        <label for="option9">Sepetmber</label>
+                                                        <article>
+                                                             <h2>Sepetmber 2019 Weekly Task</h2>
+                                                               <!-- january weekly tabs start -->
+                                                                <div class="tab monthly-tabs">
+                                                                          <button class="tablinks active bb1" onclick="openTabs(event, 'weekone')">Week One</button>
+                                                                          <button class="tablinks  bb2" onclick="openTabs(event, 'weektwo')">Week Two</button>
+                                                                          <button class="tablinks  bb3" onclick="openTabs(event, 'weekthree')">Week Three</button>
+                                                                          <button class="tablinks  bb4" onclick="openTabs(event, 'weekfour')">Week Four</button>
+                                                                         
+                                                                </div>
+                                                                <div id="Div29" class="tabcontent"style="display:block;">
+                                                                     <table>
+                                                                         <thead></thead>
+                                                                     </table>
+                                                                </div>
+                                                                <div id="Div30" class="tabcontent">
+                                                                    two
+                                                                </div>
+                                                                <div id="Div31" class="tabcontent">
+                                                                    three
+                                                                </div>
+                                                                <div id="Div32" class="tabcontent">
+                                                                    four
+                                                                </div>
+
+                                                     <!-- january weekly tabs ends -->
+                                                     
+                                                        </article>
+                          </section>
+                          <section id="section10">
+                                                        <input type="radio" name="sections" id="option10">
+                                                        <label for="option10">October</label>
+                                                        <article>
+                                                             <h2>October 2019 Weekly Task</h2>
+                                                               <!-- january weekly tabs start -->
+                                                                <div class="tab monthly-tabs">
+                                                                          <button class="tablinks active bb1" onclick="openTabs(event, 'weekone')">Week One</button>
+                                                                          <button class="tablinks  bb2" onclick="openTabs(event, 'weektwo')">Week Two</button>
+                                                                          <button class="tablinks  bb3" onclick="openTabs(event, 'weekthree')">Week Three</button>
+                                                                          <button class="tablinks  bb4" onclick="openTabs(event, 'weekfour')">Week Four</button>
+                                                                         
+                                                                </div>
+                                                                <div id="Div33" class="tabcontent"style="display:block;">
+                                                                     <table>
+                                                                         <thead></thead>
+                                                                     </table>
+                                                                </div>
+                                                                <div id="Div34" class="tabcontent">
+                                                                    two
+                                                                </div>
+                                                                <div id="Div35" class="tabcontent">
+                                                                    three
+                                                                </div>
+                                                                <div id="Div36" class="tabcontent">
+                                                                    four
+                                                                </div>
+
+                                                     <!-- january weekly tabs ends -->
+                            
+                                                        </article>
+                          </section>
+                          <section id="section11">
+                                                        <input type="radio" name="sections" id="option11">
+                                                        <label for="option11">November</label>
+                                                        <article>
+                                                              <h2>November 2019 Weekly Task</h2>
+                                                                <!-- january weekly tabs start -->
+                                                                <div class="tab monthly-tabs">
+                                                                          <button class="tablinks active bb1" onclick="openTabs(event, 'weekone')">Week One</button>
+                                                                          <button class="tablinks  bb2" onclick="openTabs(event, 'weektwo')">Week Two</button>
+                                                                          <button class="tablinks  bb3" onclick="openTabs(event, 'weekthree')">Week Three</button>
+                                                                          <button class="tablinks  bb4" onclick="openTabs(event, 'weekfour')">Week Four</button>
+                                                                         
+                                                                </div>
+                                                                <div id="Div37" class="tabcontent"style="display:block;">
+                                                                     <table>
+                                                                         <thead></thead>
+                                                                     </table>
+                                                                </div>
+                                                                <div id="Div38" class="tabcontent">
+                                                                    two
+                                                                </div>
+                                                                <div id="Div39" class="tabcontent">
+                                                                    three
+                                                                </div>
+                                                                <div id="Div40" class="tabcontent">
+                                                                    four
+                                                                </div>
+
+                                                     <!-- january weekly tabs ends -->
+                            
+                                                        </article>
+                          </section>
+                          <section id="section12">
+                                                        <input type="radio" name="sections" id="option12">
+                                                        <label for="option12">December</label>
+                                                        <article>
+                                                              <h2>December 2019 Weekly Task</h2>
+                                                                <!-- january weekly tabs start -->
+                                                                <div class="tab monthly-tabs">
+                                                                          <button class="tablinks active bb1" onclick="openTabs(event, 'weekone')">Week One</button>
+                                                                          <button class="tablinks  bb2" onclick="openTabs(event, 'weektwo')">Week Two</button>
+                                                                          <button class="tablinks  bb3" onclick="openTabs(event, 'weekthree')">Week Three</button>
+                                                                          <button class="tablinks  bb4" onclick="openTabs(event, 'weekfour')">Week Four</button>
+                                                                         
+                                                                </div>
+                                                                <div id="Div41" class="tabcontent"style="display:block;">
+                                                                            
+                                                                </div>
+                                                                <div id="Div42" class="tabcontent">
+                                                                    two
+                                                                </div>
+                                                                <div id="Div43" class="tabcontent">
+                                                                    three
+                                                                </div>
+                                                                <div id="Div44" class="tabcontent">
+                                                                    four
+                                                                </div>
+
+                                                     <!-- january weekly tabs ends -->
+                            
+                                                        </article>
+                          </section>
+                    </div><!-- verticle tabs end -->
+
+        
+
+
+
+    </div><!-- monthly periodic panel end -->
+  
+    
+      <!-- popup start -->
+
+          <div class="popup">
+            <div class="header">
+                <h3>Project Delegation Sheet- <span id="work">Add</span></h3>
+                <span id="close-popup"  title="Close">&times;</span>
+            </div>
+            <div class="content"><!-- content start -->
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                       <label>Time :</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><input type="time" title="Time" /></div>
+                                        </div>
+                         </div>
+                    </div>
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                       <label>Work :</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><input type="text" title="Work" /></div>
+                                        </div>
+                         </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                  <div class="col-md-12">
+                   
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                       <label>End Date :</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><input type="date" title="End Date" /></div>
+                                        </div>
+                          </div>
+                        
+                    </div>
+                      <div class="col-md-6">
+                           <div class="form-group">
+                                       <label>Active/Inactive</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><select>
+                                                    <option>Select Status</option>
+                                                    <option value="Active">Active</option>
+                                                    <option value="Inactive">Inacive</option>
+                                                </select></div>
+                                        </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                
+                
+              
+            
+                
+              
+                <div class="clear"></div>
+                 <div class="col-md-12">
+                   
+                            <div class="form-group">
+                                       <label>Remark</label>
+                                        <div class="input-group">
+                                            <div class="form-control">
+                                               <textarea id="Textarea1" class=""></textarea>
+                                            </div>
+                                        </div>
+                           
+                    </div>
+                </div>
+                     
+                
+
+                     <!-- autometic delegates start -->
+                     <div class="auto-del">
+                                 <div class="left">
+                                     <div class="form-group">
+                                       <label>Delegate To</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><input type="text" title="Delegate To" /></div>
+                                        </div>
+                                  </div>
+
+                                 </div>
+                                 <div class="center">
+                                         <div class="form-group">
+                                               <label>Email Id</label>
+                                                <div class="input-group">
+                                                    <div class="form-control">
+                                                        <input type="text" />
+                                                    </div>
+                                                </div>
+                                        </div>
+                                 </div>
+                                 <div class="right text-center">
+                                            <div class="btn-group">
+                                                    <a href="#" class="" id="A1"><span class="fa fa-plus" ></span></a>
+                                            </div>
+                                 </div>
+
+                             </div>
+                     <!-- autometic delegates end -->
+
+                </div>
+               
+                </div>
+                <div class="clear"></div>
+    
+
+
+   
+       
+     <br /><br /><br />
+    <div style="height:50px;"></div>
+    <footer id="footer">
+        <p>&copy; Copyright By Glaze India Pvt. Ltd.</p>
+    </footer>
+
+
+     <!-- globle header for comman end --> 
+   
+    <script>
+        function openTabs(evt, Name) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(Name).style.display = "block";
+            evt.currentTarget.className += " active";
+
+        }
+        $('.perdoci-task-add-btn').on('click', function () { $('.popup').css('display', 'block'); });
+        $('#close-popup').on('click', function () { $('.popup').css('display', 'none'); });
+
+    </script>
+</body>
+</html>
