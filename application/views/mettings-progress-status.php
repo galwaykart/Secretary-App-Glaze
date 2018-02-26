@@ -45,7 +45,7 @@
 <script>
   function newDoc(id) {
    // console.log("id ====" ,id);
-    var url = "http://localhost/Secretary-App-Glaze/indexmeeting/metting_info/"+id;
+    var url = "<?php echo base_url(); ?>/indexmeeting/metting_info/"+id;
     window.location.assign(url);
 }
 </script>

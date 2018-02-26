@@ -216,12 +216,6 @@ class Indexmeeting_model extends CI_model{
         return $query->result();
         }
 		
-		public function agenda($aid){
-		$this->db->select('agenda_name');
-        $this->db->from('index_meeting_agenda');
-        $this->db->where('agenda_id',$aid);
-		$query = $this->db->get();
-        return $query->result();
-		}
+
 
 }
