@@ -22,12 +22,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | If you need to allow multiple domains, remember that this file is still
 | a PHP script and you can easily do that on your own.
 |
-*/
-<<<<<<< HEAD
+
 $config['base_url'] = 'http://localhost/Secretary-App-Glaze/';
-=======
-$config['base_url'] = 'http://192.168.10.32/Secretary-App-Glaze/';
->>>>>>> 733d3ad2b43d9729817bb7b1f77fe2858bcc095b
+
+
 
 /*
 |--------------------------------------------------------------------------

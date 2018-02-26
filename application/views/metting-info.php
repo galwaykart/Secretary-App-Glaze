@@ -360,7 +360,6 @@
 		</form>
 			
 	  	
-<<<<<<< HEAD
 		
 		<script type = 'text/javascript'>
 
@@ -377,30 +376,13 @@
 				   add(data.message); 
 				   
 				    console.log(data.message);
-=======
-	 <script>
- 
-		   $("#search").autocomplete({
-			minLength: 1,
-			source: function(req, add){  
-			$.ajax({
-				url: '<?php echo base_url(); ?>/indexmeeting/get_agenda', //Controller where search is performed
-				dataType: 'json',
-				type: 'POST',
-				data: 'agenda='+$("#search").val(),
-				success: function(data){
-					if(data.response =='true'){
-					   add(data.message); 
-					   
-						console.log(data.message);
-					}
-					else {add(data.message).text("No found");}
->>>>>>> 733d3ad2b43d9729817bb7b1f77fe2858bcc095b
 				}
-			});
-		 }
-	  });                 
-	</script>
+				else {add(data.message).text("No found");}
+			}
+		});
+	 }
+  });                 
+</script>
 	 
     <script type="text/javascript"> 
 	
