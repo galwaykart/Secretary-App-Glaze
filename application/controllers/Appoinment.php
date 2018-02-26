@@ -21,6 +21,29 @@
 				$this->load->view("login");
 			}
 		}
+
+		public function appointment_view(){  
+			$this->load->model('Appointment_model');
+			
+			if($this->session->user == 'logged_in'){
+				
+				if($this->uri->segment(3)){
+					//echo $this->uri->segment(3);
+					$record_id =$this->uri->segment(3); 
+					$listOfDataById['insidequickwork']	= $this->Appointment_model->getAppointmentById($record_id);
+					echo json_encode($listOfDataById);
+					//$this->load->view('daillynote-view',$listOfDataById);
+
+				}
+				else{
+					$listOfData['insidequickwork'] = array();
+					//$this->load->view('daillynote-view',$listOfData);
+				}
+				
+			}else{
+				$this->load->view("login");
+			}
+		}
 		
 		
 		public function req(){
@@ -42,8 +65,6 @@
 					'appointment_travel_time'=>$this->input->post('travel_time'),
 					'appointment_status'=>$this->input->post('status'),
 					'appointment_active'=>$this->input->post('active'),
-
-
 				   );
 
 				   $data[1] = array(
@@ -55,14 +76,16 @@
 				    print_r($data);
 				
 				//print_r($data[1]);
-				// if($this->uri->segment(3)){
-				// 	$this->Daillynote_model->updateDailyNotes($data , $record_id);
-				// 	redirect('Daillynote');
+				if($this->uri->segment(3)){
+					echo "i am in updation of record";
+					$this->Appointment_model->updateAppointment($data , $record_id);
+					redirect('Appoinment');
 					
-				// }else{
+				 }else{
+					 echo "i am in addition of record";
 				 	$this->Appointment_model->addAppointment($data);
 					redirect('Appoinment');
-				// }
+				}
 				
 				// }else {
 				// 	echo "no request made with post method";

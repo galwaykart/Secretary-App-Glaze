@@ -22,9 +22,32 @@
 				$this->load->view("login");
 			}
 		} 		
+		// public function quickwork_view(){  
+		// 	if($this->session->user == 'logged_in'){
+		// 		$this->load->view('quick-view');
+		// 	}else{
+		// 		$this->load->view("login");
+		// 	}
+		// }
+
 		public function quickwork_view(){  
+			$this->load->model('Quickwork_model');
+			
 			if($this->session->user == 'logged_in'){
-				$this->load->view('quick-view');
+				
+				if($this->uri->segment(3)){
+					//echo $this->uri->segment(3);
+					$record_id =$this->uri->segment(3); 
+					$listOfDataById['insidequickwork']	= $this->Quickwork_model->getQuickworkByList($record_id);
+					echo json_encode($listOfDataById);
+					//$this->load->view('daillynote-view',$listOfDataById);
+
+				}
+				else{
+					$listOfData['insidequickwork'] = array();
+					//$this->load->view('daillynote-view',$listOfData);
+				}
+				
 			}else{
 				$this->load->view("login");
 			}
@@ -62,14 +85,17 @@
 				    print_r($data);
 				
 				//print_r($data[1]);
-				// if($this->uri->segment(3)){
-				// 	$this->Daillynote_model->updateDailyNotes($data , $record_id);
-				// 	redirect('Daillynote');
+				//echo $this->uri->segment(3);
+				 if($this->uri->segment(3)){
+					 echo "I am in updation";
+				 	$this->Quickwork_model->updateQuickwork($data , $record_id);
+				 	redirect('Quickwork');
 					
-				// }else{
+				 }else{
+					echo "I am in addition";
 				 	$this->Quickwork_model->addQuickwork($data);
-				// 	redirect('Daillynote');
-				// }
+				 	redirect('Quickwork');
+				 }
 				
 				// }else {
 				// 	echo "no request made with post method";
