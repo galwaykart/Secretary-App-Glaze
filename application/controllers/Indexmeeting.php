@@ -56,16 +56,7 @@
 				
 		} 
 		
-		public function meeting(){
-			if($this->session->user == 'logged_in'){
-			$aid= $this->uri->segment(3);
-			//print_r($id);
-			$data['fetch'] = $this->Indexmeeting_model->agenda($aid);
-		    $this->load->view('metting-info',$data);
-			}else{
-				$this->load->view("login");
-			}	
-		}
+
 		
 		public function insert_meeting(){
 		$record_id =$this->uri->segment(3); 
