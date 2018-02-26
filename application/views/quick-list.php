@@ -249,7 +249,7 @@
                     document.getElementById("active").value = data_json.insidequickwork[0].active;
                     document.getElementById("gm1").value = data_json.insidequickwork[0].delegates_name;
                     document.getElementById("gm2").value = data_json.insidequickwork[0].delegates_email;
-                    document.getElementById("myForm").action = "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Quickwork/req/"+data_json.insidequickwork[0].quick_work_id;
+                    document.getElementById("myForm").action = "<?php echo base_url(); ?>Quickwork/req/"+data_json.insidequickwork[0].quick_work_id;
                     
                     for(var i=0; i<data_json.insidequickwork.length ; i++){
                         var j = i +1 ;
@@ -258,7 +258,7 @@
                     }
                 }
             };
-                xhttp.open("GET", "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Quickwork/quickwork_view/"+id, true);
+                xhttp.open("GET", "<?php echo base_url(); ?>Quickwork/quickwork_view/"+id, true);
                 xhttp.send();
                 $('.popup').show(); 
             }
