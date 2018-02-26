@@ -134,7 +134,7 @@
 																									 
                                                      <div class="col-md-2">
                                                             <div class="btn-group margin-top" style="text-align:center">
-															  <a href="#" class="ad btn-primary btn">Add Participate</a>
+															  <a href="#" class="ad btn-primary btn" id="add1">Add Participate</a>
 																	
 																	&nbsp;&nbsp;
                                                                    <!-- <a  href="#" class=" btn btn-eror  "  >Reset</a> -->
@@ -183,7 +183,7 @@
                                                      </div> 
 													 <div class="col-md-2" class="RegSpLeft">								 
 													     <div class="btn-group margin-top" style="text-align:center">
-															<a href="#"  onclick="setValues(<?php echo $i; ?>)"  class="ad btn-eror btn">Delete</a>
+															<a href="#"  onclick="setValues(<?php echo $i; ?>)"  class="ad1 btn-eror btn">Delete</a>
 														 </div>
 													 </div>
 													  <!-- end foreach-->
@@ -268,13 +268,13 @@
 													 </div>
 													<div class="body-input-tabs">
 														<div class="col-md-3"> <label>Delegate To : </label></div>
-														 <div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]" value="<?php if($fetch){ echo $fetch->delegated_dept;} ?>"/></div>
+														 <div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]" value="<?php if($fetch){ echo $fetch[0]->delegated_dept;} ?>"/></div>
 					
 														<div class="col-md-3"><input type="text"  placeholder="Employee" required name="delegated_name[]" value="<?php if($fetch){ echo $fetch[0]->delegated_name;} ?>"/></div>
 													 </div>
 													 <div class="body-input-tabs">
 														 <div class="col-md-3"> <label>Target Date : </label></div>
-														  <div class="col-md-9"><input type="date" required name="targetdate[]" /></div>
+														  <div class="col-md-9"><input type="date" required name="targetdate[]" value="<?php if($fetch){ echo $fetch[0]->targetdate;} ?>"/></div>
 													 </div>
 													 
 												</div>
@@ -289,8 +289,10 @@
 									</div>
 							</div>
 							
-							<?php $i = 0; foreach($fetch as $record){	 
-														  if($i != '0'){  ?>
+							<?php $j = 0; foreach($fetch as $record){	 
+														  if($j != '0'){  ?>
+														  <div class="clear">
+														  <div id="rm1<?php echo $j; ?>" class="customclass1"> 
 									<div class="canclution-inner-body  col-md-6">
 													 <div class="body-input-tabs">
 														<div class="col-md-3">  <label>Conclusion of Meeting : </label></div>
@@ -311,23 +313,24 @@
 													 </div>
 													<div class="body-input-tabs">
 														<div class="col-md-3"> <label>Delegate To : </label></div>
-														 <div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]"/></div>
+														 <div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]" value="<?php if($record){ echo $record->delegated_dept;} ?>"/></div>
 					
 														<div class="col-md-3"><input type="text"  placeholder="Employee" required name="delegated_name[]" value="<?php if($record){ echo $record->delegated_name;} ?>"/></div>
 													 </div>
 													 <div class="body-input-tabs">
 														 <div class="col-md-3"> <label>Target Date : </label></div>
-														  <div class="col-md-9"><input type="date" required name="targetdate[]" /></div>
+														  <div class="col-md-9"><input type="date" required name="targetdate[]" value="<?php if($record){ echo $record->targetdate;} ?>" /></div>
 													 </div>
 													 
 												</div>
 													<div class="col-md-2" class="RegSpLeft">								 
 													     <div class="btn-group margin-top" style="text-align:center">
-															<a href="#"  onclick="setValues(<?php echo $i; ?>)"  class="ad btn-eror btn">Delete</a>
+															<a href="#"  onclick="setValues1(<?php echo $j; ?>)"  class=" btn-eror btn">Delete</a>
 														 </div>
 													 </div>												
+													 </div>												
 							<?php } 
-							 $i++; } ?>
+							 $j++; } ?>
 						
 						</div>
 					</div>
@@ -349,7 +352,7 @@
 		minLength: 1,
 		source: function(req, add){  
 		$.ajax({
-			url: 'http://localhost/Secretary-App-Glaze/indexmeeting/get_agenda', //Controller where search is performed
+			url: '<?php ?>/indexmeeting/get_agenda', //Controller where search is performed
 			dataType: 'json',
 			type: 'POST',
 			data: 'agenda='+$("#search").val(),

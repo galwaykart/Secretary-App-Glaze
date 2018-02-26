@@ -352,7 +352,7 @@
 		minLength: 1,
 		source: function(req, add){  
 		$.ajax({
-			url: 'http://localhost/Secretary-App-Glaze/indexmeeting/get_agenda', //Controller where search is performed
+			url: '<?php echo base_url(); ?>/indexmeeting/get_agenda', //Controller where search is performed
 			dataType: 'json',
 			type: 'POST',
 			data: 'agenda='+$("#search").val(),
