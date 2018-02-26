@@ -7,6 +7,8 @@
     margin: 5% auto;
     overflow-x: hidden;
 }
+input , select , textarea {color:grey;}
+textarea:focus {outline:0;}
 .form-group .input-group .input-addon span {color: #002653;
 }
 .table-res {width:100%;overflow:auto;}
@@ -191,19 +193,19 @@ position:relative;border-top:6px solid initial;border-bottom-width:0px;border-le
 /*panel main style*/
 .second-main-portion {width: 96%;margin: 0% 3%;margin-top: 1%;}
 .second-main-portion .left{    width: 42%;float: left;padding: 0px 2px;}
-.second-main-portion .left .header p{    background-color: #ea8b8b;
+.second-main-portion .left .header p{    background-color: #002653;
     margin: 0;
     color: white;
     text-align: center;
     font-size: 12px;
     font-weight: 700;}
-.second-main-portion .right .header2 p{     background-color: #ea8b8b;
+.second-main-portion .right .header2 p{     background-color: #002653;
     margin: 0;
     color: white;
     text-align: center;
     font-size: 12px;
     font-weight: 700; }
-.second-main-portion .center .header1 p{     background-color: #ea8b8b;
+.second-main-portion .center .header1 p{     background-color: #002653;
     margin: 0;
     color: white;
     text-align: center;
@@ -217,9 +219,9 @@ position:relative;border-top:6px solid initial;border-bottom-width:0px;border-le
 
 .second-main-portion .center{float: left;width: 28%;padding: 0px 2px;}
 .second-main-portion .right{float: left;width: 27.7%;padding: 0px 2px;}
-.second-main-portion .left .header .panel {    border: 1px solid #ea8b8b;height: 320px;overflow: auto;margin-bottom:10%;}
-.second-main-portion .right .header2 .panel {    border: 1px solid #ea8b8b;height: 320px;overflow: hidden;margin-bottom:10%;}
-.second-main-portion .center .header1 .panel {    border: 1px solid #ea8b8b;height: 320px;overflow: auto;margin-bottom:10%;}
+.second-main-portion .left .header .panel {    border: 1px solid #002653;height: 320px;overflow: auto;margin-bottom:10%;}
+.second-main-portion .right .header2 .panel {    border: 1px solid #002653;height: 320px;overflow: hidden;margin-bottom:10%;}
+.second-main-portion .center .header1 .panel {    border: 1px solid #002653;height: 320px;overflow: auto;margin-bottom:10%;}
 .box-data-for:hover {transform:scale(1.1);}
 
 /*calander*/
@@ -280,7 +282,7 @@ table.task-tag tbody tr td{      font-size: 13px;padding: 4px;color: #00abdf;}
 
 
 table.task-tag tbody tr:nth-child(even) {    background-color: #f9f6fd;}
-#footer {width: 100%;max-width: 100%;background-color: #00abdf;height: 20px;position: fixed;bottom: 0;}#footer p {margin: 0;font-size: 10px;line-height: 0;margin-top: 10px;font-weight: 700;padding-left: 3%;color: white;z-index:999999999;}
+#footer {width: 100%;max-width: 100%;background-color: #00abdf;height: 20px;position: fixed;bottom: 0;z-index:999999;}#footer p {margin: 0;font-size: 10px;line-height: 0;margin-top: 10px;font-weight: 700;padding-left: 3%;color: white;z-index:999999999;}
 
 
 @media screen and (min-width:481px) and (max-width:768px) {
@@ -313,9 +315,9 @@ table.app-tag tbody tr td{font-size: 13px;padding: 4px;color: #00abdf;}
 }
 
 
-table.app-tag tbody tr td:nth-child(2) {background-color: #ea8b8b;color: white;text-align: center;border-radius: 100%;padding: 1px;}
+table.app-tag tbody tr td:nth-child(2) {background-color: #00abdf;color: white;text-align: center;border-radius: 100%;padding: 1px;}
 table.app-tag tbody tr td:nth-child(3) {text-align:right}
-table.task-tag tbody tr td:nth-child(2) {background-color: #ea8b8b;color: white;padding: 1px;border-radius: 100%;text-align: center;}
+table.task-tag tbody tr td:nth-child(2) {background-color: #00abdf;color: white;padding: 1px;border-radius: 100%;text-align: center;}
 table.task-tag tbody tr td:nth-child(3) {text-align:right}
 
 
@@ -568,9 +570,12 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     }
 .dailly-notes-index-panel {width:90%;margin:0% 5%;}
 .dailly-notes-index-panel table{width: 100%;border-collapse: collapse;}
-.dailly-notes-index-panel table thead tr {background-color: #a9e0f1;}
-.dailly-notes-index-panel table thead tr th {font-size: 12px;text-align: left;padding: 6px 10px;}
-.dailly-notes-index-panel table tbody tr td {font-size: 12px;text-align: left;padding: 6px 10px;color: #422e0b;}
+.dailly-notes-index-panel table thead tr {color: white;
+    background-color: #002653;}
+.dailly-notes-index-panel table thead tr th {font-size: 12px;
+    text-align: left;
+    padding: 4px 9px;}
+.dailly-notes-index-panel table tbody tr td {font-size: 12px;text-align: left;padding: 6px 10px;color: #002653;}
 .dailly-notes-index-panel table tbody tr {border-bottom: 1px solid #c9dbe0;cursor:pointer;}
 .dailly-notes-index-panel table thead tr th:nth-child(10) {text-align:right;width:15%;}
 .dailly-notes-index-panel table tbody tr td:nth-child(10) {text-align:right;}
@@ -618,15 +623,15 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 .tabcontent {padding:0;width:100%;height:auto;margin:0;border:0;}
 .margin-top {margin-top:6.3%;}
 .tabcontent h3 {margin: 1% 0%;font-size: 15px;padding-left: 1%;}
-.popup {position: absolute;background-color: white;width: 400px;top: 25%;left: 30%;min-height: 300px;z-index: 99999999999;box-shadow:0px 0px 6px 2px #a2bdde;height:auto;
+.popup {position: absolute;background-color: white;width: 400px;top: 25%;left: 30%;min-height: 300px;z-index: 99999999999;box-shadow:0px 0px 6px 2px #d5d8da ;height:auto;
 transition:-webkit-transform .3s ease-out;transition:transform .3s ease-out;transition:transform .3s ease-out,-webkit-transform .3s ease-out;-webkit-transform:translate(0,-25%);transform:translate(0,-25%);animation:fade-effact 1s;
-display:block;}
+display:none;}
 @keyframes fade-effact {from {opacity:0;}to {opacity:1;}}
 .popup .header h3{font-size: 13px;text-align: center;padding: 2% 0%;margin: 0;
                   color:white;
 }
-.popup .header {    border-bottom: 1px solid #002653;
-    background-color: #002653;
+.popup .header {      border-bottom: 1px solid #d5d8da ;
+    background-color: #00abdf;
     position: relative;
     margin: 0;
     padding: 0;}
@@ -730,3 +735,223 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
     color: white;
     padding: 4px 7px;
     font-size: 11px;}
+
+.container-5 {transition:1s;}
+.container-5 h2{font-size: 22px;
+    margin: 0;
+    margin-bottom: 0%;}
+.container-5 .form-group .input-group .form-control input{height: 24px;
+    margin-left: 5%;    border: 1px solid #eae3e3;color:grey;font-size:11px;
+    width: 95%;}
+.container-5 .form-group .input-group .input-addon {margin:0;}
+    .container-5 .form-group  label {
+    color: grey;
+    /* font-style: italic; */
+    font-size: 12px;
+    margin-left: 9.5%;}
+.container-5 .form-group .input-group {    margin-top: 1%;
+    margin-left: 10%;}
+.container-5 p {color: black;
+    margin-bottom: 1%;
+    font-size: 13px;
+    font-weight: 600;}
+.container-5 p span#projectname {color: grey;}
+.delegatesheet-view {width: 97%;
+    margin: 0% 2%;}
+
+.monthly-periodic-task-sheet {position:relative;}
+    .monthly-periodic-task-sheet h2#paddin-left {font-size: 22px;font-weight:500;
+    margin-top: 0%;
+    padding-top: 0px;padding-left:20px;}
+
+    /*vertcle tabs*/
+    .tabordion {
+     color: #333;
+    display: block;
+    font-family: arial, sans-serif;
+    /* margin: auto; */
+    position: relative;
+    width: 96%;
+    margin: 0% 2%;
+}
+
+.tabordion input[name="sections"] {
+  left: -9999px;
+  position: absolute;
+  top: -9999px;
+}
+
+.tabordion section {
+  display: block;
+}
+
+.tabordion section label {
+ background: #00abdf;
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 13px;
+    /* font-weight: bold; */
+    padding: 8px 24px;
+    position: relative;
+    width: 221px;
+    z-index: 100;
+    color: white;
+}
+
+.tabordion section article {
+  display: none;
+  left: 230px;
+  padding: 0 0 0 21px;
+  position: absolute;  
+  top: 0;z-index: 0;    width: 85%;
+}
+
+.tabordion section article:after {
+  background-color:#f9f7f7;
+  bottom: 0;
+  content: "";
+  display: block;
+  left:-229px;
+  position: absolute;
+  top: 0;
+  width: 220px;
+  z-index:1;
+}
+
+.tabordion input[name="sections"]:checked + label { 
+ background: #002653;
+    color: white;
+}
+
+.tabordion input[name="sections"]:checked ~ article {
+  display: block;
+}
+
+
+@media (max-width: 533px) and (min-width:100px) {
+  
+
+  .tabordion {
+    width: 100%;
+  }
+  
+  .tabordion section label {
+    font-size: 11px;
+    width: 24%;
+    float: left;
+  }  
+  .monthly-periodic-task-sheet {
+    width: 96%;
+    margin: 0% 2%;
+}
+
+ .tabordion section article {
+    left: 0px;
+    /* min-width: 270px; */
+    top: 120px;
+    width: 90%;
+    margin: 0% 5%;
+    padding: 0;
+  } 
+  
+  .tabordion section article:after {
+    
+
+  }  
+  .tabordion input[name="sections"] {
+    left: 0;
+   
+}
+}
+
+
+@media (max-width: 768px) and  (min-width:534px){
+ 
+  .tabordion {
+    width: 96%;
+  }
+    .tabordion section label {width:130px;}
+    .tabordion section article {left:130px;width:73%;}
+}
+
+
+@media (min-width: 1366px) {
+ 
+  .tabordion {
+    width: 70%;
+  }
+}
+
+
+/*ineer tabs desig*/
+
+.monthly-tabs button {    width: 150px;}
+.monthly-periodic-task-sheet h2 {font-size:13px;padding-left:0;padding-top:0;margin-top: 0;font-weight: 700;}
+.monthly-periodic-task-sheet table {width:100%;border-collapse:collapse;}
+.monthly-periodic-task-sheet table thead tr{background-color: #002653;
+    height: 22px;}
+.monthly-periodic-task-sheet table thead tr th{  font-size: 12px;
+    text-align: left;
+    padding: 4px 12px;
+    color: white;}
+
+    .monthly-periodic-task-sheet table tbody tr td {font-size: 12px;
+    padding: 4px 8px;}
+        .monthly-periodic-task-sheet table tbody tr {border-bottom: 1px solid #d8d7d7;height: 25px;
+    color: #002653;}
+            .monthly-periodic-task-sheet table tbody tr td:nth-of-type(6) {text-align: center;}
+            .monthly-periodic-task-sheet table thead tr th:nth-of-type(6) {text-align: center;}
+.tabordion section article {animation:fade 1s;transition:1s;}
+
+@keyframes fade {
+    from { opacity:0;}
+    to {opacity:1;}
+
+}
+
+
+
+
+@media (max-width: 1376px) and  (min-width:769px){
+ 
+  .tabordion {
+    width: 96%;
+  }
+    .tabordion section label {width:130px;}
+    .tabordion section article {left:130px;width:73%;}
+}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    .monthly-periodic-task-sheet table {width:800px;
+    }
+    .container-5 .form-group .input-group .form-control {width:95%;}
+}
+
+.perdoci-task-add-btn {position: absolute;
+    top: 0px;
+    left: 197px;
+    color: white;
+    border: 1px solid #00abdf;
+    font-size: 10px;
+    padding: 4px 12px;
+    background-color: #00abdf;
+    box-shadow: 0px 0px 2px 0px #c2d8de;}
+
+
+@media screen and (max-width:320px) {
+    #sec-header h1 {display:none;}
+
+}
+.search-btn-perodic {position: absolute;
+    top: 0;
+    right: 20px;
+}
+    .search-btn-perodic input {    padding-left: 10px;
+    }
+
+@media screen and (max-width:505px) {
+    .search-btn-perodic {position: relative;
+    margin-left: 30px;
+    margin-bottom: 10px;}
+}

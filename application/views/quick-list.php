@@ -29,9 +29,9 @@
                                             echo "<td>".$r->priority."</td>"; 
                                             echo "<td>".$r->remark."</td>"; 
                                             echo "<td>".$r->status."</td>"; 
-                                            echo "<td>".$r->active."</td>"; 
+                                            if($r->active == 0){ echo "<td>"."Yes"."</td>"; }else{ echo "<td>"."No"."</td>"; }
 
-                                            
+                                             
                                          //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
                                          //       .$r->roll_no."'>Edit</a></td>"; 
                                          //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
@@ -112,9 +112,13 @@
                            <div class="form-group">
                                        <label>Priority</label>
                                         <div class="input-group">
-                                            <div class="form-control"><select id="task_priority" name="priority">
-                                                    <option>Select Priority</option>
-                                                </select></div>
+                                            <div class="form-control">
+                                                <select id="task_priority" name="priority">
+                                                    <option value="High">High</option>
+                                                    <option value="Medium">Medium</option>
+                                                    <option value="Low">Low</option>
+                                                </select>
+                                                </div>
                                         </div>
                           </div>
                     </div>
@@ -148,7 +152,7 @@
                                        <label>Active/Inactive</label>
                                         <div class="input-group">
                                             <div class="form-control">
-                                                <select name="active" id="active"><option value='0'>Yes</option><option value='No'>No</option></select>
+                                                <select name="active" id="active"><option value='0'>Yes</option><option value='1'>No</option></select>
                                             </div>
                                         </div>
                            </div>
@@ -199,7 +203,7 @@
             <div class="footer">
                 
                     <div class="col-md-12">
-                    <button type="submit" class="btargetDatetn-primary btn">Add</button>
+                    <button type="submit" class="btargetDatetn-primary btn">Save</button>
                                    <!-- <a href="#">Add</a> -->
                                    <input required class="btn-primary btn" type="reset" value="Reset">
                                    <!-- <a href="#">Reset</a> -->
@@ -210,8 +214,17 @@
     </div>
     </form>
     <!-- popup ends --> 
-         
+         <!-- **********************creating pagination **************************************  -->
      <br /><br /><br />
+
+     <div id="container">
+
+   <div id="body">
+
+       <p><?php echo $links; ?></p>
+
+   </div>
+</div>
     <div style="height:50px;"></div>
 	
 	    <script type="text/javascript"> 
@@ -249,7 +262,7 @@
                     document.getElementById("active").value = data_json.insidequickwork[0].active;
                     document.getElementById("gm1").value = data_json.insidequickwork[0].delegates_name;
                     document.getElementById("gm2").value = data_json.insidequickwork[0].delegates_email;
-                    document.getElementById("myForm").action = "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Quickwork/req/"+data_json.insidequickwork[0].quick_work_id;
+                    document.getElementById("myForm").action = "<?php echo base_url(); ?>Quickwork/req/"+data_json.insidequickwork[0].quick_work_id;
                     
                     for(var i=0; i<data_json.insidequickwork.length ; i++){
                         var j = i +1 ;
@@ -258,13 +271,16 @@
                     }
                 }
             };
-                xhttp.open("GET", "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Quickwork/quickwork_view/"+id, true);
+                xhttp.open("GET", "<?php echo base_url(); ?>Quickwork/quickwork_view/"+id, true);
                 xhttp.send();
                 $('.popup').show(); 
             }
 
             
         </script>
+
+
+
 	
 <?php $this->load->view('footer'); ?>
 

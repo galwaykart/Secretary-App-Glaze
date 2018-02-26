@@ -9,12 +9,35 @@
 					$this->load->library('session');
 					$this->load->model('Daillynote_model');
 					$this->load->library(array('session', 'form_validation'));
+					$this->load->library("pagination");
 		} 
 			 
 		public function index(){  
-			if($this->session->user == 'logged_in'){				
-			$listOfData['records']	= $this->Daillynote_model->getDailyNotesList();
-				$this->load->view('dailynote-list',$listOfData);
+			if($this->session->user == 'logged_in'){
+				$config = array();
+				
+					  $config["base_url"] = base_url() ."Daillynote/index";
+				
+					  $config["total_rows"] = $this->Daillynote_model->record_count();
+				
+					  $config["per_page"] = 1;
+				
+					  $config["uri_segment"] = 3;
+				
+					  $this->pagination->initialize($config);
+				
+					  $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+				
+					  $data["records"] = $this->Daillynote_model->getDailyNotesList($config["per_page"], $page);
+				
+					  $data["links"] = $this->pagination->create_links();
+				
+					  
+						//print_r($data);
+					  $this->load->view("dailynote-list", $data);
+
+			//$listOfData['records']	= $this->Daillynote_model->getDailyNotesList();
+				//$this->load->view('dailynote-list',$listOfData);
 				
 			}else{
 				$this->load->view("login");

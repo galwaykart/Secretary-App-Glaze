@@ -1,10 +1,41 @@
 <?php
 	class Quickwork_model extends CI_model{
-		public function getQuickworkList(){
-			$query = $this->db->get("quick_work"); 
-			$list_quickwork = $query->result();
-			// print_r($list_daily_notes);
-			return $list_quickwork;
+
+		public function record_count() {
+			
+				  return $this->db->count_all("quick_work");
+				  
+			
+			  }
+
+
+
+
+		public function getQuickworkList($limit, $start){
+
+			$this->db->limit($limit, $start);
+			
+				  $query = $this->db->get("quick_work");
+			
+			
+			
+				  if ($query->num_rows() > 0) {
+			
+					  foreach ($query->result() as $row) {
+			
+						  $data[] = $row;
+			
+					  }
+			
+					  return $data;
+			
+				  }
+			
+				  return false;
+			// $query = $this->db->get("quick_work"); 
+			// $list_quickwork = $query->result();
+			// // print_r($list_daily_notes);
+			// return $list_quickwork;
 
 		}
 		

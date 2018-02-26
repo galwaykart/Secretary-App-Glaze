@@ -9,13 +9,35 @@
 					$this->load->library('session');
 					 $this->load->model('Appointment_model');
 					$this->load->library(array('session', 'form_validation'));
+					$this->load->library("pagination");
 		} 
 			 
 		public function index(){  
 			if($this->session->user == 'logged_in'){	
 				//$this->load->model('Quickwork_model');
-				$listOfData['records']	= $this->Appointment_model->getAppointmentList();
-				$this->load->view('appoinment',$listOfData);
+
+				$config = array();
+				
+					  $config["base_url"] = base_url() . "Appoinment/index";
+				
+					  $config["total_rows"] = $this->Appointment_model->record_count();
+				
+					  $config["per_page"] = 2;
+				
+					  $config["uri_segment"] = 3;
+				
+					  $this->pagination->initialize($config);
+				
+					  $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+				
+					  $data["records"] = $this->Appointment_model->getAppointmentList($config["per_page"], $page);
+				
+					  $data["links"] = $this->pagination->create_links();
+				
+					  $this->load->view("appoinment", $data);
+
+				//$listOfData['records']	= $this->Appointment_model->getAppointmentList();
+				//$this->load->view('appoinment',$listOfData);
 				
 			}else{
 				$this->load->view("login");

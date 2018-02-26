@@ -210,7 +210,7 @@
             <div class="footer">
                 
                     <div class="col-md-12">
-                    <button type="submit" class="btn-primary btn">Add</button>
+                    <button type="submit" class="btn-primary btn">Save</button>
                     <input required class="btn-primary btn" type="reset" value="Reset">
                                    <!-- <a href="#">Reset</a> -->
                     </div>
@@ -259,7 +259,7 @@
                     document.getElementById("active").value = data_json.insidequickwork[0].appointment_active;
                     document.getElementById("gm1").value = data_json.insidequickwork[0].appointment_with_name;
                     document.getElementById("gm2").value = data_json.insidequickwork[0].appointment_with_email;
-                    document.getElementById("myForm").action = "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Appoinment/req/"+data_json.insidequickwork[0].appointment_id;
+                    document.getElementById("myForm").action = "<?php echo base_url(); ?>Appoinment/req/"+data_json.insidequickwork[0].appointment_id;
                     
                     for(var i=0; i<data_json.insidequickwork.length ; i++){
                         var j = i +1 ;
@@ -268,7 +268,7 @@
                     }
                 }
             };
-                xhttp.open("GET", "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Appoinment/appointment_view/"+id, true);
+                xhttp.open("GET", "<?php echo base_url(); ?>Appoinment/appointment_view/"+id, true);
                 xhttp.send();
                 $('.popup').show(); 
             }
@@ -277,6 +277,19 @@
         </script>
        
      <br /><br /><br />
+
+     <div id="container">
+
+   <div id="body">
+
+       <p><?php echo $links; ?></p>
+
+   </div>
+
+
+
+</div>
+
     <div style="height:50px;"></div>
    <?php $this->load->view('footer'); ?>
 </body>
