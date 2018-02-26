@@ -1,88 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Yearly perodic Task</title>
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/bootsnip.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet"/>
-      <script src="js/float-panel.js"></script>
-    <script src="js/accordion-menu.js"></script>
-    <script src="js/jquery-3.2.1.min.js"></script>
-</head>
+ <?php $this->load->view('head'); ?>
 <body class="body style-6"><!-- body tag start -->
    <!-- globle header for comman start --> 
-
-    <header id="sec-header">
-        <div id="toggle-btn-box">
-                <span id="bar" class="fa fa-bars" >
-                   <!-- <div class="one"></div>
-                    <div class="two"></div>
-                    <div class="three"></div>-->
-                </span>
-            <span id="close">&times</span>
-        </div>
-        <img src="img/galway_logo.png" alt="logo" id="img"/>
-        <h1>Secratory App</h1>
-        <div class="rigth-log-box">
-
-            <div class="inner">
-                        <p class="person-name">vishal rathour</p>
-                        <img src="img/person.png" alt="person image" id="per-img" class="log-popup"/>
-
-            </div>
-
-        </div>
-         <div class="log-up-body">
-           <ul>
-               <li><a href="#">Profile</a></li>
-                <li><a href="#">Setting</a></li>
-                <li><a href="#">LogOut</a></li>
-           </ul>
-        </div>
-    </header>
-
-    <aside class="aside-left" id="aside">
-                <div id="accordion">
-                    <ul>
-                        <li>
-                            <div>Registration</div>
-                            <ul>
-                                <li><a href="registration.html">Registration</a></li>
-                                <li><a href="?12">Dolor sit</a></li>
-                                <li>
-                                    <div>Commodo Rhoncus</div>
-                                    <ul>
-                                        <li><a href="demo.html">Current</a></li>
-                                        <li><a href="?132">Consectetur</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div>Quis Porttitor</div>
-                            <ul>
-                                <li><a href="?21">Finibus Bonorum</a></li>
-                                <li><a href="?22">Sed ut</a></li>
-                                <li><a href="?23">Neque porro</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div>Odio Ac</div>
-                            <ul>
-                                <li><a href="?31">Minima veniam</a></li>
-                                <li><a href="?32">Voluptate velit</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="?4">Sapien quam</a>
-                        </li>
-                    </ul>
-                </div>
-    </aside>
-
+    <?php $this->load->view('header'); ?>
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Project Delegation Sheet</p></div>
     <div class="dailly-notes-index-panel">
@@ -101,10 +22,23 @@
                                   <th>Extended Date</th>
                                   <th>Old Status Date</th>
                                   <th>New Floowup date</th>
-                                   <th>Remarks</th>
+                                  <th>Remarks</th>
                               </tr>
                             </thead>
                             <tbody>
+							 <tr>
+                                  <td>1</td>
+                                  <td>20/02/2018</td>
+                                  <td>IT Software</td>
+                                  <td>Outsoursing</td>
+                                  <td>Delegate To</td>
+                                  <td>Followup form</td>
+                                  <td>Target Date</td>
+                                  <td>Extended Date</td>
+                                  <td>Old Status Date</td>
+                                  <td>New Floowup date</td>
+                                  <td>Remarks</td>
+                              </tr>
                              
                             </tbody>
                         </table>
@@ -123,7 +57,7 @@
 
           <div class="popup">
             <div class="header">
-                <h3>Project Delegation Sheet- <span id="work">Add</span></h3>
+                <h3>Project Delegation Sheet - <span id="work">Create New</span></h3>
                 <span id="close-popup"  title="Close">&times;</span>
             </div>
             <div class="content"><!-- content start -->
@@ -163,8 +97,8 @@
                                         <div class="input-group">
                                             <div class="form-control"><select>
                                                     <option>Select OutSourcing</option>
-                                                    <option value="Inhouse">Inhouse</option>
-                                                    <option value="OutSource">OutSource</option>
+                                                    <option value="1">Inhouse</option>
+                                                    <option value="0">OutSource</option>
                                                 </select></div>
                                         </div>
                           </div>
@@ -182,21 +116,7 @@
                           </div>
                         
                     </div>
-                      <div class="col-md-6">
-                           <div class="form-group">
-                                       <label>Extended Date</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input type="text" placeholder="Extended Date" /></div>
-                                        </div>
-                          </div>
-                    </div>
-                </div>
-                
-              
-                <div class="clear"></div>
-                    <div class="col-md-12">
-                   
-                    <div class="col-md-6">
+                     <div class="col-md-6">
                             <div class="form-group">
                                        <label>Followup Date</label>
                                         <div class="input-group">
@@ -205,17 +125,8 @@
                           </div>
                         
                     </div>
-                      <div class="col-md-6">
-                           <div class="form-group">
-                                       <label>Next Followup date</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input type="date" title="Next Followup date" /></div>
-                                        </div>
-                          </div>
-                    </div>
                 </div>
-                
-              
+                 
                 <div class="clear"></div>
                  <div class="col-md-12">
                    
@@ -232,24 +143,7 @@
                      
                 <div class="clear"></div>
                  <div class="col-md-12">
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Old Status</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input type="text" title="Status" /></div>
-                                        </div>
-                           </div>
-                    </div>
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Outsoursing</label>
-                                        <div class="input-group">
-                                            <div class="form-control">
-                                                <select><option value='Inhouse'>Inhouse</option><option value='Outsource'>Outsource</option></select>
-                                            </div>
-                                        </div>
-                           </div>
-                    </div>
+                
 
                      <!-- autometic delegates start -->
                      <div class="auto-del">
@@ -282,7 +176,18 @@
                      <!-- autometic delegates end -->
 
                 </div>
+				<div class="clear"></div>
                 </div>
+				<div class="footer">
+                
+                    <div class="col-md-12">
+						<button type="submit" class="btargetDatetn-primary btn">Save</button>
+                        <!-- <a href="#">Add</a> -->
+                        <input type="reset" class="btn-primary btn" value="Reset">
+                        <!-- <a href="#">Reset</a> -->
+                    </div>
+                
+            </div>
                 </div>
                 <div class="clear"></div>
 
@@ -291,10 +196,7 @@
        
      <br /><br /><br />
     <div style="height:50px;"></div>
-    <footer id="footer">
-        <p>&copy; Copyright By Glaze India Pvt. Ltd.</p>
-    </footer>
-
+      <?php $this->load->view('footer'); ?>
 
      <!-- globle header for comman end --> 
    

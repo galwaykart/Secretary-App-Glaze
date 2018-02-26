@@ -1,87 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Monthly Perodic Task</title>
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/bootsnip.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet"/>
-      <script src="js/float-panel.js"></script>
-    <script src="js/accordion-menu.js"></script>
-    <script src="js/jquery-3.2.1.min.js"></script>
-</head>
+ <?php $this->load->view('head'); ?>
 <body class="body style-6"><!-- body tag start -->
    <!-- globle header for comman start --> 
-
-    <header id="sec-header">
-        <div id="toggle-btn-box">
-                <span id="bar" class="fa fa-bars" >
-                   <!-- <div class="one"></div>
-                    <div class="two"></div>
-                    <div class="three"></div>-->
-                </span>
-            <span id="close">&times</span>
-        </div>
-        <img src="img/galway_logo.png" alt="logo" id="img"/>
-        <h1>Secratory App</h1>
-        <div class="rigth-log-box">
-
-            <div class="inner">
-                        <p class="person-name">vishal rathour</p>
-                        <img src="img/person.png" alt="person image" id="per-img" class="log-popup"/>
-
-            </div>
-
-        </div>
-         <div class="log-up-body">
-           <ul>
-               <li><a href="#">Profile</a></li>
-                <li><a href="#">Setting</a></li>
-                <li><a href="#">LogOut</a></li>
-           </ul>
-        </div>
-    </header>
-
-    <aside class="aside-left" id="aside">
-                <div id="accordion">
-                    <ul>
-                        <li>
-                            <div>Registration</div>
-                            <ul>
-                                <li><a href="registration.html">Registration</a></li>
-                                <li><a href="?12">Dolor sit</a></li>
-                                <li>
-                                    <div>Commodo Rhoncus</div>
-                                    <ul>
-                                        <li><a href="demo.html">Current</a></li>
-                                        <li><a href="?132">Consectetur</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div>Quis Porttitor</div>
-                            <ul>
-                                <li><a href="?21">Finibus Bonorum</a></li>
-                                <li><a href="?22">Sed ut</a></li>
-                                <li><a href="?23">Neque porro</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div>Odio Ac</div>
-                            <ul>
-                                <li><a href="?31">Minima veniam</a></li>
-                                <li><a href="?32">Voluptate velit</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="?4">Sapien quam</a>
-                        </li>
-                    </ul>
-                </div>
-    </aside>
+    <?php $this->load->view('header'); ?>
 
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Monthly Periodic</p></div>
@@ -661,9 +583,7 @@
        
      <br /><br /><br />
     <div style="height:50px;"></div>
-    <footer id="footer">
-        <p>&copy; Copyright By Glaze India Pvt. Ltd.</p>
-    </footer>
+      <?php $this->load->view('footer'); ?>
 
 
      <!-- globle header for comman end --> 
