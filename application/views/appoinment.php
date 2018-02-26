@@ -7,7 +7,7 @@
      <?php $this->load->view('header'); ?>
 
     <!-- user View design page start -->
-    <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Quick Work</p></div>
+    <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Appointment</p></div>
     <div class="dailly-notes-index-panel">
             <div class="table-res">
                     <div class="table-view">
@@ -65,7 +65,7 @@
     </div><!-- dailly index panel end -->
   
     <!-- popup start -->
-    <form method="POST" action="<?php echo base_url();?>Appoinment/req" >
+    <form id="myForm" method="POST" action="<?php echo base_url();?>Appoinment/req" >
     <div class="popup" style="display: none;">
             <div class="header">
                 <h3>Quick Work - <span id="work">Add</span></h3>
@@ -77,7 +77,7 @@
                             <div class="form-group">
                                        <label>Date :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" id="task_date" name="date" title="Date" /></div>
+                                            <div class="form-control"><input required type="date" id="task_date" name="date" title="Date" /></div>
                                         </div>
                          </div>
                     </div>
@@ -85,7 +85,7 @@
                             <div class="form-group">
                                        <label>Subject :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" id="task_name" name="task" title="Task" /></div>
+                                            <div class="form-control"><input required type="text" id="task_name" name="task" title="Task" /></div>
                                         </div>
                          </div>
                     </div>
@@ -97,7 +97,7 @@
                             <div class="form-group">
                                        <label>Peroidic :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" id="appointment_periodic" name="peroidic" title="Date" /></div>
+                                            <div class="form-control"><input required type="text" id="appointment_periodic" name="peroidic" title="Date" /></div>
                                         </div>
                          </div>
                     </div>
@@ -105,7 +105,7 @@
                             <div class="form-group">
                                        <label>Travel Time :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" id="appointment_travel_time" name="travel_time" title="Task" /></div>
+                                            <div class="form-control"><input required type="text" id="appointment_travel_time" name="travel_time" title="Task" /></div>
                                         </div>
                          </div>
                     </div>
@@ -118,7 +118,7 @@
                             <div class="form-group">
                                        <label>Target Date</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" id="task_traget_date" name="target_date" title="Target Date" /></div>
+                                            <div class="form-control"><input required type="date" id="task_traget_date" name="target_date" title="Target Date" /></div>
                                         </div>
                           </div>
                         
@@ -154,7 +154,7 @@
                             <div class="form-group">
                                        <label>Status</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" id="task_status" name="status" title="Status" /></div>
+                                            <div class="form-control"><input required type="text" id="task_status" name="status" title="Status" /></div>
                                         </div>
                            </div>
                     </div>
@@ -176,7 +176,7 @@
                                      <div class="form-group">
                                        <label>Delegate To</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" name="delegate_to[]" title="Delegate To" /></div>
+                                            <div class="form-control"><input required id="gm1" type="text" name="delegate_to[]" title="Delegate To" /></div>
                                         </div>
                                   </div>
 
@@ -186,7 +186,7 @@
                                                <label>Email Id</label>
                                                 <div class="input-group">
                                                     <div class="form-control">
-                                                        <input type="text" name="delegate_email[]" />
+                                                        <input required id="gm2" type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" />
                                                     </div>
                                                 </div>
                                         </div>
@@ -211,7 +211,7 @@
                 
                     <div class="col-md-12">
                     <button type="submit" class="btn-primary btn">Add</button>
-                    <input class="btn-primary btn" type="reset" value="Reset">
+                    <input required class="btn-primary btn" type="reset" value="Reset">
                                    <!-- <a href="#">Reset</a> -->
                     </div>
                 
@@ -221,7 +221,7 @@
         $('a#plus').click(function(e) {
             e.preventDefault();
             var lnth = $('#auto-del .auto-del').length; 
-            $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input type="text" name="delegate_email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+            $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
             
         });
     });
@@ -233,14 +233,48 @@
     </form>
     <!-- popup ends -->
 
-    <script>
-		  
-		function newDoc(id) {
-			//console.log("id ====" ,id);
-			var url = "<?php echo base_url(); ?>Quickwork/daillynote_view/"+id;
-			window.location.assign(url);
-		}
-	</script> 
+ 
+
+
+<script type="text/javascript"> 
+          function newDoc(id) {   
+            var xhttp;    
+            if (id == "") {
+            //document.getElementById("txtHint").innerHTML = "";
+            return;
+            }
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText); 
+                    var data_json = JSON.parse(this.responseText);
+                    console.log(data_json.insidequickwork.length);
+                    document.getElementById("task_name").value = data_json.insidequickwork[0].appointment_subject;
+                    document.getElementById("task_date").value = data_json.insidequickwork[0].niceDate;
+                    document.getElementById("appointment_periodic").value = data_json.insidequickwork[0].appointment_periodic;
+                    document.getElementById("appointment_travel_time").value = data_json.insidequickwork[0].appointment_travel_time;
+                    document.getElementById("appointment_remark").value = data_json.insidequickwork[0].appointment_remark;
+                    document.getElementById("task_traget_date").value = data_json.insidequickwork[0].targetDate;
+                    document.getElementById("task_status").value = data_json.insidequickwork[0].appointment_status;
+                    document.getElementById("active").value = data_json.insidequickwork[0].appointment_active;
+                    document.getElementById("gm1").value = data_json.insidequickwork[0].appointment_with_name;
+                    document.getElementById("gm2").value = data_json.insidequickwork[0].appointment_with_email;
+                    document.getElementById("myForm").action = "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Appoinment/req/"+data_json.insidequickwork[0].appointment_id;
+                    
+                    for(var i=0; i<data_json.insidequickwork.length ; i++){
+                        var j = i +1 ;
+                        $('#auto-del').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" value="'+ data_json.insidequickwork[j].appointment_with_name +'" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_email[]" value="'+data_json.insidequickwork[j].appointment_with_email+'"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+
+                    }
+                }
+            };
+                xhttp.open("GET", "http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Appoinment/appointment_view/"+id, true);
+                xhttp.send();
+                $('.popup').show(); 
+            }
+
+            
+        </script>
        
      <br /><br /><br />
     <div style="height:50px;"></div>
