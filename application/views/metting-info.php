@@ -346,28 +346,28 @@
 			
      </div>	
 	  	
-		//<script>
+	 <script>
  
-       $("#search").autocomplete({
-		minLength: 1,
-		source: function(req, add){  
-		$.ajax({
-			url: '<?php echo base_url(); ?>/indexmeeting/get_agenda', //Controller where search is performed
-			dataType: 'json',
-			type: 'POST',
-			data: 'agenda='+$("#search").val(),
-			success: function(data){
-				if(data.response =='true'){
-				   add(data.message); 
-				   
-				    console.log(data.message);
+		   $("#search").autocomplete({
+			minLength: 1,
+			source: function(req, add){  
+			$.ajax({
+				url: '<?php echo base_url(); ?>/indexmeeting/get_agenda', //Controller where search is performed
+				dataType: 'json',
+				type: 'POST',
+				data: 'agenda='+$("#search").val(),
+				success: function(data){
+					if(data.response =='true'){
+					   add(data.message); 
+					   
+						console.log(data.message);
+					}
+					else {add(data.message).text("No found");}
 				}
-				else {add(data.message).text("No found");}
-			}
-		});
-	 }
-  });                 
-</script>
+			});
+		 }
+	  });                 
+	</script>
 	 
     <script type="text/javascript"> 
 	
