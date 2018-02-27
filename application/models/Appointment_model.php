@@ -38,7 +38,8 @@ class Appointment_model extends CI_model{
     }
 
     public function addAppointment($data){
-        echo $this->db->insert('appointment', $data[0]);
+        $output = $this->db->insert('appointment', $data[0]);
+        if($output){
         $insert_id = $this->db->insert_id();
         $total_participants = $data[1]['delegates_name'];
 
@@ -62,8 +63,20 @@ class Appointment_model extends CI_model{
             $new_set_array = array_merge($existing_array, $new_array);
             //print_r($new_set_array);
             echo "<br>";
-             $this->db->insert('appointment_with', $new_set_array);
+            $result = $this->db->insert('appointment_with', $new_set_array);
         }
+
+        if($result)
+        {
+        return true;
+        
+        }
+        else
+        {
+        return false;
+        
+        }
+    }
         
        
         }
@@ -83,7 +96,8 @@ class Appointment_model extends CI_model{
             $this->db->delete("appointment_with", "appointment_id = $record_id");
             $this->db->set($data[0]); 
             $this->db->where("appointment_id", $record_id); 
-            $this->db->update("appointment", $data[0]);
+            $output = $this->db->update("appointment", $data[0]);
+                if($output){
 
                     $delegates_name= $data[1]['delegates_name'];
                     $delegates_email= $data[1]['delegates_email'];
@@ -105,10 +119,22 @@ class Appointment_model extends CI_model{
                         $new_set_array = array_merge($existing_array, $new_array);
                         //print_r($new_set_array);
                         echo "<br>";
-                         $this->db->insert('appointment_with', $new_set_array);
+                        $result = $this->db->insert('appointment_with', $new_set_array);
                         
-                    }
+                    
+                    
+                         if($result)
+                         {
+                         return true;
+                         
+                         }
+                         else
+                         {
+                         return false;
+                         
+                         }    }
                 }
+            }
 }
 
 ?>

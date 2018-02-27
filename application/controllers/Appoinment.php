@@ -12,7 +12,7 @@
 					$this->load->library("pagination");
 		} 
 			 
-		public function index(){  
+		public function index($param1 = NUll , $param3 = null , $param = Null){  
 			if($this->session->user == 'logged_in'){	
 				//$this->load->model('Quickwork_model');
 
@@ -22,17 +22,25 @@
 				
 					  $config["total_rows"] = $this->Appointment_model->record_count();
 				
-					  $config["per_page"] = 2;
+					  $config["per_page"] = 1;
 				
 					  $config["uri_segment"] = 3;
 				
 					  $this->pagination->initialize($config);
 				
-					  $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+					if($param){
+						$page = 1;
+					}
+					else{
+						$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+					}	
+				  
 				
 					  $data["records"] = $this->Appointment_model->getAppointmentList($config["per_page"], $page);
 				
 					  $data["links"] = $this->pagination->create_links();
+
+					  $data["message"] = $param3;
 				
 					  $this->load->view("appoinment", $data);
 
@@ -77,6 +85,7 @@
 			// if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			//	echo "Hello I am gaurav";
 				$this->load->model('Appointment_model');
+				if($this->input->post('date') != null){
 				$data = array();
 				$data[0] = array(
 					'appointment_start_time'=>$this->input->post('date'),
@@ -95,26 +104,51 @@
 				   );
 
 
-				    print_r($data);
+				    //print_r($data);
 				
 				//print_r($data[1]);
 				if($this->uri->segment(3)){
-					echo "i am in updation of record";
-					$this->Appointment_model->updateAppointment($data , $record_id);
-					redirect('Appoinment');
+					//echo "i am in updation of record";
+					$result = $this->Appointment_model->updateAppointment($data , $record_id);
+					if($result)
+					{
+					$param1 =  "<h2>Successfully updated</h2>";
+					
+					}
+					else
+					{
+					$param1 = "<h2>ERROR</h2>";
+					
+					}
+					$this->index(null ,$param1 , $this->uri->segment(3));
+
 					
 				 }else{
-					 echo "i am in addition of record";
-				 	$this->Appointment_model->addAppointment($data);
-					redirect('Appoinment');
+					 //echo "i am in addition of record";
+					 $result = $this->Appointment_model->addAppointment($data);
+					 if($result)
+					 {
+					 $param1 =  "<h2>Success</h2>";
+					 
+					 }
+					 else
+					 {
+					 $param1 = "<h2>ERROR</h2>";
+					 
+					 }
+					 $this->index(null , $param1 ,null);
 				}
+
 				
 				// }else {
 				// 	echo "no request made with post method";
 				// }
 				
 
+			}else{
+				redirect('appoinment');
 			}
+		}
 
 		 
 	}

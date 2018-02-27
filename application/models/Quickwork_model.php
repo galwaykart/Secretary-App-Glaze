@@ -50,32 +50,45 @@
 		}
         
         public function addQuickwork($data){
-			 $this->db->insert('quick_work', $data[0]);
-			$insert_id = $this->db->insert_id();
-			$total_participants = $data[1]['delegates_name'];
-	
-			$name= $data[1]['delegates_name'];
-			$email= $data[1]['delegates_email'];
-	
-	
-			$fLen = count($total_participants);
-					
-			for($i = 0; $i < $fLen; $i++) {
-				//echo $i;
-	
-				$p_data = array(
-					'delegates_name'=>$name[$i],
-					'delegates_email'=>$email[$i],
-				   );
-	
-				$existing_array = array();
-				$existing_array = $p_data;
-				$new_array = array('quick_work_id'=>$insert_id);
-				$new_set_array = array_merge($existing_array, $new_array);
-				//print_r($new_set_array);
-				//echo "<br>";
-				 $this->db->insert('quick_work_delegates', $new_set_array);
-			}
+			$output = $this->db->insert('quick_work', $data[0]);
+			 if($output){
+				$insert_id = $this->db->insert_id();
+				$total_participants = $data[1]['delegates_name'];
+		
+				$name= $data[1]['delegates_name'];
+				$email= $data[1]['delegates_email'];
+		
+		
+				$fLen = count($total_participants);
+						
+				for($i = 0; $i < $fLen; $i++) {
+					//echo $i;
+		
+					$p_data = array(
+						'delegates_name'=>$name[$i],
+						'delegates_email'=>$email[$i],
+					   );
+		
+					$existing_array = array();
+					$existing_array = $p_data;
+					$new_array = array('quick_work_id'=>$insert_id);
+					$new_set_array = array_merge($existing_array, $new_array);
+					 $result = $this->db->insert('quick_work_delegates', $new_set_array);
+				}
+
+				if($result)
+				{
+				return true;
+				
+				}
+				else
+				{
+				return false;
+				
+				}
+
+
+			 }			
             
            
 			}
@@ -85,8 +98,8 @@
 				$this->db->delete("quick_work_delegates", "quick_work_id = $record_id");
 				$this->db->set($data[0]); 
 				$this->db->where("quick_work_id", $record_id); 
-				$this->db->update("quick_work", $data[0]);
-
+				$output = $this->db->update("quick_work", $data[0]);
+				if($output){
 						$delegates_name= $data[1]['delegates_name'];
 						$delegates_email= $data[1]['delegates_email'];
 				
@@ -107,10 +120,21 @@
 							$new_set_array = array_merge($existing_array, $new_array);
 							//print_r($new_set_array);
 							echo "<br>";
-							 $this->db->insert('quick_work_delegates', $new_set_array);
+							$result = $this->db->insert('quick_work_delegates', $new_set_array);
 							
 						}
+						if($result)
+						{
+						return true;
+						
+						}
+						else
+						{
+						return false;
+						
+						}
 					}
+				}
 	 
 	}
 

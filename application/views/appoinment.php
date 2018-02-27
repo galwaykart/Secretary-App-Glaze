@@ -9,6 +9,7 @@
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Appointment</p></div>
     <div class="dailly-notes-index-panel">
+    <?php if($message){echo $message;} ?> 
             <div class="table-res">
                     <div class="table-view">
                         <table>
@@ -18,6 +19,7 @@
                             <tbody>
 
                             <?php 
+                            if($records){
                               $i=1;
                                           foreach($records as $r) { 
                                             echo "<tr onclick='newDoc($r->appointment_id)'>"; 
@@ -38,7 +40,8 @@
                                          //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
                                          //       .$r->roll_no."'>Delete</a></td>"; 
                                             echo "<tr>"; 
-                                         } 
+                                         }
+                                        } 
                               ?>
                               <!-- <tr>
                                  <td>1</td><td>11:00AM</td><td>12:30PM</td><td>xyz</td><td>No subject</td><td>no</td><td>15 Min</td><td>Remark no</td><td>pending</td><td>active</td>
@@ -144,7 +147,7 @@
                                                <textarea id="appointment_remark" name="remark" class=""></textarea>
                                             </div>
                                         </div>
-                           
+                                        
                     </div>
                 </div>
                      
@@ -169,37 +172,42 @@
                            </div>
                     </div>
 
-                     <!-- autometic delegates start -->
-                     <div id="auto-del">
-                     <div class="auto-del">
-                                 <div class="left">
-                                     <div class="form-group">
-                                       <label>Delegate To</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input required id="gm1" type="text" name="delegate_to[]" title="Delegate To" /></div>
-                                        </div>
-                                  </div>
+                      <!-- autometic delegates start -->
+                      <div id="refresh_popup">
+                      <div id="auto-del">
+                          <div class="auto-del">
+                                      <div class="left">
+                                          <div class="form-group">
+                                                <label>Delegate To</label>
+                                                 <div class="input-group">
+                                                     <div class="form-control"><input required type="text" id ="gm1" name="delegate_to[]" title="Delegate To" /></div>
+                                                 </div>
+                                             </div>
 
-                                 </div>
-                                 <div class="center">
-                                         <div class="form-group">
-                                               <label>Email Id</label>
-                                                <div class="input-group">
-                                                    <div class="form-control">
-                                                        <input required id="gm2" type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" />
-                                                    </div>
-                                                </div>
-                                        </div>
-                                 </div>
-                                 <div class="right text-center">
-                                            <div class="btn-group">
-                                                    <a href="#" class="plus" id="plus"><span class="fa fa-plus" ></span></a>
-                                            </div>
-                                 </div>
+                                      </div>
+                                      <div class="center">
+                                              <div class="form-group">
+                                                    <label>Email Id</label>
+                                                     <div class="input-group">
+                                                         <div class="form-control">
+                                                         <input required type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/>
+                                                         </div>
+                                                     </div>
+                                             </div>
+                                      </div>
+                                      <div class="right text-center">
+                                                 <div class="btn-group">
+                                                         <a href="#" class="plus" id="plus"><span class="fa fa-plus" ></span></a>
+                                                 </div>
+                                      </div>
 
-                             </div>
-                             </div>
-                     <!-- autometic delegates end -->
+                          </div>
+                      </div>
+                  </div>
+
+                  <div id="one">
+                  </div>
+                  <!-- autometic delegates end -->
 
                 </div>
                 <div class="clear"></div>

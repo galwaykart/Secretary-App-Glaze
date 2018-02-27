@@ -15,6 +15,7 @@
                             </thead>
                             <tbody>
                               <?php 
+                              if($records){
                               $i=1;
                                           foreach($records as $r) { 
                                             echo "<tr onclick='newDoc($r->daily_notes_id)'>"; 
@@ -35,6 +36,7 @@
                                          //       .$r->roll_no."'>Delete</a></td>"; 
                                             echo "<tr>"; 
                                          } 
+                                        }
                               ?>
                             </tbody>
                         </table>

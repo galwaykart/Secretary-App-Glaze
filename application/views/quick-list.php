@@ -8,8 +8,9 @@
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Quick Work</p></div>
     <div class="dailly-notes-index-panel">
     <?php
-        //  if($records){print_r($records);} 
+          if($message){echo $message;} 
          ?>
+
             <div class="table-res">
                     <div class="table-view">
                         <table>
@@ -18,6 +19,7 @@
                             </thead>
                             <tbody>
                             <?php 
+                            if($records){
                               $i=1;
                                           foreach($records as $r) { 
                                             echo "<tr id='updatenote$r->quick_work_id' onclick='newDoc($r->quick_work_id)'>"; 
@@ -38,6 +40,7 @@
                                          //       .$r->roll_no."'>Delete</a></td>"; 
                                             echo "<tr>"; 
                                          } 
+                                        }
                               ?>
                               <!-- <tr>
                                   <td>1</td><td>12/07/2018</td><td>no tasks</td><td>self</td><td>12/09/2018</td><td>High</td><td>No remarks</td><td>pending</td><td>Active</td>
@@ -159,43 +162,40 @@
                     </div>
 
                      <!-- autometic delegates start -->
-                     <div id="refresh_popup">
-						 <div id="auto-del">
-							 <div class="auto-del">
-										 <div class="left">
-											 <div class="form-group">
-												   <label>Delegate To</label>
-													<div class="input-group">
-														<div class="form-control"><input required type="text" id ="gm1" name="delegate_to[]" title="Delegate To" /></div>
-													</div>
-												</div>
-
-										 </div>
-										 <div class="center">
-												 <div class="form-group">
-													   <label>Email Id</label>
-														<div class="input-group">
-															<div class="form-control">
-															<input required type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/>
-															</div>
-														</div>
-												</div>
-										 </div>
-										 <div class="right text-center">
-													<div class="btn-group">
-															<a href="#" class="plus" id="plus"><span class="fa fa-plus" ></span></a>
-													</div>
-										 </div>
-
-							 </div>
-						 </div>
-                     </div>
-
-                     <div id="one">
-                     </div>
+                    <div id="refresh_popup"> 
+                        <div id="auto-del"> 
+                            <div class="auto-del">
+                                <div class="left">
+                                    <div class="form-group">
+                                        <label>Delegate To</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><input required type="text" id ="gm1" name="delegate_to[]" title="Delegate To" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="center">
+                                    <div class="form-group">
+                                        <label>Email Id</label>
+                                        <div class="input-group">
+                                            <div class="form-control">
+                                                <input required type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right text-center">
+                                    <div class="btn-group">
+                                        <a href="#" class="plus" id="plus"><span class="fa fa-plus" ></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div> 
+                     <div id="one"></div>
                      <!-- autometic delegates end -->
 
                 </div>
+                
                 <div class="clear"></div>
                         
                                                            
