@@ -10,7 +10,7 @@
     <div class="clear"></div>
     <div class="monthly-periodic-task-sheet"><!-- monthly periodic panel start -->
               <h2 id="paddin-left">Monthly Periodic </h2>
-              <a href="#" id="" class="perdoci-task-add-btn"><span class="fa fa-plus" ></span>Add</a>
+              <a href="#" id="" class="perdoci-task-add-btn"><span class="fa fa-plus" ></span>&nbsp;New</a>
                 <!--search button start-->
                         <div class="search-btn-perodic">
                             <input type="text" value="" placeholder="Search Task"/><button><span class="fa fa-search"></span></button>
@@ -18,8 +18,10 @@
                         </div>
                 <!--search button end-->
               <div class="tabordion">
+			  
+			  <?php $month = date('m'); ?>
                           <section id="section1">
-                                        <input type="radio" name="sections" id="option1" checked>
+                                        <input type="radio" name="sections" id="option1" <?php if($month == '01') { echo "checked"; } ?> >
                                         <label for="option1">January</label>
                                         <article>
                                                      <h2>January 2019 Month Task</h2>
@@ -41,13 +43,13 @@
                                                                           <td>1</td><td>11:00PM</td><td>simple task</td><td>20/05/2018</td><td>xyz</td><td>Active</td>
                                                                       </tr>
                                                                        <tr>
-                                                                          <td>1</td><td>11:00PM</td><td>simple task</td><td>20/05/2018</td><td>xyz</td><td>Active</td>
+                                                                          <td>2</td><td>11:00PM</td><td>simple task</td><td>20/05/2018</td><td>xyz</td><td>Active</td>
                                                                       </tr>
                                                                        <tr>
-                                                                          <td>1</td><td>11:00PM</td><td>simple task</td><td>20/05/2018</td><td>xyz</td><td>Active</td>
+                                                                          <td>3</td><td>11:00PM</td><td>simple task</td><td>20/05/2018</td><td>xyz</td><td>Active</td>
                                                                       </tr>
                                                                        <tr>
-                                                                          <td>1</td><td>11:00PM</td><td>simple task</td><td>20/05/2018</td><td>xyz</td><td>Active</td>
+                                                                          <td>4</td><td>11:00PM</td><td>simple task</td><td>20/05/2018</td><td>xyz</td><td>Active</td>
                                                                       </tr>
                                                                   </tbody>
                                                               </table>
@@ -57,7 +59,7 @@
                                         </article>
                           </section>
                           <section id="section2">
-                                        <input type="radio" name="sections" id="option2">
+                                        <input type="radio" name="sections" id="option2" <?php if($month == '02') { echo "checked"; } ?>>
                                         <label for="option2">Febuary</label>
                                         <article>
                                                   <h2>Febuary 2019 Month Task</h2>
@@ -94,7 +96,7 @@
                                         </article>
                           </section>
                           <section id="section3">
-                                        <input type="radio" name="sections" id="option3">
+                                        <input type="radio" name="sections" id="option3" <?php if($month == '03') { echo "checked"; } ?>>
                                         <label for="option3">March</label>
                                         <article>
                                                         <h2>March 2019 Month Task</h2>
@@ -130,7 +132,7 @@
                                         </article>
                           </section>
                           <section id="section4">
-                                        <input type="radio" name="sections" id="option4">
+                                        <input type="radio" name="sections" id="option4" <?php if($month == '04') { echo "checked"; } ?>>
                                         <label for="option4">April</label>
                                         <article>
                                                             <h2>April 2019 Month Task</h2>
@@ -167,7 +169,7 @@
                                         </article>
                           </section>
                           <section id="section5">
-                                                <input type="radio" name="sections" id="option5">
+                                                <input type="radio" name="sections" id="option5" <?php if($month == '05') { echo "checked"; } ?>>
                                                 <label for="option5">May</label>
                                                 <article>
                                                             <h2>May 2019 Month Task</h2>
@@ -204,7 +206,7 @@
                                                 </article>
                           </section>
                           <section id="section6">
-                                                <input type="radio" name="sections" id="option6">
+                                                <input type="radio" name="sections" id="option6" <?php if($month == '06') { echo "checked"; } ?>>
                                                 <label for="option6">June</label>
                                                 <article>
                                                               <h2>June 2019 Month Task</h2>
@@ -240,7 +242,7 @@
                                                 </article>
                           </section>
                           <section id="section7">
-                                                        <input type="radio" name="sections" id="option7">
+                                                        <input type="radio" name="sections" id="option7" <?php if($month == '07') { echo "checked"; } ?>>
                                                         <label for="option7">July</label>
                                                         <article>
                                                               <h2>July 2019 Month Task</h2>
@@ -277,7 +279,7 @@
                                                         </article>
                           </section>
                           <section id="section8">
-                                                        <input type="radio" name="sections" id="option8">
+                                                        <input type="radio" name="sections" id="option8" <?php if($month == '08') { echo "checked"; } ?>>
                                                         <label for="option8">Augest</label>
                                                         <article>
                                                             <h2>Augest 2019 Month Task</h2>
@@ -313,7 +315,7 @@
                                                         </article>
                           </section>
                           <section id="section9">
-                                                        <input type="radio" name="sections" id="option9">
+                                                        <input type="radio" name="sections" id="option9" <?php if($month == '09') { echo "checked"; } ?>>
                                                         <label for="option9">Sepetmber</label>
                                                         <article>
                                                              <h2>Sepetmber 2019 Month Task</h2>
@@ -349,7 +351,7 @@
                                                         </article>
                           </section>
                           <section id="section10">
-                                                        <input type="radio" name="sections" id="option10">
+                                                        <input type="radio" name="sections" id="option10" <?php if($month == '10') { echo "checked"; } ?>>
                                                         <label for="option10">October</label>
                                                         <article>
                                                              <h2>October 2019 Month Task</h2>
@@ -386,7 +388,7 @@
                                                         </article>
                           </section>
                           <section id="section11">
-                                                        <input type="radio" name="sections" id="option11">
+                                                        <input type="radio" name="sections" id="option11" <?php if($month == '11') { echo "checked"; } ?>>
                                                         <label for="option11">November</label>
                                                         <article>
                                                               <h2>November 2019 Month Task</h2>
@@ -423,7 +425,7 @@
                                                         </article>
                           </section>
                           <section id="section12">
-                                                        <input type="radio" name="sections" id="option12">
+                                                        <input type="radio" name="sections" id="option12" <?php if($month == '12') { echo "checked"; } ?>>
                                                         <label for="option12">December</label>
                                                         <article>
                                                               <h2>December 2019 Month Task</h2>
@@ -570,9 +572,20 @@
                                  </div>
 
                              </div>
+							 <div class="clear"></div>
                      <!-- autometic delegates end -->
 
                 </div>
+				<div class="footer">
+                
+                    <div class="col-md-12">
+						<button type="submit" class="btargetDatetn-primary btn">Save</button>
+                        <!-- <a href="#">Add</a> -->
+                        <input type="reset" class="btn-primary btn" value="Reset">
+                        <!-- <a href="#">Reset</a> -->
+                    </div>
+					
+				</div>
                
                 </div>
                 <div class="clear"></div>
