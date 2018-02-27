@@ -247,12 +247,15 @@
                                                  </div>
 												 
                                         </div>
+										
                               
-                            </div>
+                            
 							
                         <!-- tabs end -->
 				   
 								<div class="col-md-12 conclution-panel" id="conclusion"><!-- conclution panel start -->
+								<div class="customclass1">
+								
 									 <div class="container4">
 								   <div class="col-md-12">
 
@@ -297,11 +300,12 @@
 														  </div>
 															</div>
 								</div>				  
-									
+									   </div>
 									</div>
-							</div>
-							
-							<?php $j = 0; 
+									
+									
+									
+												<?php $j = 0; 
 							if($fetch){
 							foreach($fetch['data3'] as $record1){	 
 														  if($j != '0'){  ?>
@@ -346,8 +350,13 @@
 													 </div>	
 																							 
 									</div>													 
-							<?php } $j++; } } ?>	
-						
+							<?php } $j++; } } ?>
+									
+									
+							</div>
+							
+	
+						</div>
 						
 
 				<!-- conclution panel end -->
@@ -355,10 +364,21 @@
 						<button type="submit" class="btn-primary btn">submit</button>
 					</div>
 					<div style="height:80px;"></div>
-			</div>
-			 	
-		</form>
+					
+					
+					
+					
+					
+					</div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+					
+					
+					
+					
+					
 			
+		</div>
+		</form>
+		</div>	 		
 	  	
 		
 		<script type = 'text/javascript'>

@@ -89,7 +89,9 @@
 		$data[3]=array(
 		  'agenda_name'=>$this->input->post('agenda')
 		  );
-
+			
+			print_r($data);
+			die;
 
 		if($this->uri->segment(3)){
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
