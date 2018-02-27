@@ -68,28 +68,24 @@
 		 'date_of_meeting'=>$this->input->post('previous_date'),
 		 //'agenda_id'=>$this->input->post('agenda'),
 	     'confidentiality'=>$this->input->post('confidentiality'),
-	     'self_seating'=>$this->input->post('seating'),
+	     'self_seating'=>$this->input->post('seating')
 	     // 'participants_id'=>1,
 	     // 'conclusion_id'=>1,
 	     // 'agenda_status'=>1,
 		);
 		$data[1] = array(
-		
 		 'name'=>$this->input->post('name'),
 		 'department'=>$this->input->post('department'),
 		 'email'=>$this->input->post('email'),
-		 'employee'=>$this->input->post('employee'),
-		  );
-		$data[2] = array(
+		 'employee'=>$this->input->post('employee'));
 		 
+		$data[2] = array(
 		 'conclusion_type'=>$this->input->post('conclusion_type'),
 		 'conclusion_textarea'=>$this->input->post('conclusion_textarea'),
 		 'targetdate'=>$this->input->post('targetdate'),
 		 'delegated_dept'=>$this->input->post('delegated_dept'),
-		 'delegated_name'=>$this->input->post('delegated_name'),
-		  ); 
-		  
-		  
+		 'delegated_name'=>$this->input->post('delegated_name'));
+		   
 		$data[3]=array(
 		  'agenda_name'=>$this->input->post('agenda')
 		  );
