@@ -7,6 +7,7 @@
     <link href="<?php echo base_url(); ?>css/bootsnip.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet"/>
     <script src="<?php echo base_url(); ?>js/float-panel.js"></script>
+    <script src="<?php echo base_url(); ?>js/ckeditor/ckeditor.js"></script>
     <script src="<?php echo base_url(); ?>js/accordion-menu.js"></script>
     <!-- script src="<?php echo base_url(); ?>js/jquery-3.2.1.min.js"></script --> 
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>

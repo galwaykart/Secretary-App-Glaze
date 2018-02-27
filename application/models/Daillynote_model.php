@@ -38,17 +38,42 @@
 
 		}
 
+		public function record_count() {
+			
+				  return $this->db->count_all("daily_notes");
+			
+			  }
 
-		public function getDailyNotesList(){
+
+		public function getDailyNotesList($limit, $start){
+			// echo "limit=".$limit."----------start=".$start;
+			$this->db->limit($limit, $start);
 			$query = $this->db->get("daily_notes"); 
-			$list_daily_notes = $query->result();
+
+
+			if ($query->num_rows() > 0) {
+				
+				foreach ($query->result() as $row) {
+	
+					$data[] = $row;
+	
+				}
+				//print_r($data);
+				return $data;
+				
+				}
+				
+				return false;
+
+
+			// $list_daily_notes = $query->result();
 			// print_r($list_daily_notes);
-			return $list_daily_notes;
+			//return $list_daily_notes;
 
 		}
 
 		public function getDailyNotesListById($id){
-			$query = $this->db->query("SELECT * FROM daily_notes
+			$query = $this->db->query("SELECT * ,DATE_FORMAT(	task_target_date,'%Y-%m-%d') AS endDate , DATE_FORMAT(	task_start_date,'%Y-%m-%d') AS startDate  FROM daily_notes
 			 JOIN daily_notes_participents 
 			 ON daily_notes.daily_notes_id = daily_notes_participents.daily_notes_id 
 			 WHERE daily_notes.daily_notes_id = $id"); 

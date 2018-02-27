@@ -210,7 +210,7 @@
             <div class="footer">
                 
                     <div class="col-md-12">
-                    <button type="submit" class="btn-primary btn">Add</button>
+                    <button type="submit" class="btn-primary btn">Save</button>
                     <input required class="btn-primary btn" type="reset" value="Reset">
                                    <!-- <a href="#">Reset</a> -->
                     </div>
@@ -277,6 +277,19 @@
         </script>
        
      <br /><br /><br />
+
+     <div id="container">
+
+   <div id="body">
+
+       <p><?php echo $links; ?></p>
+
+   </div>
+
+
+
+</div>
+
     <div style="height:50px;"></div>
    <?php $this->load->view('footer'); ?>
 </body>

@@ -154,18 +154,59 @@ class Indexmeeting_model extends CI_model{
 	   }
 	   
 	    public function get_meeting($id){
-		$this->db->select("*"); 
-		$this->db->from('index_meeting');
-		$this->db->join('index_meeting_participants','index_meeting.index_meeting_id=index_meeting_participants.index_meeting_id','left');
-		$this->db->join('index_meeting_agenda','index_meeting.agenda_id=index_meeting_agenda.agenda_id','left');
-		$this->db->join('index_meeting_conclusion','index_meeting.index_meeting_id=index_meeting_conclusion.index_meeting_id','left');
-		$this->db->where('index_meeting_participants.index_meeting_id',$id);
-		$query = $this->db->get();
-		return $query->result();
 		
+		$this->db->select('*');
+		$this->db->from('index_meeting') ;
+		$this->db->join('index_meeting_participants' , 'index_meeting.index_meeting_id = index_meeting_participants.index_meeting_id','left') ;
+		$this->db->where('index_meeting.index_meeting_id', $id); 
+		$data1 = $this->db->get();
+
+		$this->db->select('*');
+		$this->db->from('index_meeting ') ;
+		$this->db->join('index_meeting_agenda  ' , 'index_meeting.agenda_id=index_meeting_agenda.agenda_id','left') ;
+		$this->db->where('index_meeting.index_meeting_id', $id); 
+		$data2 = $this->db->get();
+		
+		// 2nd query of $data2 
+		//Select agenda_name, agenda_id from index_meeting_agenda where agenda_id = (Select agenda_id from index_meeting Where index_meeting.index_meeting_id = 22)
+		// end of 2nd query of $data2
+
+		$this->db->select('*');
+		$this->db->from('index_meeting') ;
+		$this->db->join('index_meeting_conclusion' , 'index_meeting.index_meeting_id = index_meeting_conclusion.index_meeting_id') ;
+		$this->db->where('index_meeting.index_meeting_id', $id); 
+		$data3 = $this->db->get();
+	
+
+			 $fetch = array('data1'=>$data1->result(),
+							'data2'=>$data2->result(),
+							'data3'=>$data3->result(),
+			 );
+			return $fetch;
+		// $this->db->select("*"); 
+		// $this->db->from('index_meeting');
+		// $this->db->join('index_meeting_participants','index_meeting.index_meeting_id=index_meeting_participants.index_meeting_id','left');
+		// $this->db->join('index_meeting_agenda','index_meeting.agenda_id=index_meeting_agenda.agenda_id','left');
+		// $this->db->join('index_meeting_conclusion','index_meeting.index_meeting_id=index_meeting_conclusion.index_meeting_id','left');
+		// $this->db->where('index_meeting.index_meeting_id',$id);
+		// $query = $this->db->get();
+		// $count = sizeof($query);
+		// echo $count."</br>";
+		// $myResult = array();
+		// for($i=0; $i<$count ; $i++){
+			// $j = $i % 1;
+			// if($j == 0){
+				// $myResult[$i] = $query->result()[$i];
+			// }
+			
+		// }
+		
+		// return $myResult;
 		}
+		
 		public function updatemeeting($data ,$record_id){
 			$this->db->delete("index_meeting_participants", "index_meeting_id = $record_id");
+			//$this->db->delete("index_meeting_conclusion", "index_meeting_id = $record_id");
             $this->db->set($data[0]); 
             $this->db->where("index_meeting_id", $record_id); 
             $this->db->update("index_meeting", $data[0]);
@@ -192,7 +233,7 @@ class Indexmeeting_model extends CI_model{
 			  $delegated_dept= $data[2]['delegated_dept'];
 			  $delegated_name= $data[2]['delegated_name'];
 			  // insert 2 or more data
-			  $totalname = sizeof($conclusion_type);
+			  $totalname = count($conclusion_type);
 			  for($i=0;$i<$totalname;$i++) {
 			  $inserttype=$conclusion_type[$i];
 			  $insertarea=$conclusion_textarea[$i];
@@ -206,6 +247,7 @@ class Indexmeeting_model extends CI_model{
 			  }
 
         }
+
 		public function getagenda($keyword){
 		
 		$this->db->select('*');
@@ -215,7 +257,6 @@ class Indexmeeting_model extends CI_model{
 		$query = $this->db->get();
         return $query->result();
         }
-		
 
 
 }
