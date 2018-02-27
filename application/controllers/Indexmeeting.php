@@ -88,6 +88,8 @@
 		 'delegated_dept'=>$this->input->post('delegated_dept'),
 		 'delegated_name'=>$this->input->post('delegated_name'),
 		  );
+		  
+		  print_r($data[2]); die;
 		$data[3]=array(
 		  'agenda_name'=>$this->input->post('agenda')
 		  );
