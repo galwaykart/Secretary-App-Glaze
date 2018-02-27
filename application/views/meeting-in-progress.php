@@ -23,7 +23,7 @@
 					   foreach($meeting as $arr){?>
                         <?php echo "<tr onclick='newDoc($arr->agenda_id)'>"?>
 						 <td><?php echo $i++;?></td>
-						 <td><?php echo $arr->agenda_id;?></td>
+						 <td><?php echo $arr->agenda_name;?></td>
 						 <td><?php echo $arr->counter;?></td>
 
                          </tr>
@@ -38,6 +38,7 @@
 			<div style="height:80px;"></div>
         </div>
     </div> 
+	<?php echo $links; ?>
      <br /><br /><br />
     <div style="height:50px;"></div>
   		<?php $this->load->view('footer'); ?>

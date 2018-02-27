@@ -26,7 +26,7 @@
 					   foreach($list as $get){?>
 						<?php echo "<tr onclick ='newDoc($get->index_meeting_id)'> " ?>
 							<td><?php echo $i++;?></td>
-							<td><?php echo $get->agenda_id;?></td>
+							<td><?php echo $get->agenda_name;?></td>
                             <td><?php echo $get->date_of_meeting;?></td>
                         </tr>
 					   <?php } ?>
@@ -36,7 +36,7 @@
                </div>
         </div>
     </div>
-   
+   <?php echo $links; ?>
 
      <br/><br/><br/>
     <div style="height:50px;"></div> 
