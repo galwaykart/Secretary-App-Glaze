@@ -206,7 +206,7 @@ class Indexmeeting_model extends CI_model{
 		
 		public function updatemeeting($data ,$record_id){
 			$this->db->delete("index_meeting_participants", "index_meeting_id = $record_id");
-			//$this->db->delete("index_meeting_conclusion", "index_meeting_id = $record_id");
+			$this->db->delete("index_meeting_conclusion", "index_meeting_id = $record_id");
             $this->db->set($data[0]); 
             $this->db->where("index_meeting_id", $record_id); 
             $this->db->update("index_meeting", $data[0]);
