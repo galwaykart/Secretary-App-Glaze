@@ -167,10 +167,9 @@ class Indexmeeting_model extends CI_model{
 		$this->db->where('index_meeting.index_meeting_id', $id); 
 		$data2 = $this->db->get();
 		
-		// 2nd query of $data2 
+		// 
 		//Select agenda_name, agenda_id from index_meeting_agenda where agenda_id = (Select agenda_id from index_meeting Where index_meeting.index_meeting_id = 22)
-		// end of 2nd query of $data2
-
+		
 		$this->db->select('*');
 		$this->db->from('index_meeting') ;
 		$this->db->join('index_meeting_conclusion' , 'index_meeting.index_meeting_id = index_meeting_conclusion.index_meeting_id') ;
