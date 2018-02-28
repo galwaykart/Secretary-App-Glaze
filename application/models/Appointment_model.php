@@ -50,7 +50,7 @@ class Appointment_model extends CI_model{
         $fLen = count($total_participants);
                 
         for($i = 0; $i < $fLen; $i++) {
-            echo $i;
+           // echo $i;
 
             $p_data = array(
                 'appointment_with_name'=>$name[$i],
@@ -104,7 +104,11 @@ class Appointment_model extends CI_model{
             
             
                     $fLen = count($delegates_name);
-                    echo "upadating the delegates";		
+                    //echo "upadating the delegates";
+
+
+
+
                     for($i = 0; $i < $fLen; $i++) {
                         //echo $i;
             
@@ -120,19 +124,17 @@ class Appointment_model extends CI_model{
                         //print_r($new_set_array);
                         echo "<br>";
                         $result = $this->db->insert('appointment_with', $new_set_array);
-                        
+                    } 
+                    if($result)
+                    {
+                    return true;
                     
+                    }
+                    else
+                    {
+                    return false;
                     
-                         if($result)
-                         {
-                         return true;
-                         
-                         }
-                         else
-                         {
-                         return false;
-                         
-                         }    }
+                    } 
                 }
             }
 }
