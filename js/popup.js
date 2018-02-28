@@ -1,5 +1,4 @@
 $('.popup .header #close-popup').on('click',function(){
-
     $('.popup').addClass('animation-out').hide();
     $('#myForm input[type="text"]').val('');
     $('#myForm input[type="date"]').val('');

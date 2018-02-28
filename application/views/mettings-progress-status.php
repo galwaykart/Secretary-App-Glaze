@@ -11,24 +11,31 @@
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Users</p></div>
     <div class="col-md-12 all-mettings">
             <div class="container">
-                <h2 class="heading">Metting Status</h2>
+                <h2 class="heading">Meeting Status</h2>
             </div>
         <div class="Mettings-View-index-panel">
              
                <div class="table-res">
                    <table id="mettings-table">
                        <thead>
-                           <tr><th>SR No</th><th>Ajenda of Metting</th><th>Previous Meetings Date</th><th>Participants</th><th>Next Metting Date</th></tr>
+                           <tr>
+							   <th>SR No.</th>
+							   <th>Ajenda of Meeting</th>
+							   <th>Previous Meetings Date</th>
+							   <th>Participants</th>
+							   <th>Next Meeting Date</th>
+						   </tr>
                        </thead>
                        <tbody>
-					   <?php 
-					   $i=1;
-					   foreach($list as $get){?>
-						<?php echo "<tr onclick ='newDoc($get->index_meeting_id)'> " ?>
-							<td><?php echo $i++;?></td>
-							<td><?php echo $get->agenda_id;?></td>
-                            <td><?php echo $get->date_of_meeting;?></td>
-                        </tr>
+					   <?php   $i=1;
+					       foreach($list as $get){?>
+						   <tr onclick ='newDoc(<?php echo $get->index_meeting_id; ?>)'>
+								<td><?php echo $i++;?></td>
+								<td><?php echo $get->agenda_name;?></td>
+								<td><?php echo $get->date_of_meeting;?></td>
+								<td> </td>
+								<td> </td>
+                           </tr>
 					   <?php } ?>
                        </tbody>
                    </table>
@@ -36,7 +43,7 @@
                </div>
         </div>
     </div>
-   
+   <?php echo $links; ?>
 
      <br/><br/><br/>
     <div style="height:50px;"></div> 
