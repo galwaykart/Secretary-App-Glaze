@@ -45,6 +45,12 @@
                                             </div>
                                 </div>
                        </div>
+                       <?php 
+                                              $date = '';
+                                              if($records){    
+                                                  $date = date('l', strtotime($records[0]->startDate));
+                                              } ?>
+                                            <?php if($date){ ?>
                        <div class="col-md-4">
 
                            <div class="form-group">
@@ -54,10 +60,13 @@
                                                   <span class="fa f fa-check-circle-o" ></span>
 
                                               </div>
-                                            <div class="form-control"><input type="day" required title="Day" name="day" /></div>
-                                            </div>
+                                              
+                                          <div class="form-control"><input type="day" required title="Day" readonly value="<?php echo $date; ?>" /></div>  
+                                           
+                                         </div>
                                 </div>
                        </div>
+                       <?php } ?>
                    </div>
                 
 
@@ -91,7 +100,7 @@
                                                   <span class="fa fa-building-o" ></span>
 
                                               </div>
-                                            <div class="form-control"><input type="text" placeholder="Department"  title="Only Alphabets allowed" required  pattern="[A-Za-z]{1,30}" name="Department" value="<?php if($records){ echo $records[0]->department; } ?>"/></div>
+                                            <div class="form-control"><input type="text" placeholder="Department"  title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" name="Department" value="<?php if($records){ echo $records[0]->department; } ?>"/></div>
                                             </div>
                                 </div>
                         </div>
@@ -202,7 +211,7 @@
                                                   <span class="fa  fa-line-chart" ></span>
 
                                               </div>
-                                            <div class="form-control"><input type="text" title="Priority" name="priority"  title="Only Alphabets allowed" required  pattern="[A-Za-z]{1,30}" value="<?php if($records){ echo $records[0]->priority; } ?>"/></div>
+                                            <div class="form-control"><input type="text" title="Priority" name="priority"  title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" value="<?php if($records){ echo $records[0]->priority; } ?>"/></div>
                                             </div>
                                 </div>
                         </div>
@@ -226,7 +235,7 @@
                                                   <span class="	fa fa-exchange" ></span>
 
                                               </div>
-                                            <div class="form-control"><input type="text" title="Communication Medium"  title="Only Alphabets allowed" required  pattern="[A-Za-z]{1,30}" name="comm_medium" value="<?php if($records){ echo $records[0]->communication_medium; } ?>"/></div>
+                                            <div class="form-control"><input type="text" title="Communication Medium"  title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" name="comm_medium" value="<?php if($records){ echo $records[0]->communication_medium; } ?>"/></div>
                                             </div>
                                 </div>
                         </div>
@@ -239,7 +248,7 @@
                             <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-addon"><span class="fa fa-building-o" ></span></div>
-                                                                        <div class="form-control"><input type="text" required placeholder="Department" title="Only Alphabets allowed"   pattern="[A-Za-z]{1,30}" name="part_dept[]" value="<?php if($records){ echo $records[0]->p_department; } ?>"/></div>
+                                                                        <div class="form-control"><input type="text" required placeholder="Department" title="Only Alphabets allowed"   pattern="[A-Z a-z ]{1,30}" name="part_dept[]" value="<?php if($records){ echo $records[0]->p_department; } ?>"/></div>
                                                 </div>
                             </div>
                             </div>
@@ -286,14 +295,14 @@
          <div class="form-group">
             <div class="input-group">
             <div class="input-addon"><span class="fa fa-building-o"></span></div>
-            <div class="form-control"><input type="text" placeholder="Department" value="<?php if($records){ echo $records[$i]->p_department; } ?>" title="Only Alphabets allowed" required  pattern="[A-Za-z]{1,30}" id="department" name="part_dept[]"></div>
+            <div class="form-control"><input type="text" placeholder="Department" value="<?php if($records){ echo $records[$i]->p_department; } ?>" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="department" name="part_dept[]"></div>
         </div>
         </div>
         </div>
             <div class="col-md-2" id="addmr"><div class="form-group">
                 <div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div>
                 <div class="form-control"><select name="Employee[]" > <option value="1" <?php if($records){ if($records[0]->employee == "1"){ echo "selected"; }} ?> >Yes</option><option value="0" <?php if($records){ if($records[0]->employee == "0"){ echo "selected"; }} ?>>No</option> </select></div>
-                </div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" value="<?php if($records){ echo $records[$i]->name; } ?>" title="Only Alphabets allowed" required  pattern="[A-Za-z]{1,30}" id="name" name="parti_name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" value="<?php if($records){ echo $records[$i]->p_email; } ?>" name="parti_email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues(<?php echo $j; ?>)"  class="btn-eror btn">Delete</a>
+                </div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" value="<?php if($records){ echo $records[$i]->name; } ?>" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="name" name="parti_name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" value="<?php if($records){ echo $records[$i]->p_email; } ?>" name="parti_email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues(<?php echo $j; ?>)"  class="btn-eror btn">Delete</a>
          </div>
          </div>
          </div>
@@ -405,7 +414,7 @@
             $('a.ad').click(function(e) {
             e.preventDefault();
             var lnth = $('#one .customclass').length; 
-         $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" title="Only Alphabets allowed" required  pattern="[A-Za-z]{1,30}" id="department" name="part_dept[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="Employee[]" > <option value="1" >Yes</option><option value="0" >No</option> </select></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" title="Only Alphabets allowed" required  pattern="[A-Za-z]{1,30}" id="name" name="parti_name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" name="parti_email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth +')"  class="ad btn-eror btn">Delete</a></div></div></div>');
+         $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="department" name="part_dept[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="Employee[]" > <option value="1" >Yes</option><option value="0" >No</option> </select></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="name" name="parti_name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" name="parti_email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth +')"  class="ad btn-eror btn">Delete</a></div></div></div>');
 
         });
         

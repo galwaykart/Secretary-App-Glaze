@@ -31,8 +31,9 @@
                                             echo "<td>".$r->appointment_periodic."</td>"; 
                                             echo "<td>".$r->appointment_travel_time."</td>"; 
                                             echo "<td>".$r->appointment_remark."</td>"; 
-                                            echo "<td>".$r->appointment_status."</td>"; 
-                                            echo "<td>".$r->appointment_active."</td>"; 
+                                            echo "<td>".$r->appointment_status."</td>";
+                                            if($r->appointment_active == 0){echo "<td>NO</td>";}else{echo "<td>Yes</td>";} 
+                                             
 
                                             
                                          //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
@@ -166,7 +167,7 @@
                                        <label>Active/Inactive</label>
                                         <div class="input-group">
                                             <div class="form-control">
-                                                <select name="active" id="active"><option value='Yes'>Yes</option><option value='No'>No</option></select>
+                                                <select name="active" id="active"><option value='1' >Yes</option><option value='0'>No</option></select>
                                             </div>
                                         </div>
                            </div>
