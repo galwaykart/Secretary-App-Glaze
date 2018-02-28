@@ -1,8 +1,7 @@
 <!doctype html>
 <html> 
-	<style>
-		.form_error{color:red; font-size:10px;}
-	</style>
+
+
 	<?php $this->load->view('head'); ?>
 	<body class="body style-6"><!-- body tag start -->
 	   <!-- globle header for comman start --> 
@@ -10,9 +9,8 @@
 	   <?php $this->load->view('header'); ?>
 		<!-- user View design page start -->
 
-		<div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Meeting Info</p></div>
+		<div class="col-md-12 heading-tag"><p><span class="fa fa-home"></span>&nbsp;Home / Meeting Info</p></div>
 		<div class="col-md-12 all-mettings">
-
 			<form method="post"  action="<?php if($fetch){echo base_url()."Indexmeeting/insert_meeting/".$fetch['data1'][0]->index_meeting_id;}else{echo base_url()."Indexmeeting/insert_meeting/";} ?>">
 				<div class="Mettings-View-index-panel"> 
 					<div class=" meeting-info-panel">
@@ -79,8 +77,9 @@
 												</div>
 												 <div class="col-md-8">
 													 <input type="text" placeholder="Ajenda of metting" id="search" name="agenda"  required value="<?php if($fetch){ echo $fetch['data2'][0]->agenda_name;} ?>" />
-														
+													 
 												</div>
+												
 															
 						</div>
 							   
@@ -353,30 +352,35 @@
 								<button type="submit" class="btn-primary btn">submit</button>
 							</div>
 							<div style="height:80px;"></div>
-						
 					</div>
 				</div>
 			</form>
 		</div>	
 			
-			
+		<div class="clear"></div>
 			<script type = 'text/javascript'>
 
 		   $("#search").autocomplete({
 			minLength: 1,
+			
 			source: function(req, add){  
+	
 			$.ajax({
 				url: '<?php echo base_url(); ?>/indexmeeting/get_agenda', //Controller where search is performed
 				dataType: 'json',
 				type: 'POST',
 				data: 'agenda='+$("#search").val(),
 				success: function(data){
+									   
 					if(data.response =='true'){
-					   add(data.message); 
-					   
+
+					   add(data.message);
+	
 						console.log(data.message);
 					}
-					else {add(data.message).text("No found");}
+				//	var text;
+				else {add(data.message).text("No found");}
+
 				}
 			});
 		 }

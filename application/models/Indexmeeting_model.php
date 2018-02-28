@@ -114,8 +114,12 @@ class Indexmeeting_model extends CI_model{
 	}
 	   public function get_allmeeting($limit, $start){
 		   $result = array();
-		    $this->db->limit($limit, $start);
-		   $query = $this->db->query("SELECT DISTINCT index_meeting.agenda_id FROM index_meeting  ");
+		   $this->db->limit($limit, $start);
+		   $this->db->select('index_meeting.agenda_id');
+		   $this->db->distinct();
+		   $query= $this->db->get('index_meeting');
+
+		   //$query = $this->db->query("SELECT DISTINCT index_meeting.agenda_id FROM index_meeting  ");
 		 $res = $query->result(); 
 		  if($res){
 			 
@@ -133,21 +137,29 @@ class Indexmeeting_model extends CI_model{
 
 	   }
 	   public function record_count(){
-		   return $this->db->count_all("index_meeting");
+
+		return $this->db->count_all("index_meeting");
+
 	   }
-	  public function record_counting(){
-		 return $this->db->count_all("index_meeting");
-	   }
-	   public function get_meeting_status($url_id,$limit, $start){
+
+	   public function get_meeting_status($limit,$offset,$url_id){
 		
 		$this->db->select('*');
 		$this->db->from('index_meeting');
 		$this->db->join('index_meeting_agenda','index_meeting.agenda_id=index_meeting_agenda.agenda_id','left');
 		$this->db->where('index_meeting.agenda_id',$url_id);
-
+		$this->db->limit($limit,$offset);
 		$query = $this->db->get();
 		return $query->result();
 
+	   }
+	   	public function record_counting($url_id){
+		$this->db->select('count(*)');
+		$this->db->from('index_meeting');
+		$this->db->join('index_meeting_agenda','index_meeting.agenda_id=index_meeting_agenda.agenda_id','left');
+		$this->db->where('index_meeting.agenda_id',$url_id);
+		$num_results = $this->db->count_all_results();
+		return $num_results;
 	   }
 	   
 	    public function get_meeting($id){
@@ -251,6 +263,7 @@ class Indexmeeting_model extends CI_model{
         $this->db->from('index_meeting_agenda');
        //$this->db->where('agenda_name', 0);
         $this->db->like('agenda_name', $keyword,'after');
+		
 		$query = $this->db->get();
         return $query->result();
         }
