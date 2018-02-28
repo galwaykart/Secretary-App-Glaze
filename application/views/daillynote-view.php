@@ -138,7 +138,7 @@
                                                   <span class="fa fa-share" ></span>
 
                                               </div>
-                                            <div class="form-control"><input type="text" placeholder="Delegate To"  title="Only Alphabets allowed" required  pattern="[A-Za-z]{1,30}" name="delegate" value="<?php if($records){ echo $records[0]->delegated; } ?>"/></div>
+                                            <div class="form-control"><input type="text" placeholder="Delegate To"  title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" name="delegate" value="<?php if($records){ echo $records[0]->delegated; } ?>"/></div>
                                             </div>
                                 </div>
 

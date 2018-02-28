@@ -111,7 +111,7 @@
 					);
 
 					if($this->uri->segment(3)){
-						echo "I am in updation";
+						//echo "I am in updation";
 						$result = $this->Quickwork_model->updateQuickwork($data , $record_id);
 						if($result)
 						{
@@ -127,7 +127,7 @@
 
 					
 					}else{
-					echo "I am in addition";
+					//echo "I am in addition";
 					$result = $this->Quickwork_model->addQuickwork($data);
 						if($result)
 						{

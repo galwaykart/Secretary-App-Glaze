@@ -1,5 +1,4 @@
 $('.popup .header #close-popup').on('click',function(){
-<<<<<<< HEAD
 
     $('.popup').addClass('animation-out').hide();
     $('#myForm input[type="text"]').val('');
@@ -8,21 +7,7 @@ $('.popup .header #close-popup').on('click',function(){
     $('#myForm select').val('');
     $('#refresh_popup .auto-del').remove();
 	$('#auto-del').append('<div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required="" type="text" id="gm1" name="delegate_to[]" title="Delegate To"></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required="" type="text" id="gm2" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"></div></div></div></div><div class="right text-center"><div class="btn-group"><a href="#" class="plus" id="plus"><span class="fa fa-plus"></span></a></div></div></div>');
-
-
-
-
 });
 
 
     $('#addnotes').on('click',function(){$('.popup').show();});
-=======
-	$('.popup').addClass('animation-out').hide(); 
-	$('#refresh_popup .auto-del').remove();
-	$('#auto-del').append('<div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required="" type="text" id="gm1" name="delegate_to[]" title="Delegate To"></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required="" type="text" id="gm2" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"></div></div></div></div><div class="right text-center"><div class="btn-group"><a href="#" class="plus" id="plus"><span class="fa fa-plus"></span></a></div></div></div>');
-
-	
-	
-});
-$('#addnotes').on('click',function(){$('.popup').show();});
->>>>>>> ac74108d28e8cc77426f46393de35a68103447c3

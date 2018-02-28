@@ -105,7 +105,7 @@
 				
 				
 						$fLen = count($delegates_name);
-						echo "upadating the delegates";		
+						//echo "upadating the delegates";		
 						for($i = 0; $i < $fLen; $i++) {
 							//echo $i;
 				

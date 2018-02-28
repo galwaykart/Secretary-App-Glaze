@@ -7,6 +7,7 @@
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Dailly Notes</p></div>
     <div class="dailly-notes-index-panel">
+    <?php if($message){echo $message;} ?> 
             <div class="table-res">
                     <div class="table-view">
                         <table>
