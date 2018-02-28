@@ -2,39 +2,49 @@
 	class Daillynote_model extends CI_model{
 
 		public function addDailyNotes($data){
-		$this->db->insert('daily_notes', $data[0]);
-		$insert_id = $this->db->insert_id();
-		$total_participants = $data[1]['employee'];
+			$output = $this->db->insert('daily_notes', $data[0]);
+			if($output){
+			$insert_id = $this->db->insert_id();
+			$total_participants = $data[1]['employee'];
 
-		$dept= $data[1]['department'];
-		$employee= $data[1]['employee'];
-		$name= $data[1]['name'];
-		$email= $data[1]['email'];
+			$dept= $data[1]['department'];
+			$employee= $data[1]['employee'];
+			$name= $data[1]['name'];
+			$email= $data[1]['email'];
 
 
-		$fLen = count($total_participants);
+			$fLen = count($total_participants);
+					
+			for($i = 0; $i < $fLen; $i++) {
 				
-		for($i = 0; $i < $fLen; $i++) {
-			echo $i;
 
-			$p_data = array(
-				'p_department'=>$dept[$i],
-				'employee'=>$employee[$i],
-				'name'=>$name[$i],
-				'p_email'=>$email[$i],
-			   );
+				$p_data = array(
+					'p_department'=>$dept[$i],
+					'employee'=>$employee[$i],
+					'name'=>$name[$i],
+					'p_email'=>$email[$i],
+				);
 
-			$existing_array = array();
-			$existing_array = $p_data;
-			$new_array = array('daily_notes_id'=>$insert_id);
-			$new_set_array = array_merge($existing_array, $new_array);
-			//print_r($new_set_array);
-			echo "<br>";
-			 $this->db->insert('daily_notes_participents', $new_set_array);
-		}
+				$existing_array = array();
+				$existing_array = $p_data;
+				$new_array = array('daily_notes_id'=>$insert_id);
+				$new_set_array = array_merge($existing_array, $new_array);
+				//print_r($new_set_array);
+				echo "<br>";
+				$result =	$this->db->insert('daily_notes_participents', $new_set_array);
+			}
 
-
-
+			if($result)
+			{
+			return true;
+			
+			}
+			else
+			{
+			return false;
+			
+			}
+			}
 
 		}
 
@@ -46,7 +56,6 @@
 
 
 		public function getDailyNotesList($limit, $start){
-			// echo "limit=".$limit."----------start=".$start;
 			$this->db->limit($limit, $start);
 			$query = $this->db->get("daily_notes"); 
 
@@ -88,41 +97,54 @@
 			$this->db->delete("daily_notes_participents", "daily_notes_id = $record_id");
 			$this->db->set($data[0]); 
 			$this->db->where("daily_notes_id", $record_id); 
-			$this->db->update("daily_notes", $data[0]);
+			$output = $this->db->update("daily_notes", $data[0]);
+			if($output){
 
 
 			$total_participants = $data[1]['employee'];
-			echo $total_participants;
+			
 
-					$dept= $data[1]['department'];
-					$employee= $data[1]['employee'];
-					$name= $data[1]['name'];
-					$email= $data[1]['email'];
+			$dept= $data[1]['department'];
+			$employee= $data[1]['employee'];
+			$name= $data[1]['name'];
+			$email= $data[1]['email'];
 			
 			
 					$fLen = count($total_participants);
 							
-					for($i = 0; $i < $fLen; $i++) {
-						echo $i;
-			
-						$p_data = array(
-							'p_department'=>$dept[$i],
-							'employee'=>$employee[$i],
-							'name'=>$name[$i],
-							'p_email'=>$email[$i],
-						   );
-			
-						$existing_array = array();
-						$existing_array = $p_data;
-						$new_array = array('daily_notes_id'=>$record_id);
-						$new_set_array = array_merge($existing_array, $new_array);
-						//print_r($new_set_array);
-						echo "<br>";
-						 $this->db->insert('daily_notes_participents', $new_set_array);
-					}
+			for($i = 0; $i < $fLen; $i++) {
+				
+	
+				$p_data = array(
+					'p_department'=>$dept[$i],
+					'employee'=>$employee[$i],
+					'name'=>$name[$i],
+					'p_email'=>$email[$i],
+					);
+	
+				$existing_array = array();
+				$existing_array = $p_data;
+				$new_array = array('daily_notes_id'=>$record_id);
+				$new_set_array = array_merge($existing_array, $new_array);
+				//print_r($new_set_array);
+				echo "<br>";
+				$result =	$this->db->insert('daily_notes_participents', $new_set_array);
+
+				
 				}
+				if($result)
+				{
+				return true;
+				
+				}
+				else
+				{
+				return false;
+				
+				} 
+			}
 
-
+		}
 		
 
 
