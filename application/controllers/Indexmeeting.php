@@ -73,6 +73,10 @@
 				$id= $this->uri->segment(3);
 				//print_r($id);
 				$data['fetch'] = $this->Indexmeeting_model->get_meeting($id);
+				if(!$data['fetch']){
+					redirect('Indexmeeting/metting_info');
+				}
+			//	print_r($this->Indexmeeting_model->get_meeting($id));die;
 				$this->load->view('metting-info',$data);
 
 			  }

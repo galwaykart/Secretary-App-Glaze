@@ -1,7 +1,9 @@
+
 <!doctype html>
 <html> 
-
-
+	<style>
+		.form_error{color:red; font-size:10px;}
+	</style>
 	<?php $this->load->view('head'); ?>
 	<body class="body style-6"><!-- body tag start -->
 	   <!-- globle header for comman start --> 
@@ -9,8 +11,9 @@
 	   <?php $this->load->view('header'); ?>
 		<!-- user View design page start -->
 
-		<div class="col-md-12 heading-tag"><p><span class="fa fa-home"></span>&nbsp;Home / Meeting Info</p></div>
+		<div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Meeting Info</p></div>
 		<div class="col-md-12 all-mettings">
+
 			<form method="post"  action="<?php if($fetch){echo base_url()."Indexmeeting/insert_meeting/".$fetch['data1'][0]->index_meeting_id;}else{echo base_url()."Indexmeeting/insert_meeting/";} ?>">
 				<div class="Mettings-View-index-panel"> 
 					<div class=" meeting-info-panel">
@@ -29,7 +32,7 @@
 								<div class="form-group">
 									<label>Next Meeting Date</label>
 									<div class="input-group">
-										<div class="form-control"><input type="date" required title="Next Meeting Date" name="next_date"/></div>
+										<div class="form-control"><input type="date" required title="Next Meeting Date" name="next_date" value="<?php if($fetch){echo $fetch['data1'][0]->index_meeting_next_date;} ?>"/></div>
 									</div>
 								</div>
 							</div>
@@ -87,89 +90,6 @@
 													<div class="input-addon"><span class="fa fa-building-o" ></span></div>
 													<div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]" value="<?php if($fetch){ echo $fetch['data1'][0]->department;} ?>" /></div>
 												</div>
-<<<<<<< HEAD
-												 <div class="col-md-8">
-													 <input type="text" placeholder="Ajenda of metting" id="search" name="agenda"  required value="<?php if($fetch){ echo $fetch['data2'][0]->agenda_name;} ?>" />
-													 
-												</div>
-												
-															
-						</div>
-							   
-							   <!-- start TAB -->
-							   
-						<div class="col-md-12 bottompanel-one">
-
-								<div class="container4">
-													 <div class="tab">
-															 <a class="tablinks active " onclick="openTabs(event, 'one')">Present Participate</a>
-															 <a class="tablinks " onclick="openTabs(event, 'two')">Absent Participate</a>
-													 </div>
-											<div id="one" class="tabcontent" style="display:block;" >
-														 <h3>Present Participate</h3>
-														
-	 
-														 <div class="col-md-2" class="RegSpLeft" id="addmr" >
-																 <div class="form-group" >
-																	<div class="input-group">
-																		<div class="input-addon"><span class="fa fa-building-o" ></span></div>
-																		<div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]" value="<?php if($fetch){ echo $fetch['data1'][0]->department;} ?>" /></div>
-																	</div>
-															</div>
-														 </div> 
-														
-															
-														 <div class="col-md-2" class="RegSpLeft" id="addmr">
-																<div class="form-group">
-																	<div class="input-group">
-																		<div class="input-addon"><span class="fa fa-user-o" ></span></div>
-																		<div class="form-control"><input type="text" placeholder="Employee"  required id="employee" name="employee[]"  value="<?php if($fetch){ echo $fetch['data1'][0]->employee;} ?>"  /></div>
-																	</div>
-															</div>
-														 </div>  
-														 <div class="col-md-2" class="RegSpLeft" id="name">
-																<div class="form-group">
-																	<div class="input-group">
-																		<div class="input-addon"><span class="fa fa-edit" ></span></div>
-																		<div class="form-control"><input type="text" placeholder="Name" id="name" name="name[]" title="Name should only contain letters. e.g. john"  required pattern="[a-zA-Z ]{1,100}" value="<?php if($fetch){ echo $fetch['data1'][0]->name;} ?>" /></div>
-																	</div>
-															</div>
-														 </div>  
-														 <div class="col-md-2" class="RegSpLeft" id="email">
-																<div class="form-group">
-																	<div class="input-group">
-																		<div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
-																		<div class="form-control"><input type="text" placeholder="Email Id" id ="email" name="email[]" required title ="Enter Valid Email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($fetch){ echo $fetch['data1'][0]->email;} ?>"/></div>
-																	</div>
-															</div>
-														 </div> 
-														 
-																										 
-														 <div class="col-md-2">
-																<div class="btn-group margin-top" style="text-align:center">
-																  <a href="#" class="ad btn-primary btn" id="add1">Add Participate</a>
-																		
-																		&nbsp;&nbsp;
-																	   <!-- <a  href="#" class=" btn btn-eror  "  >Reset</a> -->
-																</div>	
-														 </div> 
-														 </div> 
-							
-																 
-												
-														<?php $i = 0; 
-														if($fetch){
-														foreach($fetch['data1'] as $record){	 
-															  if($i != '0'){ 
-															  ?>
-														<div class="clear"></div>
-														<div id="rm<?php echo $i; ?>" class="customclass"> 
-														 <div class="col-md-2" class="RegSpLeft" id="addmr" >
-																 <div class="form-group" >
-																	<div class="input-group">
-																		<div class="input-addon"><span class="fa fa-building-o" ></span></div>
-																		<div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]" value="<?php if($record){ echo $record->department;} ?>" /></div>
-																	</div>
 											</div>
 										</div> 
 										<div class="col-md-2" class="RegSpLeft" id="addmr">
@@ -204,8 +124,8 @@
 											</div>	
 										</div> 
 									</div> 
-							        <?php $i = 0; 
-									if($fetch){
+							        <?php
+									if($fetch){ $i = 0; 
 										foreach($fetch['data1'] as $record){	 
 											if($i != '0'){ ?>
 												<div class="clear"></div>
@@ -215,7 +135,6 @@
 															<div class="input-group">
 																<div class="input-addon"><span class="fa fa-building-o" ></span></div>
 																<div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]" value="<?php if($record){ echo $record->department;} ?>" /></div>
-
 															</div>
 														</div>
 													</div> 
@@ -245,7 +164,7 @@
 													</div> 
 													<div class="col-md-2" class="RegSpLeft">								 
 														<div class="btn-group margin-top" style="text-align:center">
-															<a href="#"  onclick="setValues(<?php echo $i; ?>)"  class="ad btn-eror btn">Delete</a>
+															<a href="#"  onclick="setValues(<?php echo $i; ?>)"  class="btn-eror btn">Delete</a>
 														</div>
 													</div>
 								                </div>
@@ -264,7 +183,7 @@
 							<div class="container4">
 								<div class="col-md-12">
 									<div class="conclution-body" id="conclusion">
-										<div  class="customclass1">
+							
 											<div class="canclution-inner-body  col-md-6">
 												<div class="body-input-tabs">
 													<div class="col-md-3">  <label>Conclusion of Meeting : </label></div>
@@ -300,10 +219,11 @@
 													<a href="#" class="btn btn-primary" id="add">Add Conclusion</a> &nbsp;&nbsp;
 												</div>
 											</div>
-										</div>				  
+														  
 								
-							 <?php $j = 0; 
+							 <?php  $j = 0;
 								if($fetch){
+									
 									foreach($fetch['data3'] as $record1){	 
 										if($j != '0'){  ?>
 											<div class="clear"></div>
@@ -340,64 +260,29 @@
 												</div>                 
 												<div class="col-md-2" class="RegSpLeft">								 
 													<div class="btn-group margin-top" style="text-align:center">
-														<a href="#"  onclick="setValues1(<?php echo $j; ?>)"  class=" btn-eror btn" >Delete</a>
+														<a href="#"  onclick="setValues1(<?php echo $j; ?>)"  class="btn-eror btn" >Delete</a>
 													</div>
 												</div>	
 											</div>													 
 								  <?php } 
 							  $j++; } 
-								} ?> <!-- conclution panel end -->
+								} ?>
+								<!-- conclution panel end -->
 									</div>				  
 								</div>
 							</div>
-<<<<<<< HEAD
-							<div style="height:80px;"></div>
-=======
 						</div>
 				    </div>
 					<div class="btn-group col-md-12" style="text-align:center;height:  74px;">
 						<button type="submit" class="btn-primary btn">submit</button>
->>>>>>> 00f64bd00c0491ed75eb5dbaa537d504d8eb323d
 					</div>
 					<div style="height:80px;"></div>
 				</div>	
 			</form>
 		</div>	
 			
-<<<<<<< HEAD
-		<div class="clear"></div>
-			<script type = 'text/javascript'>
-
-		   $("#search").autocomplete({
-			minLength: 1,
-			
-			source: function(req, add){  
-	
-			$.ajax({
-				url: '<?php echo base_url(); ?>/indexmeeting/get_agenda', //Controller where search is performed
-				dataType: 'json',
-				type: 'POST',
-				data: 'agenda='+$("#search").val(),
-				success: function(data){
-									   
-					if(data.response =='true'){
-
-					   add(data.message);
-	
-						console.log(data.message);
-					}
-				//	var text;
-				else {add(data.message).text("No found");}
-
-				}
-			});
-		 }
-	  });                 
-	</script>
-=======
-			
+			<div class="clear"></div>
 		<script type = 'text/javascript'>
-
 		   $("#search").autocomplete({
 				minLength: 1,
 				source: function(req, add){  
@@ -418,7 +303,6 @@
 					}	
 			});                 
 	    </script>
->>>>>>> 00f64bd00c0491ed75eb5dbaa537d504d8eb323d
 		 
 		<script type="text/javascript"> 
 		
@@ -443,7 +327,6 @@
 				 $('#conclusion').append('<div id="rm1'+lnth1+'"  style="margin: 27px 0;"  class="col-md-12 customclass1"><div class="col-md-12"><div class="container4"><div class="col-md-12"><div class="conclution-body"><div class="canclution-inner-body col-md-6"><div class="body-input-tabs"><div class="col-md-3">  <label>Conclusion of Meeting : </label></div><div class="col-md-9"><textarea class="conclu-text" required name="conclusion_textarea[]" ></textarea></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Conclusion Type : </label></div><div class="col-md-9"><select  name="conclusion_type[]"><option value="1">Minute</option><option value="2">decision</option><option value="3">reminder</option><option value="4">Appointment/Quick Work/Periodic/Project/other</option></select></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Delegate To : </label></div><div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]"/></div><div class="col-md-3"><input type="text"  placeholder="Employee" required name="delegated_name[]"/></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Target Date : </label></div><div class="col-md-9"><input type="date" required name="targetdate[]" /></div></div></div><div class="body-input-tabs col-md-6"><div class="col-md-9"><a href="#"  onclick="setValues1('+ lnth1 + ')"  class="ad btn-eror btn inputclass">Delete</a></div></div></div></div></div></div></div>');
 				  
 				});
-
 			});
 			function setValues1(id){     
 				document.getElementById("rm1"+id).remove();
