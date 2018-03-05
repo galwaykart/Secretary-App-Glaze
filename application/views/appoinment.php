@@ -287,16 +287,10 @@
        
      <br /><br /><br />
 
-     <div id="container">
-
+<div id="container">
    <div id="body">
-
-       <p><?php echo $links; ?></p>
-
+      <p><?php echo $links; ?></p>
    </div>
-
-
-
 </div>
 
     <div style="height:50px;"></div>

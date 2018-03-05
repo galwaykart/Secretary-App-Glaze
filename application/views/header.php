@@ -50,6 +50,9 @@
                              <a href="<?php echo site_url('Appoinment') ?>">Appointments</a> 
                         </li>
                         <li>
+                             <a href="<?php echo site_url('Projectdelegation') ?>">Project Delegation</a> 
+                        </li>
+                        <li>
                             <div>Periodic tasks</div>
                             <ul>
                                 <li><a href="?31">Yearly periodic task (Quarterly)</a></li>
