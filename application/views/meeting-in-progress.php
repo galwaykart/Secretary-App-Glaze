@@ -33,12 +33,13 @@
 							 <td><?php echo $i++;?></td>
 							 <td><?php echo $arr->agenda_name;?></td>
 							 <td><?php echo $arr->counter;?></td>
+							 <td><?php echo $arr->index_meeting_next_date;?></td>
+							 <td><?php echo $arr->index_meeting_next_date;?></td>
 							 <td></td>
 							 <td></td>
 							 <td></td>
 							 <td></td>
-							 <td></td>
-							 <td></td>
+
                          </tr>
 					   <?php } ?>
                        </tbody>
@@ -61,7 +62,7 @@
       
 function newDoc(id) {
    // console.log("id ====" ,id);
-    var url = "<?php echo base_url(); ?>/indexmeeting/mettings_status/"+id;
+    var url = "<?php echo base_url(); ?>indexmeeting/mettings_status/"+id;
     window.location.assign(url);
 }
 </script>

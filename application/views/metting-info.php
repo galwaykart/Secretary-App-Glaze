@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html> 
 	<style>
@@ -31,7 +32,7 @@
 								<div class="form-group">
 									<label>Next Meeting Date</label>
 									<div class="input-group">
-										<div class="form-control"><input type="date" required title="Next Meeting Date" name="next_date"/></div>
+										<div class="form-control"><input type="date" required title="Next Meeting Date" name="next_date" value="<?php if($fetch){echo $fetch['data1'][0]->index_meeting_next_date;} ?>"/></div>
 									</div>
 								</div>
 							</div>
@@ -123,8 +124,8 @@
 											</div>	
 										</div> 
 									</div> 
-							        <?php $i = 0; 
-									if($fetch){
+							        <?php
+									if($fetch){ $i = 0; 
 										foreach($fetch['data1'] as $record){	 
 											if($i != '0'){ ?>
 												<div class="clear"></div>
@@ -163,7 +164,7 @@
 													</div> 
 													<div class="col-md-2" class="RegSpLeft">								 
 														<div class="btn-group margin-top" style="text-align:center">
-															<a href="#"  onclick="setValues(<?php echo $i; ?>)"  class="ad btn-eror btn">Delete</a>
+															<a href="#"  onclick="setValues(<?php echo $i; ?>)"  class="btn-eror btn">Delete</a>
 														</div>
 													</div>
 								                </div>
@@ -176,13 +177,12 @@
 						</div>	
 					</div>	
 																			
-					<div id="two" class="tabcontent-1"> <!-- tabs end -->
-					   
+
 						<div class="col-md-12 conclution-panel"><!-- conclution panel start -->
 							<div class="container4">
 								<div class="col-md-12">
 									<div class="conclution-body" id="conclusion">
-										<div  class="customclass1">
+							
 											<div class="canclution-inner-body  col-md-6">
 												<div class="body-input-tabs">
 													<div class="col-md-3">  <label>Conclusion of Meeting : </label></div>
@@ -218,10 +218,12 @@
 													<a href="#" class="btn btn-primary" id="add">Add Conclusion</a> &nbsp;&nbsp;
 												</div>
 											</div>
-										</div>				  
+														  
 								
-							 <?php $j = 0; 
+							 <?php  $j = 0;
 								if($fetch){
+									
+									
 									foreach($fetch['data3'] as $record1){	 
 										if($j != '0'){  ?>
 											<div class="clear"></div>
@@ -258,18 +260,19 @@
 												</div>                 
 												<div class="col-md-2" class="RegSpLeft">								 
 													<div class="btn-group margin-top" style="text-align:center">
-														<a href="#"  onclick="setValues1(<?php echo $j; ?>)"  class=" btn-eror btn" >Delete</a>
+														<a href="#"  onclick="setValues1(<?php echo $j; ?>)"  class="btn-eror btn" >Delete</a>
 													</div>
 												</div>	
 											</div>													 
 								  <?php } 
 							  $j++; } 
-								} ?> <!-- conclution panel end -->
+								} ?>
+								<!-- conclution panel end -->
 									</div>				  
 								</div>
 							</div>
 						</div>
-				    </div>
+				   
 					<div class="btn-group col-md-12" style="text-align:center;height:  74px;">
 						<button type="submit" class="btn-primary btn">submit</button>
 					</div>
@@ -278,9 +281,8 @@
 			</form>
 		</div>	
 			
-			
+			<div class="clear"></div>
 		<script type = 'text/javascript'>
-
 		   $("#search").autocomplete({
 				minLength: 1,
 				source: function(req, add){  
@@ -325,7 +327,6 @@
 				 $('#conclusion').append('<div id="rm1'+lnth1+'"  style="margin: 27px 0;"  class="col-md-12 customclass1"><div class="col-md-12"><div class="container4"><div class="col-md-12"><div class="conclution-body"><div class="canclution-inner-body col-md-6"><div class="body-input-tabs"><div class="col-md-3">  <label>Conclusion of Meeting : </label></div><div class="col-md-9"><textarea class="conclu-text" required name="conclusion_textarea[]" ></textarea></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Conclusion Type : </label></div><div class="col-md-9"><select  name="conclusion_type[]"><option value="1">Minute</option><option value="2">decision</option><option value="3">reminder</option><option value="4">Appointment/Quick Work/Periodic/Project/other</option></select></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Delegate To : </label></div><div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]"/></div><div class="col-md-3"><input type="text"  placeholder="Employee" required name="delegated_name[]"/></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Target Date : </label></div><div class="col-md-9"><input type="date" required name="targetdate[]" /></div></div></div><div class="body-input-tabs col-md-6"><div class="col-md-9"><a href="#"  onclick="setValues1('+ lnth1 + ')"  class="ad btn-eror btn inputclass">Delete</a></div></div></div></div></div></div></div>');
 				  
 				});
-
 			});
 			function setValues1(id){     
 				document.getElementById("rm1"+id).remove();

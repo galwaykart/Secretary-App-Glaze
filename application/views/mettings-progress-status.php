@@ -22,8 +22,8 @@
 							   <th>SR No.</th>
 							   <th>Ajenda of Meeting</th>
 							   <th>Previous Meetings Date</th>
-							   <th>Participants</th>
 							   <th>Next Meeting Date</th>
+							   <th>Participants</th>
 						   </tr>
                        </thead>
                        <tbody>
@@ -33,6 +33,7 @@
 								<td><?php echo $i++;?></td>
 								<td><?php echo $get->agenda_name;?></td>
 								<td><?php echo $get->date_of_meeting;?></td>
+								<td><?php echo $get->index_meeting_next_date;?></td>
 								<td> </td>
 								<td> </td>
                            </tr>
@@ -52,7 +53,7 @@
 <script>
   function newDoc(id) {
    // console.log("id ====" ,id);
-    var url = "<?php echo base_url(); ?>/indexmeeting/metting_info/"+id;
+    var url = "<?php echo base_url(); ?>indexmeeting/metting_info/"+id;
     window.location.assign(url);
 }
 </script>
