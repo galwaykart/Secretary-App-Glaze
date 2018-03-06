@@ -73,6 +73,49 @@ class Projectdelegation_model extends CI_model{
 			}
 		}
 		}
+
+
+
+		public function getProjectDelegationStatus($record_id){
+			$query = $this->db->get_where("project_delegation_status",array("project_delegation_id"=>$record_id)); 
+			
+			
+					if ($query->num_rows() > 0) {
+						
+						foreach ($query->result() as $row) {
+			
+							$status_data[] = $row;
+			
+						}
+			
+						return $status_data;
+						
+						}
+						
+						return false;
+		}
+
+
+		public function addProjectDelegationStatus($data){
+			// echo "<pre>";
+			// print_r($data);
+			// echo "</pre>";die;
+			$output = $this->db->insert('project_delegation_status', $data[0]);
+			if($output){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+
+		
+		public function joinData(){
+			 $res= $this->db->query('SELECT * FROM `project_delegation_status` JOIN `project_delegation_delegates` ON project_delegation_status.project_delegation_id = project_delegation_delegates.project_delegation_id WHERE project_delegation_status.project_delegation_id = 1');
+			 echo "<pre>";
+			print_r($res->result());
+			echo "</pre>";
+		}		
  
 
 	}

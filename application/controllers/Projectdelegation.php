@@ -47,21 +47,26 @@ class Projectdelegation extends CI_Controller {
 					$this->load->view("login");
 				}
 		} 		
-		public function view()
+		public function view($param1 = NUll , $param2 = null)
 		{
 			
 			if($this->session->user == 'logged_in'){	
 				if($this->uri->segment(3)){
 					$record_id =$this->uri->segment(3); 
-					$listOfDataById['records'] = array();
-					//$listOfDataById['records']	= $this->Daillynote_model->getDailyNotesListById($record_id);
+					//$listOfDataById['records'] = array();
+					$listOfDataById['records']	= $this->Projectdelegation_model->getProjectDelegationStatus($record_id);
+					$listOfDataById['message'] = $param2;
+					// echo "<pre>";
+					// print_r($listOfDataById);
+					// echo "</pre>";
 					$this->load->view('project-delegation-view',$listOfDataById);
 
 				}
-				else{
-					$listOfData['records'] = array();
-					$this->load->view('project-delegation-view',$listOfData);
-				}
+				// else{
+				// 	$listOfData['records'] = array();
+				// 	$listOfData['message'] = $param2;
+				// 	$this->load->view('project-delegation-view',$listOfData);
+				// }
 					
 					
 				}else{
@@ -142,6 +147,50 @@ class Projectdelegation extends CI_Controller {
 			}else{
 				redirect('Projectdelegation');
 			}
+		}
+
+
+		public function adddelegationstatus(){
+						$record_id =$this->uri->segment(3); 
+							if($this->input->post('status_date') != null){
+							$data = array();
+							$data[0] = array(
+								'project_delegation_id' => $record_id,
+								'project_delegation_status_date'=>$this->input->post('status_date'),
+								'project_delegation_status_status'=>$this->input->post('status'),
+								'project_delegation_status_next_followup_date'=>$this->input->post('nxt_followup_date'),
+								'project_delegation_status_current_status'=>$this->input->post('current_ctatus'),
+							   );
+
+								 //echo "i am in addition of record";
+								 $result = $this->Projectdelegation_model->addProjectDelegationStatus($data);
+								 if($result)
+								 {
+								 $param1 =  "<h2>Success</h2>";
+								 
+								 }
+								 else
+								 {
+								 $param1 = "<h2>ERROR</h2>";
+								 
+								 }
+								 $this->view(null , $param1 );
+						
+			
+							
+							// }else {
+							// 	echo "no request made with post method";
+							// }
+							
+			
+						}else{
+							redirect('Projectdelegation/view/'.$record_id);
+						}
+		}
+
+
+		public function joindata(){
+			$result = $this->Projectdelegation_model->joinData();
 		}
 		
 		
