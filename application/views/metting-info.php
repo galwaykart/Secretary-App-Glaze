@@ -1,9 +1,7 @@
 
 <!doctype html>
 <html> 
-	<style>
-		.form_error{color:red; font-size:10px;}
-	</style>
+
 	<?php $this->load->view('head'); ?>
 	<body class="body style-6"><!-- body tag start -->
 	   <!-- globle header for comman start --> 
@@ -32,7 +30,7 @@
 								<div class="form-group">
 									<label>Next Meeting Date</label>
 									<div class="input-group">
-										<div class="form-control"><input type="date" required title="Next Meeting Date" name="next_date" value="<?php if($fetch){echo $fetch['data1'][0]->index_meeting_next_date;} ?>"/></div>
+										<div class="form-control"><input type="date" required title="Next Meeting Date" name="index_meeting_next_date" value="<?php if($fetch){echo $fetch['data1'][0]->index_meeting_next_date;} ?>"/></div>
 									</div>
 								</div>
 							</div>
@@ -79,7 +77,7 @@
 							<div class="container4">
 								<div class="tab">
 									<a class="tablinks active " onclick="openTabs(event, 'one')">Present Participate</a>
-									<a class="tablinks " onclick="openTabs(event, 'two')">Absent Participate</a>
+									<!--<a class="tablinks " onclick="openTabs(event, 'two')">Absent Participate</a>-->
 								</div>
 								<div id="one" class="tabcontent" style="display:block;" >
 									<h3>Present Participate</h3>
@@ -105,6 +103,7 @@
 												</div>
 											</div>
 										</div>  
+										
 										<div class="col-md-2" class="RegSpLeft" id="name">
 											<div class="form-group">
 												<div class="input-group">
@@ -121,6 +120,20 @@
 												</div>
 											</div>
 										</div> 
+										<div class="col-md-2" class="RegSpLeft" id="addmr">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa fa-user-o" ></span></div>
+													<div class="form-control">
+													<select name="is_employee[]" >
+														<option value="1" <?php if($fetch){ if($fetch['data1'][0]->is_employee == "1"){ echo "selected"; }} ?>>Present</option>
+														<option value="0" <?php if($fetch){ if($fetch['data1'][0]->is_employee == "0"){ echo "selected"; }} ?>>Absent</option>
+													</select>
+													</div>
+												</div>
+											</div>
+										</div>  
+									</div> 
 										<div class="col-md-2"> 
 											<div class="btn-group margin-top" style="text-align:center">
 												<a href="#" class="ad btn-primary btn" id="add1">Add Participate</a>
@@ -128,7 +141,7 @@
 													<!-- <a  href="#" class=" btn btn-eror  "  >Reset</a> -->
 											</div>	
 										</div> 
-									</div> 
+										
 							        <?php
 									if($fetch){ $i = 0; 
 										foreach($fetch['data1'] as $record){	 
@@ -172,6 +185,19 @@
 															</div>
 														</div>
 													</div> 
+										<div class="col-md-2" class="RegSpLeft" id="addmr">
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa fa-user-o" ></span></div>
+													<div class="form-control">
+													<select name="is_employee[]" >
+														<option value="1" <?php if($record){ if($record->is_employee == "1"){ echo "selected"; }} ?>>Present</option>
+														<option value="0" <?php if($record){ if($record->is_employee == "0"){ echo "selected"; }} ?>>Absent</option>
+													</select>
+													</div>
+												</div>
+											</div>
+										</div>  
 													<div class="col-md-2" class="RegSpLeft">								 
 														<div class="btn-group margin-top" style="text-align:center">
 															<a href="#"  onclick="setValues(<?php echo $i; ?>)"  class="btn-eror btn">Delete</a>
@@ -186,8 +212,6 @@
 							</div>	
 						</div>	
 					</div>	
-																			
-
 						<div class="col-md-12 conclution-panel"><!-- conclution panel start -->
 							<div class="container4">
 								<div class="col-md-12">
@@ -331,7 +355,7 @@
 					e.preventDefault();
 					  var lnth = $('#one .customclass').length; 
 					// var lnth = 0;  
-				   $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="employee[]" ><option value="1" >Yes</option><option value="0" >No</option></select></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" required pattern="[a-zA-Z ]{1,100}" title="Name should only contain letters. e.g. john"   id="name"  name="name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn">Delete</a></div></div></div>');
+				   $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="employee[]" ><option value="1" >Yes</option><option value="0" >No</option></select></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" required pattern="[a-zA-Z ]{1,100}" title="Name should only contain letters. e.g. john"   id="name"  name="name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-2" class="RegSpLeft" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o" ></span></div><div class="form-control"><select name="is_employee[]" ><option value="1" >Present</option><option value="0" >Absent</option></select></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn">Delete</a></div></div></div>');
 				});
 			});
 			function setValues(id){

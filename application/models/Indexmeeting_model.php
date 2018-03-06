@@ -1,6 +1,7 @@
 <?php
 class Indexmeeting_model extends CI_model{
 	
+	// insert data
 	public function form_insert($data,$data1){
 	    $query = $this->db->query("select agenda_id FROM index_meeting_agenda WHERE agenda_name='$data1'");
 		//print_r($query->result());
@@ -12,7 +13,6 @@ class Indexmeeting_model extends CI_model{
 		$result = $this->db->insert('index_meeting_agenda', $data[3]);
 		$insert_id=$this->db->insert_id();
 		if($result){
-			
 			$date_of_meeting=$data[0]['date_of_meeting'];
 			$confidentiality=$data[0]['confidentiality'];
 			$self_seating=$data[0]['self_seating'];
@@ -25,6 +25,7 @@ class Indexmeeting_model extends CI_model{
 			$dept = $data[1]['department'];
 			$email = $data[1]['email'];
 			$emp = $data[1]['employee'];
+			$is_employee = $data[1]['is_employee'];
 			// insert 2 or more data
 			$totalname = sizeof($name);
 			for($i=0;$i<$totalname;$i++) {
@@ -32,9 +33,10 @@ class Indexmeeting_model extends CI_model{
 			$insertdept=$dept[$i];
 			$insertemail=$email[$i];
 			$insertemp=$emp[$i];
+			$insertis_employee=$is_employee[$i];
 			
-			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee)
-					values ('$insert_id2', '$insertname', '$insertdept', '$insertemail', '$insertemp')";
+			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee,is_employee)
+					values ('$insert_id2', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee')";
 			$this->db->query($sql1);
 			 }
 			// echo $sql1; die;
@@ -58,7 +60,6 @@ class Indexmeeting_model extends CI_model{
 			  
 			  }
 			} 
-		
 		}
 		else{
 		//echo "same id";
@@ -78,6 +79,7 @@ class Indexmeeting_model extends CI_model{
 			$dept = $data[1]['department'];
 			$email = $data[1]['email'];
 			$emp = $data[1]['employee'];
+			$is_employee = $data[1]['is_employee'];
 			// insert 2 or more data
 			$totalname = sizeof($name);
 			for($i=0;$i<$totalname;$i++) {
@@ -85,9 +87,9 @@ class Indexmeeting_model extends CI_model{
 			$insertdept=$dept[$i];
 			$insertemail=$email[$i];
 			$insertemp=$emp[$i];
-			
-			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee)
-					values ('$insert_id1', '$insertname', '$insertdept', '$insertemail', '$insertemp')";
+			$insertis_employee=$is_employee[$i];
+			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee,is_employee)
+					values ('$insert_id1', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee')";
 			$this->db->query($sql1);
 			 }
 			  $conclusion_type= $data[2]['conclusion_type'];
@@ -114,6 +116,7 @@ class Indexmeeting_model extends CI_model{
 		//$this->db->insert('index_meeting_participants', $data[1]);
 		//$this->db->insert('index_meeting_conclusion', $data[2]);
 	}
+		//get all meetings
 	   public function get_allmeeting($limit, $start){
 		   $result = array();
 		   $this->db->limit($limit, $start);
@@ -138,14 +141,16 @@ class Indexmeeting_model extends CI_model{
 		   return $result;
 
 	   }
+	   // pagination count for all meetings
 	   public function record_count(){
 	   $this->db->select('index_meeting.agenda_id');
 	   $this->db->from('index_meeting');
        $this->db->distinct();
-	   $query= $this->db->count_all_results();
+	   $query = $this->db->count_all_results();//count all the results 
 	   return $query;
 	   }
-
+		
+		// get meeting status
 	   public function get_meeting_status($limit,$offset,$url_id){
 		
 		$this->db->select('*');
@@ -155,8 +160,9 @@ class Indexmeeting_model extends CI_model{
 		$this->db->limit($limit,$offset);
 		$query = $this->db->get();
 		return $query->result();
-
 	   }
+	   
+	   // pagination code for meeting status
 	   	public function record_counting($url_id){
 		$this->db->select('count(*)');
 		$this->db->from('index_meeting');
@@ -167,22 +173,19 @@ class Indexmeeting_model extends CI_model{
 	   }
 	   
 	    public function get_meeting($id){
-		
 		$this->db->select('*');
 		$this->db->from('index_meeting') ;
 		$this->db->join('index_meeting_participants' , 'index_meeting.index_meeting_id = index_meeting_participants.index_meeting_id','left') ;
 		$this->db->where('index_meeting.index_meeting_id', $id); 
 		$data1 = $this->db->get();
 		//echo sizeof($data1->result());
-				//echo sizeof($data1->result());
-		$siz =sizeof($data1->result());
-		if($siz == 0){
-			//echo "I am in.";
+		//echo sizeof($data1->result());
+		$size =sizeof($data1->result());
+		if($size == 0){
+		//echo "I am in.";
 			return false;
 		}
-		
 		//print_r($data1->result());die;
-
 		$this->db->select('*');
 		$this->db->from('index_meeting ') ;
 		$this->db->join('index_meeting_agenda  ' , 'index_meeting.agenda_id=index_meeting_agenda.agenda_id','left') ;
@@ -192,7 +195,6 @@ class Indexmeeting_model extends CI_model{
 		// 2nd query of $data2 
 		//Select agenda_name, agenda_id from index_meeting_agenda where agenda_id = (Select agenda_id from index_meeting Where index_meeting.index_meeting_id = 22)
 		// end of 2nd query of $data2
-
 		$this->db->select('*');
 		$this->db->from('index_meeting') ;
 		$this->db->join('index_meeting_conclusion' , 'index_meeting.index_meeting_id = index_meeting_conclusion.index_meeting_id') ;
@@ -205,27 +207,9 @@ class Indexmeeting_model extends CI_model{
 							'data3'=>$data3->result(),
 			 );
 			return $fetch;
-		// $this->db->select("*"); 
-		// $this->db->from('index_meeting');
-		// $this->db->join('index_meeting_participants','index_meeting.index_meeting_id=index_meeting_participants.index_meeting_id','left');
-		// $this->db->join('index_meeting_agenda','index_meeting.agenda_id=index_meeting_agenda.agenda_id','left');
-		// $this->db->join('index_meeting_conclusion','index_meeting.index_meeting_id=index_meeting_conclusion.index_meeting_id','left');
-		// $this->db->where('index_meeting.index_meeting_id',$id);
-		// $query = $this->db->get();
-		// $count = sizeof($query);
-		// echo $count."</br>";
-		// $myResult = array();
-		// for($i=0; $i<$count ; $i++){
-			// $j = $i % 1;
-			// if($j == 0){
-				// $myResult[$i] = $query->result()[$i];
-			// }
-			
-		// }
-		
-		// return $myResult;
 		}
 		
+		// update the meeting
 		public function updatemeeting($data ,$record_id){
 			$this->db->delete("index_meeting_participants", "index_meeting_id = $record_id");
 			$this->db->delete("index_meeting_conclusion", "index_meeting_id = $record_id");
@@ -237,16 +221,17 @@ class Indexmeeting_model extends CI_model{
 			$dept = $data[1]['department'];
 			$email = $data[1]['email'];
 			$emp = $data[1]['employee'];
+			$is_employee = $data[1]['is_employee'];
 			// insert 2 or more data
 			$totalname = sizeof($name);
 			for($i=0;$i<$totalname;$i++) {
 			$insertname=$name[$i];
 			$insertdept=$dept[$i];
 			$insertemail=$email[$i];
-			$insertemp=$emp[$i];
+			$insertis_employee=$is_employee[$i];
 			
-			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee)
-					values ('$record_id', '$insertname', '$insertdept', '$insertemail', '$insertemp')";
+			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee,is_employee)
+					values ('$record_id', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee')";
 			$this->db->query($sql1);
 			 }
 			  $conclusion_type= $data[2]['conclusion_type'];
@@ -269,14 +254,12 @@ class Indexmeeting_model extends CI_model{
 			  }
 
         }
-
+		//this function is used for suggested search
 		public function getagenda($keyword){
-		
 		$this->db->select('*');
         $this->db->from('index_meeting_agenda');
        //$this->db->where('agenda_name', 0);
         $this->db->like('agenda_name', $keyword,'after');
-		
 		$query = $this->db->get();
         return $query->result();
         }
