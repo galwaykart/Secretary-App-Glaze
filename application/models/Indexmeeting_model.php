@@ -139,9 +139,11 @@ class Indexmeeting_model extends CI_model{
 
 	   }
 	   public function record_count(){
-
-		return $this->db->count_all("index_meeting_agenda");
-
+	   $this->db->select('index_meeting.agenda_id');
+	   $this->db->from('index_meeting');
+       $this->db->distinct();
+	   $query= $this->db->count_all_results();
+	   return $query;
 	   }
 
 	   public function get_meeting_status($limit,$offset,$url_id){

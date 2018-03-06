@@ -96,7 +96,12 @@
 											<div class="form-group">
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-user-o" ></span></div>
-													<div class="form-control"><input type="text" placeholder="Employee"  required id="employee" name="employee[]"  value="<?php if($fetch){ echo $fetch['data1'][0]->employee;} ?>"  /></div>
+													<div class="form-control">
+													<select name="employee[]" >
+														<option value="1" <?php if($fetch){ if($fetch['data1'][0]->employee == "1"){ echo "selected"; }} ?>>Yes</option>
+														<option value="0" <?php if($fetch){ if($fetch['data1'][0]->employee == "0"){ echo "selected"; }} ?>>No</option>
+													</select>
+													</div>
 												</div>
 											</div>
 										</div>  
@@ -142,7 +147,12 @@
 														<div class="form-group">
 															<div class="input-group">
 																<div class="input-addon"><span class="fa fa-user-o" ></span></div>
-																<div class="form-control"><input type="text" placeholder="Employee"  required id="employee" name="employee[]"  value="<?php if($record){ echo $record->employee;} ?>"  /></div>
+																<div class="form-control">
+													<select name="employee[]" >
+														<option value="1" <?php if($record){ if($record->employee == "1"){ echo "selected"; }} ?>>Yes</option>
+														<option value="0" <?php if($record){ if($record->employee == "0"){ echo "selected"; }} ?>>No</option>
+													</select>
+																</div>
 															</div>
 														</div>
 													</div>  
@@ -206,7 +216,12 @@
 												<div class="body-input-tabs">
 													<div class="col-md-3"> <label>Delegate To : </label></div>
 													<div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]" value="<?php if($fetch){ echo $fetch['data3'][0]->delegated_dept;} ?>"/></div>
-													<div class="col-md-3"><input type="text"  placeholder="Employee" required name="delegated_name[]" value="<?php if($fetch){ echo $fetch['data3'][0]->delegated_name;} ?>"/></div>
+													<div class="col-md-3">
+													<select name="delegated_name[]" >
+													<option value="1" <?php if($fetch){ if($fetch['data3'][0]->delegated_name == "1"){ echo "selected"; }} ?>>Yes</option>
+													<option value="0" <?php if($fetch){ if($fetch['data3'][0]->delegated_name == "0"){ echo "selected"; }} ?>>No</option>
+													</select>
+													</div>
 												</div>
 												<div class="body-input-tabs">
 													<div class="col-md-3"> <label>Target Date : </label></div>
@@ -251,7 +266,12 @@
 													<div class="body-input-tabs">
 														<div class="col-md-3"> <label>Delegate To : </label></div>
 														<div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]" value="<?php if($record1){ echo $record1->delegated_dept;} ?>"/></div>
-														<div class="col-md-3"><input type="text"  placeholder="Employee" required name="delegated_name[]" value="<?php if($record1){ echo $record1->delegated_name;} ?>"/></div>
+														<div class="col-md-3">
+												<select name="delegated_name[]" >
+													<option value="1" <?php if($record1){ if($record1->delegated_name == "1"){ echo "selected"; }} ?>>Yes</option>
+													<option value="0" <?php if($record1){ if($record1->delegated_name == "0"){ echo "selected"; }} ?>>No</option>
+												</select>
+														</div>
 													</div>
 													<div class="body-input-tabs">
 														<div class="col-md-3"> <label>Target Date : </label></div>
@@ -311,7 +331,7 @@
 					e.preventDefault();
 					  var lnth = $('#one .customclass').length; 
 					// var lnth = 0;  
-				   $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><input type="text" placeholder="Employee" required id="employee"  name="employee[]"></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" required pattern="[a-zA-Z ]{1,100}" title="Name should only contain letters. e.g. john"   id="name"  name="name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn">Delete</a></div></div></div>');
+				   $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="employee[]" ><option value="1" >Yes</option><option value="0" >No</option></select></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" required pattern="[a-zA-Z ]{1,100}" title="Name should only contain letters. e.g. john"   id="name"  name="name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn">Delete</a></div></div></div>');
 				});
 			});
 			function setValues(id){
@@ -324,7 +344,7 @@
 				$('a#add').click(function(e) {
 					e.preventDefault();
 					var lnth1 = $('#conclusion .customclass1').length; 
-				 $('#conclusion').append('<div id="rm1'+lnth1+'"  style="margin: 27px 0;"  class="col-md-12 customclass1"><div class="col-md-12"><div class="container4"><div class="col-md-12"><div class="conclution-body"><div class="canclution-inner-body col-md-6"><div class="body-input-tabs"><div class="col-md-3">  <label>Conclusion of Meeting : </label></div><div class="col-md-9"><textarea class="conclu-text" required name="conclusion_textarea[]" ></textarea></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Conclusion Type : </label></div><div class="col-md-9"><select  name="conclusion_type[]"><option value="1">Minute</option><option value="2">decision</option><option value="3">reminder</option><option value="4">Appointment/Quick Work/Periodic/Project/other</option></select></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Delegate To : </label></div><div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]"/></div><div class="col-md-3"><input type="text"  placeholder="Employee" required name="delegated_name[]"/></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Target Date : </label></div><div class="col-md-9"><input type="date" required name="targetdate[]" /></div></div></div><div class="body-input-tabs col-md-6"><div class="col-md-9"><a href="#"  onclick="setValues1('+ lnth1 + ')"  class="ad btn-eror btn inputclass">Delete</a></div></div></div></div></div></div></div>');
+				 $('#conclusion').append('<div id="rm1'+lnth1+'"  style="margin: 27px 0;"  class="col-md-12 customclass1"><div class="col-md-12"><div class="container4"><div class="col-md-12"><div class="conclution-body"><div class="canclution-inner-body col-md-6"><div class="body-input-tabs"><div class="col-md-3">  <label>Conclusion of Meeting : </label></div><div class="col-md-9"><textarea class="conclu-text" required name="conclusion_textarea[]" ></textarea></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Conclusion Type : </label></div><div class="col-md-9"><select  name="conclusion_type[]"><option value="1">Minute</option><option value="2">decision</option><option value="3">reminder</option><option value="4">Appointment/Quick Work/Periodic/Project/other</option></select></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Delegate To : </label></div><div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]"/></div><div class="col-md-3"><select name="delegated_name[]" ><option value="1" >Yes</option><option value="0" >No</option></select></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Target Date : </label></div><div class="col-md-9"><input type="date" required name="targetdate[]" /></div></div></div><div class="body-input-tabs col-md-6"><div class="col-md-9"><a href="#"  onclick="setValues1('+ lnth1 + ')"  class="ad btn-eror btn inputclass">Delete</a></div></div></div></div></div></div></div>');
 				  
 				});
 			});

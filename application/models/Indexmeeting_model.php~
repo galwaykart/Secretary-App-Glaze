@@ -139,6 +139,7 @@ class Indexmeeting_model extends CI_model{
 
 	   }
 	   public function record_count(){
+		   
 
 		return $this->db->count_all("index_meeting_agenda");
 
@@ -171,11 +172,11 @@ class Indexmeeting_model extends CI_model{
 		$this->db->join('index_meeting_participants' , 'index_meeting.index_meeting_id = index_meeting_participants.index_meeting_id','left') ;
 		$this->db->where('index_meeting.index_meeting_id', $id); 
 		$data1 = $this->db->get();
-		echo sizeof($data1->result());
-				echo sizeof($data1->result());
-
-		if(sizeof($data1->result() === 0)){
-			echo "I am in.";
+		//echo sizeof($data1->result());
+				//echo sizeof($data1->result());
+		$siz =sizeof($data1->result());
+		if($siz == 0){
+			//echo "I am in.";
 			return false;
 		}
 		
