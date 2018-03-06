@@ -98,16 +98,17 @@
 		 //'agenda_id'=>$this->input->post('agenda'),
 	     'confidentiality'=>$this->input->post('confidentiality'),
 	     'self_seating'=>$this->input->post('seating'),
-	     // 'participants_id'=>1,
-	     // 'conclusion_id'=>1,
-	     // 'agenda_status'=>1,
+	     'index_meeting_next_date'=>$this->input->post('index_meeting_next_date'),
+
 		);
 		$data[1] = array(
 		
 		 'name'=>$this->input->post('name'),
 		 'department'=>$this->input->post('department'),
 		 'email'=>$this->input->post('email'),
-		 'employee'=>$this->input->post('employee'));
+		 'employee'=>$this->input->post('employee'),
+		 'is_employee'=>$this->input->post('is_employee')
+		 );
 		$data[2] = array(
 		 
 		 'conclusion_type'=>$this->input->post('conclusion_type'),
