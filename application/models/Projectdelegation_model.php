@@ -73,6 +73,64 @@ class Projectdelegation_model extends CI_model{
 			}
 		}
 		}
+
+
+
+		public function getProjectDelegationStatus($record_id){
+			$query = $this->db->get_where("project_delegation_status",array("project_delegation_id"=>$record_id)); 
+			
+			
+					if ($query->num_rows() > 0) {
+												
+
+						foreach ($query->result() as $row) {
+			
+							$status_data[] = $row;
+			
+						}
+
+						$query_delegates = $this->db->query("SELECT * FROM `project_delegation` JOIN project_delegation_delegates ON project_delegation.project_delegation_id = project_delegation_delegates.project_delegation_id WHERE project_delegation.project_delegation_id = $record_id"); 
+						if ($query_delegates->num_rows() > 0) {
+
+
+							foreach ($query_delegates->result() as $row) {
+
+							$delegates_data[] = $row;
+
+							}
+						}
+						
+						$project_data = array("status_data"=>$status_data, "delegates_data"=>$delegates_data);
+
+			
+						return $project_data;
+						
+						}
+						
+						return false;
+		}
+
+
+		public function addProjectDelegationStatus($data){
+			// echo "<pre>";
+			// print_r($data);
+			// echo "</pre>";die;
+			$output = $this->db->insert('project_delegation_status', $data[0]);
+			if($output){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+
+		
+		public function joinData(){
+			 $res= $this->db->query('SELECT * FROM `project_delegation_status` JOIN `project_delegation_delegates` ON project_delegation_status.project_delegation_id = project_delegation_delegates.project_delegation_id WHERE project_delegation_status.project_delegation_id = 1');
+			 echo "<pre>";
+			print_r($res->result());
+			echo "</pre>";
+		}		
  
 
 	}
