@@ -56,6 +56,8 @@ class Projectdelegation extends CI_Controller {
 					//$listOfDataById['records'] = array();
 					$listOfDataById['records']	= $this->Projectdelegation_model->getProjectDelegationStatus($record_id);
 					$listOfDataById['message'] = $param2;
+					$listOfDataById['record_id'] = $record_id;
+
 					// echo "<pre>";
 					// print_r($listOfDataById);
 					// echo "</pre>";

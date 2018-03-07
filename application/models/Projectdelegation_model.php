@@ -81,14 +81,29 @@ class Projectdelegation_model extends CI_model{
 			
 			
 					if ($query->num_rows() > 0) {
-						
+												
+
 						foreach ($query->result() as $row) {
 			
 							$status_data[] = $row;
 			
 						}
+
+						$query_delegates = $this->db->query("SELECT * FROM `project_delegation` JOIN project_delegation_delegates ON project_delegation.project_delegation_id = project_delegation_delegates.project_delegation_id WHERE project_delegation.project_delegation_id = $record_id"); 
+						if ($query_delegates->num_rows() > 0) {
+
+
+							foreach ($query_delegates->result() as $row) {
+
+							$delegates_data[] = $row;
+
+							}
+						}
+						
+						$project_data = array("status_data"=>$status_data, "delegates_data"=>$delegates_data);
+
 			
-						return $status_data;
+						return $project_data;
 						
 						}
 						
