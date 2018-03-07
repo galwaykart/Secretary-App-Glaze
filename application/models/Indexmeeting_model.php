@@ -147,6 +147,7 @@ class Indexmeeting_model extends CI_model{
 	   $this->db->from('index_meeting');
        $this->db->distinct();
 	   $query = $this->db->count_all_results();//count all the results 
+	 //  print_r($query);die;
 	   return $query;
 	   }
 		
@@ -263,6 +264,5 @@ class Indexmeeting_model extends CI_model{
 		$query = $this->db->get();
         return $query->result();
         }
-
 
 }
