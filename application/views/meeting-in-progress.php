@@ -55,7 +55,7 @@
 	<?php echo $links; ?>
      <br /><br /><br />
     <div style="height:50px;"></div>
-  		<?php $this->load->view('footer'); ?>
+  		<?php $this->load->view('footer');?>
 		
 		
 		 <script>
