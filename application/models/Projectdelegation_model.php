@@ -90,11 +90,12 @@ class Projectdelegation_model extends CI_model{
 						}
 
 						$query_delegates = $this->db->query("SELECT * FROM `project_delegation` JOIN project_delegation_delegates ON project_delegation.project_delegation_id = project_delegation_delegates.project_delegation_id WHERE project_delegation.project_delegation_id = $record_id"); 
+						$delegates_data =array();
 						if ($query_delegates->num_rows() > 0) {
 
-
+							
 							foreach ($query_delegates->result() as $row) {
-
+								
 							$delegates_data[] = $row;
 
 							}
@@ -130,7 +131,37 @@ class Projectdelegation_model extends CI_model{
 			 echo "<pre>";
 			print_r($res->result());
 			echo "</pre>";
-		}		
+		}
+		
+		
+		public function UpdateDelegates($data){
+			//print_r($data);die;
+			$record_id = $data['project_delegation_id'];
+			$extend_date__data = array(
+				'project_delegation_id' => $record_id,
+				'project_delegation_dates_extend_date'=>$data['extend_date'],
+				'project_delegation_dates_remark'=>$data['reason']
+			); 
+			$status = $this->db->delete("project_delegation_delegates", "project_delegation_id = $record_id");
+			if($status){
+
+				for($i=0; $i<sizeof($data['delegates_name']) ; $i++){
+					$name = $data['delegates_name'][$i];
+					$email = $data['delegates_email'][$i];
+					$res = $this->db->query("INSERT INTO project_delegation_delegates (project_delegation_id, project_delegation_delegated_name, project_delegation_delegated_email) VALUES ($record_id,'$name','$email')");
+				}
+				if($data['extend_date'] != null && $data['reason'] != null){
+					$output_extend_date = $this->db->insert('project_delegation_dates', $extend_date__data);
+				}
+			}
+
+			if($output_extend_date || $res){
+				return true;
+			}else{
+				return false;
+			}
+			
+		}
  
 
 	}
