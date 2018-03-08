@@ -260,9 +260,7 @@
 														  
 								
 							 <?php  $j = 0;
-								if($fetch){
-									
-									
+								if($fetch){									
 									foreach($fetch['data3'] as $record1){	 
 										if($j != '0'){  ?>
 											<div class="clear"></div>

@@ -232,7 +232,7 @@ class Indexmeeting_model extends CI_model{
 			$insertis_employee=$is_employee[$i];
 			
 			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee,is_employee)
-					values ('$record_id', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee')";
+					 values ('$record_id', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee')";
 			$this->db->query($sql1);
 			 }
 			  $conclusion_type= $data[2]['conclusion_type'];
@@ -253,7 +253,6 @@ class Indexmeeting_model extends CI_model{
 					  values ('$record_id', '$inserttype', '$insertarea', '$insertdate', '$insertdept','$insertdelegatedname')";
 			  $this->db->query($sql2);
 			  }
-
         }
 		//this function is used for suggested search
 		public function getagenda($keyword){
