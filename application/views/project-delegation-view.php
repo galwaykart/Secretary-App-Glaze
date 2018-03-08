@@ -7,11 +7,18 @@
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Project Status</p></div>
     <div class="dailly-notes-index-panel">
-     
+    <?php 
+// echo "<pre>";
+// print_r($records);
+// echo "</pre>"; 
+?>  
        <div class="container-5">
                         <div class="col-md-12">
+                        <?php if($message){
+                        echo "<div style='color:#1dd670'>".$message."</div>";
+                        } ?>
                                     <h2>Project Status</h2>
-                                    <div class="col-md-12"><p>Project Name : <span id="projectname">my project</span></p></div>
+                                    <div class="col-md-12"><p>Project Name : <span id="projectname"> <?php echo $records['delegates_data'][0]->project_delegation_project; ?> </span></p></div>
                                    
                                     <div class="clear"></div>
                                     <!-- <div class="col-md-4">
@@ -65,7 +72,28 @@
                         </div><!-- col-md-12 end -->
                         <div class="clear"></div>
 
-                                             <!-- autometic delegates start -->
+                <form method="POST" action="<?php echo base_url().'/Projectdelegation/UpdateDelegates/'.$record_id;?>">                             <!-- autometic delegates start -->
+                    <div>
+                        <div class="left">
+                            <div class="form-group">
+                                <label>Extended date</label>
+                                <div class="input-group">
+                                    <div class="form-control"><input  type="date" id ="extend_date" name="extend_date" title="extend_date" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <div class="form-group">
+                                <label>Reason</label>
+                                <div class="input-group">
+                                    <div class="form-control">
+                                        <input  type="text" id="reason"   name="reason" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div id="refresh_popup"> 
                         <div id="auto-del"> 
                             <div class="auto-del">
@@ -129,7 +157,14 @@
                                 ?>
                             </div>
                         </div> 
-                    </div> 
+                    </div>
+                    <div class="footer">
+                        <div class="col-md-12">
+                            <button type="submit" class="btargetDatetn-primary btn">Save</button>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </form>
 
 <br><br><br>
 
@@ -138,15 +173,8 @@
                     <div class="clear"></div>
 
            <div class="delegatesheet-view">
-                        <?php if($message){
-                        echo $message;
-                        } ?>
 
-<?php 
-// echo "<pre>";
-// print_r($records);
-// echo "</pre>"; 
-?>
+
                         <div class="table-res">
                                 <table >
                                     <thead>

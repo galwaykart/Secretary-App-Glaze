@@ -194,6 +194,39 @@ class Projectdelegation extends CI_Controller {
 		public function joindata(){
 			$result = $this->Projectdelegation_model->joinData();
 		}
+
+		public function UpdateDelegates(){
+			$record_id =$this->uri->segment(3); 
+
+
+			if($this->input->post('delegate_to') != null){
+
+					$data = array(
+						'project_delegation_id' => $record_id,
+						'delegates_name'=>$this->input->post('delegate_to'),
+						'delegates_email'=>$this->input->post('delegate_email'),
+						'extend_date'=>$this->input->post('extend_date'),
+						'reason'=>$this->input->post('reason'),
+
+					);
+					//print_r($data);
+					$result = $this->Projectdelegation_model->UpdateDelegates($data);
+					 if($result)
+					 {
+					 $param1 =  "<h2>Success</h2>";
+					 
+					 }
+					 else
+					 {
+					 $param1 = "<h2>ERROR</h2>";
+					 
+					 }
+					 $this->view(null , $param1 );
+			}else{
+				redirect('Projectdelegation/view/'.$record_id);
+			}   
+
+		}
 		
 		
 }
