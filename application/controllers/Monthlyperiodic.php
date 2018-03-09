@@ -38,6 +38,9 @@
 			if($this->session->user == 'logged_in'){
 				$id = $this->uri->segment(3);
 				$data['list'] = $this->Monthly_periodic_model->get_periodic_task($id);
+				if(!$data){
+				$this->load->view("monthly-periodic-view",$data); 
+				}
 				$this->load->view("monthly-periodic-view",$data); 
 			}else{
 				$this->load->view("login");

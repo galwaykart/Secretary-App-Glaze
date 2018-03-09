@@ -137,7 +137,6 @@
 																		   <td><?php echo $record->monthly_periodic_work;?></td>
 																		   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																		   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
-																			
 																  <?php } } } ?>
 																  </tr>
                                                                   </tbody>
@@ -221,6 +220,7 @@
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																	  
 																	   <td><?php echo $record->monthly_periodic_status;?></td>
+																	   
                                                                       </tr>
 																	<?php } } }?>
                                                                   </tbody>
@@ -340,11 +340,10 @@
 																	if($aug_month==8){
 																  ?>
                                                                       <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
-																	  <td><?php echo $i++; ?></td>
+																	   <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	
 																	   <td><?php echo $record->monthly_periodic_status;?></td>
                                                                       </tr>
 																	<?php } } }?>
@@ -380,14 +379,13 @@
 																	$sept_month = $sept_arr[1];
 																	if($sept_month==9){
 																  ?>
-                                                                       <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
-																	  <td><?php echo $i++; ?></td>
+                                                                    <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
+																	   <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	 
 																	   <td><?php echo $record->monthly_periodic_status;?></td>
-                                                                      </tr>
+                                                                    </tr>
 																	<?php } } }?>
                                                                   </tbody>
                                                               </table>
@@ -498,10 +496,11 @@
                                                                   <?php
 																if($fetch){
 																  $i=1;
-
+																									
 																  foreach($fetch as $record){ 
 																	$dec_arr = explode('-',$record->monthly_periodic_end_date);
 																	$dec_month = $dec_arr[1];
+																	
 																	if($dec_month==12){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
@@ -509,15 +508,16 @@
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	   
 																	   <td><?php echo $record->monthly_periodic_status;?></td>
+																	   <td></td>
                                                                       </tr>
-																	<?php } } }?>
+																	  
+																  <?php } } } ?>
                                                                   </tbody>
                                                               </table>
                                                      </div>
                             
-                                                        </article>
+                                                       </article>
                           </section>
                     </div><!-- verticle tabs end -->
 
@@ -541,7 +541,7 @@
                             <div class="form-group">
                                        <label>Time :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="time" title="Time" name="monthly_periodic_time"/></div>
+                                            <div class="form-control"><input type="time" title="Time" required name="monthly_periodic_time"/></div>
                                         </div>
                          </div>
                     </div>
@@ -549,7 +549,7 @@
                             <div class="form-group">
                                        <label>Work :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" title="Work" name="work" /></div>
+                                            <div class="form-control"><input type="text" required title="Work" name="work" /></div>
                                         </div>
                          </div>
                     </div>
@@ -561,7 +561,7 @@
                             <div class="form-group">
                                        <label>End Date :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" title="End Date" name="end_date"/></div>
+                                            <div class="form-control"><input type="date" required title="End Date" name="end_date"/></div>
                                         </div>
                           </div>
                         
@@ -588,7 +588,7 @@
                                        <label>Remark</label>
                                         <div class="input-group">
                                             <div class="form-control">
-                                               <textarea id="Textarea1" class="" name="remark"></textarea>
+                                               <textarea id="Textarea1" required class="" name="remark"></textarea>
                                             </div>
                                         </div>
                            
@@ -604,7 +604,7 @@
                                      <div class="form-group">
                                        <label>Delegate To</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" title="Delegate To" name="delegate_to[]"/></div>
+                                            <div class="form-control"><input type="text" required title="Delegate To" name="delegate_to[]"/></div>
                                         </div>
                                   </div>
 
@@ -614,7 +614,7 @@
                                                <label>Email Id</label>
                                                 <div class="input-group">
                                                     <div class="form-control">
-                                                        <input type="text" name="email[]"/>
+                                                        <input type="text" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
                                                     </div>
                                                 </div>
                                         </div>
@@ -646,20 +646,13 @@
 				
 	</form>
                 <div class="clear"></div>
-    
+				
+	<?php echo $links; ?>
 
-
-   
-	<?php echo $links;  ?>
-
-     <br /><br /><br />
+     <br/><br/><br/>
     <div style="height:50px;"></div>
-	
-	
-	
-	
-      <?php $this->load->view('footer'); ?>
 
+      <?php $this->load->view('footer'); ?>
 
      <!-- globle header for comman end --> 
 	 
@@ -670,7 +663,7 @@
 					$('a#A1').click(function(e) {
 						e.preventDefault();
 						var lnth = $('#delete').length; 
-					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" required name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 					  
 					});
 				});

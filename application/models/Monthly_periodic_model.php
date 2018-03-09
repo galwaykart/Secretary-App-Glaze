@@ -4,7 +4,6 @@
 		 public function insertmonthly($data){
 					
 		 $result = $this->db->insert('monthly_periodic', $data[0]);
-
 			if($result){
 			$insert_id = $this->db->insert_id();
 			$delegates_name = $data[1]['monthly_periodic_delegates_name'];
@@ -20,9 +19,8 @@
 				$this->db->query($sql);
 				}
 			}
-
 		 }
-
+		 
 		 public function getmonthly($limit, $start){
 			$this->db->select('*');
 			$this->db->from('monthly_periodic');
@@ -31,14 +29,15 @@
 		   // print_r($query->result()); 	
 			return $query->result();
 		 }
+		 
 		 public function record_count(){
 			$this->db->select('*');
 			$this->db->from('monthly_periodic');
-			$query= $this->db->count_all_results();
+			$query = $this->db->count_all_results();
 			return $query;
-			 //print_r($query);die;
+
+			//print_r($query);die;
 		 }
-		 
 		 public function get_periodic_task($id){
 			 $this->db->select('*');
 			 $this->db->from('monthly_periodic');
@@ -46,7 +45,10 @@
 			 $this->db->where('monthly_periodic_id',$id);
 			 $data1 = $this->db->get();
     		//print_r($query->result()); 
-		
+			 $size =sizeof($data1->result());
+			  if($size == 0){	
+			   return false;
+				 }
 			 $this->db->select('*');
 			 $this->db->from('monthly_periodic_delegates');
 			 $this->db->where('monthly_periodic_id',$id);
@@ -63,7 +65,6 @@
 			 );
 			return $list;
 		 }
-		 
 		 public function updatetask($data ,$record_id){
 		    $this->db->delete("monthly_periodic_delegates", "monthly_periodic_id = $record_id");
 		    $this->db->delete("monthly_periodic_status", "monthly_periodic_id = $record_id");
@@ -92,7 +93,6 @@
 			$this->db->query($sql1);	 
 			  }
 		 }
-		 
 	}
 
 	?>
