@@ -101,7 +101,20 @@ class Projectdelegation_model extends CI_model{
 							}
 						}
 						
-						$project_data = array("status_data"=>$status_data, "delegates_data"=>$delegates_data);
+						$query_dates = $this->db->get_where("project_delegation_dates",array("project_delegation_id"=>$record_id));
+						
+						$delegates_date_data =array();
+						if ($query_dates->num_rows() > 0) {
+
+							
+							foreach ($query_dates->result() as $row) {
+								
+							$delegates_date_data[] = $row;
+
+							}
+						}
+
+						$project_data = array("status_data"=>$status_data, "delegates_data"=>$delegates_data , "delegates_date_data"=>$delegates_date_data);
 
 			
 						return $project_data;
