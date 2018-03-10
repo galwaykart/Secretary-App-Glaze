@@ -32,6 +32,7 @@
                                                                              <th>SR NO</th>
                                                                              <th>Time</th>
                                                                              <th>Work</th>
+																			  <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Active / Inactive</th>
 
@@ -43,18 +44,23 @@
 																  $i=1;
 
 																  foreach($fetch as $record){ 
-																	$jan_arr = explode('-',$record->monthly_periodic_end_date);
+																	$jan_arr = explode('-',$record->monthly_start_date);
 																	$jan_month = $jan_arr[1];
-																	if($jan_month==1){
+																	$jan_end_arr = explode('-',$record->monthly_periodic_end_date);
+																	
+																	$jan_end_month = $jan_end_arr[1];
+																	if($jan_month <= $jan_end_month){
+																		if( $jan_month>=1 || $jan_end_month>=1){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
 																	  <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
+																	   <td><?php echo $record->monthly_start_date;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                       </tr>
-																	<?php } } }?>
+																	<?php } } } }?>
                                                                   </tbody>
                                                               </table>
                                                      </div>
@@ -74,6 +80,7 @@
                                                                              <th>SR NO</th>
                                                                              <th>Time</th>
                                                                              <th>Work</th>
+																			  <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Active / Inactive</th>
 
@@ -85,18 +92,22 @@
 																  $i=1;
 
 																  foreach($fetch as $record){ 
-																	$feb_arr = explode('-',$record->monthly_periodic_end_date);
+																	$feb_arr = explode('-',$record->monthly_start_date);
+																	$feb_end_arr = explode('-',$record->monthly_periodic_end_date);
 																	$feb_month = $feb_arr[1];
-																	if($feb_month==2){
+																	$feb_end_month = $feb_end_arr[1];
+																	if($feb_month <= $feb_end_month){
+																		if($feb_month==2 || $feb_end_month==2){
 																  ?>
                                                                       <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
 																		   <td><?php echo $i++; ?></td>
 																		   <td><?php echo $record->monthly_periodic_time;?></td>
 																		   <td><?php echo $record->monthly_periodic_work;?></td>
+																		   <td><?php echo $record->monthly_start_date;?></td>
 																		   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																		   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                       </tr>
-																	<?php } } }?>
+																  <?php } } } }?>
                                                                   </tbody>
                                                               </table>
                                                      </div>  
@@ -115,6 +126,7 @@
                                                                              <th>SR NO</th>
                                                                              <th>Time</th>
                                                                              <th>Work</th>
+                                                                             <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Active / Inactive</th>
 
@@ -125,19 +137,22 @@
 																 
 																if($fetch){
 																  $i=1;
-																	
 																  foreach($fetch as $record){ 
-																	$mar_arr = explode('-',$record->monthly_periodic_end_date);
+																	$mar_arr = explode('-',$record->monthly_start_date);
 																	$mar_month = $mar_arr[1];
-																	if($mar_month==3){
+																	$mar_end_arr = explode('-',$record->monthly_periodic_end_date);
+																	$mar_end_month = $mar_end_arr[1];
+																	if($mar_month <= $mar_end_month){
+																		
 																  ?> 
                                                                       <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
 																		   <td><?php echo $i++; ?></td>
 																		   <td><?php echo $record->monthly_periodic_time;?></td>
 																		   <td><?php echo $record->monthly_periodic_work;?></td>
+																		   <td><?php echo $record->monthly_start_date;?></td>
 																		   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																		   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
-																  <?php } } } ?>
+																<?php } } } ?>
 																  </tr>
                                                                   </tbody>
                                                               </table>
@@ -156,6 +171,7 @@
                                                                              <th>SR NO</th>
                                                                              <th>Time</th>
                                                                              <th>Work</th>
+																			 <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Active / Inactive</th>
 
@@ -167,18 +183,22 @@
 																  $i=1;
 
 																  foreach($fetch as $record){ 
-																	$apr_arr = explode('-',$record->monthly_periodic_end_date);
+																	$apr_arr = explode('-',$record->monthly_start_date);
 																	$apr_month = $apr_arr[1];
-																	if($apr_month==4){
+																	$apr_end_arr = explode('-',$record->monthly_periodic_end_date);
+																	$apr_end_month = $apr_end_arr[1];
+																		if($apr_month<= $apr_end_month){
+																		  if(!$apr_month>4 || $apr_end_month>=4 ){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
-																	  <td><?php echo $i++; ?></td>
+																	   <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
+																	   <td><?php echo $record->monthly_start_date;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																	  <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                       </tr>
-																	<?php } } }?>
+																<?php } } } } ?>
                                                                   </tbody>
                                                               </table>
                                                      </div>
@@ -197,6 +217,7 @@
                                                                              <th>SR NO</th>
                                                                              <th>Time</th>
                                                                              <th>Work</th>
+																			  <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Active / Inactive</th>
 
@@ -208,7 +229,7 @@
 																  $i=1;
 
 																  foreach($fetch as $record){ 
-																	$may_arr = explode('-',$record->monthly_periodic_end_date);
+																	$may_arr = explode('-',$record->monthly_start_date);
 																	$may_month = $may_arr[1];
 																	if($may_month==5){
 																  ?>
@@ -216,6 +237,7 @@
 																	  <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
+																	   <td><?php echo $record->monthly_start_date;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																	  <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
 																	   
@@ -239,6 +261,7 @@
                                                                              <th>SR NO</th>
                                                                              <th>Time</th>
                                                                              <th>Work</th>
+																			 <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Active / Inactive</th>
 
@@ -258,6 +281,7 @@
 																	  <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
+																	   <td><?php echo $record->monthly_start_date;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																	  <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                       </tr>
@@ -279,6 +303,7 @@
                                                                              <th>SR NO</th>
                                                                              <th>Time</th>
                                                                              <th>Work</th>
+																			 <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Active / Inactive</th>
 
@@ -298,6 +323,7 @@
 																	   <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
+																	   <td><?php echo $record->monthly_start_date;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                       </tr>
@@ -320,6 +346,7 @@
                                                                              <th>SR NO</th>
                                                                              <th>Time</th>
                                                                              <th>Work</th>
+																			 <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Active / Inactive</th>
 
@@ -339,6 +366,7 @@
 																	   <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
+																	   <td><?php echo $record->monthly_start_date;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                       </tr>
@@ -360,6 +388,7 @@
                                                                              <th>SR NO</th>
                                                                              <th>Time</th>
                                                                              <th>Work</th>
+																			 <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Active / Inactive</th>
 
@@ -379,6 +408,7 @@
 																	   <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
+																	   <td><?php echo $record->monthly_start_date;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                     </tr>
@@ -400,6 +430,7 @@
                                                                              <th>SR NO</th>
                                                                              <th>Time</th>
                                                                              <th>Work</th>
+																			 <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Active / Inactive</th>
 
@@ -419,6 +450,7 @@
 																	  <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
+																	   <td><?php echo $record->monthly_start_date;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                       </tr>
@@ -441,6 +473,7 @@
                                                                              <th>SR NO</th>
                                                                              <th>Time</th>
                                                                              <th>Work</th>
+																			 <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Delegate To</th>
                                                                              <th>Active / Inactive</th>
@@ -460,6 +493,7 @@
 																	  <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
+																	   <td><?php echo $record->monthly_start_date;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																	  <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                     </tr>
@@ -482,6 +516,7 @@
                                                                              <th>SR NO</th>
                                                                              <th>Time</th>
                                                                              <th>Work</th>
+																			 <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Active / Inactive</th>
 
@@ -502,6 +537,7 @@
 																	  <td><?php echo $i++; ?></td>
 																	   <td><?php echo date("H:i", strtotime($record->monthly_periodic_time));?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
+																	   <td><?php echo $record->monthly_start_date;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
 																	   <td></td>
@@ -516,13 +552,9 @@
                           </section>
                     </div><!-- verticle tabs end -->
 
-        
-
-
 
     </div><!-- monthly periodic panel end -->
   
-    
       <!-- popup start -->
     <form  method="POST" action="<?php echo base_url()."Monthlyperiodic/add_data/" ?>">
           <div class="popup">
@@ -551,7 +583,15 @@
                 </div>
                 <div class="clear"></div>
                   <div class="col-md-12">
-                   
+                                       <div class="col-md-6">
+                            <div class="form-group">
+                                       <label>Start Date :</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><input type="date" required title="End Date" name="start_date"/></div>
+                                        </div>
+                          </div>
+                        
+                    </div>
                     <div class="col-md-6">
                             <div class="form-group">
                                        <label>End Date :</label>
@@ -640,7 +680,7 @@
 	</form>
                 <div class="clear"></div>
 				
-	<?php echo $links; ?>
+		
 
      <br/><br/><br/>
     <div style="height:50px;"></div>

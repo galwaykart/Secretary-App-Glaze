@@ -14,20 +14,21 @@
 			 
 		public function index(){  
 			if($this->session->user == 'logged_in'){ 
-				$config = array();
+				// $config = array();
 				
-					  $config["base_url"] = base_url() ."Monthlyperiodic/index";
+					  // $config["base_url"] = base_url() ."Monthlyperiodic/index";
 					  
-					  $config["total_rows"] = $this->Monthly_periodic_model->record_count();
+					  // $config["total_rows"] = $this->Monthly_periodic_model->record_count();
 				
-					  $config["per_page"] = 1;
+					  // $config["per_page"] = 1;
 				
-					  $config["uri_segment"] = 3;
-					  $this->pagination->initialize($config);
-					  $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-					  $data['fetch'] = $this->Monthly_periodic_model->getmonthly($config["per_page"], $page);
-					  $data["links"] = $this->pagination->create_links();
-				//$data['fetch'] = $this->Monthly_periodic_model->getmonthly();
+					  // $config["uri_segment"] = 3;
+					  // $this->pagination->initialize($config);
+					  // $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+					 // $data['fetch'] = $this->Monthly_periodic_model->getmonthly($config["per_page"], $page);
+					  //$data["links"] = $this->pagination->create_links();
+
+				$data['fetch'] = $this->Monthly_periodic_model->getmonthly();
 				$this->load->view('monthly-periodic',$data); 
 			}else{
 				$this->load->view("login");
@@ -54,6 +55,7 @@
 			//'monthly_periodic_time'=>$this->input->post('monthly_periodic_time'),
 			'monthly_periodic_time' => date('H:i:s:a',strtotime($this->input->post('monthly_periodic_time'))),
 			'monthly_periodic_work'=>$this->input->post('work'),
+			'monthly_start_date'=>$this->input->post('start_date'),
 			'monthly_periodic_end_date'=>$this->input->post('end_date'),
 			'monthly_periodic_status'=>$this->input->post('status'),
 			'monthly_periodic_remark'=>$this->input->post('remark')

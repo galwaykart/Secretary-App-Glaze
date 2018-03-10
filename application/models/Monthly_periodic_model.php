@@ -21,10 +21,10 @@
 			}
 		 }
 		 
-		 public function getmonthly($limit, $start){
+		 public function getmonthly(){
 			$this->db->select('*');
 			$this->db->from('monthly_periodic');
-			$this->db->limit($limit, $start);
+
 			$query = $this->db->get();
 		   // print_r($query->result()); 	
 			return $query->result();
