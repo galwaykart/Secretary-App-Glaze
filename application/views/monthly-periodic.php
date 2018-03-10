@@ -52,7 +52,7 @@
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	   <td><?php echo $record->monthly_periodic_status;?></td>
+																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                       </tr>
 																	<?php } } }?>
                                                                   </tbody>
@@ -176,8 +176,7 @@
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	  
-																	   <td><?php echo $record->monthly_periodic_status;?></td>
+																	  <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                       </tr>
 																	<?php } } }?>
                                                                   </tbody>
@@ -218,8 +217,7 @@
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	  
-																	   <td><?php echo $record->monthly_periodic_status;?></td>
+																	  <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
 																	   
                                                                       </tr>
 																	<?php } } }?>
@@ -261,8 +259,7 @@
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	  
-																	   <td><?php echo $record->monthly_periodic_status;?></td>
+																	  <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                       </tr>
 																	<?php } } }?>
                                                                   </tbody>
@@ -298,12 +295,11 @@
 																	if($july_month==7){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
-																	  <td><?php echo $i++; ?></td>
+																	   <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	
-																	   <td><?php echo $record->monthly_periodic_status;?></td>
+																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                       </tr>
 																	<?php } } }?>
                                                                   </tbody>
@@ -344,7 +340,7 @@
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	   <td><?php echo $record->monthly_periodic_status;?></td>
+																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                       </tr>
 																	<?php } } }?>
                                                                   </tbody>
@@ -384,7 +380,7 @@
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	   <td><?php echo $record->monthly_periodic_status;?></td>
+																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                     </tr>
 																	<?php } } }?>
                                                                   </tbody>
@@ -424,7 +420,7 @@
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	   <td><?php echo $record->monthly_periodic_status;?></td>
+																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                       </tr>
 																	<?php } } }?>
                                                                   </tbody>
@@ -465,8 +461,7 @@
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	
-																	   <td><?php echo $record->monthly_periodic_status;?></td>
+																	  <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
                                                                     </tr>
 																	<?php } } }?>
                                                                   </tbody>
@@ -505,10 +500,10 @@
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
 																	  <td><?php echo $i++; ?></td>
-																	   <td><?php echo $record->monthly_periodic_time;?></td>
+																	   <td><?php echo date("H:i", strtotime($record->monthly_periodic_time));?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	   <td><?php echo $record->monthly_periodic_status;?></td>
+																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
 																	   <td></td>
                                                                       </tr>
 																	  
@@ -594,8 +589,6 @@
                            
                     </div>
                 </div>
-                     
-                
 
                      <!-- autometic delegates start -->
 				<div id="delete"> 
