@@ -57,10 +57,27 @@ class Projectdelegation extends CI_Controller {
 					$listOfDataById['records']	= $this->Projectdelegation_model->getProjectDelegationStatus($record_id);
 					$listOfDataById['message'] = $param2;
 					$listOfDataById['record_id'] = $record_id;
+					$listOfDataById['total_no_of_days'] ="";
+					$listOfDataById['days_left_from_current_date'] ="";
+					$listOfDataById['size_of_extend_date'] = sizeof($listOfDataById['records']['delegates_date_data']);
+					if($listOfDataById['size_of_extend_date'] > 0){
+						$date1=date_create($listOfDataById['records']['delegates_data'][0]->project_delegation_date);
+						$date2=date_create($listOfDataById['records']['delegates_date_data'][$listOfDataById['size_of_extend_date']-1]->project_delegation_dates_extend_date);
+						$diff=date_diff($date1,$date2);
+						$listOfDataById['total_no_of_days'] = $diff->format("%a days");
 
-					// echo "<pre>";
-					// print_r($listOfDataById);
-					// echo "</pre>";
+						
+						
+					}else{
+						$date1=date_create($listOfDataById['records']['delegates_data'][0]->project_delegation_date);
+						$date2=date_create($listOfDataById['records']['delegates_data'][0]->project_delegation_target_date);
+						$diff=date_diff($date1,$date2);
+						$listOfDataById['total_no_of_days'] = $diff->format("%a days");
+					}
+
+					//  echo "<pre>";
+					//  print_r($listOfDataById['records']);
+					//  echo "</pre>";
 					$this->load->view('project-delegation-view',$listOfDataById);
 
 				}

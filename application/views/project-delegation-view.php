@@ -65,7 +65,7 @@
                                                             <div class="input-addon">
                                                             <span class=" fa fa fa-cogs" ></span>
                                                             </div>
-                                                            <div class="form-control"><input type="text" title="Total days" placeholder="Total Days" /></div>
+                                                            <div class="form-control"><input type="text" title="Total days" placeholder="Total Days" value="<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/></div>
                                                         </div>
                                                 </div>
                                     </div>
@@ -167,10 +167,39 @@
                 </form>
 
 <br><br><br>
+<!-- Extended dates data table start -->
+<div class="clear"></div>
+<div class="delegatesheet-view">
+    <div class="table-res">
+        <table >
+            <thead>
+                <tr>
+                <th>Sr No</th>
+                <th>Extended Date</th>
+                <th>Reason</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                if($records['delegates_date_data']){
+                $j=1;
+                foreach($records['delegates_date_data'] as $r) { 
+                echo "<tr>"; 
+                echo "<td>".$j++."</td>"; 
+                echo "<td>".$r->project_delegation_dates_extend_date."</td>"; 
+                echo "<td>".$r->project_delegation_dates_remark."</td>"; 
+                echo "</tr>"; 
+                } 
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Extended dates data table End -->
+<br><br><br>
 
-
-
-                    <div class="clear"></div>
+            <div class="clear"></div>
 
            <div class="delegatesheet-view">
 
@@ -195,7 +224,17 @@
                                             echo "<td>".$i++."</td>"; 
                                             echo "<td>".$r->project_delegation_status_date."</td>"; 
                                             echo "<td>".$r->project_delegation_status_status."</td>"; 
-                                            echo "<td>".$r->project_delegation_status_date."</td>"; 
+
+                                            if($size_of_extend_date >0){
+                                                $d1 = $r->project_delegation_status_date;
+                                                $d2 = $records['delegates_date_data'][$size_of_extend_date-1]->project_delegation_dates_extend_date;
+                                                $diff=date_diff(date_create($d1) ,date_create($d2) );
+                                                
+                                                $dayLeft = $diff->format("%a days");
+                                                echo "<td>".$dayLeft."</td>"; 
+                                            }else{
+                                                echo "<td>"."Not Available"."</td>"; 
+                                            }
                                             echo "<td>".$r->project_delegation_status_current_status."</td>"; 
                                             echo "<td>".$r->project_delegation_status_next_followup_date."</td>"; 
 
