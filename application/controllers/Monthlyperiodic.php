@@ -51,7 +51,8 @@
 			$record_id =$this->uri->segment(3); 
 			$data = array();
 			$data[0] = array(
-			'monthly_periodic_time'=>$this->input->post('monthly_periodic_time'),
+			//'monthly_periodic_time'=>$this->input->post('monthly_periodic_time'),
+			'monthly_periodic_time' => date('H:i:s:a',strtotime($this->input->post('monthly_periodic_time'))),
 			'monthly_periodic_work'=>$this->input->post('work'),
 			'monthly_periodic_end_date'=>$this->input->post('end_date'),
 			'monthly_periodic_status'=>$this->input->post('status'),
