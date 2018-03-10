@@ -90,7 +90,7 @@
                             <div class="form-group">
                                        <label>Date :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" title="Date"  name="start_date"/></div>
+                                            <div class="form-control"><input type="date" title="Date" required name="start_date"/></div>
                                         </div>
                          </div>
                     </div>
@@ -98,7 +98,7 @@
                             <div class="form-group">
                                        <label>Project</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" title="Project" name="project_name"/></div>
+                                            <div class="form-control"><input type="text" required title="Project" name="project_name"/></div>
                                         </div>
                          </div>
                     </div>
@@ -110,7 +110,7 @@
                             <div class="form-group">
                                        <label>Department</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" title="Department" name="department"/></div>
+                                            <div class="form-control"><input type="text" required title="Department" name="department"/></div>
                                         </div>
                           </div>
                         
@@ -119,7 +119,7 @@
                            <div class="form-group">
                                        <label>OutSourcing</label>
                                         <div class="input-group">
-                                            <div class="form-control"><select name="outsource">
+                                            <div class="form-control"><select name="outsource" required>
                                                     <option>Select OutSourcing</option>
                                                     <option value="1">Inhouse</option>
                                                     <option value="0">OutSource</option>
@@ -135,7 +135,7 @@
                             <div class="form-group">
                                        <label>Target Date</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" name="target_date" title="Target Date" /></div>
+                                            <div class="form-control"><input type="date" required name="target_date" title="Target Date" /></div>
                                         </div>
                           </div>
                         
@@ -144,7 +144,7 @@
                             <div class="form-group">
                                        <label>Followup Date</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" name="followup_date" title="Followup date" /></div>
+                                            <div class="form-control"><input type="date" required name="followup_date" title="Followup date" /></div>
                                         </div>
                           </div>
                         
@@ -189,7 +189,7 @@
                 <label>Email Id</label>
                     <div class="input-group">
                         <div class="form-control">
-                        <input type="text"  name="delegate_email[]"/>
+                        <input type="text"  name="delegate_email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
                         </div>
                     </div>
                 </div>

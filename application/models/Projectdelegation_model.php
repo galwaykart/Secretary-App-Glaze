@@ -148,6 +148,7 @@ class Projectdelegation_model extends CI_model{
 		
 		
 		public function UpdateDelegates($data){
+			$output_extend_date = null;
 			//print_r($data);die;
 			$record_id = $data['project_delegation_id'];
 			$extend_date__data = array(
