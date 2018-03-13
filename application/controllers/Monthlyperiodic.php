@@ -12,29 +12,32 @@
 					$this->load->library(array('session', 'form_validation'));
 		} 
 			 
-		public function index(){  
+		public function index($month = ''){  
 			if($this->session->user == 'logged_in'){ 
-				// $config = array();
-				
-					  // $config["base_url"] = base_url() ."Monthlyperiodic/index";
-					  
-					  // $config["total_rows"] = $this->Monthly_periodic_model->record_count();
-				
-					  // $config["per_page"] = 1;
-				
-					  // $config["uri_segment"] = 3;
-					  // $this->pagination->initialize($config);
-					  // $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-					 // $data['fetch'] = $this->Monthly_periodic_model->getmonthly($config["per_page"], $page);
-					  //$data["links"] = $this->pagination->create_links();
+				 $config = array();
+				   if($month==''){
+					   $month=date('m');
+				   }
+				       $data['month']=  $month;
+					   $config["base_url"] = base_url() ."Monthlyperiodic/index/$month ";
+					     
+					   $config["total_rows"] = $this->Monthly_periodic_model->record_count($month);
 
-				$data['fetch'] = $this->Monthly_periodic_model->getmonthly();
+					   $config["per_page"] = 1;
+				
+					   $config["uri_segment"] = 4;
+					   $this->pagination->initialize($config);
+					   $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+					   $data['fetch'] = $this->Monthly_periodic_model->getmonthly($month,$config["per_page"], $page);
+					   $data["links"] = $this->pagination->create_links();
+
+				//$data['fetch'] = $this->Monthly_periodic_model->getmonthly($month);
 				$this->load->view('monthly-periodic',$data); 
 			}else{
 				$this->load->view("login");
 			}
 		}
-		
+
 		public function view(){   
 			if($this->session->user == 'logged_in'){
 				$id = $this->uri->segment(3);
@@ -50,6 +53,7 @@
 		
 		public function add_data(){
 			$record_id =$this->uri->segment(3); 
+			
 			$data = array();
 			$data[0] = array(
 			//'monthly_periodic_time'=>$this->input->post('monthly_periodic_time'),
@@ -71,7 +75,7 @@
 			);
 			if($this->uri->segment(3)){
 			$this->Monthly_periodic_model->updatetask($data , $record_id);
-			redirect('Monthlyperiodic');
+			redirect('Monthlyperiodic/');
 			}
 			else{
 			$this->Monthly_periodic_model->insertmonthly($data);
