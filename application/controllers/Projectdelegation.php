@@ -55,6 +55,12 @@ class Projectdelegation extends CI_Controller {
 					$record_id =$this->uri->segment(3); 
 					//$listOfDataById['records'] = array();
 					$listOfDataById['records']	= $this->Projectdelegation_model->getProjectDelegationStatus($record_id);
+					
+
+					//  echo "<pre>";
+					//  print_r($listOfDataById['records']);
+					//  echo "</pre>";die;
+					
 					$listOfDataById['message'] = $param2;
 					$listOfDataById['record_id'] = $record_id;
 					$listOfDataById['total_no_of_days'] ="";
@@ -75,9 +81,6 @@ class Projectdelegation extends CI_Controller {
 						$listOfDataById['total_no_of_days'] = $diff->format("%a days");
 					}
 
-					//  echo "<pre>";
-					//  print_r($listOfDataById['records']);
-					//  echo "</pre>";
 					$this->load->view('project-delegation-view',$listOfDataById);
 
 				}
