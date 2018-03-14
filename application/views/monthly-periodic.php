@@ -27,7 +27,7 @@
 			  <?php //$month = date('m'); ?>
 			  
                           <section id="section1">
-                                        <input type="radio" name="sections" id="option1" <?php if($month == '01') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('Monthlyperiodic/index/01') ?>'">
+                                        <input type="radio"  name="sections" id="option1"  <?php if($month == '01') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('Monthlyperiodic/index/01') ?>'">
                                         <label for="option1">
 											<a href="<?php echo site_url('Monthlyperiodic/index/01') ?>" class="mon_class">January</a>
 										</label>
@@ -652,12 +652,12 @@
                 </div>
                 <div class="clear"></div>
                   <div class="col-md-12">
-                                       <div class="col-md-6">
+                    <div class="col-md-6">
                             <div class="form-group">
-                                       <label>Start Date :</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input type="date" required title="End Date" name="start_date"/></div>
-                                        </div>
+                                   <label>Start Date :</label>
+                                      <div class="input-group">
+                                         <div class="form-control"><input type="date" required title="End Date" name="start_date"/></div>
+                                      </div>
                           </div>
                         
                     </div>

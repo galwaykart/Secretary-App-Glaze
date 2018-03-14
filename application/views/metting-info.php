@@ -370,7 +370,7 @@
 				  
 				});
 			});
-			function setValues1(id){     
+			function setValues1(id){  
 				document.getElementById("rm1"+id).remove();
 			}
 		</script>
