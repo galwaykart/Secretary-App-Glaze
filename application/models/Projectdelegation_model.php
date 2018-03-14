@@ -77,49 +77,63 @@ class Projectdelegation_model extends CI_model{
 
 
 		public function getProjectDelegationStatus($record_id){
-			$query = $this->db->get_where("project_delegation_status",array("project_delegation_id"=>$record_id)); 
-			
-			
-					if ($query->num_rows() > 0) {
-												
+			$delegates_data =array();
+			$delegates_date_data =array();
+			$status_data =array();
+			$query_delegates = $this->db->query("SELECT * FROM `project_delegation` JOIN project_delegation_delegates ON project_delegation.project_delegation_id = project_delegation_delegates.project_delegation_id WHERE project_delegation.project_delegation_id = $record_id"); 
+			if($query_delegates->num_rows() == 0){
+				echo "<h2>No record found for ID = $record_id </h2>";die;
+			}
+			if ($query_delegates->num_rows() > 0) {
 
-						foreach ($query->result() as $row) {
-			
-							$status_data[] = $row;
-			
+				
+				foreach ($query_delegates->result() as $row) {
+					
+				$delegates_data[] = $row;
+
+				}
+
+
+				$query = $this->db->get_where("project_delegation_status",array("project_delegation_id"=>$record_id)); 
+				
+
+						if ($query->num_rows() > 0) {
+													
+	
+							foreach ($query->result() as $row) {
+				
+								$status_data[] = $row;
+				
+							}
+	
 						}
+							$query_dates = $this->db->get_where("project_delegation_dates",array("project_delegation_id"=>$record_id));
+							
+							
 
-						$query_delegates = $this->db->query("SELECT * FROM `project_delegation` JOIN project_delegation_delegates ON project_delegation.project_delegation_id = project_delegation_delegates.project_delegation_id WHERE project_delegation.project_delegation_id = $record_id"); 
-						$delegates_data =array();
-						if ($query_delegates->num_rows() > 0) {
+							// echo "<pre>";
+							// print_r($query_dates->result());
+							// echo "</pre>";
+							if ($query_dates->num_rows() > 0) {
+	
+								
+								foreach ($query_dates->result() as $row) {
+									
+								$delegates_date_data[] = $row;
+	
+								}
+							}
+	
 
 							
-							foreach ($query_delegates->result() as $row) {
-								
-							$delegates_data[] = $row;
-
-							}
-						}
-						
-						$query_dates = $this->db->get_where("project_delegation_dates",array("project_delegation_id"=>$record_id));
-						
-						$delegates_date_data =array();
-						if ($query_dates->num_rows() > 0) {
-
 							
-							foreach ($query_dates->result() as $row) {
-								
-							$delegates_date_data[] = $row;
+							$project_data = array("status_data"=>$status_data, "delegates_data"=>$delegates_data , "delegates_date_data"=>$delegates_date_data);
+							return $project_data;
+			}
 
-							}
-						}
 
-						$project_data = array("status_data"=>$status_data, "delegates_data"=>$delegates_data , "delegates_date_data"=>$delegates_date_data);
 
-			
-						return $project_data;
-						
-						}
+
 						
 						return false;
 		}

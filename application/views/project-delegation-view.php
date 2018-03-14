@@ -94,8 +94,8 @@
                         </div>
                     </div>
                     
-                    <div id="refresh_popup"> 
-                        <div id="auto-del"> 
+                    <div id="refresh_popups"> 
+                        <div id="auto-dels"> 
                             <div class="auto-del">
                                 <div class="left">
                                     <div class="form-group">
@@ -355,8 +355,8 @@
 				$(function() {
 					$('a#plus').click(function(e) {
 						e.preventDefault();
-						var lnth = $('#auto-del').length; 
-					 $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+						var lnth = $('#auto-dels').length; 
+					 $('#auto-dels').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 					  
 					});
 				});
