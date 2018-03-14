@@ -127,7 +127,6 @@
 									   <td><?php echo $record->monthly_periodic_end_date ?></td>
 									   <td><?php echo $record->monthly_periodic_status ?></td>
 									   <td><?php echo $record->monthly_periodic_remark ?></td>
-									   
 									</tr>
 									<?php } } ?>
                                     </tbody>
@@ -215,9 +214,10 @@
 					<div class="right text-center">
 					  <div class="btn-group"><a style="background: red;" href="#"  onclick="setValues(<?php echo $i; ?>)"><span class="fa fa-minus" style="color: white;"></span></a></div></div>				   
 			  </div>
-					
+				
 			 <?php } $i++; } }   ?> 
-		</div>		 
+			 
+			</div>	 
 			<div class="col-md-12" style="text-align:center">
 				<button type="submit" class="btn-primary btn">Submit</button>
 			</div>	
@@ -233,8 +233,8 @@
 				$(function() {
 					$('a#add1').click(function(e) {
 						e.preventDefault();
-						var lnth = $('#delete.auto-del').length; 
-					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="col-md-4"><div class="form-group"><label>Status Date</label><div class="input-group"><div class="input-addon"><span class="fa fa-calendar" ></span></div><div class="form-control"><input type="date" title="Status date" name="date[]" required /></div></div></div></div> <div class="col-md-3"><div class="form-group"><label>Note</label><div class="input-group"><div class="input-addon"><span class="fa fa-sticky-note" ></span></div><div class="form-control"><textarea id="Textarea1" class="" name="note[]" required></textarea></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div>');
+						var lnth = $('#delete .auto-del').length; 
+					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="col-md-4"><div class="form-group"><label>Status Date</label><div class="input-group"><div class="input-addon"><span class="fa fa-calendar" ></span></div><div class="form-control"><input type="date" title="Status date" name="date[]" required /></div></div></div></div> <div class="col-md-3"><div class="form-group"><label>Note</label><div class="input-group"><div class="input-addon"><span class="fa fa-sticky-note" ></span></div><div class="form-control"><textarea id="Textarea1" class="" name="note[]" required></textarea></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div>');
 					  
 					});
 				});
@@ -247,7 +247,7 @@
 				$(function() {
 					$('a#add').click(function(e) {
 						e.preventDefault();
-						var lnth1 = $('#delete1.auto-del').length; 
+						var lnth1 = $('#delete1 .auto-del').length; 
 					 $('#delete1').append('<div class="clear"></div><div id="rm1'+lnth1+'" class="auto-del"><div class="col-md-4"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required/></div></div></div></div><div class="col-md-4" ><div class="form-group"><label>Email</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues1('+ lnth1 + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div>');
 					  
 					});

@@ -21,20 +21,24 @@
 			}
 		 }
 		 
-		 public function getmonthly($limit, $start){
-			$this->db->select('*');
-			$this->db->from('monthly_periodic');
-			$this->db->limit($limit, $start);
-			$query = $this->db->get();
-		   // print_r($query->result()); 	
-			return $query->result();
+		 public function getmonthly($month,$limit, $start){
+			 $this->db->select('*');
+			 $this->db->from('monthly_periodic');
+			 $this->db->where('Month(monthly_start_date) <=',$month);
+			 $this->db->where('Month(monthly_periodic_end_date) >=',$month);
+			 $this->db->limit($limit, $start);
+			 $query = $this->db->get();
+		     //print_r($query->result()); 	die;
+			 return $query->result();
 		 }
 		 
-		 public function record_count(){
-			$this->db->select('*');
-			$this->db->from('monthly_periodic');
-			$query = $this->db->count_all_results();
-			return $query;
+		 public function record_count($month){
+			 $this->db->select('*');
+			 $this->db->from('monthly_periodic');
+			 $this->db->where('Month(monthly_start_date) <=',$month);
+			 $this->db->where('Month(monthly_periodic_end_date) >=',$month);
+			 $query = $this->db->count_all_results();
+			 return $query;
 
 			//print_r($query);die;
 		 }
