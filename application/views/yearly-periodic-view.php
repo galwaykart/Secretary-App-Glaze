@@ -122,7 +122,7 @@
 									foreach($list['data1'] as $record){ ?>
                                        <tr>
 									   <td><?php echo $record->yearly_periodic_end_date ?></td>
-									   <td><?php echo $record->yearly_periodic_status ?></td>
+									   <td><?php if($record->yearly_periodic_status==1)echo "Yes"; else{echo "No";} ?></td>
 									   <td><?php echo $record->yearly_periodic_remark ?></td>
 									</tr>
 									<?php } } ?>
