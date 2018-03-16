@@ -30,7 +30,7 @@
 								<div class="form-group">
 									<label>Next Meeting Date</label>
 									<div class="input-group">
-										<div class="form-control"><input type="date" required title="Next Meeting Date" name="next_date" value="<?php if($fetch){echo $fetch['data1'][0]->index_meeting_next_date;} ?>"/></div>
+										<div class="form-control"><input type="date" required title="Next Meeting Date" name="index_meeting_next_date" value="<?php if($fetch){echo $fetch['data1'][0]->index_meeting_next_date;} ?>"/></div>
 									</div>
 								</div>
 							</div>
@@ -77,7 +77,7 @@
 							<div class="container4">
 								<div class="tab">
 									<a class="tablinks active " onclick="openTabs(event, 'one')">Present Participate</a>
-									<!--<a class="tablinks " onclick="openTabs(event, 'two')">Absent Participate</a>
+									<!--<a class="tablinks " onclick="openTabs(event, 'two')">Absent Participate</a>-->
 								</div>
 								<div id="one" class="tabcontent" style="display:block;" >
 									<h3>Present Participate</h3>
@@ -185,7 +185,7 @@
 															</div>
 														</div>
 													</div> 
-																							<div class="col-md-2" class="RegSpLeft" id="addmr">
+										<div class="col-md-2" class="RegSpLeft" id="addmr">
 											<div class="form-group">
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-user-o" ></span></div>
@@ -260,9 +260,7 @@
 														  
 								
 							 <?php  $j = 0;
-								if($fetch){
-									
-									
+								if($fetch){									
 									foreach($fetch['data3'] as $record1){	 
 										if($j != '0'){  ?>
 											<div class="clear"></div>
@@ -354,7 +352,7 @@
 				$('a.ad').click(function(e) {
 					e.preventDefault();
 					  var lnth = $('#one .customclass').length; 
-					// var lnth = 0;  
+					console.log(lnth);
 				   $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="employee[]" ><option value="1" >Yes</option><option value="0" >No</option></select></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" required pattern="[a-zA-Z ]{1,100}" title="Name should only contain letters. e.g. john"   id="name"  name="name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-2" class="RegSpLeft" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o" ></span></div><div class="form-control"><select name="is_employee[]" ><option value="1" >Present</option><option value="0" >Absent</option></select></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn">Delete</a></div></div></div>');
 				});
 			});
@@ -372,7 +370,8 @@
 				  
 				});
 			});
-			function setValues1(id){     
+			function setValues1(id){  
+				
 				document.getElementById("rm1"+id).remove();
 			}
 		</script>

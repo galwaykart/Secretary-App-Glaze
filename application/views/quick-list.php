@@ -1,10 +1,6 @@
-<!doctype html>
-<html>
-<?php $this->load->view('head'); ?>
-<body class="body style-6"><!-- body tag start -->
-   <!-- globle header for comman start --> 
-    <?php $this->load->view('header'); ?>
-    <!-- user View design page start -->
+	<?php $this->load->view('head'); ?>
+	<?php $this->load->view('header'); ?>
+		<!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Quick Work</p></div>
     <div class="dailly-notes-index-panel">
     <?php
@@ -226,8 +222,7 @@
        <p><?php echo $links; ?></p>
 
    </div>
-</div>
-    <div style="height:50px;"></div>
+</div> 
 	
 	    <script type="text/javascript"> 
 				$(function() {
@@ -280,12 +275,7 @@
 
             
         </script>
-
-
-
+ 
 	
 <?php $this->load->view('footer'); ?>
-
-
-</body>
-</html>
+ 

@@ -1,9 +1,9 @@
-  <?php $this->load->view('head'); ?>
+     <?php $this->load->view('head'); ?> 
      <?php $this->load->view('header'); ?>
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Monthly Periodic View</p></div>
     <div class="dailly-notes-index-panel">
-	<form method="post"  action="<?php if($list){echo base_url()."Monthlyperiodic/add_data/".$list['data1'][0]->monthly_periodic_id;}else{echo base_url()."Monthlyperiodic/add_data/";} ?>">
+	<form method="post"  action="<?php if($list){echo base_url()."yearlyperiodic/add_data/".$list['data1'][0]->yearly_periodic_id;}else{echo base_url()."yearlyperiodic/add_data/";} ?>">
 	<div class="container-5">
                        
                         <div class="col-md-12">
@@ -20,7 +20,7 @@
                                                             <span class="fa fa-calendar" ></span>
                                                             </div>
                                                             <div class="form-control">
-															<input type="date" title="End date" required value="<?php if($list){ echo $list['data1'][0]->monthly_periodic_end_date; }  ?>" /></div>
+															<input type="date" title="End date" required value="<?php if($list){ echo $list['data1'][0]->yearly_periodic_end_date; }  ?>" /></div>
                                                         </div>
                                                 </div>
                                                
@@ -34,7 +34,7 @@
                                                                 <span class="fa fa-share" ></span>
                                                             </div>
                                                      <div class="form-control">
-															  <input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required value="<?php if($list['data2']){ echo $list['data2'][0]->monthly_periodic_delegates_name; }  ?>"/>
+															  <input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required value="<?php if($list['data2']){ echo $list['data2'][0]->yearly_periodic_delegates_name; }  ?>"/>
 													</div>
 															
                                                         </div>
@@ -49,7 +49,7 @@
                                                               <span class="fa fa-share" ></span>
                                                          </div>
                                                             <div class="form-control">
-															  <input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($list['data2']){ echo $list['data2'][0]->monthly_periodic_delegates_email; }  ?>"/>
+															  <input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($list['data2']){ echo $list['data2'][0]->yearly_periodic_delegates_email; }  ?>"/>
 															</div>
 															
                                                     </div>
@@ -75,7 +75,7 @@
                                                                 <span class="fa fa-share" ></span>
                                                             </div>
                                                      <div class="form-control">
-															  <input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required value="<?php if($record){ echo $record->monthly_periodic_delegates_name; }  ?>"/>
+															  <input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required value="<?php if($record){ echo $record->yearly_periodic_delegates_name; }  ?>"/>
 													</div>
 															
                                                         </div>
@@ -90,7 +90,7 @@
                                                               <span class="fa fa-share" ></span>
                                                          </div>
                                                             <div class="form-control">
-															  <input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($record){ echo $record->monthly_periodic_delegates_email; }  ?>"/>
+															  <input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($record){ echo $record->yearly_periodic_delegates_email; }  ?>"/>
 															</div>
 															
                                                     </div>
@@ -119,9 +119,9 @@
 									if($list){		
 									foreach($list['data1'] as $record){ ?>
                                        <tr>
-									   <td><?php echo $record->monthly_periodic_end_date ?></td>
-									   <td><?php echo $record->monthly_periodic_status ?></td>
-									   <td><?php echo $record->monthly_periodic_remark ?></td>
+									   <td><?php echo $record->yearly_periodic_end_date ?></td>
+									   <td><?php echo $record->yearly_periodic_status ?></td>
+									   <td><?php echo $record->yearly_periodic_remark ?></td>
 									</tr>
 									<?php } } ?>
                                     </tbody>
@@ -131,8 +131,8 @@
 
    </div><!-- container 5 end -->
 
-		<div class="col-md-12" id="delete">
-		  	
+		<div class="col-md-12 auto-del"  id="delete">
+		  <div class="custom">	
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Status Date</label>
@@ -140,7 +140,7 @@
                             <div class="input-addon">
                                  <span class="fa fa-calendar" ></span>
                             </div>
-                    <div class="form-control"><input type="date" title="Status date"  name="date[]" required value="<?php if($list['data3']){ echo $list['data3'][0]->monthly_periodic_status_date; }  ?>"/></div>
+                    <div class="form-control"><input type="date" title="Status date"  name="date[]" required value="<?php if($list['data3']){ echo $list['data3'][0]->yearly_periodic_status_date; }  ?>"/></div>
                      </div>
                 </div>
                                                
@@ -155,7 +155,7 @@
                                        </div>
                                           <div class="form-control">
                                               <textarea id="Textarea1" required class="" name="note[]"  >
-											  <?php if($list['data3']){ echo $list['data3'][0]->monthly_periodic_status_note; }  ?>
+											  <?php if($list['data3']){ echo $list['data3'][0]->yearly_periodic_status_note; }  ?>
 											  </textarea>
                                          </div>
                                    </div>
@@ -167,7 +167,6 @@
 								<a href="#" class="ad btn-primary btn" id="add1"><span class="fa fa-plus" ></span></a>
 							</div>	
 						</div> 
-										
 							 <?php  
 							 $i = 0;
 							 if($list){									
@@ -175,7 +174,7 @@
 								//print_r($list['data2']);
 								if($i != '0'){  ?>
 								<div class="clear"></div>		
-					<div id="rm<?php echo $i; ?>"  class="auto-del">
+					<div id="rm<?php echo $i; ?>"  class="custom">
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>Status Date</label>
@@ -184,7 +183,7 @@
 												 <span class="fa fa-calendar" ></span>
 											</div>
 												<div class="form-control">
-												  <input type="date" title="Status date"  name="date[]" value="<?php if($record){ echo $record->monthly_periodic_status_date; }  ?>"/>
+												  <input type="date" title="Status date"  name="date[]" value="<?php if($record){ echo $record->yearly_periodic_status_date; }  ?>"/>
 												</div>
 									   </div>
 								</div>
@@ -199,7 +198,7 @@
                                        </div>
                                           <div class="form-control">
                                               <textarea id="Textarea1" class="" name="note[]"  >
-											<?php if($record){ echo $record->monthly_periodic_status_note; } ?>
+											<?php if($record){ echo $record->yearly_periodic_status_note; } ?>
 											  </textarea>
                                          </div>
                                    </div>
@@ -212,23 +211,24 @@
 			  </div>
 				
 			 <?php } $i++; } }   ?> 
-	
-			</div>	 
+			 
+			</div>
+		</div>			
 			<div class="col-md-12" style="text-align:center">
 				<button type="submit" class="btn-primary btn">Submit</button>
 			</div>	
 	</form>
   </div><!-- dailly index panel end -->
-<!-- dailly index panel end -->
        
+     <br /><br /><br /> 
 	
 	
    	    <script type="text/javascript"> 
 				$(function() {
 					$('a#add1').click(function(e) {
 						e.preventDefault();
-						var lnth = $('#delete .custom').length; 
-					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="custom"><div class="auto-del"><div class="col-md-4"><div class="form-group"><label>Status Date</label><div class="input-group"><div class="input-addon"><span class="fa fa-calendar" ></span></div><div class="form-control"><input type="date" title="Status date" name="date[]" required /></div></div></div></div> <div class="col-md-3"><div class="form-group"><label>Note</label><div class="input-group"><div class="input-addon"><span class="fa fa-sticky-note" ></span></div><div class="form-control"><textarea id="Textarea1" class="" name="note[]" required></textarea></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div>');
+						var lnth = $('#delete .custom').length;						
+					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="custom"><div class="auto-del"><div class="col-md-4"><div class="form-group"><label>Status Date</label><div class="input-group"><div class="input-addon"><span class="fa fa-calendar" ></span></div><div class="form-control"><input type="date" title="Status date" name="date[]" required /></div></div></div></div> <div class="col-md-3"><div class="form-group"><label>Note</label><div class="input-group"><div class="input-addon"><span class="fa fa-sticky-note" ></span></div><div class="form-control"><textarea id="Textarea1" class="" name="note[]" required></textarea></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 					  
 					});
 				});
@@ -242,12 +242,12 @@
 					$('a#add').click(function(e) {
 						e.preventDefault();
 						var lnth1 = $('#delete1 .auto-del1').length; 
-					 $('#delete1').append('<div class="clear"></div><div id="rm1'+lnth1+'" class="auto-del1"><div class="col-md-4"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required/></div></div></div></div><div class="col-md-4" ><div class="form-group"><label>Email</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues1('+ lnth1 + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div>');
+					 $('#delete1').append('<div class="clear"></div><div id="rm1'+lnth1+'" class="auto-del1"><div class="col-md-4"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required/></div></div></div></div><div class="col-md-4" ><div class="form-group"><label>Email</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues1('+ lnth1 + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 					  
 					});
 				});
-					function setValues1(id){     
-						document.getElementById("rm1"+id).remove();
+					function setValues1(id){  
+					document.getElementById("rm1"+id).remove();
 					}
-		</script>
+		</script> 
     <?php $this->load->view('footer'); ?>

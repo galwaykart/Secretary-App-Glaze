@@ -1,8 +1,4 @@
-<!doctype html>
-<html>
  <?php $this->load->view('head'); ?>
-<body class="body style-6"><!-- body tag start -->
-   <!-- globle header for comman start --> 
     <?php $this->load->view('header'); ?>
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Dailly Notes</p></div>
@@ -83,8 +79,5 @@ function newDoc(id) {
 }
 </script>
 
-<div style="height:50px;"></div>
 <?php $this->load->view('footer'); ?>
 
-</body>
-</html>

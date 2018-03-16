@@ -1,9 +1,4 @@
-<!doctype html>
-<html>
  <?php $this->load->view('head'); ?>
-<body class="body style-6"><!-- body tag start -->
-   <!-- globle header for comman start --> 
-
    <style>
 	.mon_class {
 		color:#fff;
@@ -27,7 +22,7 @@
 			  <?php //$month = date('m'); ?>
 			  
                           <section id="section1">
-                                        <input type="radio" name="sections" id="option1" <?php if($month == '01') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('Monthlyperiodic/index/01') ?>'">
+                                        <input type="radio"  name="sections" id="option1"  <?php if($month == '01') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('Monthlyperiodic/index/01') ?>'">
                                         <label for="option1">
 											<a href="<?php echo site_url('Monthlyperiodic/index/01') ?>" class="mon_class">January</a>
 										</label>
@@ -652,12 +647,12 @@
                 </div>
                 <div class="clear"></div>
                   <div class="col-md-12">
-                                       <div class="col-md-6">
+                    <div class="col-md-6">
                             <div class="form-group">
-                                       <label>Start Date :</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input type="date" required title="End Date" name="start_date"/></div>
-                                        </div>
+                                   <label>Start Date :</label>
+                                      <div class="input-group">
+                                         <div class="form-control"><input type="date" required title="End Date" name="start_date"/></div>
+                                      </div>
                           </div>
                         
                     </div>
@@ -752,13 +747,7 @@
                 <div class="clear"></div>
 			
 <?php echo $links; ?>	
-     <br/><br/><br/>
-    <div style="height:50px;"></div>
 
-      <?php $this->load->view('footer'); ?>
-
-     <!-- globle header for comman end --> 
-	 
 	 
 	 
 	    <script> 
@@ -803,5 +792,7 @@
 }
 </script>
 	
-</body>
-</html>
+      <?php $this->load->view('footer'); ?>
+
+     <!-- globle header for comman end --> 
+	 
