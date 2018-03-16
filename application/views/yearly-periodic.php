@@ -1,9 +1,5 @@
-<!doctype html>
-<html>
  <?php $this->load->view('head'); ?>
-<body class="body style-6"><!-- body tag start -->
-   <!-- globle header for comman start --> 
-
+ 
    <style>
 	.mon_class {
 		color:#fff;
@@ -302,10 +298,8 @@
 	</form>	
                 <div class="clear"></div>
 		
-     <br/><br/><br/>
-    <div style="height:50px;"></div>
+     <br/><br/><br/> 
 <?php echo $links; ?>	
-      <?php $this->load->view('footer'); ?>
 
      <!-- globle header for comman end --> 
 	 
@@ -352,6 +346,5 @@
     window.location.assign(url);
 }
 </script>
-	
-</body>
-</html>
+	 
+      <?php $this->load->view('footer'); ?>

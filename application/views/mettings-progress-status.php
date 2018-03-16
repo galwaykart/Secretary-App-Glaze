@@ -1,10 +1,4 @@
-<!doctype html>
-<html>
-
-
-  <?php $this->load->view('head'); ?>
-<body class="body style-6"><!-- body tag start -->
-   <!-- globle header for comman start --> 
+  <?php $this->load->view('head'); ?> 
   <?php $this->load->view('header'); ?> 
     <!-- user View design page start -->
 	
@@ -45,11 +39,7 @@
         </div>
     </div>
    <?php echo $links; ?>
-
-     <br/><br/><br/>
-    <div style="height:50px;"></div> 
-	<?php $this->load->view('footer'); ?>
-	
+ 
 <script>
   function newDoc(id) {
    // console.log("id ====" ,id);
@@ -57,5 +47,6 @@
     window.location.assign(url);
 }
 </script>
-</body>
-</html>
+	<?php $this->load->view('footer'); ?>
+	
+ 
