@@ -77,11 +77,11 @@
                                                               <table class="">
                                                                      <thead>
                                                                          <tr>
+																			 <th>Sno</th>	
                                                                              <th>Month</th>
                                                                              <th>Start Date</th>
                                                                              <th>End Date of Task</th>
                                                                              <th>Task Name</th>
-                                                                             <th>Delegate To</th>
                                                                              <th>Remark</th>
                                                                              <th>Active / Inactive</th>
 
@@ -120,11 +120,11 @@
                                                               <table class="">
                                                                      <thead>
                                                                          <tr>
+																			<th>Sno</th>	
                                                                              <th>Month</th>
-                                                                             <th>Start Date</th>
+                                                                             <th>Start Date </th>
                                                                              <th>End Date of Task</th>
                                                                              <th>Task Name</th>
-                                                                             <th>Delegate To</th>
                                                                              <th>Remark</th>
                                                                              <th>Active / Inactive</th>
 
@@ -182,8 +182,8 @@
                                                                                     <option value="5">May</option>
                                                                                     <option value="6">June</option>
                                                                                     <option value="7">July</option>
-                                                                                    <option value="8">Augest</option>
-                                                                                    <option value="9">Sep</option>
+                                                                                    <option value="8">August</option>
+                                                                                    <option value="9">Sept</option>
                                                                                     <option value="10">Oct</option>
                                                                                     <option value="11">Nov</option>
                                                                                     <option value="12">Dec</option>
@@ -197,7 +197,7 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa  fa-check-square-o" ></span></div>
-                                                                            <div class="form-control"><input type="text" placeholder="Enter Task" name="task" /></div>
+                                                                            <div class="form-control"><input type="text" placeholder="Enter Task" name="task" required /></div>
                                                                         </div>
                                                                 </div>
                                                          </div>			 
@@ -208,7 +208,7 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa  fa-calendar" ></span></div>
-                                                                            <div class="form-control"><input type="date" title="Select Start Date" name="start_date"/></div>
+                                                                            <div class="form-control"><input type="date" title="Select Start Date" required name="start_date" /></div>
                                                                         </div>
                                                                 </div>
                                                          </div>
@@ -216,7 +216,7 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa fa-calendar" ></span></div>
-                                                                            <div class="form-control"><input type="date" title="Select End Date" name="end_date"/></div>
+                                                                            <div class="form-control"><input type="date" title="Select End Date" required name="end_date" /></div>
                                                                         </div>
                                                                 </div>
                                                          </div>
@@ -227,8 +227,8 @@
                                        <label>Active/Inactive</label>
                                         <div class="input-group">
                                             <div class="form-control">
-											   <select name="status">
-                                                    <option>Select Status</option>
+											   <select name="status" required >
+                                                    <option disabled value="" selected hidden>Select Status</option>
                                                     <option value="1">Active</option>
                                                     <option value="0">Inacive</option>
                                                 </select></div>

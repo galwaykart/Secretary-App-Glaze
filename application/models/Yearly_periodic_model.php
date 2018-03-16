@@ -12,7 +12,6 @@
 			for($i=0;$i<$totalname;$i++) {
 				$insertdelegate_to = $delegates_name[$i];
 				$insertemail = $delegates_email[$i];
-			
 				$sql = "insert into yearly_periodic_delegates(yearly_periodic_id,yearly_periodic_delegates_name,yearly_periodic_delegates_email)
 						values('$insert_id','$insertdelegate_to','$insertemail')";
 				//print_r($sql);die;
@@ -20,8 +19,8 @@
 				}
 			}
 		}
-		
-		 public function getyear($year,$limit,$start){
+
+		public function getyear($year,$limit,$start){
 			 $this->db->select('*');
 			 $this->db->from('yearly_periodic');
 			 $this->db->where('Year(yearly_periodic_start_date) <=',$year);

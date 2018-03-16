@@ -13,7 +13,9 @@
                        
                         <div class="col-md-12">
                                     <h2>Perodic Task View</h2>
-                                    <div class="col-md-12"><p>Task Name : <span id="projectname">my task</span></p></div>
+                                    <div class="col-md-12"><p>Task Name :
+								     	 <?php if($list){ echo $list['data1'][0]->yearly_periodic_task_name;} ?>
+									<span id="projectname" ></span></p></div>
                                    
                                     <div class="clear"></div>
                                     <div class="col-md-4">
@@ -80,9 +82,8 @@
                                                                 <span class="fa fa-share" ></span>
                                                             </div>
                                                      <div class="form-control">
-															  <input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required value="<?php if($record){ echo $record->yearly_periodic_delegates_name; }  ?>"/>
+														<input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required value="<?php if($record){ echo $record->yearly_periodic_delegates_name; }  ?>"/>
 													</div>
-															
                                                         </div>
 										</div>
                                     </div>
@@ -97,7 +98,6 @@
                                                             <div class="form-control">
 															  <input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($record){ echo $record->yearly_periodic_delegates_email; }  ?>"/>
 															</div>
-															
                                                     </div>
 									<div class="right text-center">
 									 <div class="btn-group"><a style="background: red;" href="#"  onclick="setValues1(<?php echo $j; ?>)"><span class="fa fa-minus" style="color: white;"></span></a></div></div>
@@ -225,10 +225,9 @@
 	</form>
   </div><!-- dailly index panel end -->
        
-     <br /><br /><br />
+     <br/><br/><br/>
     <div style="height:50px;"></div>
     <?php $this->load->view('footer'); ?>
-	
 	
    	    <script type="text/javascript"> 
 				$(function() {
@@ -244,7 +243,7 @@
 					}
 		</script>
 		
-		 	    <script type="text/javascript"> 
+		 <script type="text/javascript"> 
 				$(function() {
 					$('a#add').click(function(e) {
 						e.preventDefault();
