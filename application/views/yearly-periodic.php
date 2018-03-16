@@ -208,7 +208,7 @@
                                                                         </div>
                                                                 </div>
                                                          </div>
-                                                                            <div class="col-md-6">
+                                                          <div class="col-md-6">
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa fa-calendar" ></span></div>

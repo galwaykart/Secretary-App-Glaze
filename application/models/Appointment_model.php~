@@ -81,6 +81,7 @@ class Appointment_model extends CI_model{
        
         }
 
+
         public function getAppointmentById($id){
 			$query = $this->db->query("SELECT *,DATE_FORMAT(appointment_start_time,'%Y-%m-%d') AS niceDate, DATE_FORMAT(appointment_end_time,'%Y-%m-%d') AS targetDate FROM appointment
 			JOIN appointment_with 

@@ -53,14 +53,7 @@
                                                     <li><a href="<?php echo site_url('Quickwork'); ?>">Quick Work</a></li>
                                                     <li><a href="<?php echo site_url('Appoinment'); ?>">Appointments</a></li>
                                                     <li><a href="<?php echo site_url('Projectdelegation'); ?>">Project Delegation</a></li>
-                                                    <li>
-                                                        <div>Periodic tasks</div>
-                                                        <ul>
-                                                            <li><a href="demo.html">Current</a></li>
-                                                            <li><a href="?132">Consectetur</a></li>
-                                                        </ul>
-                                                    </li>
-                                            
+                                       
 													<li>
 														<div>Periodic tasks</div>
 														<ul>
