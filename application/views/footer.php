@@ -147,12 +147,11 @@
 
     </script>
 	
-     <script type="text/javascript" src="<?php echo base_url(); ?>js/caleandar.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/demo.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/caleandar.js"></script> 
     <script type="text/javascript" src="<?php echo base_url(); ?>js/popup.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/forcast.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/quickworkCalender.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/thems.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/thems.js"></script> 
 	 
  
 </body>
