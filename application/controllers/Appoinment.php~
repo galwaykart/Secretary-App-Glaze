@@ -83,7 +83,7 @@
 			// print_r($this->uri);
 			// print_r(Sizeof($this->uri->segment(3)));
 			// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			//	echo "Hello I am gaurav";
+					echo "Hello I am gaurav";
 				$this->load->model('Appointment_model');
 				if($this->input->post('date') != null){
 				$data = array();
@@ -110,7 +110,7 @@
 				if($this->uri->segment(3)){
 					//echo "i am in updation of record";
 					$result = $this->Appointment_model->updateAppointment($data , $record_id);
-					if($result)	
+					if($result)
 					{
 					$param1 =  "<h2>Successfully updated</h2>";
 					

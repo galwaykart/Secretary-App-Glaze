@@ -38,10 +38,13 @@
 		}
 		
 		public function insert_sheet(){
+		$id = $this->uri->segment(3); 
 			$data = array();
 			$data[0] = array(
 			'reminder_sheet_start_date'=>$this->input->post('start_date'),
 			'reminder_sheet_end_date'=>$this->input->post('end_date'),
+			'reminder_sheet_start_time'=>$this->input->post('start_time'),
+			'reminder_sheet_end_time'=>$this->input->post('end_time'),
 			'reminder_sheet_frequency'=>$this->input->post('frequency'),
 			'reminder_sheet_subject'=>$this->input->post('subject'),
 			'reminder_sheet_status'=>$this->input->post('status')
@@ -51,8 +54,14 @@
 			'reminder_sheet_delegates_email'=>$this->input->post('email'),
 			'reminder_sheet_delegates_phone'=>$this->input->post('phone')
 			);
+			if($this->uri->segment(3)){
+			$this->Reminder_sheet_model->update_reminder($data,$id);
+			redirect('Reminder');
+			}
+			else{
 			$this->Reminder_sheet_model->reminder_sheet($data);
 			redirect('Reminder');
+			}
 		}
 		
 	}

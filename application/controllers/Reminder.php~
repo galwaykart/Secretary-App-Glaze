@@ -25,17 +25,26 @@
 			if($this->session->user == 'logged_in'){
 				if($this->uri->segment(3)){
 					$record_id =$this->uri->segment(3); 
-					$listOfDataById['insidereminder']	= $this->AppointmReminder_sheet_modelent_model->getAppointmentById($record_id);
+					$listOfDataById['insidereminder']	= $this->Reminder_sheet_model->getreminderById($record_id);
 					echo json_encode($listOfDataById);
 				}
+				else{
+					$listOfData['insidereminder'] = array();
+				}
+			}
+			else{
+				$this->load->view("login");
 			}
 		}
 		
 		public function insert_sheet(){
+		$id = $this->uri->segment(3); 
 			$data = array();
 			$data[0] = array(
 			'reminder_sheet_start_date'=>$this->input->post('start_date'),
 			'reminder_sheet_end_date'=>$this->input->post('end_date'),
+			'reminder_sheet_start_time'=>$this->input->post('start_time'),
+			'reminder_sheet_end_time'=>$this->input->post('end_time'),
 			'reminder_sheet_frequency'=>$this->input->post('frequency'),
 			'reminder_sheet_subject'=>$this->input->post('subject'),
 			'reminder_sheet_status'=>$this->input->post('status')
@@ -45,8 +54,47 @@
 			'reminder_sheet_delegates_email'=>$this->input->post('email'),
 			'reminder_sheet_delegates_phone'=>$this->input->post('phone')
 			);
-			$this->Reminder_sheet_model->reminder_sheet($data);
-			redirect('Reminder');
+							if($this->uri->segment(3)){
+					//echo "i am in updation of record";
+					$result = $this->Appointment_model->updateAppointment($data , $record_id);
+					if($result)
+					{
+					$param1 =  "<h2>Successfully updated</h2>";
+					
+					}
+					else
+					{
+					$param1 = "<h2>ERROR</h2>";
+					
+					}
+					$this->index(null ,$param1 , $this->uri->segment(3));
+
+					
+				 }else{
+					 //echo "i am in addition of record";
+					 $result = $this->Appointment_model->addAppointment($data);
+					 if($result)
+					 {
+					 $param1 =  "<h2>Success</h2>";
+					 
+					 }
+					 else
+					 {
+					 $param1 = "<h2>ERROR</h2>";
+					 
+					 }
+					 $this->index(null , $param1 ,null);
+				}
+
+				
+				// }else {
+				// 	echo "no request made with post method";
+				// }
+				
+
+			}else{
+				redirect('appoinment');
+			}
 		}
 		
 	}
