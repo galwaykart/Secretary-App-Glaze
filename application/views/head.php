@@ -16,7 +16,7 @@
     <script src="<?php echo base_url(); ?>js/accordion-menu.js"></script>
     <script src="<?php echo base_url(); ?>calender/moment.min.js"></script>
     <script src="<?php echo base_url(); ?>calender/fullcalendar.min.js"></script>
-    <!-- script src="<?php echo base_url(); ?>js/jquery-3.2.1.min.js"></script --> 
+    <script src="<?php echo base_url(); ?>js/jquery-3.2.1.min.js"></script 
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	
@@ -24,3 +24,5 @@
   
 </head>
 <body class="body style-6"><!-- body tag start -->
+
+

@@ -19,9 +19,9 @@
 
                                             <div class="inner">
 											<?php 
-													$firstname = $this->session->firstname; 
-													$lastname   = $this->session->lastname;  ?>
-                                                        <p class="person-name">Hello !<br />  <?php if($firstname){ echo $firstname; } ?> <?php if($lastname){ echo $lastname; } ?></p>
+													//$firstname = $this->session->firstname; 
+													//$lastname   = $this->session->lastname;  ?>
+                                                        <p class="person-name">Hello !<br />  <?php //if($firstname){ echo $firstname; } ?> <?php // if($lastname){ echo $lastname; } ?></p>
                                                         <img src="<?php echo base_url(); ?>img/person.png" alt="person image" id="per-img" class="log-popup"/>
                                             </div>
 
@@ -53,14 +53,6 @@
                                                     <li><a href="<?php echo site_url('Quickwork'); ?>">Quick Work</a></li>
                                                     <li><a href="<?php echo site_url('Appoinment'); ?>">Appointments</a></li>
                                                     <li><a href="<?php echo site_url('Projectdelegation'); ?>">Project Delegation</a></li>
-                                                    <li>
-                                                        <div>Periodic tasks</div>
-                                                        <ul>
-                                                            <li><a href="demo.html">Current</a></li>
-                                                            <li><a href="?132">Consectetur</a></li>
-                                                        </ul>
-                                                    </li>
-                                            
 													<li>
 														<div>Periodic tasks</div>
 														<ul>
@@ -69,7 +61,7 @@
 															<li><a href="<?php echo site_url('Monthlyperiodic') ?>">Monthly periodic Status Sheet</a></li>
 															<li><a href="">Everyday periodic Task</a></li>
 															<li><a href="">Everyday Periodic Status Sheet</a></li>
-															<li><a href="">Weekly periodic Task</a></li>
+															<li><a href="<?php echo site_url('WeeklyPeriodic') ?>">Weekly periodic Task</a></li>
 															<li><a href="">Weekly periodic status sheet</a></li> 
 														</ul>
 													</li>

@@ -169,7 +169,7 @@
                     </div>
 
                       <!-- autometic delegates start -->
-                      <div id="refresh_popup">
+                    <div id="refresh_popup">
                       <div id="auto-del">
                           <div class="auto-del">
                                       <div class="left">

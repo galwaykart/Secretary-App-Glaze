@@ -77,7 +77,7 @@
 
 	<div class="notePad">
             <div class="notepad-container">
-                <textarea id="" class="notepad-area" cols="12" rows="10"></textarea>
+                <textarea id="cktextarea" class="notepad-area" cols="12" rows="10"></textarea>
             </div>
     </div>
 
@@ -153,6 +153,13 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/forcast.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/quickworkCalender.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/thems.js"></script>
+    <script src="<?php echo base_url(); ?>js/ckeditor/ckeditor.js"></script>
+    <script>
+                //console.log("editor enabled");
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'cktextarea' );
+</script>
 	 
  
 </body>

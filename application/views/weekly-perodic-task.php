@@ -1,101 +1,7 @@
-﻿<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard-</title>
-   
-    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/bootsnip.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet"/>
-      <script src="js/float-panel.js"></script>
-    <script src="js/accordion-menu.js"></script>
-    <script src="js/jquery-3.2.1.min.js"></script>
-</head>
-<body class="body style-6"><!-- body tag start -->
-    
-
-
-   <!-- globle header for comman start --> 
-     
-    <header id="sec-header">
-        <div id="toggle-btn-box">
-                <span id="bar" class="fa  fa-navicon"  >
-                   <!-- <div class="one"></div>
-                    <div class="two"></div>
-                    <div class="three"></div>-->
-
-                </span>
-            <span id="close">&times</span>
-        </div>
-        <img src="img/galway_logo.png" alt="logo" id="img"/>
-        <h1>Secratory App</h1>
-        <div class="rigth-log-box">
-
-            <div class="inner">
-                        <p class="person-name">vishal rathour</p>
-                        <img src="img/person.png" alt="person image" id="per-img" class="log-popup"/>
-            </div>
-
-        </div>
-        <div class="log-up-body">
-           <ul>
-               <li><a href="#">Profile</a></li>
-                <li><a href="#">Setting</a></li>
-                <li><a href="#">LogOut</a></li>
-           </ul>
-        </div>
-    </header>
-    <div class="clear"></div>
-    <!--  changes-->
-    <div class="main-area-dashboard"><!-- Main Dashbrad start -->
-
-        <div id="left"><!-- left deshbrad start -->
-
-                    <aside  id="aside">
-                                    <div  id="accordion">
-                                        <ul>
-                                            <li>
-                                                <div>Sollicitudin</div>
-                                                <ul>
-                                                    <li><a href="?11">Lorem ipsum</a></li>
-                                                    <li><a href="?12">Dolor sit</a></li>
-                                                    <li>
-                                                        <div>Commodo Rhoncus</div>
-                                                        <ul>
-                                                            <li><a href="demo.html">Current</a></li>
-                                                            <li><a href="?132">Consectetur</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <div>Quis Porttitor</div>
-                                                <ul>
-                                                    <li><a href="?21">Finibus Bonorum</a></li>
-                                                    <li><a href="?22">Sed ut</a></li>
-                                                    <li><a href="?23">Neque porro</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <div>Odio Ac</div>
-                                                <ul>
-                                                    <li><a href="?31">Minima veniam</a></li>
-                                                    <li><a href="?32">Voluptate velit</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="?4">Sapien quam</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                     </aside>
-
-
-        </div><!-- left deshbrad end -->
-        <div id="right"><!-- right deshbrad start -->
-                          <!-- user View design page start -->
+﻿<?php $this->load->view('head'); ?>
+	<?php $this->load->view('header'); ?>
+<!-- globle header for comman start --> 
+ 
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Weekly Periodic</p></div>
     <div class="clear"></div>
     <div class="monthly-periodic-task-sheet"><!-- monthly periodic panel start -->
@@ -109,7 +15,7 @@
                 <!--search button end-->
               <div class="tabordion">
                           <section id="section1">
-                                        <input type="radio" name="sections" id="option1" checked>
+                                        <input type="radio" name="sections" id="option1" <?php if($month == '01') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('WeeklyPeriodic/index/01') ?>'">
                                         <label for="option1">January</label>
                                         <article>
                                                      <h2>January 2019 Weekly Task</h2>
@@ -132,7 +38,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -140,18 +46,32 @@
                                                                                      </tr>
                                                                                  </thead>
                                                                                   <tbody>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                       <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
+                                                                                  <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            $date1=date_create($r->weekly_periodic_end_date);
+                                            $date2=date_create("2015-12-13");
+                                            $diff=date_diff($date1 , $date2);
+                                            echo $diff->format("%R%a days");
+                                            echo "<tr onclick='status(<?php echo $fetch->weekly_periodic_id; ?>)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
                                                                                   </tbody>
                                                                             </table>
                                                                 </div>
@@ -167,7 +87,7 @@
                                                                                                      <th>Time</th>
                                                                                                      <th>End Date</th>
                                                                                                      <th>Task</th>
-                                                                                                     <th>Delegate To</th>
+                                                                                                     <!-- <th>Delegate To</th> -->
                                                                                                      <th>Supervised By</th>
                                                                                                      <th>remarks</th>
                                                                                                      <th>Active / Inactive</th>
@@ -175,18 +95,28 @@
                                                                                                  </tr>
                                                                                              </thead>
                                                                                               <tbody>
-                                                                                                  <tr>
-                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                                  </tr>
-                                                                                                   <tr>
-                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                                  </tr>
-                                                                                                  <tr>
-                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                                  </tr>
-                                                                                                  <tr>
-                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                                  </tr>
+                                                                                              <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
                                                                                               </tbody>
                                                                                         </table>
                                                                                 </div>
@@ -202,7 +132,7 @@
                                                                                                  <th>Time</th>
                                                                                                  <th>End Date</th>
                                                                                                  <th>Task</th>
-                                                                                                 <th>Delegate To</th>
+                                                                                                 <!-- <th>Delegate To</th> -->
                                                                                                  <th>Supervised By</th>
                                                                                                  <th>remarks</th>
                                                                                                  <th>Active / Inactive</th>
@@ -210,18 +140,28 @@
                                                                                              </tr>
                                                                                          </thead>
                                                                                           <tbody>
-                                                                                              <tr>
-                                                                                                  <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                              </tr>
-                                                                                               <tr>
-                                                                                                  <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                              </tr>
-                                                                                              <tr>
-                                                                                                  <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                              </tr>
-                                                                                              <tr>
-                                                                                                  <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                              </tr>
+                                                                                          <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
                                                                                           </tbody>
                                                                                     </table>
                                                                          </div>
@@ -237,7 +177,7 @@
                                                                                                      <th>Time</th>
                                                                                                      <th>End Date</th>
                                                                                                      <th>Task</th>
-                                                                                                     <th>Delegate To</th>
+                                                                                                     <!-- <th>Delegate To</th> -->
                                                                                                      <th>Supervised By</th>
                                                                                                      <th>remarks</th>
                                                                                                      <th>Active / Inactive</th>
@@ -245,18 +185,28 @@
                                                                                                  </tr>
                                                                                              </thead>
                                                                                               <tbody>
-                                                                                                  <tr>
-                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                                  </tr>
-                                                                                                   <tr>
-                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                                  </tr>
-                                                                                                  <tr>
-                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                                  </tr>
-                                                                                                  <tr>
-                                                                                                      <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                                  </tr>
+                                                                                              <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
                                                                                               </tbody>
                                                                                         </table>
                                                                              </div>
@@ -268,7 +218,7 @@
                                         </article>
                           </section>
                           <section id="section2">
-                                        <input type="radio" name="sections" id="option2">
+                                        <input type="radio" name="sections" id="option2" <?php if($month == '02') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('WeeklyPeriodic/index/02') ?>'">
                                         <label for="option2">Febuary</label>
                                         <article>
                                                   <h2>Febuary 2019 Weekly Task</h2>
@@ -291,7 +241,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -299,18 +249,28 @@
                                                                                      </tr>
                                                                                  </thead>
                                                                                   <tbody>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                       <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
+                                                                                  <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
                                                                                   </tbody>
                                                                             </table>
                                                                 </div>
@@ -326,7 +286,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -361,7 +321,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -396,7 +356,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -426,7 +386,7 @@
                                         </article>
                           </section>
                           <section id="section3">
-                                        <input type="radio" name="sections" id="option3">
+                                        <input type="radio" name="sections" id="option3" <?php if($month == '03') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('WeeklyPeriodic/index/03') ?>'">
                                         <label for="option3">March</label>
                                         <article>
                                                         <h2>March 2019 Weekly Task</h2>
@@ -449,7 +409,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -457,18 +417,28 @@
                                                                                      </tr>
                                                                                  </thead>
                                                                                   <tbody>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                       <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
+                                                                                  <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
                                                                                   </tbody>
                                                                             </table>
                                                                 </div>
@@ -484,7 +454,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -519,7 +489,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -554,7 +524,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -584,7 +554,7 @@
                                         </article>
                           </section>
                           <section id="section4">
-                                        <input type="radio" name="sections" id="option4">
+                                        <input type="radio" name="sections" id="option4" <?php if($month == '04') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('WeeklyPeriodic/index/04') ?>'">
                                         <label for="option4">April</label>
                                         <article>
                                                             <h2>April 2019 Weekly Task</h2>
@@ -607,7 +577,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -615,18 +585,28 @@
                                                                                      </tr>
                                                                                  </thead>
                                                                                   <tbody>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                       <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
+                                                                                  <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
                                                                                   </tbody>
                                                                             </table>
                                                                 </div>
@@ -642,7 +622,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -677,7 +657,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -712,7 +692,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -744,7 +724,7 @@
                                         </article>
                           </section>
                           <section id="section5">
-                                                <input type="radio" name="sections" id="option5">
+                                                <input type="radio" name="sections" id="option5" <?php if($month == '05') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('WeeklyPeriodic/index/05') ?>'">
                                                 <label for="option5">May</label>
                                                 <article>
                                                             <h2>May 2019 Weekly Task</h2>
@@ -767,7 +747,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -775,18 +755,28 @@
                                                                                      </tr>
                                                                                  </thead>
                                                                                   <tbody>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                       <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
+                                                                                  <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
                                                                                   </tbody>
                                                                             </table>
                                                                 </div>
@@ -802,7 +792,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -837,7 +827,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -872,7 +862,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -903,7 +893,7 @@
                                                 </article>
                           </section>
                           <section id="section6">
-                                                <input type="radio" name="sections" id="option6">
+                                                <input type="radio" name="sections" id="option6" <?php if($month == '06') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('WeeklyPeriodic/index/06') ?>'">
                                                 <label for="option6">June</label>
                                                 <article>
                                                               <h2>June 2019 Weekly Task</h2>
@@ -926,7 +916,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -934,18 +924,28 @@
                                                                                      </tr>
                                                                                  </thead>
                                                                                   <tbody>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                       <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
-                                                                                      <tr>
-                                                                                          <td>1</td><td>Monday</td><td>simple task</td><td>11:00</td><td>12/04/2019</td><td>No task</td><td>xyz</td><td>No remarks</td><td>Active</td>
-                                                                                      </tr>
+                                                                                  <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
                                                                                   </tbody>
                                                                             </table>
                                                                 </div>
@@ -961,7 +961,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -996,7 +996,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -1031,7 +1031,7 @@
                                                                                          <th>Time</th>
                                                                                          <th>End Date</th>
                                                                                          <th>Task</th>
-                                                                                         <th>Delegate To</th>
+                                                                                         <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
                                                                                          <th>remarks</th>
                                                                                          <th>Active / Inactive</th>
@@ -1061,7 +1061,7 @@
                                                 </article>
                           </section>
                           <section id="section7">
-                                                        <input type="radio" name="sections" id="option7">
+                                                        <input type="radio" name="sections" id="option7" <?php if($month == '07') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('WeeklyPeriodic/index/07') ?>'">
                                                         <label for="option7">July</label>
                                                         <article>
                                                               <h2>July 2019 Weekly Task</h2>
@@ -1075,7 +1075,44 @@
                                                                 </div>
                                                                 <div id="Div21" class="tabcontent"style="display:block;">
                                                                      <table>
-                                                                         <thead></thead>
+                                                                     <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <!-- <th>Delegate To</th> -->
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                  <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
+                                                                                  </tbody>
                                                                      </table>
                                                                 </div>
                                                                 <div id="Div22" class="tabcontent">
@@ -1093,7 +1130,7 @@
                                                         </article>
                           </section>
                           <section id="section8">
-                                                        <input type="radio" name="sections" id="option8">
+                                                        <input type="radio" name="sections" id="option8" <?php if($month == '08') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('WeeklyPeriodic/index/08') ?>'">
                                                         <label for="option8">Augest</label>
                                                         <article>
                                                             <h2>Augest 2019 Weekly Task</h2>
@@ -1106,8 +1143,45 @@
                                                                          
                                                                 </div>
                                                                 <div id="Div25" class="tabcontent"style="display:block;">
-                                                                     <table>
-                                                                         <thead></thead>
+                                                                <table>
+                                                                     <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <!-- <th>Delegate To</th> -->
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                  <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
+                                                                                  </tbody>
                                                                      </table>
                                                                 </div>
                                                                 <div id="Div26" class="tabcontent">
@@ -1124,7 +1198,7 @@
                                                         </article>
                           </section>
                           <section id="section9">
-                                                        <input type="radio" name="sections" id="option9">
+                                                        <input type="radio" name="sections" id="option9" <?php if($month == '09') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('WeeklyPeriodic/index/09') ?>'">
                                                         <label for="option9">Sepetmber</label>
                                                         <article>
                                                              <h2>Sepetmber 2019 Weekly Task</h2>
@@ -1137,8 +1211,45 @@
                                                                          
                                                                 </div>
                                                                 <div id="Div29" class="tabcontent"style="display:block;">
-                                                                     <table>
-                                                                         <thead></thead>
+                                                                <table>
+                                                                     <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <!-- <th>Delegate To</th> -->
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                  <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
+                                                                                  </tbody>
                                                                      </table>
                                                                 </div>
                                                                 <div id="Div30" class="tabcontent">
@@ -1156,7 +1267,7 @@
                                                         </article>
                           </section>
                           <section id="section10">
-                                                        <input type="radio" name="sections" id="option10">
+                                                        <input type="radio" name="sections" id="option10" <?php if($month == '10') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('WeeklyPeriodic/index/10') ?>'">
                                                         <label for="option10">October</label>
                                                         <article>
                                                              <h2>October 2019 Weekly Task</h2>
@@ -1169,8 +1280,45 @@
                                                                          
                                                                 </div>
                                                                 <div id="Div33" class="tabcontent"style="display:block;">
-                                                                     <table>
-                                                                         <thead></thead>
+                                                                <table>
+                                                                     <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <!-- <th>Delegate To</th> -->
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                  <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
+                                                                                  </tbody>
                                                                      </table>
                                                                 </div>
                                                                 <div id="Div34" class="tabcontent">
@@ -1188,7 +1336,7 @@
                                                         </article>
                           </section>
                           <section id="section11">
-                                                        <input type="radio" name="sections" id="option11">
+                                                        <input type="radio" name="sections" id="option11" <?php if($month == '11') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('WeeklyPeriodic/index/11') ?>'">
                                                         <label for="option11">November</label>
                                                         <article>
                                                               <h2>November 2019 Weekly Task</h2>
@@ -1201,8 +1349,45 @@
                                                                          
                                                                 </div>
                                                                 <div id="Div37" class="tabcontent"style="display:block;">
-                                                                     <table>
-                                                                         <thead></thead>
+                                                                <table>
+                                                                     <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <!-- <th>Delegate To</th> -->
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                  <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
+                                                                                  </tbody>
                                                                      </table>
                                                                 </div>
                                                                 <div id="Div38" class="tabcontent">
@@ -1220,7 +1405,7 @@
                                                         </article>
                           </section>
                           <section id="section12">
-                                                        <input type="radio" name="sections" id="option12">
+                                                        <input type="radio" name="sections" id="option12" <?php if($month == '12') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('WeeklyPeriodic/index/12') ?>'">
                                                         <label for="option12">December</label>
                                                         <article>
                                                               <h2>December 2019 Weekly Task</h2>
@@ -1233,7 +1418,46 @@
                                                                          
                                                                 </div>
                                                                 <div id="Div41" class="tabcontent"style="display:block;">
-                                                                            
+                                                                <table>
+                                                                     <thead>
+                                                                                     <tr>
+                                                                                         <th>SR NO</th>
+                                                                                         <th>Day</th>
+                                                                                         <th>Time</th>
+                                                                                         <th>End Date</th>
+                                                                                         <th>Task</th>
+                                                                                         <!-- <th>Delegate To</th> -->
+                                                                                         <th>Supervised By</th>
+                                                                                         <th>remarks</th>
+                                                                                         <th>Active / Inactive</th>
+
+                                                                                     </tr>
+                                                                                 </thead>
+                                                                                  <tbody>
+                                                                                  <?php 
+                              if($fetch){
+                              $i=1;
+                                          foreach($fetch as $r) { 
+                                            echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
+                                            echo "<td>".$i++."</td>"; 
+                                            echo "<td>".$r->Day."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_time."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_work."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_supervision."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_remark."</td>"; 
+                                            echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                            
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/edit/"
+                                         //       .$r->roll_no."'>Edit</a></td>"; 
+                                         //    echo "<td><a href = '".base_url()."index.php/stud/delete/"
+                                         //       .$r->roll_no."'>Delete</a></td>"; 
+                                            echo "<tr>"; 
+                                         } 
+                                        }
+                              ?>
+                                                                                  </tbody>
+                                                                     </table>                                                                            
                                                                 </div>
                                                                 <div id="Div42" class="tabcontent">
                                                                     two
@@ -1260,112 +1484,143 @@
     
       <!-- popup start -->
 
-          <div class="popup">
-            <div class="header">
-                <h3>Project Delegation Sheet- <span id="work">Add</span></h3>
-                <span id="close-popup"  title="Close">&times;</span>
-            </div>
-            <div class="content"><!-- content start -->
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Time :</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input type="time" title="Time" /></div>
-                                        </div>
-                         </div>
-                    </div>
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Work :</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input type="text" title="Work" /></div>
-                                        </div>
-                         </div>
-                    </div>
+<form id="myForm"  method="POST" action="<?php echo base_url();?>WeeklyPeriodic/add_data" >
+            <div class="popup">
+                <div class="header">
+                    <h3>Project Delegation Sheet- <span id="work">Add</span></h3>
+                    <span id="close-popup"  title="Close">&times;</span>
                 </div>
-                <div class="clear"></div>
-                  <div class="col-md-12">
-                   
-                    <div class="col-md-6">
+                <div class="content"><!-- content start -->
+                    <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                       <label>End Date :</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input type="date" title="End Date" /></div>
-                                        </div>
-                          </div>
-                        
-                    </div>
-                      <div class="col-md-6">
-                           <div class="form-group">
-                                       <label>Active/Inactive</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><select>
-                                                    <option>Select Status</option>
-                                                    <option value="Active">Active</option>
-                                                    <option value="Inactive">Inacive</option>
-                                                </select></div>
-                                        </div>
-                          </div>
-                    </div>
-                </div>
-                <div class="clear"></div>
-                
-                
-              
-            
-                
-              
-                <div class="clear"></div>
-                 <div class="col-md-12">
-                   
+                                <label>Time :</label>
+                                <div class="input-group">
+                                    <div class="form-control"><input type="time" title="Time" name="weekly_periodic_time"/></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
                             <div class="form-group">
-                                       <label>Remark</label>
+                                <label>Work :</label>
+                                <div class="input-group">
+                                    <div class="form-control"><input type="text" title="Work" name="work"/></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="clear"></div>
+    
+                    <div class="col-md-12">        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>End Date :</label>
+                                <div class="input-group">
+                                    <div class="form-control"><input type="date" title="End Date" name="end_date"/></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Active/Inactive</label>
+                                <div class="input-group">
+                                    <div class="form-control"><select name="status">
+                                            <option>Select Status</option>
+                                            <option value="Active">Active</option>
+                                            <option value="Inactive">Inacive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="clear"></div>
+
+                    <div class="col-md-12">        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Day :</label>
+                                <div class="input-group">
+                                    <div class="form-control"><input type="text" title="Day" name="day"/></div>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Supervision</label>
+                                <div class="input-group">
+                                    <div class="form-control">
+                                        <input type="text" title="Supervision" name="supervision"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+    
+                    <div class="col-md-12">                
+                            <div class="form-group">
+                                        <label>Remark</label>
                                         <div class="input-group">
                                             <div class="form-control">
-                                               <textarea id="Textarea1" class=""></textarea>
+                                                <textarea id="Textarea1" class="" name="remark"></textarea>
                                             </div>
                                         </div>
-                           
+                            
+                            </div>
                     </div>
-                </div>
-                     
-                
-
-                     <!-- autometic delegates start -->
-                     <div class="auto-del">
-                                 <div class="left">
-                                     <div class="form-group">
-                                       <label>Delegate To</label>
+                         
+                    
+    
+                         <!-- autometic delegates start -->
+                    <div id="refresh_popup">
+                        <div id="auto-del">
+                            <div class="auto-del">
+                                <div class="left">
+                                    <div class="form-group">
+                                        <label>Delegate To</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" title="Delegate To" /></div>
+                                            <div class="form-control"><input required type="text" id ="gm1" name="delegate_to[]" title="Delegate To" /></div>
                                         </div>
-                                  </div>
-
-                                 </div>
-                                 <div class="center">
-                                         <div class="form-group">
-                                               <label>Email Id</label>
-                                                <div class="input-group">
-                                                    <div class="form-control">
-                                                        <input type="text" />
-                                                    </div>
-                                                </div>
-                                        </div>
-                                 </div>
-                                 <div class="right text-center">
-                                            <div class="btn-group">
-                                                    <a href="#" class="" id="A1"><span class="fa fa-plus" ></span></a>
+                                    </div>
+                                </div>
+                                <div class="center">
+                                    <div class="form-group">
+                                        <label>Email Id</label>
+                                        <div class="input-group">
+                                            <div class="form-control">
+                                                <input required type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/>
                                             </div>
-                                 </div>
-
-                             </div>
-                     <!-- autometic delegates end -->
-
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right text-center">
+                                    <div class="btn-group">
+                                        <a href="#" class="plus" id="plus"><span class="fa fa-plus" ></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                         <!-- autometic delegates end -->                                         
+                    <div class="col-md-12">
+                        <button type="submit" class="btargetDatetn-primary btn">Save</button>
+                        <!-- <a href="#">Add</a> -->
+                        <input type="reset" class="btn-primary btn" value="Reset">
+                        <!-- <a href="#">Reset</a> -->
+                    </div>                     
                 </div>
-               
-                </div>
-                <div class="clear"></div>
+                   
+            </div>
+
+</form>
+
+        <!-- PopUp end -->    
+
+        <div class="clear"></div>
     
 
 
@@ -1373,7 +1628,9 @@
 
         </div><!-- right deshbrad end -->
 
-            
+<?php
+echo $links;
+?>            
 
     </div><!-- Main Dashbrad end -->
    
@@ -1415,6 +1672,9 @@
     <footer id="footer">
         <p>&copy; Copyright By Glaze India Pvt. Ltd.</p>
     </footer>
+
+
+
 
      <!-- notepad start -->
         <div class="notepad-tag" title="Open Notepad">
@@ -1540,7 +1800,28 @@
         $('#close-popup').on('click', function () { $('.popup').css('display', 'none'); });
 
     </script>
-     <script type="text/javascript" src="js/caleandar.js"></script>
-    <script type="text/javascript" src="js/demo.js"></script>
-</body>
-</html>
+
+
+    <script type="text/javascript"> 
+    $(function() {
+        $('a#plus').click(function(e) {
+            e.preventDefault();
+            var lnth = $('#auto-del .auto-del').length; 
+            $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+            
+        });
+    });
+        function setValues(id){     
+                document.getElementById("rm"+id).remove();
+        }
+</script>
+
+	<script>
+	function status(id) {
+   // console.log("id ====" ,id);
+    var url = "<?php echo base_url(); ?>WeeklyPeriodic/view/"+id;
+    window.location.assign(url);
+}
+</script>
+
+ <?php $this->load->view('footer'); ?>
