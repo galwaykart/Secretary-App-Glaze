@@ -1,7 +1,6 @@
  
-  <?php $this->load->view('head'); ?> > 
-
-     <?php $this->load->view('header'); ?> 
+  <?php $this->load->view('head'); ?> 
+   <?php $this->load->view('header'); ?> 
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Appointment</p></div>
     <div class="dailly-notes-index-panel">
     <?php if($message){echo $message;} ?> 

@@ -670,8 +670,8 @@
                                        <label>Active/Inactive</label>
                                         <div class="input-group">
                                             <div class="form-control">
-											   <select name="status">
-                                                    <option>Select Status</option>
+											   <select name="status" required>
+                                                    <option disabled value="" selected hidden>Select Status</option>
                                                     <option value="1">Active</option>
                                                     <option value="0">Inacive</option>
                                                 </select></div>

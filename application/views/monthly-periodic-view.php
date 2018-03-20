@@ -8,7 +8,9 @@
                        
                         <div class="col-md-12">
                                     <h2>Perodic Task View</h2>
-                                    <div class="col-md-12"><p>Task Name : <span id="projectname">my task</span></p></div>
+                                    <div class="col-md-12"><p>Task Name :
+										<?php if($list){ echo $list['data1'][0]->monthly_periodic_work;} ?>
+									<span id="projectname"></span></p></div>
                                    
                                     <div class="clear"></div>
                                     <div class="col-md-4">
@@ -120,7 +122,7 @@
 									foreach($list['data1'] as $record){ ?>
                                        <tr>
 									   <td><?php echo $record->monthly_periodic_end_date ?></td>
-									   <td><?php echo $record->monthly_periodic_status ?></td>
+									  <td><?php if($record->monthly_periodic_status==1)echo "Yes"; else{echo "No";} ?></td>
 									   <td><?php echo $record->monthly_periodic_remark ?></td>
 									</tr>
 									<?php } } ?>
