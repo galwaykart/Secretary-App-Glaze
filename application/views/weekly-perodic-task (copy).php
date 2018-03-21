@@ -50,12 +50,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            echo $end_month . " + " . $year. " + " . $end_date . "+++++++++++".$r->weekly_periodic_start_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jan" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=1 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -71,17 +71,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -115,12 +104,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jan" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -136,17 +125,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -179,12 +157,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jan" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=15 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -200,17 +178,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -243,12 +210,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jan" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -264,17 +231,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -326,12 +282,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Feb" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=1 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -347,17 +303,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -390,12 +335,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Feb" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -411,17 +356,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -454,12 +388,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Feb" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=15 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -475,17 +409,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -518,12 +441,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Feb" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -539,17 +462,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -600,12 +512,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Mar" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=1 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -621,17 +533,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -664,12 +565,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Mar" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -685,17 +586,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -728,12 +618,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Mar" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=15 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -749,17 +639,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -792,12 +671,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Mar" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -813,17 +692,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -874,12 +742,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Apr" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=1 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -895,17 +763,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -938,12 +795,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Apr" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -959,17 +816,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1002,12 +848,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Apr" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=15 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1023,17 +869,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1066,12 +901,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Apr" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1087,17 +922,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1150,12 +974,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "May" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=1 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1171,17 +995,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1214,12 +1027,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "May" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1235,17 +1048,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1278,12 +1080,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "May" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=15 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1299,17 +1101,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1342,12 +1133,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "May" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1363,17 +1154,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1425,12 +1205,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jun" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=1 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1446,17 +1226,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1489,12 +1258,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jun" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1510,17 +1279,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1553,12 +1311,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jun" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=15 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1574,17 +1332,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1617,12 +1364,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jun" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1638,17 +1385,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1697,12 +1433,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jul" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=1 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1718,17 +1454,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1758,12 +1483,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jul" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1779,17 +1504,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1819,12 +1533,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jul" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=15 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1840,17 +1554,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1880,12 +1583,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jul" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1901,17 +1604,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -1959,12 +1651,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Aug" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=1 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -1980,17 +1672,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2020,12 +1701,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Aug" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2041,17 +1722,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2081,12 +1751,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Aug" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=15 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2102,17 +1772,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2142,12 +1801,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Aug" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2163,17 +1822,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2220,12 +1868,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Sep" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=1 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2241,17 +1889,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2281,12 +1918,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Sep" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2302,17 +1939,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2342,12 +1968,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Sep" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=15 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2363,17 +1989,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2403,12 +2018,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Sep" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2424,17 +2039,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2482,12 +2086,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Oct" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=1 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2503,17 +2107,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2543,12 +2136,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Oct" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2564,17 +2157,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2604,12 +2186,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Oct" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=15 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2625,17 +2207,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2665,12 +2236,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Oct" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2686,17 +2257,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2744,12 +2304,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Nov" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=1 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2765,17 +2325,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2805,12 +2354,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Nov" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2826,17 +2375,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2866,12 +2404,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Nov" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=15 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2887,17 +2425,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -2927,12 +2454,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Nov" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -2948,17 +2475,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -3006,12 +2522,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Dec" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=1 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -3027,17 +2543,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -3067,12 +2572,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Dec" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -3088,17 +2593,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -3128,12 +2622,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Dec" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=15 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -3149,17 +2643,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }
@@ -3189,12 +2672,12 @@
                                                                                         $i=1;
 
                                                                                         foreach($fetch as $r) { 
-                                                                                            $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+                                                                                            $month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            echo $month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Dec" && $year == "2018" ){
+                                                                                            if( $month == "May" && $year == "2018" ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
@@ -3210,17 +2693,6 @@
                                                                                                     continue;
                                                                                                 }
 
-                                                                                            }else{
-                                                                                                echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
-                                                                                                echo "<td>".$i++."</td>"; 
-                                                                                                echo "<td>".$r->Day."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_work."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_supervision."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
-                                                                                                echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
                                                                                     }

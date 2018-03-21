@@ -44,11 +44,20 @@ public function index($month = ''){
 public function view(){   
 	if($this->session->user == 'logged_in'){
 		$id = $this->uri->segment(3);
-		$data['list'] = $this->Weekly_periodic_model->get_periodic_task($id);
-		if(!$data){
-		$this->load->view("weekly-perodic-task-view",$data); 
+		if($id){
+			$data['list'] = $this->Weekly_periodic_model->get_periodic_task($id);
+			// echo "<pre>";
+			// print_r($data['list']);
+			// echo "</pre>";
+			if($data['list']){
+			$this->load->view("weekly-perodic-task-view",$data); 
+			}else{
+				redirect('WeeklyPeriodic');
+			}
+			//$this->load->view("weekly-perodic-task-view",$data); 
+		}else{
+			redirect('WeeklyPeriodic');
 		}
-		$this->load->view("weekly-perodic-task-view",$data); 
 	}else{
 		$this->load->view("login");
 	}

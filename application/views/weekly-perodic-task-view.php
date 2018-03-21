@@ -11,6 +11,10 @@
     <div class="dailly-notes-index-panel"> 
        <div class="container-5">                     
                         <div class="col-md-12">
+                        <?php
+                        // echo "<pre>";
+                        // print_r($list);  
+                        // echo "</pre>";                      ?>
                                     <h2>Perodic Task View</h2>
                                     <div class="col-md-12"><p>Task Name : <span id="projectname">my task</span></p></div>
                                    
@@ -148,7 +152,7 @@
         
                             <div class="col-md-12">
         
-            <!-- autometic delegates start -->
+
         
         <div id="auto-del1">
             <div class="auto-del">
@@ -156,7 +160,7 @@
                     <div class="form-group">
                         <label>Date</label>
                         <div class="input-group">
-                            <div class="form-control"><input required type="date"  name="status_date[]" title="Delegate To" value="<?php echo $list['data3'][0]->weekly_periodic_status_date?>"/></div>
+                            <div class="form-control"><input required type="date"  name="status_date[]" title="Delegate To" value="<?php if($list['data3']){ echo $list['data3'][0]->weekly_periodic_status_date ;}?>"/></div>
                         </div>
                     </div>
                 </div>
@@ -165,7 +169,7 @@
                         <label>Note</label>
                         <div class="input-group">
                             <div class="form-control">
-                            <textarea required type="text"  name="status_note[]"><?php echo $list['data3'][0]->weekly_periodic_status_note?></textarea>
+                            <textarea required type="text"  name="status_note[]"><?php if($list['data3']){ echo $list['data3'][0]->weekly_periodic_status_note; }?></textarea>
                             </div>
                         </div>
                     </div>
@@ -176,9 +180,12 @@
                     </div>
                 </div>
             </div>
+
+
+
             <?php 
         
-            for($k=1 ; $k<sizeof($list['data2']) ; $k++){
+            for($k=1 ; $k<sizeof($list['data3']) ; $k++){
                 $j = $k - 1;
             ?>
             <div id="<?php   echo "dm".$j ?>" class="auto-del">
