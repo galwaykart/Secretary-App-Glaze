@@ -7,7 +7,7 @@
 				parent::__construct();
 					$this->load->helper('url'); 
 					$this->load->library('session');
-					// $this->load->model('Appointment_model');
+					$this->load->model('Reminder_model');
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
 		} 
