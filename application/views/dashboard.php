@@ -139,7 +139,7 @@
                                          } 
                                         }
                               ?>
-                                                                        <tr>
+                                                                        <!-- <tr>
                                                                             <td><span class="fa fa fa-coffee"></span></td>
                                                                             <td>today </td>
                                                                             <td>2</td>
@@ -165,7 +165,7 @@
                                                                             <td>today </td>
                                                                             <td>2</td>
                                                                             <td>Immideaiet effact</td>
-                                                                             <td><span class="run">Running</span></td>
+                                                                            <td><span class="run">Running</span></td>
                                                                         </tr>
                                                                          <tr>
                                                                             <td><span class="fa fa fa-coffee"></span></td>
@@ -173,7 +173,7 @@
                                                                             <td>2</td>
                                                                             <td>Immideaiet effact</td>
                                                                              <td><span class="next">Next</span></td>
-                                                                        </tr>
+                                                                        </tr> -->
  
                                                                     </tbody>
                                                                 </table>
