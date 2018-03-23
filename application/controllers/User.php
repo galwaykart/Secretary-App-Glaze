@@ -14,7 +14,7 @@ class User extends CI_Controller
 	
 	public function index(){  
 			if($this->session->user == 'logged_in'){
-				$this->load->view("dashboard");
+				$this->dashboard();
 			}else{
 				 $this->load->view("login");
 			}
@@ -30,7 +30,8 @@ class User extends CI_Controller
 		
 	// to view dashboard
 	public function dashboard() {
-			$this->load->view("dashboard"); 
+			$data["dash_data"] = $this->user_model->getDashboardDetails();
+			$this->load->view("dashboard" ,$data); 
 		}
 		
 	public function register_user(){
@@ -82,7 +83,7 @@ class User extends CI_Controller
 	public function login_view(){
 
 		if($this->session->user == 'logged_in'){
-			$this->load->view("dashboard");
+			$this->dashboard();
 		}else{
 			$this->load->view("login");
 			 
@@ -109,12 +110,12 @@ class User extends CI_Controller
 			$this->session->set_userdata('type',$data['type']); 
 			$this->session->set_userdata('phonenumber',$data['phonenumber']);  
 			$this->session->set_userdata('user','logged_in'); 
-			$this->load->view('dashboard');
+			$this->dashboard();;
 		  }  
 		  else 
 		  {
 			if($this->session->user == 'logged_in'){
-				$this->load->view("dashboard");
+				$this->dashboard();
 			}else{ 
 			 $this->session->set_flashdata('error_msg', 'Username or Password not valid.');   
 			 $this->load->view("login");

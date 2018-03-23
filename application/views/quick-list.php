@@ -57,9 +57,19 @@
 				 <div id="container" class="pagination">
 			       <p><?php echo $links; ?></p>
 
+<<<<<<< HEAD
 				</div> 
       </div><!-- dailly index panel end -->
 	  
+=======
+</script>
+
+        <div class="clear"></div>
+        <div class="col-md-12">
+            <br />
+                <a href="#" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
+        </div>
+>>>>>>> 2fb8c934bbf9cc4a9637dd5da9e142f4411fd961
     </div><!-- dailly index panel end -->
     <div class="clear"></div>
     <!-- popup start -->
