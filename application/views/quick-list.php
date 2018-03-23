@@ -1,7 +1,12 @@
 	<?php $this->load->view('head'); ?>
 	<?php $this->load->view('header'); ?>
 		<!-- user View design page start -->
+	<div class="clear"></div>
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Quick Work</p></div>
+     <div class="container">
+	           
+                <h2 class="headingDaiilyNotes"> Dailly Notes</h2>
+    </div>
     <div class="dailly-notes-index-panel">
     <?php
           if($message){echo $message;} 
@@ -38,44 +43,34 @@
                                          } 
                                         }
                               ?>
-                              <!-- <tr>
-                                  <td>1</td><td>12/07/2018</td><td>no tasks</td><td>self</td><td>12/09/2018</td><td>High</td><td>No remarks</td><td>pending</td><td>Active</td>
-                              </tr>
-                                  <tr>
-                                  <td>1</td><td>12/07/2018</td><td>no tasks</td><td>self</td><td>12/09/2018</td><td>High</td><td>No remarks</td><td>pending</td><td>Active</td>
-                              </tr>
-                                  <tr>
-                                  <td>1</td><td>12/07/2018</td><td>no tasks</td><td>self</td><td>12/09/2018</td><td>High</td><td>No remarks</td><td>pending</td><td>Active</td>
-                              </tr> -->
+                              
                             </tbody>
                         </table>
+						
                     </div>
-
+					
+           
             </div>
-    </div><!-- dailly index panel end -->
-   
-     <br /><br /><br />
-    <div style="height:50px;"></div>
-    <?php $this->load->view('footer'); ?>
-    <script>
-      
+			    
+				<a href="#" class="addmeeingsbtn btn" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
+				<div class="clear"></div>
+				 <div id="container" class="pagination">
+			       <p><?php echo $links; ?></p>
 
-</script>
-        <div class="clear"></div>
-        <div class="col-md-12">
-            <br />
-                <a href="#" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
-        </div>
+				</div> 
+      </div><!-- dailly index panel end -->
+	  
     </div><!-- dailly index panel end -->
-  
+    <div class="clear"></div>
     <!-- popup start -->
+	<div class="popup-main">
     <form id="myForm" method="POST" action="<?php echo base_url()."Quickwork/req/" ?>">
     <div class="popup" style="display: none;">
                         <div class="header">
                 <h3>Quick Work - <span id="work">Add</span></h3>
                 <span id="close-popup"  title="Close">&times;</span>
             </div>
-           
+           <div class="clear"></div>
             <div class="content"><!-- content start -->
                 <div class="col-md-12">
                     <div class="col-md-6">
@@ -191,13 +186,8 @@
                      <!-- autometic delegates end -->
 
                 </div>
-                
-                <div class="clear"></div>
-                        
-                                                           
-
             </div><!-- container end -->
-            
+            <div class="clear"></div>
             <div class="footer">
                 
                     <div class="col-md-12">
@@ -208,21 +198,18 @@
                     </div>
                 
             </div><!-- footer end -->
+			<div class="clear"></div>
 
     </div>
     </form>
+	</div>
     <!-- popup ends --> 
          <!-- **********************creating pagination **************************************  -->
-     <br /><br /><br />
+-
 
-     <div id="container">
+    
 
-   <div id="body">
 
-       <p><?php echo $links; ?></p>
-
-   </div>
-</div> 
 	
 	    <script type="text/javascript"> 
 				$(function() {
@@ -270,7 +257,8 @@
             };
                 xhttp.open("GET", "<?php echo base_url(); ?>Quickwork/quickwork_view/"+id, true);
                 xhttp.send();
-                $('.popup').show(); 
+				$('.popup').css('display','block'); 
+                $('.popup-main').css('display','block'); 
             }
 
             

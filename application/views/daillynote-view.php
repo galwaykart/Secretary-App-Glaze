@@ -4,17 +4,13 @@
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Dailly Notes</p></div>
     
-    <div>
-        <?php
-        //if($records){print_r($records);} 
-         ?>
-        </div>
-
+    <h2 class="headingDaiilyNotes">Dailly View Notes</h2>
     <div class="dailly-notes-index-panel">
+	  <div class="daiilyNotesviewMargin">
         <form method="POST" action="<?php if($records){echo base_url()."Daillynote/req/".$records[0]->daily_notes_id;}else{echo base_url()."Daillynote/req/";} ?>">
-            <div class="notes-view-first-panel">
+            <div class="notes-view-first-panel ">
                    <div class="">
-                       <div class="col-md-6">
+                       <div class="col-md-3">
                                 <div class="form-group">
                                          <label>Task</label>
                                           <div class="input-group">
@@ -27,7 +23,7 @@
                                 </div>
                                                            
                        </div>
-                       <div class="col-md-4">
+                       <div class="col-md-3">
                                 <div class="form-group">
                                          <label>Date</label>
                                           <div class="input-group">
@@ -39,38 +35,7 @@
                                             </div>
                                 </div>
                        </div>
-                       <?php 
-                                              $date = '';
-                                              if($records){    
-                                                  $date = date('l', strtotime($records[0]->startDate));
-                                              } ?>
-                                            <?php if($date){ ?>
-                       <div class="col-md-4">
-
-                           <div class="form-group">
-                                         <label>Day</label>
-                                          <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa f fa-check-circle-o" ></span>
-
-                                              </div>
-                                              
-                                          <div class="form-control"><input type="day" required title="Day" readonly value="<?php echo $date; ?>" /></div>  
-                                           
-                                         </div>
-                                </div>
-                       </div>
-                       <?php } ?>
-                   </div>
-                
-
-            </div>
-        <div class="clear"></div>
-        <!-- first panel ends -->
-
-        <div class="notes-view-second-panel">
-                    <div class="row">
-                        <div class="col-md-2"> <div class="form-group">
+					    <div class="col-md-3"> <div class="form-group">
                                          <label>Task Type</label>
                                           <div class="input-group">
                                               <div class="input-addon">
@@ -86,7 +51,18 @@
                                 </div>
 
                         </div>
-                        <div class="col-md-2">
+                      
+                   </div>
+                
+
+            </div>
+        <div class="clear"></div>
+        <!-- first panel ends -->
+
+        <div class="notes-view-second-panel notesviewForm">
+                    <div class="row">
+                       
+                        <div class="col-md-3">
                              <div class="form-group">
                                          <label>Department</label>
                                           <div class="input-group">
@@ -98,7 +74,7 @@
                                             </div>
                                 </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                              <div class="form-group">
                                          <label>Time</label>
                                           <div class="input-group">
@@ -110,7 +86,7 @@
                                             </div>
                                 </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                              <div class="form-group">
                                          <label>To</label>
                                           <div class="input-group">
@@ -122,7 +98,7 @@
                                             </div>
                                 </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                              <div class="form-group">
                                          <label>Target Date</label>
                                           <div class="input-group">
@@ -134,7 +110,7 @@
                                             </div>
                                 </div>
                         </div>
-                        <div class="col-md-2"> <div class="form-group">
+                        <div class="col-md-3"> <div class="form-group">
                                          <label>Delegate To</label>
                                           <div class="input-group">
                                               <div class="input-addon">
@@ -146,7 +122,7 @@
                                 </div>
 
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                              <div class="form-group">
                                          <label>Email</label>
                                           <div class="input-group">
@@ -158,7 +134,7 @@
                                             </div>
                                 </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                              <div class="form-group">
                                          <label>Seretary Name</label>
                                           <div class="input-group">
@@ -170,7 +146,7 @@
                                             </div>
                                 </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                              <div class="form-group">
                                          <label>Confidentiality</label>
                                           <div class="input-group">
@@ -182,7 +158,7 @@
                                             </div>
                                 </div>
                         </div>
-                       <div class="col-md-2"> <div class="form-group">
+                       <div class="col-md-3"> <div class="form-group">
                                          <label>My Seating</label>
                                           <div class="input-group">
                                               <div class="input-addon">
@@ -236,8 +212,8 @@
                         <div class="clear"></div>
                         <!--col-md-3 end -->
                         
-                        <hr " class="spalsh" />
-                        <div  class="toggle">
+                        <hr  class="spalsh" />
+                        <div  class="toggle notesview-lastPanel">
                             <div class="col-md-2">
                             <div class="form-group">
                                         <div class="input-group">
@@ -271,7 +247,7 @@
                                                 </div>
                             </div>
                                 </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 padding-btn">
                                                 <!-- <input type="button" value="Add" /> -->
                                                 <a href="#" class="ad btn-primary btn">Add Participate</a>
                                 </div>
@@ -374,7 +350,7 @@
                         <!-- <div class="button-group">
                             <input type="button" value="Save Data" />
                         </div> -->
-
+						<br>
                         <div class="btn-group" style="text-align:center">
                             <button type="submit" class="btn-primary btn">submit</button>
                         </div>
@@ -399,6 +375,7 @@
 </div>
 
 
+
 <?php $i = 0; ?>
 
     <script> 
@@ -408,7 +385,7 @@
             $('a.ad').click(function(e) {
             e.preventDefault();
             var lnth = $('#one .customclass').length; 
-         $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="department" name="part_dept[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="Employee[]" > <option value="1" >Yes</option><option value="0" >No</option> </select></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="name" name="parti_name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" name="parti_email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style="text-align:center"><a href="#"  onclick="setValues('+ lnth +')"  class="ad btn-eror btn">Delete</a></div></div></div>');
+         $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="department" name="part_dept[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="Employee[]" > <option value="1" >Yes</option><option value="0" >No</option> </select></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="name" name="parti_name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" name="parti_email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group  padding-btn" style="text-align:left"><a href="#"  onclick="setValues('+ lnth +')"  class="ad btn-eror btn">&times;</a></div></div></div>');
 
         });
         

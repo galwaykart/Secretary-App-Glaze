@@ -610,8 +610,14 @@
                             
                                                        </article>
                           </section>
+						  <div class="clear"></div>
                     </div><!-- verticle tabs end -->
-
+					<div class="clear"></div>
+					<div class="tabsPagination">
+							<div class="pagination">
+								  <?php echo $links; ?>
+							</div>
+					</div>
         
 
 
@@ -620,6 +626,7 @@
   
     
       <!-- popup start -->
+	  <div class="popup-main">
    <form  method="POST" action="<?php echo base_url()."Monthlyperiodic/add_data/" ?>">
           <div class="popup">
             <div class="header">
@@ -744,11 +751,8 @@
                 </div>
 				
 	</form>	
-                <div class="clear"></div>
-			
-<?php echo $links; ?>	
-
-	 
+	</div>
+    <div class="clear"></div>
 	 
 	    <script> 
 				$(function() {
@@ -790,6 +794,14 @@
     var url = "<?php echo base_url(); ?>Monthlyperiodic/view/"+id;
     window.location.assign(url);
 }
+
+
+$('.perdoci-task-add-btn').on('click',function(){
+	
+	$('.popup').css('display','block');
+	$('.popup-main').css('display','block');
+});
+
 </script>
 	
       <?php $this->load->view('footer'); ?>

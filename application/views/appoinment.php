@@ -2,6 +2,9 @@
   <?php $this->load->view('head'); ?> 
    <?php $this->load->view('header'); ?> 
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Appointment</p></div>
+	<div class="container">
+                <h2 class="headingDaiilyNotes">Appoinment</h2>
+   </div>
     <div class="dailly-notes-index-panel">
     <?php if($message){echo $message;} ?> 
             <div class="table-res">
@@ -38,32 +41,28 @@
                                          }
                                         } 
                               ?>
-                              <!-- <tr>
-                                 <td>1</td><td>11:00AM</td><td>12:30PM</td><td>xyz</td><td>No subject</td><td>no</td><td>15 Min</td><td>Remark no</td><td>pending</td><td>active</td>
-                              </tr>
-                                <tr>
-                                 <td>1</td><td>11:00AM</td><td>12:30PM</td><td>xyz</td><td>No subject</td><td>no</td><td>15 Min</td><td>Remark no</td><td>pending</td><td>active</td>
-                              </tr>
-                                <tr>
-                                 <td>1</td><td>11:00AM</td><td>12:30PM</td><td>xyz</td><td>No subject</td><td>no</td><td>15 Min</td><td>Remark no</td><td>pending</td><td>active</td>
-                              </tr>
-                                <tr>
-                                 <td>1</td><td>11:00AM</td><td>12:30PM</td><td>xyz</td><td>No subject</td><td>no</td><td>15 Min</td><td>Remark no</td><td>pending</td><td>active</td>
-                              </tr> -->
+                            
                             </tbody>
                         </table>
                     </div>
 
             </div>
-        <div class="clear"></div>
-        <div class="col-md-12">
-            <br />
-                <a href="#" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
-        </div>
+			 <div class="clear"></div>
+			 <div class="col-md-12">
+                   <a href="#" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
+             </div>
+             <div class="clear"></div>
+			 <div id="container" class="pagination">
+      				<p><?php echo $links; ?></p>
+             </div>
+
+       
     </div><!-- dailly index panel end -->
-  
+   <div class="clear"></div>
     <!-- popup start -->
+	<div class="popup-main">
     <form id="myForm" method="POST" action="<?php echo base_url();?>Appoinment/req" >
+	
     <div class="popup" style="display: none;">
             <div class="header">
                 <h3>Quick Work - <span id="work">Add</span></h3>
@@ -168,7 +167,7 @@
                     </div>
 
                       <!-- autometic delegates start -->
-                      <div id="refresh_popup">
+                    <div id="refresh_popup">
                       <div id="auto-del">
                           <div class="auto-del">
                                       <div class="left">
@@ -232,10 +231,11 @@
                 document.getElementById("rm"+id).remove();
         }
 </script>                                    
-    </div>
+   
     </form>
     <!-- popup ends -->
-
+	</div>
+ </div>
  
 
 
@@ -273,7 +273,8 @@
             };
                 xhttp.open("GET", "<?php echo base_url(); ?>Appoinment/appointment_view/"+id, true);
                 xhttp.send();
-                $('.popup').show(); 
+                $('.popup-main').css('display','block');
+				 $('.popup').css('display','block');
             }
 
             
@@ -281,11 +282,7 @@
        
      <br /><br /><br />
 
-<div id="container">
-   <div id="body">
-      <p><?php echo $links; ?></p>
-   </div>
-</div>
+
  
    <?php $this->load->view('footer'); ?>
  

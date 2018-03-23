@@ -7,7 +7,7 @@
    </style>
    <?php $this->load->view('header'); ?>
     <!-- user View design page start -->
-    <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Monthly Periodic</p></div>
+    <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Yearly Periodic</p></div>
     <div class="clear"></div>
     <div class="monthly-periodic-task-sheet"><!-- monthly periodic panel start -->
               <h2 id="paddin-left">Yearly Periodic </h2>
@@ -147,9 +147,14 @@
                                                      </div>
                                         </article>
                           </section>
-                         
+                          <div class="clear"></div>
                     </div><!-- verticle tabs end -->
-
+                    <div class="clear"></div>
+					<div class="tabsPagination">
+							<div class="pagination">
+								  <?php echo $links; ?>
+							</div>
+					</div>
         
 
 
@@ -208,7 +213,7 @@
                                                                         </div>
                                                                 </div>
                                                          </div>
-                                                                            <div class="col-md-6">
+                                                          <div class="col-md-6">
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa fa-calendar" ></span></div>
@@ -299,7 +304,7 @@
                 <div class="clear"></div>
 		
      <br/><br/><br/> 
-<?php echo $links; ?>	
+	
 
      <!-- globle header for comman end --> 
 	 

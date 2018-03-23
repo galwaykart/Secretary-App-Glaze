@@ -2,12 +2,15 @@
     <?php $this->load->view('header'); ?>
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Project Delegation Sheet</p></div>
+	<div class="container">
+                <h2 class="headingDaiilyNotes">Project Delegation Sheet</h2>
+   </div>
     <div class="dailly-notes-index-panel">
     <?php
           if($message){print_r($message);} 
          ?>
-            <div class="table-res">
-                    <div class="table-view">
+            <div class="table-res style-4">
+                    <div class="table-view " style="width:1376px">
                         <table>
                             <thead>
                               <tr>
@@ -63,13 +66,16 @@
                             </tbody>
                         </table>
                     </div>
-
+					 <div class="clear"></div>
+					  
             </div>
+			<div class="col-md-12">
+						<br />
+							<a href="#" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
+					</div>
+				    <div class="clear"></div>
         <div class="clear"></div>
-        <div class="col-md-12">
-            <br />
-                <a href="#" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
-        </div>
+      
     </div><!-- dailly index panel end -->
     <!-- popup start -->
 

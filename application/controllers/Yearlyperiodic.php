@@ -45,7 +45,7 @@
 		
 		public function add_data(){
 			$record_id =$this->uri->segment(3); 
-			
+			//echo $record_id;die;
 			$data = array();
 			$data[0] = array(
 			'yearly_periodic_start_date'=>$this->input->post('start_date'),
