@@ -19,7 +19,7 @@
 					  $config["base_url"] = base_url() ."indexmeeting/index";
 			
 					  $config["total_rows"] = $this->Indexmeeting_model->record_count();
-				
+
 					  $config["per_page"] = 1;
 				
 					  $config["uri_segment"] = 3;
@@ -99,6 +99,8 @@
 	     'confidentiality'=>$this->input->post('confidentiality'),
 	     'self_seating'=>$this->input->post('seating'),
 	     'index_meeting_next_date'=>$this->input->post('index_meeting_next_date'),
+	     'index_meeting_start_time'=>$this->input->post('index_meeting_start_time'),
+	     'index_meeting_end_time'=>$this->input->post('index_meeting_end_time'),
 
 		);
 		$data[1] = array(
@@ -125,9 +127,11 @@
 
 		if($this->uri->segment(3)){
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
+		   $this->session->set_flashdata('msg', 'Updated Successfully!!!');
 			redirect('indexmeeting');
            }else{
            $this->Indexmeeting_model->form_insert($data,$this->input->post('agenda'));
+		   $this->session->set_flashdata('msg', 'Inserted Successfully!!!');
 		   redirect('indexmeeting');
             }
 		}

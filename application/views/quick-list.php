@@ -56,10 +56,18 @@
 				<div class="clear"></div>
 				 <div id="container" class="pagination">
 			       <p><?php echo $links; ?></p>
- 
+
 				</div> 
       </div><!-- dailly index panel end -->
- 
+	  
+
+</script>
+
+        <div class="clear"></div>
+        <div class="col-md-12">
+            <br />
+                <a href="#" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
+        </div>
     </div><!-- dailly index panel end -->
     <div class="clear"></div>
     <!-- popup start -->

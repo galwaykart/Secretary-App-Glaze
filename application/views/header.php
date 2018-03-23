@@ -19,9 +19,9 @@
 
                                             <div class="inner">
 											<?php 
-													$firstname = $this->session->firstname; 
-													$lastname   = $this->session->lastname;  ?>
-                                                        <p class="person-name">Hello !<br />  <?php if($firstname){ echo $firstname; } ?> <?php  if($lastname){ echo $lastname; } ?></p>
+													//$firstname = $this->session->firstname; 
+													//$lastname   = $this->session->lastname;  ?>
+                                                        <p class="person-name">Hello !<br />  <?php //if($firstname){ echo $firstname; } ?> <?php // if($lastname){ echo $lastname; } ?></p>
                                                         <img src="<?php echo base_url(); ?>img/person.png" alt="person image" id="per-img" class="log-popup"/>
                                             </div>
 
@@ -65,8 +65,8 @@
 															<li><a href="">Weekly periodic status sheet</a></li> 
 														</ul>
 													</li>
-													<li><a href="">Reminder Sheet</a></li>
-													<li><a href="<?php echo base_url('user/userlist'); ?>">Users</a></li>
+													<li><a href="<?php echo site_url('Reminder') ?>">Reminder Sheet</a></li>
+													<li><a href="<?php echo site_url('user/userlist'); ?>">Users</a></li>
                                             
                                             </ul>
                                        </li>
