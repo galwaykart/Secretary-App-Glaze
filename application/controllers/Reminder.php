@@ -7,7 +7,11 @@
 				parent::__construct();
 					$this->load->helper('url'); 
 					$this->load->library('session');
+<<<<<<< HEAD
+					$this->load->model('Reminder_model');
+=======
 				    $this->load->model('Reminder_sheet_model');
+>>>>>>> dead013ecf9774cfa9272c860cbb6bb9f45aebf4
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
 		} 

@@ -8,11 +8,11 @@
             </div>
         <div class="Mettings-View-index-panel">
              
-               <div class="table-res">
+               <div class="table-res style-4">
                    <table id="mettings-table">
                        <thead>
                            <tr>
-							   <th>Sno</th><th>Ajenda</th>
+							   <th>Sr No</th><th>Ajenda</th>
 							   <th>No of Meeting</th>
 							   <th>Previous Meetings Date</th>
 							   <th>Next Meeting Date</th>
@@ -43,13 +43,15 @@
 
                </div>
             <div class="col-md-12">
+			<br>
                <a href="<?php echo site_url('indexmeeting/metting_info/'); ?>" class="btn" id="addmeeingsbtn"><span class="fa fa-plus" ></span>&nbsp;Add</a>
-            </div>
-			<div style="height:80px;"></div>
+           
         </div>
-    </div> 
-	<?php echo $links; ?>
-     <br /><br /><br /> 
+		<div class=clear></div>
+		<br><br>
+		<div class="pagination">
+	    <?php echo $links; ?>
+    
 		 <script>
       
 			function newDoc(id) {
@@ -59,6 +61,15 @@
 			}
 			</script>
   		<?php $this->load->view('footer');?>
-		
+	</div>
+			
+    </div> 
+	
+	
+	 </div><div style="height:80px;"></div>
+	 <div class="clear"></div>
+	 
+<?php $this->load->view('footer'); ?>
+	
 		
 

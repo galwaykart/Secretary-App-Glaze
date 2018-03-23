@@ -8,9 +8,9 @@
  
     <!-- registration design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Registration</p></div>
+	<div class="clear"></div>
     <div class="registration">
-            <div class="container-3"><br />
-              <div class="empty-box"></div>
+            <div class="container-3">
                 <h2>Registration form</h2>
 				<!-- Display error or success message-->
 				<?php  
@@ -120,6 +120,7 @@
 												</div>
 											</div>
 							   </div>
+							  
 								   <div class="col-md-6">
 											<div class="form-group">
 												<div class="input-group">
@@ -137,14 +138,16 @@
 							</label>
 					</div>-->
 					<div class="clear"></div>
-					<div class="col-md-12">
-						<div class="col-md-6 text-right"><input type="reset" value="Delete" class="btn mybtn del" /></div>
-						<div class="col-md-6 text-center">
-							<input type="submit" value="Registration" class="btn mybtn" /> 
-							<input type="reset" value="Reset" class="btn reset mybtn" />
+					<div class="col-md-12 sign-up-btn" style="text-align:center;">
+					         <input type="reset" value="Delete" class="btn mybtn del" />
+							 <input type="submit" value="Registration" class="btn mybtn" /> 
+							 <input type="reset" value="Reset" class="btn reset mybtn" />
 						</div>
+						<div class="clear"></div>
 					</div>
+					
 				</form> 
+				 <div class="clear"> </div>
             </div><!-- container 3 end -->
 
     </div> 
