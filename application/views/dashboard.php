@@ -134,7 +134,11 @@
                                             echo "<td>today</td>"; 
                                             echo "<td>".$r->appointment_subject."</td>"; 
                                             //if($r->priority == 1){ echo "<td><span class='high'>Highest</span></td>"; }elseif($r->priority == 2){ echo "<td><span class='mid'>Medium</span></td>"; }else{echo "<td><span class='low'>Lowest</span></td>";}
-                                            echo "<td><span class='next'>Next</span></td>";
+                                            if($r->appointment_start_time >= date("Y-m-d H:m:s", time()) && $r->appointment_end_time >= date("Y-m-d H:m:s", time())){echo "<td><span class='next'>Next</span></td>";}
+                                            elseif($r->appointment_start_time <= date("Y-m-d H:m:s", time()) && $r->appointment_end_time >= date("Y-m-d H:m:s", time())){echo "<td><span class='run'>Running</span></td>";}
+                                            else{echo "<td><span class='mid'>Happened</span></td>";}
+                                            // echo "<td><span class='next'>".date("Y/m/d H:m:s", time())."</span></td>";
+                                            //echo "<td><span class='next'>Next</span></td>";
                                             echo "<tr>"; 
                                          } 
                                         }
@@ -227,9 +231,13 @@
                                             echo "<tr>"; 
                                             echo "<td><span class='fa fa-american-sign-language-interpreting'></span></td>";
                                             echo "<td>today</td>"; 
-                                            echo "<td>".$r->agenda_id."</td>"; 
+                                            echo "<td>".$r->agenda_name."</td>"; 
+                                            if($r->index_meeting_start_time > date("H:m:s", time()) && $r->index_meeting_end_time > date("H:m:s", time())){echo "<td><span class='next'>Next</span></td>";}
+                                            elseif($r->index_meeting_start_time <= date("H:m:s", time()) && $r->index_meeting_end_time >= date("H:m:s", time())){echo "<td><span class='run'>Running</span></td>";}
+                                            else{echo "<td><span class='mid'>Happened</span></td>";}
                                             //if($r->priority == 1){ echo "<td><span class='high'>Highest</span></td>"; }elseif($r->priority == 2){ echo "<td><span class='mid'>Medium</span></td>"; }else{echo "<td><span class='low'>Lowest</span></td>";}
-                                            echo "<td><span class='run'>Running</span></td>";
+                                            //echo "<td><span class='run'>Running</span></td>";
+                                             echo date("H:m:s" , time());
                                             echo "<tr>"; 
                                          } 
                                         }

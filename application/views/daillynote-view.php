@@ -1,5 +1,8 @@
   <?php $this->load->view('head'); ?>
      <?php $this->load->view('header'); ?>
+    <style>
+    .form_error{color:red; font-size:10px;}
+    </style>
 
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Dailly Notes</p></div>
@@ -7,6 +10,26 @@
     <h2 class="headingDaiilyNotes">Dailly View Notes</h2>
     <div class="dailly-notes-index-panel">
 	  <div class="daiilyNotesviewMargin">
+      <?php  
+               $success_msg = $this->session->flashdata('success_msg');
+               $error_msg   = $this->session->flashdata('error_msg');
+
+                  if($success_msg){
+                    ?>
+                    <div class="alert alert-success">
+                      <?php echo $success_msg; ?>
+                    </div>
+                  <?php
+                  }
+                  if($error_msg){
+                    ?>
+                    <div class="form_error">
+                      <?php echo $error_msg; ?> 
+					  
+                    </div>
+                    <?php
+                  }  
+                  ?>
         <form method="POST" action="<?php if($records){echo base_url()."Daillynote/req/".$records[0]->daily_notes_id;}else{echo base_url()."Daillynote/req/";} ?>">
             <div class="notes-view-first-panel ">
                    <div class="">
@@ -18,7 +41,8 @@
                                                   <span class="fa fa-edit" ></span>
 
                                               </div>
-                                            <div class="form-control"><input type="text" title="Only Alphabets allowed" required  pattern="[A-Za-z ]{1,30}"  name="task" value="<?php if($records){ echo $records[0]->task_name; } ?>" /></div>
+                                            <div class="form-control"><input type="text" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}"  name="task" value="<?php if($records){ echo $records[0]->task_name; } ?>" /></div>
+                                            <?php echo form_error('task', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                                                            
@@ -32,6 +56,7 @@
 
                                               </div>
                                             <div class="form-control"><input type="date" title="Date"  required   name="date" value="<?php if($records){  echo $records[0]->startDate ; } ?>"/></div>
+                                            <?php echo form_error('date', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                        </div>
@@ -47,6 +72,7 @@
                                                                         <option value="2" <?php if($records){ if($records[0]->task_type == "2"){ echo "selected"; }}?> >b</option>
                                                                         <option value="3"  <?php if($records){ if($records[0]->task_type == "3"){ echo "selected"; }} ?> >c</option>
                                                                       </select></div>
+                                                                      <?php echo form_error('task_type', '<span class="form_error">', '</span>'); ?>                          
                                             </div>
                                 </div>
 
@@ -71,6 +97,7 @@
 
                                               </div>
                                             <div class="form-control"><input type="text" placeholder="Department"  title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" name="Department" value="<?php if($records){ echo $records[0]->department; } ?>"/></div>
+                                            <?php echo form_error('Department', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -83,6 +110,7 @@
 
                                               </div>
                                             <div class="form-control"><input type="time" title="Time" required name="start-time" value="<?php if($records){  echo date("H:i", strtotime($records[0]->task_start_date)) ; } ?>"/></div>
+                                            <?php echo form_error('start-time', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -95,6 +123,7 @@
 
                                               </div>
                                             <div class="form-control"><input type="time" title="To" name="end-time" required value="<?php if($records){  echo date("H:i", strtotime($records[0]->task_target_date)) ; } ?>"/></div>
+                                            <?php echo form_error('end-time', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -107,6 +136,7 @@
 
                                               </div>
                                             <div class="form-control"><input type="date" title="Target Date" name="target_date" required value="<?php if($records){ echo $records[0]->endDate; } ?>"/></div>
+                                            <?php echo form_error('target_date', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -118,6 +148,7 @@
 
                                               </div>
                                             <div class="form-control"><input type="text" placeholder="Delegate To"  title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" name="delegate" value="<?php if($records){ echo $records[0]->delegated; } ?>"/></div>
+                                            <?php echo form_error('delegate', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
 
@@ -131,6 +162,7 @@
 
                                               </div>
                                             <div class="form-control"><input type="email" placeholder="Email" name="email_to" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" value="<?php if($records){ echo $records[0]->email; } ?>"/></div>
+                                            <?php echo form_error('email_to', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -143,6 +175,7 @@
 
                                               </div>
                                             <div class="form-control"><input type="text" title="Seretary Name" name="secretary_name"  title="Only Alphabets allowed" required  pattern="[A-Za-z ]{1,30}" value="<?php if($records){ echo $records[0]->seretary_name; } ?>"/></div>
+                                            <?php echo form_error('secretary_name', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -155,6 +188,7 @@
 
                                               </div>
                                             <div class="form-control"><input type="text" title="Confidentialit" name="confidential"  title="Only Alphabets allowed" required  pattern="[A-Za-z]{1,4}"value="<?php if($records){ echo $records[0]->confidentiality; } ?>"/></div>
+                                            <?php echo form_error('confidential', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -168,6 +202,7 @@
                                             <div class="form-control"><select name="mysitting" >
                                                                         <option value="1" >Yes</option><option value="2">No</option>
                                                                       </select></div>
+                                                                      <?php echo form_error('mysitting', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
 
@@ -182,6 +217,7 @@
 
                                               </div>
                                             <div class="form-control"><input type="text" title="Priority" name="priority"  title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" value="<?php if($records){ echo $records[0]->priority; } ?>"/></div>
+                                            <?php echo form_error('priority', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -194,6 +230,7 @@
 
                                               </div>
                                             <div class="form-control"><input type="text" title="Venue" name="venue"  title="Only Alphabets allowed" required   value="<?php if($records){ echo $records[0]->venue; } ?>"/></div>
+                                            <?php echo form_error('venue', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -206,6 +243,7 @@
 
                                               </div>
                                             <div class="form-control"><input type="text" title="Communication Medium"  title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" name="comm_medium" value="<?php if($records){ echo $records[0]->communication_medium; } ?>"/></div>
+                                            <?php echo form_error('comm_medium', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -219,6 +257,7 @@
                                         <div class="input-group">
                                             <div class="input-addon"><span class="fa fa-building-o" ></span></div>
                                                                         <div class="form-control"><input type="text" required placeholder="Department" title="Only Alphabets allowed"   pattern="[A-Z a-z ]{1,30}" name="part_dept[]" value="<?php if($records){ echo $records[0]->p_department; } ?>"/></div>
+                                                                        <?php echo form_error('part_dept[]', '<span class="form_error">', '</span>'); ?>
                                                 </div>
                             </div>
                             </div>
@@ -227,6 +266,7 @@
                                         <div class="input-group">
                                             <div class="input-addon"><span class="fa fa-user-o" ></span></div>
                                                                         <div class="form-control"><select name="Employee[]" > <option value="1" <?php if($records){ if($records[0]->employee == "1"){ echo "selected"; }} ?> >Yes</option><option value="0" <?php if($records){ if($records[0]->employee == "0"){ echo "selected"; }} ?>>No</option> </select></div>
+                                                                        <?php echo form_error('Employee[]', '<span class="form_error">', '</span>'); ?>
                                                                         
                                             </div>
                             </div>
@@ -236,6 +276,7 @@
                                         <div class="input-group">
                                             <div class="input-addon"><span class="fa fa-edit" ></span></div>
                                                                         <div class="form-control"><input type="text" required placeholder="Name" title="Only Alphabets allowed"   pattern="[A-Za-z ]{1,30}" name="parti_name[]" value="<?php if($records){ echo $records[0]->name; } ?>" /></div>
+                                                                        <?php echo form_error('parti_name[]', '<span class="form_error">', '</span>'); ?>
                                             </div>
                             </div>
                                 </div>
@@ -244,6 +285,7 @@
                                         <div class="input-group">
                                             <div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
                                                                         <div class="form-control"><input type="text" required placeholder="Email id"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" name="parti_email[]" value="<?php if($records){ echo $records[0]->p_email; } ?>" /></div>
+                                                                        <?php echo form_error('parti_email[]', '<span class="form_error">', '</span>'); ?>
                                                 </div>
                             </div>
                                 </div>
@@ -313,6 +355,7 @@
                                                   <span class="fa   fa-coffee" ></span>
                                               </div>
                                             <div class="form-control"><input type="number" title=""  name="seat_cont" required  value="<?php if($records){ echo $records[0]->seat_count; } ?>"/></div>
+                                            <?php echo form_error('seat_cont', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -324,6 +367,7 @@
                                                   <span class="fa fa-group" ></span>
                                               </div>
                                             <div class="form-control"><input type="number" title="" name="deiver_cont" required   value="<?php if($records){ echo $records[0]->driver_count; } ?>"/></div>
+                                            <?php echo form_error('deiver_cont', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -335,6 +379,7 @@
                                                   <span class="	fa fa-car" ></span>
                                               </div>
                                             <div class="form-control"><input type="number" title=" " name="car_cont" required    value="<?php if($records){ echo $records[0]->car_ount; } ?>"/></div>
+                                            <?php echo form_error('car_cont', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -344,6 +389,7 @@
                             <?php if($records){ echo htmlspecialchars($records[0]->notes); } ?>
 
                             </textarea>
+                            <?php echo form_error('notes', '<span class="form_error">', '</span>'); ?>
 
                         </div>
                         <div class="clear"></div>

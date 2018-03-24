@@ -99,6 +99,8 @@
 	     'confidentiality'=>$this->input->post('confidentiality'),
 	     'self_seating'=>$this->input->post('seating'),
 	     'index_meeting_next_date'=>$this->input->post('index_meeting_next_date'),
+	     'index_meeting_start_time'=>$this->input->post('index_meeting_start_time'),
+	     'index_meeting_end_time'=>$this->input->post('index_meeting_end_time'),
 
 		);
 		$data[1] = array(

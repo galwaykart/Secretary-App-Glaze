@@ -77,77 +77,93 @@
 		
 		
 		public function req(){
-			//echo "gaurav";
-			 $record_id =$this->uri->segment(3); 
-			// echo $record_id;
-			// print_r($this->uri);
-			// print_r(Sizeof($this->uri->segment(3)));
-			// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			//	echo "Hello I am gaurav";
-				$this->load->model('Appointment_model');
-				if($this->input->post('date') != null){
-				$data = array();
-				$data[0] = array(
-					'appointment_start_time'=>$this->input->post('date'),
-					'appointment_subject'=>$this->input->post('task'),
-					'appointment_end_time'=>$this->input->post('target_date'),
-					'appointment_remark'=>$this->input->post('remark'),
-					'appointment_periodic'=>$this->input->post('peroidic'),
-					'appointment_travel_time'=>$this->input->post('travel_time'),
-					'appointment_status'=>$this->input->post('status'),
-					'appointment_active'=>$this->input->post('active'),
-				   );
+			$this->form_validation->set_rules('date','date','trim|required');
+			$this->form_validation->set_rules('task','task Name','trim|required');
+			$this->form_validation->set_rules('target_date','Target date','trim|required');
+			$this->form_validation->set_rules('remark', 'Remark', 'trim|required');
+			$this->form_validation->set_rules('peroidic', 'peroidic', 'trim|required');
+			$this->form_validation->set_rules('travel_time', 'Travel time', 'trim|required');
+			$this->form_validation->set_rules('status', 'Status','required'); //{10} for 10 digits number
+			$this->form_validation->set_rules('active','Active','trim|required');
+	  
+			
+		   if($this->form_validation->run() == false)
+			  {
+				  $this->index();
+			  }else{
+//echo "gaurav";
+$record_id =$this->uri->segment(3); 
+// echo $record_id;
+// print_r($this->uri);
+// print_r(Sizeof($this->uri->segment(3)));
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//	echo "Hello I am gaurav";
+	$this->load->model('Appointment_model');
+	if($this->input->post('date') != null){
+	$data = array();
+	$data[0] = array(
+		'appointment_start_time'=>$this->input->post('date'),
+		'appointment_subject'=>$this->input->post('task'),
+		'appointment_end_time'=>$this->input->post('target_date'),
+		'appointment_remark'=>$this->input->post('remark'),
+		'appointment_periodic'=>$this->input->post('peroidic'),
+		'appointment_travel_time'=>$this->input->post('travel_time'),
+		'appointment_status'=>$this->input->post('status'),
+		'appointment_active'=>$this->input->post('active'),
+	   );
 
-				   $data[1] = array(
-					'delegates_name'=>$this->input->post('delegate_to'),
-					'delegates_email'=>$this->input->post('delegate_email'),
-				   );
+	   $data[1] = array(
+		'delegates_name'=>$this->input->post('delegate_to'),
+		'delegates_email'=>$this->input->post('delegate_email'),
+	   );
 
 
-				    //print_r($data);
-				
-				//print_r($data[1]);
-				if($this->uri->segment(3)){
-					//echo "i am in updation of record";
-					$result = $this->Appointment_model->updateAppointment($data , $record_id);
-					if($result)	
-					{
-					$param1 =  "<h2>Successfully updated</h2>";
-					
-					}
-					else
-					{
-					$param1 = "<h2>ERROR</h2>";
-					
-					}
-					$this->index(null ,$param1 , $this->uri->segment(3));
+		//print_r($data);
+	
+	//print_r($data[1]);
+	if($this->uri->segment(3)){
+		//echo "i am in updation of record";
+		$result = $this->Appointment_model->updateAppointment($data , $record_id);
+		if($result)	
+		{
+		$param1 =  "<h2>Successfully updated</h2>";
+		
+		}
+		else
+		{
+		$param1 = "<h2>ERROR</h2>";
+		
+		}
+		$this->index(null ,$param1 , $this->uri->segment(3));
 
-					
-				 }else{
-					 //echo "i am in addition of record";
-					 $result = $this->Appointment_model->addAppointment($data);
-					 if($result)
-					 {
-					 $param1 =  "<h2>Success</h2>";
-					 
-					 }
-					 else
-					 {
-					 $param1 = "<h2>ERROR</h2>";
-					 
-					 }
-					 $this->index(null , $param1 ,null);
-				}
+		
+	 }else{
+		 //echo "i am in addition of record";
+		 $result = $this->Appointment_model->addAppointment($data);
+		 if($result)
+		 {
+		 $param1 =  "<h2>Success</h2>";
+		 
+		 }
+		 else
+		 {
+		 $param1 = "<h2>ERROR</h2>";
+		 
+		 }
+		 $this->index(null , $param1 ,null);
+	}
 
-				
-				// }else {
-				// 	echo "no request made with post method";
-				// }
-				
+	
+	// }else {
+	// 	echo "no request made with post method";
+	// }
+	
 
-			}else{
-				redirect('appoinment');
-			}
+}else{
+	redirect('appoinment');
+}
+			  }
+			
 		}
 
 		 

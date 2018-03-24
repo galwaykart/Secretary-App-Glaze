@@ -1,6 +1,9 @@
  
   <?php $this->load->view('head'); ?> 
    <?php $this->load->view('header'); ?> 
+   <style>
+.form_error{color:red; font-size:10px;}
+</style>
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Appointment</p></div>
 	<div class="container">
                 <h2 class="headingDaiilyNotes">Appoinment</h2>
@@ -55,12 +58,32 @@
 			 <div id="container" class="pagination">
       				<p><?php echo $links; ?></p>
              </div>
+<?php  
+               $success_msg = $this->session->flashdata('success_msg');
+               $error_msg   = $this->session->flashdata('error_msg');
 
+                  if($success_msg){
+                    ?>
+                    <div class="alert alert-success">
+                      <?php echo $success_msg; ?>
+                    </div>
+                  <?php
+                  }
+                  if($error_msg){
+                    ?>
+                    <div class="form_error">
+                      <?php echo $error_msg; ?> 
+					  
+                    </div>
+                    <?php
+                  }  
+                  ?>
        
     </div><!-- dailly index panel end -->
    <div class="clear"></div>
     <!-- popup start -->
 	<div class="popup-main">
+
     <form id="myForm" method="POST" action="<?php echo base_url();?>Appoinment/req" >
 	
     <div class="popup" style="display: none;">
@@ -75,6 +98,7 @@
                                        <label>Date :</label>
                                         <div class="input-group">
                                             <div class="form-control"><input required type="date" id="task_date" name="date" title="Date" /></div>
+                                            <?php echo form_error('date', '<span class="form_error">', '</span>'); ?></span>
                                         </div>
                          </div>
                     </div>
@@ -83,6 +107,7 @@
                                        <label>Subject :</label>
                                         <div class="input-group">
                                             <div class="form-control"><input required type="text" id="task_name" name="task" title="Task" /></div>
+                                            <?php echo form_error('task', '<span class="form_error">', '</span>'); ?></span>
                                         </div>
                          </div>
                     </div>
@@ -95,6 +120,7 @@
                                        <label>Peroidic :</label>
                                         <div class="input-group">
                                             <div class="form-control"><input required type="text" id="appointment_periodic" name="peroidic" title="Date" /></div>
+                                            <?php echo form_error('peroidic', '<span class="form_error">', '</span>'); ?></span>
                                         </div>
                          </div>
                     </div>
@@ -103,6 +129,7 @@
                                        <label>Travel Time :</label>
                                         <div class="input-group">
                                             <div class="form-control"><input required type="text" id="appointment_travel_time" name="travel_time" title="Task" /></div>
+                                            <?php echo form_error('travel_time', '<span class="form_error">', '</span>'); ?></span>
                                         </div>
                          </div>
                     </div>
@@ -116,6 +143,7 @@
                                        <label>Target Date</label>
                                         <div class="input-group">
                                             <div class="form-control"><input required type="date" id="task_traget_date" name="target_date" title="Target Date" /></div>
+                                            <?php echo form_error('target_date', '<span class="form_error">', '</span>'); ?></span>
                                         </div>
                           </div>
                         
@@ -140,6 +168,7 @@
                                             <div class="form-control">
                                                <textarea id="appointment_remark" name="remark" class=""></textarea>
                                             </div>
+                                            <?php echo form_error('remark', '<span class="form_error">', '</span>'); ?></span>
                                         </div>
                                         
                     </div>
@@ -152,6 +181,7 @@
                                        <label>Status</label>
                                         <div class="input-group">
                                             <div class="form-control"><input required type="text" id="task_status" name="status" title="Status" /></div>
+                                            <?php echo form_error('status', '<span class="form_error">', '</span>'); ?></span>
                                         </div>
                            </div>
                     </div>
@@ -162,6 +192,7 @@
                                             <div class="form-control">
                                                 <select name="active" id="active"><option value='1' >Yes</option><option value='0'>No</option></select>
                                             </div>
+                                            <?php echo form_error('active', '<span class="form_error">', '</span>'); ?></span>
                                         </div>
                            </div>
                     </div>
@@ -236,7 +267,8 @@
     <!-- popup ends -->
 	</div>
  </div>
- 
+
+
 
 
 <script type="text/javascript"> 

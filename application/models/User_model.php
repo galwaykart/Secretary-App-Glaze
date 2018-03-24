@@ -42,7 +42,7 @@ public function username_check($username){
 
 
 	public function getDashboardDetails(){
-		$query1 = $this->db->query('SELECT * FROM `index_meeting` WHERE `date_of_meeting` = CURDATE()');
+		$query1 = $this->db->query('SELECT *  FROM `index_meeting` JOIN index_meeting_agenda ON index_meeting.agenda_id = index_meeting_agenda.agenda_id WHERE `date_of_meeting` = CURDATE()');
 
 		$query2 = $this->db->query('SELECT * FROM `daily_notes` WHERE `task_start_date` = CURDATE()');
 
@@ -50,7 +50,7 @@ public function username_check($username){
 
 		$query4 = $this->db->query('SELECT COUNT(*) AS `total_projects` FROM `project_delegation`  WHERE `project_delegation_date`  = CURDATE()');
 
-		$query5 = $this->db->query('SELECT *   FROM `appointment` WHERE `appointment_start_time` = CURDATE()');
+		$query5 = $this->db->query('SELECT *   FROM `appointment` WHERE DATE_FORMAT(`appointment_start_time`, "%Y-%m-%d")  = CURDATE()');
 
 		$query71 = $this->db->query('SELECT COUNT(*) AS total_yearlyTask FROM `yearly_periodic` WHERE DAY(CURDATE()) = DAY(yearly_periodic_start_date) AND  MONTH(CURDATE()) = MONTH(yearly_periodic_start_date) AND YEAR(CURDATE()) <= YEAR(yearly_periodic_end_date)');
 

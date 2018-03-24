@@ -31,6 +31,9 @@ class User extends CI_Controller
 	// to view dashboard
 	public function dashboard() {
 			$data["dash_data"] = $this->user_model->getDashboardDetails();
+			// echo "<pre>";
+			// print_r($data);
+			// echo "</pre>";
 			$this->load->view("dashboard" ,$data); 
 		}
 		
