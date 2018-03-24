@@ -5,7 +5,7 @@
 				.auto-del .right{}
 				.auto-del .center{width:30%;}
 				</style>
-	
+
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Reminder Sheet</p></div>
     <div class="clear"></div>
     <div class="monthly-periodic-task-sheet"><!-- Reminder  panel start -->
@@ -14,8 +14,10 @@
                 <!--search button start-->
                         <div class="search-btn-perodic">
                             <input type="text" value="" placeholder="Search Reminder Task"/><button><span class="fa fa-search"></span></button>
-
                         </div>
+<?php if($this->session->flashdata('msg')): ?>
+ <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
+<?php endif; ?>
                 <!--search button end-->
                 <div class="table-res style-4">
                             <table class="reminder-table-view-show">
@@ -56,7 +58,7 @@
    </div><!-- reminder panel  end -->
             <br /><br /><br /><br />
       <!-- popup start -->
-<form method="post" id="myForm" action="<?php echo base_url()."Reminder/insert_sheet/"?>">          
+<form method="post" id="reminder_form" action="<?php echo base_url()."Reminder/insert_sheet/"?>">          
 		  <div class="popup">
             <div class="header">
                 <h3>Reminder Sheet- <span id="work"> Add</span></h3>
@@ -148,8 +150,8 @@
                 </div>
 
                <div class="clear"></div>
-			 <div id="refresh_popup">  
-               	<div id="auto-del">
+			 <div id="refresh_popup_js">  
+               	<div id="delete">
                      <div  class="auto-del">
                                  <div class="left">
                                      <div class="form-group">
@@ -157,8 +159,7 @@
                                         <div class="input-group">
                                             <div class="form-control"><input type="text" required id="delegate_name" title="Delegate To" name="delegate_to[]"/></div>
                                         </div>
-                                  </div>
-
+                                     </div>
                                  </div>
                                  <div class="center" class="col-md-3">
                                          <div class="form-group">
@@ -168,7 +169,7 @@
                                                         <input type="text" name="email[]" required id="delegate_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
                                                     </div>
                                                 </div>
-                                        </div>
+                                         </div>
                                  </div>
 								   <div class="center" class="col-md-3">
                                          <div class="form-group">
@@ -196,18 +197,17 @@
                         <a href="#">Reset</a>
                 </div>
               </div>
-			  
+			  <?php echo $links; ?>    
 	</form>		  
-            <!--  popup end -->
+            <!--  pop up end -->
                
                
 
-        </div><!-- right deshbrad end -->
+        </div><!-- right Dashboard end -->
 
-            
+        
 
-    </div><!-- Main Dashbrad end --> 
- 
+    </div><!-- Main Dashboard end --> 
  
      <!-- globle header for comman end --> 
 	 
@@ -215,8 +215,8 @@
 				$(function() {
 					$('a#add').click(function(e) {
 						e.preventDefault();
-						var lnth = $('#auto-del .auto-del').length;
-					 $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" required name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" name="phone[]" required /></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+						var lnth = $('#delete .auto-del').length;
+					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" required name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" name="phone[]" required /></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 					  
 					});
 				});
@@ -246,10 +246,10 @@
                     document.getElementById("delegate_name").value = data_json.insidereminder[0].reminder_sheet_delegates_name;
                     document.getElementById("delegate_email").value = data_json.insidereminder[0].reminder_sheet_delegates_email;
                     document.getElementById("phone").value = data_json.insidereminder[0].reminder_sheet_delegates_phone;
-    				document.getElementById("myForm").action = "<?php echo base_url(); ?>Reminder/insert_sheet/"+data_json.insidereminder[0].reminder_sheet_id;
+    				document.getElementById("reminder_form").action = "<?php echo base_url(); ?>Reminder/insert_sheet/"+data_json.insidereminder[0].reminder_sheet_id;
                     for(var i=0; i<data_json.insidereminder.length ; i++){
                         var j = i +1 ;
-                        $('#auto-del').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del" ><div id="refresh_popup"><div id="auto-del"><div  class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input type="text" required id="delegate_name" title="Delegate To" name="delegate_to[]" value="'+ data_json.insidereminder[j].reminder_sheet_delegates_name +'" /></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input type="text" name="email[]" required id="delegate_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="'+ data_json.insidereminder[j].reminder_sheet_delegates_email +'" /></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" id="phone" name="phone[]" required value="'+ data_json.insidereminder[j].reminder_sheet_delegates_phone +'" /></div></div></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div></div>');
+                        $('#delete').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del" ><div id="refresh_popup_js"><div id="auto-del"><div  class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input type="text" required id="delegate_name" title="Delegate To" name="delegate_to[]" value="'+ data_json.insidereminder[j].reminder_sheet_delegates_name +'" /></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input type="text" name="email[]" required id="delegate_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="'+ data_json.insidereminder[j].reminder_sheet_delegates_email +'" /></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" id="phone" name="phone[]" required value="'+ data_json.insidereminder[j].reminder_sheet_delegates_phone +'" /></div></div></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div></div>');
                     }
                 }
             };
@@ -265,7 +265,6 @@
         $(document).ready(function () {
             var count = 0;
             var count2 = 0;
-
 
             $('#sec-header #toggle-btn-box span#bar').click(function () {
                 if ($(window).width() >= 769) {
