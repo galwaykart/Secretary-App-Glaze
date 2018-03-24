@@ -176,6 +176,7 @@ class Indexmeeting_model extends CI_model{
 	   }
 	   
 	    public function get_meeting($id){
+		
 		$this->db->select('*');
 		$this->db->from('index_meeting') ;
 		$this->db->join('index_meeting_participants' , 'index_meeting.index_meeting_id = index_meeting_participants.index_meeting_id','left') ;

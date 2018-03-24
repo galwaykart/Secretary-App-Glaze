@@ -17,7 +17,6 @@
 							   <th>Ajenda of Meeting</th>
 							   <th>Previous Meetings Date</th>
 							   <th>Next Meeting Date</th>
-							   <th>Participants</th>
 						   </tr>
                        </thead>
                        <tbody>

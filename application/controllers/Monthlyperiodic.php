@@ -52,6 +52,7 @@
 		}
 		
 		public function add_data(){
+
 			$record_id =$this->uri->segment(3); 
 			
 			$data = array();
@@ -80,12 +81,12 @@
 			}
 			else{
 			$this->Monthly_periodic_model->insertmonthly($data);
-			$this->session->set_flashdata('msg', 'Inserted Successfully!!!');
+			$this->session->set_flashdata('msg', 'Saved Successfully!!!');
 			redirect('Monthlyperiodic');
 			}
 
+		  
 		}
-		 
 	}
 
 ?>

@@ -17,9 +17,9 @@ class Indexmeeting_model extends CI_model{
 			$confidentiality=$data[0]['confidentiality'];
 			$self_seating=$data[0]['self_seating'];
 			$index_meeting_next_date = $data[0]['index_meeting_next_date'];
-			$index_meeting_end_time = $data[0]['index_meeting_next_date'];
+			$index_meeting_start_time = $data[0]['index_meeting_start_time'];
 			$index_meeting_end_time = $data[0]['index_meeting_end_time'];
-			$sql3="insert into index_meeting (date_of_meeting,agenda_id,confidentiality,self_seating,index_meeting_next_date)values('$date_of_meeting','$insert_id','$confidentiality','$self_seating','$index_meeting_next_date')";
+			$sql3="insert into index_meeting (date_of_meeting,agenda_id,confidentiality,self_seating,index_meeting_next_date,index_meeting_start_time,index_meeting_end_time)values('$date_of_meeting','$insert_id','$confidentiality','$self_seating','$index_meeting_next_date','$index_meeting_start_time','$index_meeting_end_time')";
 			$this->db->query($sql3);
 			$insert_id2=$this->db->insert_id();
 			
@@ -176,6 +176,7 @@ class Indexmeeting_model extends CI_model{
 	   }
 	   
 	    public function get_meeting($id){
+			if(isset()){}
 		$this->db->select('*');
 		$this->db->from('index_meeting') ;
 		$this->db->join('index_meeting_participants' , 'index_meeting.index_meeting_id = index_meeting_participants.index_meeting_id','left') ;

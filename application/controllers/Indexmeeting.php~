@@ -10,6 +10,7 @@
 					$this->load->model('Indexmeeting_model');
 					$this->load->library("pagination");
 					$this->load->library(array('session', 'form_validation'));
+					
 		} 
 			 
 		public function index(){  
@@ -19,7 +20,7 @@
 					  $config["base_url"] = base_url() ."indexmeeting/index";
 			
 					  $config["total_rows"] = $this->Indexmeeting_model->record_count();
-				
+
 					  $config["per_page"] = 1;
 				
 					  $config["uri_segment"] = 3;
@@ -90,7 +91,22 @@
 				
 		} 
 			
-		public function insert_meeting(){
+		public function insert_meeting(){ 
+		 $this->form_validation->set_rules('previous_date','Previous Meeting Date ','trim|required');
+		 $this->form_validation->set_rules('index_meeting_next_date','Next Meeting Date ','trim|required');
+		 $this->form_validation->set_rules('index_meeting_start_time','Start Time','trim|required');
+		 $this->form_validation->set_rules('index_meeting_end_time','End Time','trim|required');
+		 $this->form_validation->set_rules('agenda','agenda ','trim|required');
+		 $this->form_validation->set_rules('department','department ','trim|required');
+		 $this->form_validation->set_rules('name','Name ','trim|required');
+		 $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+		 $this->form_validation->set_rules('conclusion_textarea', 'Textarea', 'trim|required');
+		 $this->form_validation->set_rules('conclusion_textarea', 'Textarea', 'trim|required');
+	      if($this->form_validation->run() == false)
+		  {
+			$this->load->view('metting-info');
+		  }
+		  else{
 		$record_id =$this->uri->segment(3);  
 		$data=array();
 		$data[0] = array(
@@ -127,14 +143,15 @@
 
 		if($this->uri->segment(3)){
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
-		   
+		   $this->session->set_flashdata('msg', 'Updated Successfully!!!');
 			redirect('indexmeeting');
            }else{
            $this->Indexmeeting_model->form_insert($data,$this->input->post('agenda'));
+		   $this->session->set_flashdata('msg', 'Inserted Successfully!!!');
 		   redirect('indexmeeting');
             }
 		}
-			
+	}		
 		public function get_agenda(){
 			$keyword = $this->input->post('agenda');  
             $data['response'] = 'false'; //Set default response  

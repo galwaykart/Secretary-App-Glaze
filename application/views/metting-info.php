@@ -1,11 +1,19 @@
 	   <?php $this->load->view('head'); ?> 
 	   <?php $this->load->view('header'); ?>
 		<!-- user View design page start -->
+<style>
+#tabs{
+	background-color:#d87514;
+	color:white;
+	float:left;
+}
+.form_error{color:red; font-size:12px;}
 
+</style>
 		<div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Meeting Info</p></div>
 		<div class="col-md-12 all-mettings">
 
-			<form method="post"  action="<?php if($fetch){echo base_url()."Indexmeeting/insert_meeting/".$fetch['data1'][0]->index_meeting_id;}else{echo base_url()."Indexmeeting/insert_meeting/";} ?>">
+			<form method="post"  action="<?php if(isset($fetch['data1'])){echo base_url()."Indexmeeting/insert_meeting/".$fetch['data1'][0]->index_meeting_id;}else{echo base_url()."Indexmeeting/insert_meeting/";} ?>">
 				<div class="Mettings-View-index-panel"> 
 					<div class=" meeting-info-panel">
 						<div class="container4">
@@ -14,16 +22,18 @@
 									<label>Preview Meeting Date</label>
 									<div class="input-group">
 										<div class="form-control">
-											<input type="date" title="Prev Meeting Date" name="previous_date" required value="<?php if($fetch){echo $fetch['data1'][0]->date_of_meeting;} ?>" />
+											<input type="date" title="Prev Meeting Date" name="previous_date" required  value="<?php if(isset($fetch['data1'])){echo $fetch['data1'][0]->date_of_meeting;} else{echo set_value('previous_date'); }  ?>" />
+											<?php echo form_error('previous_date', '<span class="form_error">', '</span>'); ?></span>
 										</div>
 									</div>
 								</div>
-							</div>
+							</div>	
 							<div class="col-md-2">
 								<div class="form-group">
 									<label>Next Meeting Date</label>
 									<div class="input-group">
-										<div class="form-control"><input type="date" required title="Next Meeting Date" name="index_meeting_next_date" value="<?php if($fetch){echo $fetch['data1'][0]->index_meeting_next_date;} ?>"/></div>
+										<div class="form-control"><input type="date"  title="Next Meeting Date" required name="index_meeting_next_date" value="<?php if(isset($fetch['data1'])){echo $fetch['data1'][0]->index_meeting_next_date;} else{echo set_value('index_meeting_next_date'); }  ?>"/></div>
+										<?php echo form_error('index_meeting_next_date', '<span class="form_error">', '</span>'); ?></span>
 									</div>
 								</div>
 							</div>
@@ -31,7 +41,8 @@
 								<div class="form-group">
 									<label>Start Time</label>
 									<div class="input-group">
-										<div class="form-control"><input type="time" required title="Start Time" name="index_meeting_start_time" value="<?php if($fetch){echo $fetch['data1'][0]->index_meeting_start_time;} ?>"/></div>
+										<div class="form-control"><input type="time"  title="Start Time" required name="index_meeting_start_time" value="<?php if(isset($fetch['data1'])){echo $fetch['data1'][0]->index_meeting_start_time;} else{echo set_value('index_meeting_start_time'); } ?>"/></div>
+										<?php echo form_error('index_meeting_start_time', '<span class="form_error">', '</span>'); ?></span>
 									</div>
 								</div>
 							</div>
@@ -39,7 +50,8 @@
 								<div class="form-group">
 									<label>End Time</label>
 									<div class="input-group">
-										<div class="form-control"><input type="time" required title="End Time" name="index_meeting_end_time" value="<?php if($fetch){echo $fetch['data1'][0]->index_meeting_end_time;} ?>"/></div>
+										<div class="form-control"><input type="time"  title="End Time" required name="index_meeting_end_time" value="<?php if(isset($fetch['data1'])){echo $fetch['data1'][0]->index_meeting_end_time;} else{echo set_value('index_meeting_end_time'); } ?>"/></div>
+										<?php echo form_error('index_meeting_end_time', '<span class="form_error">', '</span>'); ?></span>
 									</div>
 								</div>
 							</div>
@@ -49,8 +61,8 @@
 									<div class="input-group">
 										<div class="form-control">
 											<select name="seating">
-												<option value="1" <?php if($fetch){ if($fetch['data1'][0]->self_seating == "1"){ echo "selected"; }} ?> > Yes</option>
-												<option value="0" <?php if($fetch){ if($fetch['data1'][0]->self_seating == "0"){ echo "selected"; }} ?>> No</option>
+												<option value="1" <?php if(isset($fetch['data1'])){ if($fetch['data1'][0]->self_seating == "1"){ echo "selected"; }} ?> > Yes</option>
+												<option value="0" <?php if(isset($fetch['data1'])){ if($fetch['data1'][0]->self_seating == "0"){ echo "selected"; }} ?>> No</option>
 											</select>
 										</div>
 									</div>
@@ -62,9 +74,9 @@
 									<div class="input-group">
 										<div class="form-control">
 											<select name="confidentiality">
-												<option value="1" <?php if($fetch){ if($fetch['data1'][0]->confidentiality == "1"){ echo "selected"; }} ?> >Gen</option>
-												<option value="2" <?php if($fetch){ if($fetch['data1'][0]->confidentiality == "2"){ echo "selected"; }} ?>>Med</option>
-												<option value="3" <?php if($fetch){ if($fetch['data1'][0]->confidentiality == "3"){ echo "selected"; }} ?>>Top</option>
+												<option value="1" <?php if(isset($fetch['data1'])){ if($fetch['data1'][0]->confidentiality == "1"){ echo "selected"; }} ?> >Gen</option>
+												<option value="2" <?php if(isset($fetch['data1'])){ if($fetch['data1'][0]->confidentiality == "2"){ echo "selected"; }} ?>>Med</option>
+												<option value="3" <?php if(isset($fetch['data1'])){ if($fetch['data1'][0]->confidentiality == "3"){ echo "selected"; }} ?>>Top</option>
 											</select>
 										</div>
 									</div>
@@ -79,14 +91,14 @@
 								<label>Agenda of Meeting :</label>
 							</div>
 							<div class="col-md-8">
-								<input type="text" placeholder="Ajenda of Meeting" id="search" name="agenda"  required value="<?php if($fetch){ echo $fetch['data2'][0]->agenda_name;} ?>" />
+								<input type="text" placeholder="Ajenda of Meeting" required id="search" name="agenda"  value="<?php if(isset($fetch['data2'])){ echo $fetch['data2'][0]->agenda_name;} else{ echo set_value('agenda'); } ?>" />
+								<?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?></span>
 							</div>
 						</div> <!-- start TAB -->
 						<div class="col-md-12 bottompanel-one">
 							<div class="container4">
 								<div class="tab">
-									<button class="tablinks active " onclick="openTabs(event, 'one')">Present Participate</button>
-									
+									<a href="#" onclick="openTabs(event, 'one')" id="tabs" class="tablinks active" >Present Participate</a>
 								</div>
 								<div id="one" class="tabcontent" style="display:block;" >
 									<h3 class="tabconh3">Present Participate</h3>
@@ -100,7 +112,8 @@
 											<div class="form-group" >
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-building-o" ></span></div>
-													<div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]" value="<?php if($fetch){ echo $fetch['data1'][0]->department;} ?>" /></div>
+													<div class="form-control"><input type="text" required placeholder="Department" id="department" name="department[]" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->department;} else{echo set_value('department[]');} ?>" /></div>
+													<?php echo form_error('department[]', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
 										</div> 
@@ -111,8 +124,8 @@
 													<div class="input-addon"><span class="fa fa-user-o" ></span></div>
 													<div class="form-control">
 													<select name="employee[]" >
-														<option value="1" <?php if($fetch){ if($fetch['data1'][0]->employee == "1"){ echo "selected"; }} ?>>Yes</option>
-														<option value="0" <?php if($fetch){ if($fetch['data1'][0]->employee == "0"){ echo "selected"; }} ?>>No</option>
+														<option value="1" <?php if(isset($fetch['data1'])){ if($fetch['data1'][0]->employee == "1"){ echo "selected"; }} ?>>Yes</option>
+														<option value="0" <?php if(isset($fetch['data1'])){ if($fetch['data1'][0]->employee == "0"){ echo "selected"; }} ?>>No</option>
 													</select>
 													</div>
 												</div>
@@ -124,7 +137,8 @@
 											<div class="form-group">
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-edit" ></span></div>
-													<div class="form-control"><input type="text" placeholder="Name" id="name" name="name[]" title="Name should only contain letters. e.g. john"  required pattern="[a-zA-Z ]{1,100}" value="<?php if($fetch){ echo $fetch['data1'][0]->name;} ?>" /></div>
+													<div class="form-control"><input type="text" placeholder="Name" required id="name" name="name[]" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->name;} else{echo set_value('name[]');} ?>" /></div>
+													<?php echo form_error('name[]', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
 										</div>  
@@ -133,7 +147,8 @@
 											<div class="form-group">
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
-													<div class="form-control"><input type="text" placeholder="Email Id" id ="email" name="email[]" required title ="Enter Valid Email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($fetch){ echo $fetch['data1'][0]->email;} ?>"/></div>
+													<div class="form-control"><input type="text" placeholder="Email Id" required id ="email" name="email[]" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->email;} else{echo set_value('email[]');} ?>"/></div>
+													<?php echo form_error('email', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
 										</div> 
@@ -144,8 +159,8 @@
 													<div class="input-addon"><span class="fa fa-user-o" ></span></div>
 													<div class="form-control">
 													<select name="is_employee[]" >
-														<option value="1" <?php if($fetch){ if($fetch['data1'][0]->is_employee == "1"){ echo "selected"; }} ?>>Present</option>
-														<option value="0" <?php if($fetch){ if($fetch['data1'][0]->is_employee == "0"){ echo "selected"; }} ?>>Absent</option>
+														<option value="1" <?php if(isset($fetch['data1'])){ if($fetch['data1'][0]->is_employee == "1"){ echo "selected"; }} ?>>Present</option>
+														<option value="0" <?php if(isset($fetch['data1'])){ if($fetch['data1'][0]->is_employee == "0"){ echo "selected"; }} ?>>Absent</option>
 													</select>
 													</div>
 												</div>
@@ -154,7 +169,7 @@
 									</div> 
 									
 							        <?php
-									if($fetch){ $i = 0; 
+									if(isset($fetch['data1'])){ $i = 0; 
 										foreach($fetch['data1'] as $record){	 
 											if($i != '0'){ ?>
 												<div class="clear"></div>
@@ -163,7 +178,10 @@
 														<div class="form-group" >
 															<div class="input-group">
 																<div class="input-addon"><span class="fa fa-building-o" ></span></div>
-																<div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]" value="<?php if($record){ echo $record->department;} ?>" /></div>
+																<div class="form-control"><input type="text" placeholder="Department"  id="department" name="department[]" required value="<?php if(isset($record)){ echo $record->department;} else{echo set_value('department[]');}?>" />
+																<?php echo form_error('department[]', '<span class="form_error">', '</span>'); ?></span>
+																</div>
+																
 															</div>
 														</div>
 													</div> 
@@ -173,8 +191,8 @@
 																<div class="input-addon"><span class="fa fa-user-o" ></span></div>
 																<div class="form-control">
 													<select name="employee[]" >
-														<option value="1" <?php if($record){ if($record->employee == "1"){ echo "selected"; }} ?>>Yes</option>
-														<option value="0" <?php if($record){ if($record->employee == "0"){ echo "selected"; }} ?>>No</option>
+														<option value="1" <?php if(isset($record)){ if($record->employee == "1"){ echo "selected"; }} ?>>Yes</option>
+														<option value="0" <?php if(isset($record)){ if($record->employee == "0"){ echo "selected"; }} ?>>No</option>
 													</select>
 																</div>
 															</div>
@@ -184,7 +202,9 @@
 														<div class="form-group">
 															<div class="input-group">
 																<div class="input-addon"><span class="fa fa-edit" ></span></div>
-																<div class="form-control"><input type="text" placeholder="Name" id="name" name="name[]" title="Name should only contain letters. e.g. john"  required pattern="[a-zA-Z ]{1,100}" value="<?php if($record){ echo $record->name;} ?>" /></div>
+																<div class="form-control"><input type="text" placeholder="Name" required id="name" name="name[]" value="<?php if(isset($record)){ echo $record->name;} else{echo set_value('name[]');} ?>" />
+																<?php echo form_error('name[]', '<span class="form_error">', '</span>'); ?></span>
+																</div>
 															</div>
 														</div>
 													</div>  
@@ -192,7 +212,9 @@
 														<div class="form-group">
 															<div class="input-group">
 																<div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
-																<div class="form-control"><input type="text" placeholder="Email Id" id ="email" name="email[]" required title ="Enter Valid Email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($record){ echo $record->email;} ?>"/></div>
+																<div class="form-control"><input type="text" placeholder="Email Id" required id ="email" name="email[]" value="<?php if($record){ echo $record->email;} else{echo set_value('email[]');}?>"/>
+																<?php echo form_error('email[]', '<span class="form_error">', '</span>'); ?></span>
+																</div>
 															</div>
 														</div>
 													</div> 
@@ -202,8 +224,8 @@
 													<div class="input-addon"><span class="fa fa-user-o" ></span></div>
 													<div class="form-control">
 													<select name="is_employee[]" >
-														<option value="1" <?php if($record){ if($record->is_employee == "1"){ echo "selected"; }} ?>>Present</option>
-														<option value="0" <?php if($record){ if($record->is_employee == "0"){ echo "selected"; }} ?>>Absent</option>
+														<option value="1" <?php if(isset($record)){ if($record->is_employee == "1"){ echo "selected"; }} ?>>Present</option>
+														<option value="0" <?php if(isset($record)){ if($record->is_employee == "0"){ echo "selected"; }} ?>>Absent</option>
 													</select>
 													</div>
 												</div>
@@ -235,34 +257,40 @@
 													<div class="col-md-3">  <label>Conclusion of Meeting : </label></div>
 													<div class="col-md-9">
 														<textarea class="conclu-text" required  name="conclusion_textarea[]">
-															<?php if($fetch){ echo htmlspecialchars($fetch['data3'][0]->conclusion_textarea); } ?>
+															<?php if(isset($fetch['data3'])){ echo htmlspecialchars($fetch['data3'][0]->conclusion_textarea); } else{echo set_value('conclusion_textarea[]');} ?>
 														</textarea>
+														<?php echo form_error('conclusion_textarea[]', '<span class="form_error">', '</span>'); ?>
+
 													</div>
 												</div>
 												<div class="body-input-tabs">
 													<div class="col-md-3"><label>Conclusion Type : </label></div>
 													<div class="col-md-9">
 														<select  name="conclusion_type[]">
-															<option value="1" <?php if($fetch){ if($fetch['data3'][0]->conclusion_type == "1"){ echo "selected"; }} ?>>Minute</option>
-															<option value="2" <?php if($fetch){ if($fetch['data3'][0]->conclusion_type == "2"){ echo "selected"; }} ?>>decision</option>
-															<option value="3" <?php if($fetch){ if($fetch['data3'][0]->conclusion_type == "3"){ echo "selected"; }} ?>>reminder</option>
-															<option value="4" <?php if($fetch){ if($fetch['data3'][0]->conclusion_type == "4"){ echo "selected"; }} ?>>Appointment/Quick Work/Periodic/Project/other</option>
+															<option value="1" <?php if(isset($fetch['data3'])){ if($fetch['data3'][0]->conclusion_type == "1"){ echo "selected"; }} ?>>Minute</option>
+															<option value="2" <?php if(isset($fetch['data3'])){ if($fetch['data3'][0]->conclusion_type == "2"){ echo "selected"; }} ?>>decision</option>
+															<option value="3" <?php if(isset($fetch['data3'])){ if($fetch['data3'][0]->conclusion_type == "3"){ echo "selected"; }} ?>>reminder</option>
+															<option value="4" <?php if(isset($fetch['data3'])){ if($fetch['data3'][0]->conclusion_type == "4"){ echo "selected"; }} ?>>Appointment/Quick Work/Periodic/Project/other</option>
 														</select>
 													</div>
 												</div>
 												<div class="body-input-tabs">
 													<div class="col-md-3"> <label>Delegate To : </label></div>
-													<div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]" value="<?php if($fetch){ echo $fetch['data3'][0]->delegated_dept;} ?>"/></div>
+													<div class="col-md-3"> <input type="text" required placeholder="Department"  name="delegated_dept[]" value="<?php if(isset($fetch['data3'])){ echo $fetch['data3'][0]->delegated_dept;} else{echo set_value('delegated_dept[]');}?>"/>
+													<?php echo form_error('delegated_dept[]', '<span class="form_error">', '</span>'); ?>
+													</div>
 													<div class="col-md-3">
 													<select name="delegated_name[]" >
-													<option value="1" <?php if($fetch){ if($fetch['data3'][0]->delegated_name == "1"){ echo "selected"; }} ?>>Yes</option>
-													<option value="0" <?php if($fetch){ if($fetch['data3'][0]->delegated_name == "0"){ echo "selected"; }} ?>>No</option>
+													<option value="1" <?php if(isset($fetch['data3'])){ if($fetch['data3'][0]->delegated_name == "1"){ echo "selected"; }} ?>>Yes</option>
+													<option value="0" <?php if(isset($fetch['data3'])){ if($fetch['data3'][0]->delegated_name == "0"){ echo "selected"; }} ?>>No</option>
 													</select>
 													</div>
 												</div>
 												<div class="body-input-tabs">
 													<div class="col-md-3"> <label>Target Date : </label></div>
-													<div class="col-md-9"><input type="date" required name="targetdate[]" value="<?php if($fetch){ echo $fetch['data3'][0]->targetdate;} ?>"/></div>
+													<div class="col-md-9"><input type="date" required name="targetdate[]" value="<?php if(isset($fetch['data3'])){ echo $fetch['data3'][0]->targetdate;} else{echo set_value('targetdate[]');} ?>"/>
+													<?php echo form_error('targetdate[]', '<span class="form_error">', '</span>'); ?>
+													</div>
 												</div>
 											</div>
 											<div class="body-input-tabs col-md-6"> 
@@ -273,7 +301,7 @@
 												<div class="clear"></div>		  
 								
 							 <?php  $j = 0;
-								if($fetch){									
+								if(isset($fetch['data3'])){									
 									foreach($fetch['data3'] as $record1){	 
 										if($j != '0'){  ?>
 											
@@ -283,35 +311,40 @@
 														<div class="col-md-3">  <label>Conclusion of Meeting : </label></div>
 														<div class="col-md-9">
 															<textarea class="conclu-text"  required  name="conclusion_textarea[]" >
-																<?php if($record1){ echo $record1->conclusion_textarea; } ?>
+																<?php if(isset($record1)){ echo $record1->conclusion_textarea; } else{echo set_value('conclusion_textarea[]');} ?>
 															</textarea>
+															<?php echo form_error('conclusion_textarea[]', '<span class="form_error">', '</span>'); ?>
 														</div>
 													</div>
 													<div class="body-input-tabs">
 														<div class="col-md-3"><label>Conclusion Type : </label></div>
 														<div class="col-md-9">
 															<select  name="conclusion_type[]">
-																<option value="1" <?php if($record1){ if($record1->conclusion_type == "1"){ echo "selected"; }} ?>>Minute</option>
-																<option value="2" <?php if($record1){ if($record1->conclusion_type == "2"){ echo "selected"; }} ?>>decision</option>
-																<option value="3" <?php if($record1){ if($record1->conclusion_type == "3"){ echo "selected"; }} ?>>reminder</option>
-																<option value="4" <?php if($record1){ if($record1->conclusion_type == "4"){ echo "selected"; }} ?>>Appointment/Quick Work/Periodic/Project/other</option>
+																<option value="1" <?php if(isset($record1)){ if($record1->conclusion_type == "1"){ echo "selected"; }} ?>>Minute</option>
+																<option value="2" <?php if(isset($record1)){ if($record1->conclusion_type == "2"){ echo "selected"; }} ?>>decision</option>
+																<option value="3" <?php if(isset($record1)){ if($record1->conclusion_type == "3"){ echo "selected"; }} ?>>reminder</option>
+																<option value="4" <?php if(isset($record1)){ if($record1->conclusion_type == "4"){ echo "selected"; }} ?>>Appointment/Quick Work/Periodic/Project/other</option>
 															</select>
 														</div>
 													</div>
 													<div class="body-input-tabs">
 														<div class="col-md-3"> <label>Delegate To : </label></div>
-														<div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]" value="<?php if($record1){ echo $record1->delegated_dept;} ?>"/></div>
+														<div class="col-md-3"> <input type="text" required placeholder="Department"  name="delegated_dept[]" value="<?php if($record1){ echo $record1->delegated_dept;} else{echo set_value('delegated_dept[]');} ?>"/>
+														<?php echo form_error('delegated_dept[]', '<span class="form_error">', '</span>'); ?>
+														</div>
 														<div class="col-md-3">
 															<select name="delegated_name[]" >
-																<option value="1" <?php if($record1){ if($record1->delegated_name == "1"){ echo "selected"; }} ?>>Yes</option>
-																<option value="0" <?php if($record1){ if($record1->delegated_name == "0"){ echo "selected"; }} ?>>No</option>
+																<option value="1" <?php if(isset($record1)){ if($record1->delegated_name == "1"){ echo "selected"; }} ?>>Yes</option>
+																<option value="0" <?php if(isset($record1)){ if($record1->delegated_name == "0"){ echo "selected"; }} ?>>No</option>
 															</select>
 														</div>
 													</div>
 												
 													<div class="body-input-tabs c">
 														<div class="col-md-3"> <label>Target Date : </label></div>
-														<div class="col-md-9"><input type="date" required name="targetdate[]" value="<?php if($record1){ echo $record1->targetdate;} ?>" /></div>
+														<div class="col-md-9"><input type="date" name="targetdate[]" required value="<?php if(isset($record1)){ echo $record1->targetdate;} else {echo set_value('targetdate');} ?>" />
+														<?php echo form_error('targetdate[]', '<span class="form_error">', '</span>'); ?>
+														</div>
 													</div>
 												</div>                 
 												<div class="col-md-2" class="RegSpLeft">								 

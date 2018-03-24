@@ -53,6 +53,7 @@
 		}
 		
 		public function insert_sheet(){
+
 		  $id = $this->uri->segment(3); 
 			$data = array();
 			$data[0] = array(
@@ -80,7 +81,7 @@
 			redirect('Reminder');
 			}
 		}
-		
+	  
 	}
 
 ?>
