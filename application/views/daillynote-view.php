@@ -1,5 +1,5 @@
   <?php $this->load->view('head'); ?>
-     <?php $this->load->view('header'); ?>
+    <?php $this->load->view('header'); ?>
     <style>
     .form_error{color:red; font-size:10px;}
     </style>
@@ -30,6 +30,15 @@
                     <?php
                   }  
                   ?>
+
+
+               <?php 
+	
+	echo "<pre>";
+	print_r($records);
+	echo "</pre>";
+	
+?>
         <form method="POST" action="<?php if($records){echo base_url()."Daillynote/req/".$records[0]->daily_notes_id;}else{echo base_url()."Daillynote/req/";} ?>">
             <div class="notes-view-first-panel ">
                    <div class="">
@@ -101,7 +110,7 @@
                                             </div>
                                 </div>
                         </div>
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                              <div class="form-group">
                                          <label>Time</label>
                                           <div class="input-group">
@@ -110,7 +119,7 @@
 
                                               </div>
                                             <div class="form-control"><input type="time" title="Time" required name="start-time" value="<?php if($records){  echo date("H:i", strtotime($records[0]->task_start_date)) ; } ?>"/></div>
-                                            <?php echo form_error('start-time', '<span class="form_error">', '</span>'); ?>
+                                            <?php //echo form_error('start-time', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
@@ -123,10 +132,10 @@
 
                                               </div>
                                             <div class="form-control"><input type="time" title="To" name="end-time" required value="<?php if($records){  echo date("H:i", strtotime($records[0]->task_target_date)) ; } ?>"/></div>
-                                            <?php echo form_error('end-time', '<span class="form_error">', '</span>'); ?>
+                                            <?php //echo form_error('end-time', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-3">
                              <div class="form-group">
                                          <label>Target Date</label>
@@ -187,7 +196,11 @@
                                                   <span class="fa  fa-retweet" ></span>
 
                                               </div>
-                                            <div class="form-control"><input type="text" title="Confidentialit" name="confidential"  title="Only Alphabets allowed" required  pattern="[A-Za-z]{1,4}"value="<?php if($records){ echo $records[0]->confidentiality; } ?>"/></div>
+                                            <div class="form-control">
+                                                                    <select name="confidential" >
+                                                                        <option value="0" <?php if($records){ if($records[0]->confidentiality == "0"){ echo "selected"; }} ?>>High</option><option value="1" <?php if($records){ if($records[0]->confidentiality == "1"){ echo "selected"; }} ?>>Medium</option><option value="2" <?php if($records){ if($records[0]->confidentiality == "2"){ echo "selected"; }} ?>>Low</option>
+                                                                    </select>
+                                            </div>
                                             <?php echo form_error('confidential', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
@@ -216,7 +229,11 @@
                                                   <span class="fa  fa-line-chart" ></span>
 
                                               </div>
-                                            <div class="form-control"><input type="text" title="Priority" name="priority"  title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" value="<?php if($records){ echo $records[0]->priority; } ?>"/></div>
+                                            <div class="form-control">
+                                                                        <select name="priority" >
+                                                                        <option value="0" <?php if($records){ if($records[0]->priority == "0"){ echo "selected"; }} ?>>High</option><option value="1" <?php if($records){ if($records[0]->priority == "1"){ echo "selected"; }} ?>>Medium</option><option value="2" <?php if($records){ if($records[0]->priority == "2"){ echo "selected"; }} ?>>Low</option>
+                                                                      </select>
+                                            </div>
                                             <?php echo form_error('priority', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>

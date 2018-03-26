@@ -19,7 +19,7 @@
 					  $config["base_url"] = base_url() ."indexmeeting/index";
 			
 					  $config["total_rows"] = $this->Indexmeeting_model->record_count();
-				
+
 					  $config["per_page"] = 1;
 				
 					  $config["uri_segment"] = 3;
@@ -127,9 +127,11 @@
 
 		if($this->uri->segment(3)){
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
+		   $this->session->set_flashdata('msg', 'Updated Successfully!!!');
 			redirect('indexmeeting');
            }else{
            $this->Indexmeeting_model->form_insert($data,$this->input->post('agenda'));
+		   $this->session->set_flashdata('msg', 'Inserted Successfully!!!');
 		   redirect('indexmeeting');
             }
 		}

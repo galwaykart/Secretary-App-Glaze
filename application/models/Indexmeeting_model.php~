@@ -17,6 +17,8 @@ class Indexmeeting_model extends CI_model{
 			$confidentiality=$data[0]['confidentiality'];
 			$self_seating=$data[0]['self_seating'];
 			$index_meeting_next_date = $data[0]['index_meeting_next_date'];
+			$index_meeting_end_time = $data[0]['index_meeting_next_date'];
+			$index_meeting_end_time = $data[0]['index_meeting_end_time'];
 			$sql3="insert into index_meeting (date_of_meeting,agenda_id,confidentiality,self_seating,index_meeting_next_date)values('$date_of_meeting','$insert_id','$confidentiality','$self_seating','$index_meeting_next_date')";
 			$this->db->query($sql3);
 			$insert_id2=$this->db->insert_id();
@@ -141,12 +143,13 @@ class Indexmeeting_model extends CI_model{
 		   return $result;
 
 	   }
-	   // pagination count for 
+	   // pagination count for all meetings
 	   public function record_count(){
 	   $this->db->select('index_meeting.agenda_id');
 	   $this->db->from('index_meeting');
        $this->db->distinct();
 	   $query = $this->db->count_all_results();//count all the results 
+	 //  print_r($query);die;
 	   return $query;
 	   }
 		
@@ -231,7 +234,7 @@ class Indexmeeting_model extends CI_model{
 			$insertis_employee=$is_employee[$i];
 			
 			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee,is_employee)
-					values ('$record_id', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee')";
+					 values ('$record_id', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee')";
 			$this->db->query($sql1);
 			 }
 			  $conclusion_type= $data[2]['conclusion_type'];
@@ -252,7 +255,6 @@ class Indexmeeting_model extends CI_model{
 					  values ('$record_id', '$inserttype', '$insertarea', '$insertdate', '$insertdept','$insertdelegatedname')";
 			  $this->db->query($sql2);
 			  }
-
         }
 		//this function is used for suggested search
 		public function getagenda($keyword){
@@ -263,6 +265,5 @@ class Indexmeeting_model extends CI_model{
 		$query = $this->db->get();
         return $query->result();
         }
-
 
 }

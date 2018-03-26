@@ -18,6 +18,10 @@
 
                         </div>
                 <!--search button end-->
+				
+<?php if($this->session->flashdata('msg')): ?>
+ <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
+<?php endif; ?>				
               <div class="tabordion ">
                           <section id="section1">
                                         <input type="radio" name="sections" id="option1" <?php if($year == '2018') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('Yearlyperiodic/index/2018') ?>'">

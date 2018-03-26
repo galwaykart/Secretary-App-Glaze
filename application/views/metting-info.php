@@ -339,7 +339,6 @@
 			<div class="clear"></div>
 		</div>	
 			<div class="clear"></div>
-			<div class="clear"></div>
 		<script type = 'text/javascript'>
 		   $("#search").autocomplete({
 				minLength: 1,
@@ -391,6 +390,6 @@
 			}
 		</script>
  
-		 <br /><br /><br /> 
+		 <br/><br/><br/> 
 		<?php $this->load->view('footer'); ?>
  

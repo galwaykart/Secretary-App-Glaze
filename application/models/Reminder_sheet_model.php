@@ -22,11 +22,19 @@
 		  }
 		}
 		
-		public function get_reminder(){
+		public function get_reminder($limit, $start){
 		    $this->db->select('*');
 			$this->db->from('reminder_sheet');
+			$this->db->limit($limit, $start);
 			$query = $this->db->get();
 			return $query->result();
+		}
+		
+		public function record_count(){
+		    $this->db->select('*');
+			$this->db->from('reminder_sheet');
+			 $query = $this->db->count_all_results();
+			 return $query;
 		}
 		
 		public function getreminderById($record_id){

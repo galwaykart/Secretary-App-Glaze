@@ -66,10 +66,12 @@
 			);
 			if($this->uri->segment(3)){
 			$this->Yearly_periodic_model->updatetask($data , $record_id);
+			$this->session->set_flashdata('msg', 'Updated Successfully!!!');
 			redirect('yearlyperiodic/');
 			}
 			else{
 			$this->Yearly_periodic_model->insertyear($data);
+			$this->session->set_flashdata('msg', 'Inserted Successfully!!!');
 			redirect('yearlyperiodic');
 			}
 

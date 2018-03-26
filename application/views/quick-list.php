@@ -1,5 +1,9 @@
 	<?php $this->load->view('head'); ?>
 	<?php $this->load->view('header'); ?>
+
+<style>
+.form_error{color:red; font-size:10px;}
+</style>    
 		<!-- user View design page start -->
 	<div class="clear"></div>
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Quick Work</p></div>
@@ -12,11 +16,39 @@
           if($message){echo $message;} 
          ?>
 
+            <?php  
+               $success_msg = $this->session->flashdata('success_msg');
+               $error_msg   = $this->session->flashdata('error_msg');
+
+                  if($success_msg){
+            ?>
+            <div class="alert alert-success">
+                <?php echo $success_msg; ?>
+            </div>
+            <?php
+                  }
+                  if($error_msg){
+            ?>
+            <div class="form_error">
+                <?php echo $error_msg; ?> 
+					  
+            </div>
+            <?php
+                  }  
+            ?>         
+				  <?php 
+                 //echo form_error('username', '<span class="form_error">', '</span>'); 
+                 
+                 if(form_error('task') || form_error('date') || form_error('target_date') || form_error('remark') || form_error('priority') || form_error('status') || form_error('active')){
+                     echo "<h2>Please provide valid input!</h2>";
+                 } 
+				  
+				  ?>
             <div class="table-res">
                     <div class="table-view">
                         <table>
                             <thead>
-                                <tr><th>Sr No</th><th>Date </th><th>Task</th><th>Delegate To</th><th>Target Date</th><th>Priority</th><th>Remarks</th><th>Status</th><th>Active</th></tr>
+                                <tr><th>Sr No</th><th>Date </th><th>Task</th><th>Target Date</th><th>Priority</th><th>Remarks</th><th>Status</th><th>Active</th></tr>
                             </thead>
                             <tbody>
                             <?php 
@@ -27,7 +59,6 @@
                                             echo "<td>".$i++."</td>"; 
                                             echo "<td>".$r->date."</td>"; 
                                             echo "<td>".$r->task."</td>"; 
-                                            echo "<td>".$r->delegated."</td>"; 
                                             echo "<td>".$r->target_date."</td>"; 
                                             echo "<td>".$r->priority."</td>"; 
                                             echo "<td>".$r->remark."</td>"; 

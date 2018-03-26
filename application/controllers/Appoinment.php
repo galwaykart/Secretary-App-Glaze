@@ -81,7 +81,7 @@
 			$this->form_validation->set_rules('task','task Name','trim|required');
 			$this->form_validation->set_rules('target_date','Target date','trim|required');
 			$this->form_validation->set_rules('remark', 'Remark', 'trim|required');
-			$this->form_validation->set_rules('peroidic', 'peroidic', 'trim|required');
+			//$this->form_validation->set_rules('peroidic', 'peroidic', 'trim|required');
 			$this->form_validation->set_rules('travel_time', 'Travel time', 'trim|required');
 			$this->form_validation->set_rules('status', 'Status','required'); //{10} for 10 digits number
 			$this->form_validation->set_rules('active','Active','trim|required');
@@ -106,7 +106,7 @@ $record_id =$this->uri->segment(3);
 		'appointment_subject'=>$this->input->post('task'),
 		'appointment_end_time'=>$this->input->post('target_date'),
 		'appointment_remark'=>$this->input->post('remark'),
-		'appointment_periodic'=>$this->input->post('peroidic'),
+		//'appointment_periodic'=>$this->input->post('peroidic'),
 		'appointment_travel_time'=>$this->input->post('travel_time'),
 		'appointment_status'=>$this->input->post('status'),
 		'appointment_active'=>$this->input->post('active'),
@@ -159,9 +159,9 @@ $record_id =$this->uri->segment(3);
 	// }
 	
 
-}else{
-	redirect('appoinment');
-}
+	}else{
+		redirect('appoinment');
+	}
 			  }
 			
 		}

@@ -65,8 +65,8 @@
 															<li><a href="">Weekly periodic status sheet</a></li> 
 														</ul>
 													</li>
-													<li><a href="">Reminder Sheet</a></li>
-													<li><a href="<?php echo base_url('user/userlist'); ?>">Users</a></li>
+													<li><a href="<?php echo site_url('Reminder') ?>">Reminder Sheet</a></li>
+													<li><a href="<?php echo site_url('user/userlist'); ?>">Users</a></li>
                                             
                                             </ul>
                                        </li>
