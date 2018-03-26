@@ -11,7 +11,7 @@
                         <div class="col-md-12">
                                     <h2>Perodic Task View</h2>
                                     <div class="col-md-12"><p>Task Name :
-										<?php if($list){ echo $list['data1'][0]->monthly_periodic_work;} ?>
+										<?php if($list['data1']){ echo $list['data1'][0]->monthly_periodic_work;} ?>
 									<span id="projectname"></span></p></div>
                                    
                                     <div class="clear"></div>

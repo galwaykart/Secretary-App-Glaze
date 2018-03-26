@@ -6,7 +6,6 @@
    </style>
    <?php $this->load->view('header'); ?>
    
-   
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Monthly Periodic</p></div>
     <div class="clear"></div>
@@ -645,7 +644,8 @@
                             <div class="form-group">
                                        <label>Time :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="time" title="Time" required name="monthly_periodic_time"/></div>
+                                            <div class="form-control"><input type="time" title="Time" required name="monthly_periodic_time" />
+											</div>
                                         </div>
                          </div>
                     </div>

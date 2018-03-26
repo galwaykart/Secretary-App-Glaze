@@ -21,7 +21,6 @@
 							   <th>No of Meeting</th>
 							   <th>Previous Meetings Date</th>
 							   <th>Next Meeting Date</th>
-							   <th>Participants</th>
 							   <th>Meeting Called By (Name & Department)</th>
 							   <th>Remarks</th>
 							   <th>Active/Inactive</th>

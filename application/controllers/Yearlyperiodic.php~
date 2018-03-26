@@ -13,11 +13,19 @@
 		
 		public function index($year=''){
 			if($this->session->user == 'logged_in'){
+			$config = array();
 			if($year==''){
 		    $year=date('20y');
 			}
 		    $data['year']=  $year;
-			$data['fetch'] = $this->Yearly_periodic_model->getyear($year);				
+	        $config["base_url"] = base_url() ."yearlyperiodic/index/$year ";
+		    $config["total_rows"] = $this->Yearly_periodic_model->record_count($year);
+            $config["per_page"] = 1;
+		    $config["uri_segment"] = 4;
+			$this->pagination->initialize($config);
+			$page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+			$data['fetch'] = $this->Yearly_periodic_model->getyear($year,$config["per_page"], $page);				
+			$data["links"] = $this->pagination->create_links();
 			$this->load->view('yearly-periodic',$data); 
 			}else{
 				$this->load->view("login");
@@ -25,19 +33,30 @@
 		
 		}
 		
-		
-		
 		public function view(){
 			if($this->session->user == 'logged_in'){
-			$this->load->view("yearly-periodic-view"); 
+			$id = $this->uri->segment(3);
+			$data['list'] = $this->Yearly_periodic_model->get_periodic_task($id);
+			$this->load->view("yearly-periodic-view",$data); 
 			}else{
 				$this->load->view("login");
 			}	
 		}
 		
 		public function add_data(){
+		 $this->form_validation->set_rules('start_date','Start Date ','trim|required');
+		 $this->form_validation->set_rules('end_date','End Date ','trim|required');
+		 $this->form_validation->set_rules('remark','Remark','trim|required');
+		 $this->form_validation->set_rules('delegate_to[]','Delegate','trim|required');
+		 $this->form_validation->set_rules('email[]','Delegate','trim|required');
+		 if($this->form_validation->run() == false){
+			//$this->load->view('yearly-periodic');
+			$this->index();
+		  }
+		  
+		  else {
 			$record_id =$this->uri->segment(3); 
-			
+			//echo $record_id;die;
 			$data = array();
 			$data[0] = array(
 			'yearly_periodic_start_date'=>$this->input->post('start_date'),
@@ -52,19 +71,21 @@
 			'yearly_periodic_delegates_email'=>$this->input->post('email'),
 			);
 			$data[2] = array(
-			'monthly_periodic_status_date'=>$this->input->post('date'),
-			'monthly_periodic_status_note'=>$this->input->post('note'),
+			'yearly_periodic_status_date'=>$this->input->post('date'),
+			'yearly_periodic_status_note'=>$this->input->post('note'),
 
 			);
 			if($this->uri->segment(3)){
 			$this->Yearly_periodic_model->updatetask($data , $record_id);
+			$this->session->set_flashdata('msg', 'Updated Successfully!!!');
 			redirect('yearlyperiodic/');
 			}
 			else{
-			$this->Yearly_periodic_model->insertmonthly($data);
+			$this->Yearly_periodic_model->insertyear($data);
+			$this->session->set_flashdata('msg', 'Saved Successfully!!!');
 			redirect('yearlyperiodic');
 			}
-
+		  }
 		}
 		 
 	}

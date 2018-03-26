@@ -44,6 +44,17 @@
 		}
 		
 		public function add_data(){
+		 $this->form_validation->set_rules('start_date','Start Date ','trim|required');
+		 $this->form_validation->set_rules('end_date','End Date ','trim|required');
+		 $this->form_validation->set_rules('remark','Remark','trim|required');
+		 $this->form_validation->set_rules('delegate_to[]','Delegate','trim|required');
+		 $this->form_validation->set_rules('email[]','Email','trim|required');
+		 if($this->form_validation->run() == false){
+			//$this->load->view('yearly-periodic');
+			$this->index();
+		  }
+		  
+		  else {
 			$record_id =$this->uri->segment(3); 
 			//echo $record_id;die;
 			$data = array();
@@ -71,10 +82,10 @@
 			}
 			else{
 			$this->Yearly_periodic_model->insertyear($data);
-			$this->session->set_flashdata('msg', 'Inserted Successfully!!!');
+			$this->session->set_flashdata('msg', 'Saved Successfully!!!');
 			redirect('yearlyperiodic');
 			}
-
+		  }
 		}
 		 
 	}

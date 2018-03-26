@@ -4,6 +4,8 @@
 				.auto-del .left{width:27%;}
 				.auto-del .right{}
 				.auto-del .center{width:30%;}
+.form_error{color:red; font-size:12px;}
+
 				</style>
 
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Reminder Sheet</p></div>
@@ -35,7 +37,7 @@
                                 </thead>
                                 <tbody>
 								<?php 
-								if($fetch){
+								if(isset($fetch)){
 								$i=1;
 								foreach($fetch as $record){
 								?>
@@ -70,7 +72,9 @@
                             <div class="form-group">
                                        <label>Start Date :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" required id="start_date" title="Start Date" name="start_date" /></div>
+                                            <div class="form-control"><input type="date"  id="start_date" title="Start Date" name="start_date" />
+											
+											</div>
                                         </div>
                          </div>
                     </div>
@@ -196,14 +200,14 @@
                         <a href="#">Reset</a>
                 </div>
               </div>
-			  <?php
-			  echo $links; ?>    
+			 
 			  
 	</form>		  
             <!--  pop up end -->
           </div><!-- right Dashboard end -->
     </div><!-- Main Dashboard end --> 
- 
+	<div class="pagination">
+  <?php echo $links; ?>    
      <!-- globle header for common end --> 
 	 
 	    <script> 
@@ -300,3 +304,4 @@
         $('#close-popup').on('click', function () { $('.popup').css('display', 'none'); })
     </script>
  <?php $this->load->view('footer'); ?>
+</div>
