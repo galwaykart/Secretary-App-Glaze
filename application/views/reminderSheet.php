@@ -204,26 +204,21 @@
                         <a href="#">Reset</a>
                 </div>
               </div>
-<<<<<<< HEAD
  
-			  <?php
-			  echo $links; ?>    
-=======
 			 
->>>>>>> 44bbf6b593f7ec4af7c5831c82d910832d485336
+			 
 			  
 	</form>		  
             <!--  pop up end -->
           </div><!-- right Dashboard end -->
     </div><!-- Main Dashboard end --> 
-<<<<<<< HEAD
  
      <!-- globle header for common end -->  
-=======
+
 	<div class="pagination">
   <?php echo $links; ?>    
      <!-- globle header for common end --> 
->>>>>>> 44bbf6b593f7ec4af7c5831c82d910832d485336
+
 	 
 	    <script> 
 				$(function() {
