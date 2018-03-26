@@ -289,7 +289,7 @@
                                             <div class="col-md-12 quickwork-heading"><h2>Quick work</h2></div>
                                             <div class="clear"></div>
                                             <div class="col-md-12 quick-cal">
-                                                    <div id='quickwork'></div>
+                                                    <div id='calendar'></div>
                                             </div>
                                              
                                             <!--  quick work calender end -->
