@@ -50,7 +50,7 @@
 			}
 		} 		
 		public function daillynote_view(){  
-			if($this->session->user == 'logged_in'){
+			if($this->session->user == 'logged_in'){  
 				if($this->uri->segment(3)){
 					$record_id =$this->uri->segment(3); 
 					$listOfDataById['records']	= $this->Daillynote_model->getDailyNotesListById($record_id);
@@ -69,13 +69,45 @@
 		
 		
 		public function req(){
-			//echo "gaurav";
+
 			 $record_id =$this->uri->segment(3); 
-			// echo $record_id;
-			// print_r($this->uri);
-			// print_r(Sizeof($this->uri->segment(3)));
-			// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			//	echo "Hello I am gaurav";
+			 $this->form_validation->set_rules('task','Task Name','trim|required');
+			 $this->form_validation->set_rules('task_type','Task Type','trim|required');
+			 $this->form_validation->set_rules('Department','Dept. Name','trim|required');
+			 $this->form_validation->set_rules('date','date','trim|required');
+			 $this->form_validation->set_rules('target_date','Target Date','trim|required');
+			 $this->form_validation->set_rules('delegate','Delegated To','trim|required');
+			 $this->form_validation->set_rules('email_to','Email','trim|required|valid_email');
+			 $this->form_validation->set_rules('secretary_name','Name Of Secretary','trim|required');
+			 $this->form_validation->set_rules('confidential','confidentiality','trim|required');
+			 $this->form_validation->set_rules('mysitting','Seating','trim|required');
+			 $this->form_validation->set_rules('priority','priority','trim|required');
+			 $this->form_validation->set_rules('venue', 'venue', 'trim|required');
+			 $this->form_validation->set_rules('comm_medium','Cummunication','trim|required');
+			 $this->form_validation->set_rules('seat_cont','Number of seats','required|regex_match[/^[0-9]{1}$/]');
+			 $this->form_validation->set_rules('deiver_cont','Number of drivers','required|regex_match[/^[0-9]{1}$/]');
+			 $this->form_validation->set_rules('car_cont','Number of Car','required|regex_match[/^[0-9]{1}$/]');
+			 $this->form_validation->set_rules('notes','Notes','trim|required');
+
+			 $this->form_validation->set_rules('part_dept[]','Dept.','trim|required');
+			 $this->form_validation->set_rules('Employee[]','Employee Type','trim|required');
+			 $this->form_validation->set_rules('parti_name[]','Name of Paticipants','trim|required');
+			 $this->form_validation->set_rules('parti_email[]','Email','trim|required|valid_email');
+
+
+			 
+			//  $this->form_validation->set_rules('venue', 'venue', 'trim|required|valid_email');
+			//  $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[15]');
+			//  $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[password]');
+			//  $this->form_validation->set_rules('phonenumber', 'Mobile Number ','required|regex_match[/^[0-9]{10}$/]'); //{10} for 10 digits number
+			//  $this->form_validation->set_rules('type','Type','trim|required');
+			//  $this->form_validation->set_rules('type','Type','trim|required');
+
+
+			if($this->form_validation->run() == false)
+			{
+				$this->daillynote_view();
+			}else{
 				$this->load->model('Daillynote_model');
 				if($this->input->post('Department')){
 					$data = array();
@@ -140,6 +172,9 @@
 				}else{
 					redirect('Daillynote');
 				}
+			}
+
+
 
 				
 				// }else {

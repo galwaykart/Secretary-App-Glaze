@@ -134,12 +134,16 @@
                                             echo "<td>today</td>"; 
                                             echo "<td>".$r->appointment_subject."</td>"; 
                                             //if($r->priority == 1){ echo "<td><span class='high'>Highest</span></td>"; }elseif($r->priority == 2){ echo "<td><span class='mid'>Medium</span></td>"; }else{echo "<td><span class='low'>Lowest</span></td>";}
-                                            echo "<td><span class='next'>Next</span></td>";
+                                            if($r->appointment_start_time >= date("Y-m-d H:m:s", time()) && $r->appointment_end_time >= date("Y-m-d H:m:s", time())){echo "<td><span class='next'>Next</span></td>";}
+                                            elseif($r->appointment_start_time <= date("Y-m-d H:m:s", time()) && $r->appointment_end_time >= date("Y-m-d H:m:s", time())){echo "<td><span class='run'>Running</span></td>";}
+                                            else{echo "<td><span class='mid'>Happened</span></td>";}
+                                            // echo "<td><span class='next'>".date("Y/m/d H:m:s", time())."</span></td>";
+                                            //echo "<td><span class='next'>Next</span></td>";
                                             echo "<tr>"; 
                                          } 
                                         }
                               ?>
-                                                                        <tr>
+                                                                        <!-- <tr>
                                                                             <td><span class="fa fa fa-coffee"></span></td>
                                                                             <td>today </td>
                                                                             <td>2</td>
@@ -165,7 +169,7 @@
                                                                             <td>today </td>
                                                                             <td>2</td>
                                                                             <td>Immideaiet effact</td>
-                                                                             <td><span class="run">Running</span></td>
+                                                                            <td><span class="run">Running</span></td>
                                                                         </tr>
                                                                          <tr>
                                                                             <td><span class="fa fa fa-coffee"></span></td>
@@ -173,7 +177,7 @@
                                                                             <td>2</td>
                                                                             <td>Immideaiet effact</td>
                                                                              <td><span class="next">Next</span></td>
-                                                                        </tr>
+                                                                        </tr> -->
  
                                                                     </tbody>
                                                                 </table>
@@ -227,9 +231,13 @@
                                             echo "<tr>"; 
                                             echo "<td><span class='fa fa-american-sign-language-interpreting'></span></td>";
                                             echo "<td>today</td>"; 
-                                            echo "<td>".$r->agenda_id."</td>"; 
+                                            echo "<td>".$r->agenda_name."</td>"; 
+                                            if($r->index_meeting_start_time > date("H:m:s", time()) && $r->index_meeting_end_time > date("H:m:s", time())){echo "<td><span class='next'>Next</span></td>";}
+                                            elseif($r->index_meeting_start_time <= date("H:m:s", time()) && $r->index_meeting_end_time >= date("H:m:s", time())){echo "<td><span class='run'>Running</span></td>";}
+                                            else{echo "<td><span class='mid'>Happened</span></td>";}
                                             //if($r->priority == 1){ echo "<td><span class='high'>Highest</span></td>"; }elseif($r->priority == 2){ echo "<td><span class='mid'>Medium</span></td>"; }else{echo "<td><span class='low'>Lowest</span></td>";}
-                                            echo "<td><span class='run'>Running</span></td>";
+                                            //echo "<td><span class='run'>Running</span></td>";
+                                             echo date("H:m:s" , time());
                                             echo "<tr>"; 
                                          } 
                                         }
@@ -289,7 +297,7 @@
                                             <div class="col-md-12 quickwork-heading"><h2>Quick work</h2></div>
                                             <div class="clear"></div>
                                             <div class="col-md-12 quick-cal">
-                                                    <div id='quickwork'></div>
+                                                    <div id='calendar'></div>
                                             </div>
                                              
                                             <!--  quick work calender end -->
