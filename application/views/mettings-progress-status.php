@@ -37,6 +37,7 @@
                </div>
         </div>
     </div>
+	<div class="pagination">
    <?php echo $links; ?>
  
 <script>
@@ -47,5 +48,5 @@
 }
 </script>
 	<?php $this->load->view('footer'); ?>
-	
+	</div>
  

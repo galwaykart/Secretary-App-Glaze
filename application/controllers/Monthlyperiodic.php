@@ -52,9 +52,29 @@
 		}
 		
 		public function add_data(){
+		if($this->uri->segment(3)){
+		  $this->form_validation->set_rules('end_date','End Date ','trim|required');
+		  $this->form_validation->set_rules('note[]','Note ','trim|required');
+		  $this->form_validation->set_rules('date[]','Date ','trim|required');
+		 }else{
+		 $this->form_validation->set_rules('start_date','Start Date ','trim|required');
+		 $this->form_validation->set_rules('end_date','End Date ','trim|required');
+		 $this->form_validation->set_rules('remark','Remark','trim|required');
+		 $this->form_validation->set_rules('monthly_periodic_time','Time','trim|required');
+		 $this->form_validation->set_rules('work','Work','trim|required');
+			}
 
-			$record_id =$this->uri->segment(3); 
+		 if($this->form_validation->run() == false){
+			//$this->load->view('yearly-periodic');
+			if($this->uri->segment(3)){
+				$this->view();
+			}else{
+				$this->index();
+			}
 			
+		  }
+		  else {
+			$record_id =$this->uri->segment(3); 
 			$data = array();
 			$data[0] = array(
 			//'monthly_periodic_time'=>$this->input->post('monthly_periodic_time'),
@@ -85,7 +105,7 @@
 			redirect('Monthlyperiodic');
 			}
 
-		  
+		  }
 		}
 	}
 

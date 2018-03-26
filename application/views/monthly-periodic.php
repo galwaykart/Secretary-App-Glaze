@@ -3,6 +3,7 @@
 	.mon_class {
 		color:#fff;
 	}
+	.form_error{color:red; font-size:18px;}
    </style>
    <?php $this->load->view('header'); ?>
    
@@ -20,7 +21,12 @@
 						
 <?php if($this->session->flashdata('msg')): ?>
  <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
-<?php endif; ?>						
+<?php endif; ?>	
+	<?php 
+		if(form_error('start_date') || form_error('monthly_periodic_time') || form_error('end_date') ||form_error('remark') || form_error('work')){
+			echo '<span class="form_error">Please provide valid input', '</span>'	;
+		}
+	?>				
                 <!--search button end-->
               <div class="tabordion">
 			  
@@ -664,7 +670,7 @@
                             <div class="form-group">
                                    <label>Start Date :</label>
                                       <div class="input-group">
-                                         <div class="form-control"><input type="date" required title="End Date" name="start_date"/></div>
+                                         <div class="form-control"><input type="date" required title="Start Date" name="start_date"/></div>
                                       </div>
                           </div>
                         

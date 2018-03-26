@@ -20,6 +20,11 @@
 <?php if($this->session->flashdata('msg')): ?>
  <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
 <?php endif; ?>
+	<?php 
+		if(form_error('start_date') || form_error('end_date') || form_error('start_time') ||form_error('end_time') || form_error('frequency') || form_error('subject')){
+			echo '<span class="form_error">Please provide valid input', '</span>'	;
+		}
+	?>	
                 <!--search button end-->
                 <div class="table-res style-4">
                             <table class="reminder-table-view-show">
@@ -72,8 +77,7 @@
                             <div class="form-group">
                                        <label>Start Date :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date"  id="start_date" title="Start Date" name="start_date" />
-											
+                                            <div class="form-control"><input type="date" required  id="start_date" title="Start Date" name="start_date" />
 											</div>
                                         </div>
                          </div>
@@ -95,7 +99,7 @@
                                         <div class="input-group">
                                             <div class="form-control"><input type="Time" required title="Start Time" id="start_time" name="start_time"/></div>
                                         </div>
-                         </div>
+                           </div>
                     </div>
                     <div class="col-md-6">
                             <div class="form-group">
