@@ -19,6 +19,15 @@
     <!-- <link href="<?php echo base_url(); ?>calender/fullcalendar.print.min.css" rel="stylesheet" /> -->
 	 <script src="<?php echo base_url(); ?>calender/moment.min.js"></script>
      <script src="<?php echo base_url(); ?>calender/fullcalendar.min.js"></script>
+
+
+
+
+
+
+
+
+
   
 </head>
 <body class="body style-6"><!-- body tag start -->

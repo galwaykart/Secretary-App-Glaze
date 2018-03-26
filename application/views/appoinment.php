@@ -1,17 +1,29 @@
  
   <?php $this->load->view('head'); ?> 
    <?php $this->load->view('header'); ?> 
+   <style>
+.form_error{color:red; font-size:20px;}
+</style>
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Appointment</p></div>
 	<div class="container">
                 <h2 class="headingDaiilyNotes">Appoinment</h2>
    </div>
     <div class="dailly-notes-index-panel">
     <?php if($message){echo $message;} ?> 
+    <!-- For php validation -->
+    <?php 
+			//echo form_error('username', '<span class="form_error">', '</span>'); 
+			
+			if(form_error('task') || form_error('date') || form_error('target_date') || form_error('remark') || form_error('travel_time') || form_error('status') || form_error('active')){
+				echo "<h2 class='form_error'>Please provide valid input!</h2 >";
+			} 
+			 
+			 ?>	
             <div class="table-res">
                     <div class="table-view">
                         <table>
                             <thead>
-                                <tr><th>Sr No</th><th>Start Time</th><th>End Time</th><th>Appoinment With</th><th>Subject</th><th>Periodic</th><th>Travel Time</th><th>Remerk</th><th>Status</th><th>Active/Inactive</th></tr>
+                                <tr><th>Sr No</th><th>Start Time</th><th>End Time</th><th>Subject</th><th>Periodic</th><th>Travel Time</th><th>Remerk</th><th>Status</th><th>Active/Inactive</th></tr>
                             </thead>
                             <tbody>
 
@@ -23,7 +35,6 @@
                                             echo "<td>".$i++."</td>"; 
                                             echo "<td>".$r->appointment_start_time."</td>"; 
                                             echo "<td>".$r->appointment_end_time."</td>"; 
-                                            echo "<td>".$r->appointment_subject."</td>"; 
                                             echo "<td>".$r->appointment_subject."</td>"; 
                                             echo "<td>".$r->appointment_periodic."</td>"; 
                                             echo "<td>".$r->appointment_travel_time."</td>"; 
@@ -55,17 +66,37 @@
 			 <div id="container" class="pagination">
       				<p><?php echo $links; ?></p>
              </div>
+<?php  
+               $success_msg = $this->session->flashdata('success_msg');
+               $error_msg   = $this->session->flashdata('error_msg');
 
+                  if($success_msg){
+                    ?>
+                    <div class="alert alert-success">
+                      <?php echo $success_msg; ?>
+                    </div>
+                  <?php
+                  }
+                  if($error_msg){
+                    ?>
+                    <div class="form_error">
+                      <?php echo $error_msg; ?> 
+					  
+                    </div>
+                    <?php
+                  }  
+                  ?>
        
     </div><!-- dailly index panel end -->
    <div class="clear"></div>
     <!-- popup start -->
 	<div class="popup-main">
-    <form id="myForm" method="POST" action="<?php echo base_url();?>Appoinment/req" >
+
+    <form id="my2Form" method="POST" action="<?php echo base_url();?>Appoinment/req" >
 	
     <div class="popup" style="display: none;">
             <div class="header">
-                <h3>Quick Work - <span id="work">Add</span></h3>
+                <h3>Appointment - <span id="work">Add</span></h3>
                 <span id="close-popup"  title="Close">&times;</span>
             </div>
             <div class="content"><!-- content start -->
@@ -75,6 +106,7 @@
                                        <label>Date :</label>
                                         <div class="input-group">
                                             <div class="form-control"><input required type="date" id="task_date" name="date" title="Date" /></div>
+                                            
                                         </div>
                          </div>
                     </div>
@@ -83,6 +115,7 @@
                                        <label>Subject :</label>
                                         <div class="input-group">
                                             <div class="form-control"><input required type="text" id="task_name" name="task" title="Task" /></div>
+                                            
                                         </div>
                          </div>
                     </div>
@@ -90,19 +123,21 @@
                 <div class="clear"></div>
 
                 <div class="col-md-12">
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                             <div class="form-group">
                                        <label>Peroidic :</label>
                                         <div class="input-group">
                                             <div class="form-control"><input required type="text" id="appointment_periodic" name="peroidic" title="Date" /></div>
+                                            <?php //echo form_error('peroidic', '<span class="form_error">', '</span>'); ?></span>
                                         </div>
                          </div>
-                    </div>
+                    </div> -->
                     <div class="col-md-6">
                             <div class="form-group">
                                        <label>Travel Time :</label>
                                         <div class="input-group">
                                             <div class="form-control"><input required type="text" id="appointment_travel_time" name="travel_time" title="Task" /></div>
+                                            
                                         </div>
                          </div>
                     </div>
@@ -116,6 +151,7 @@
                                        <label>Target Date</label>
                                         <div class="input-group">
                                             <div class="form-control"><input required type="date" id="task_traget_date" name="target_date" title="Target Date" /></div>
+                                            
                                         </div>
                           </div>
                         
@@ -140,6 +176,7 @@
                                             <div class="form-control">
                                                <textarea id="appointment_remark" name="remark" class=""></textarea>
                                             </div>
+                                            
                                         </div>
                                         
                     </div>
@@ -236,7 +273,8 @@
     <!-- popup ends -->
 	</div>
  </div>
- 
+
+
 
 
 <script type="text/javascript"> 
@@ -251,10 +289,10 @@
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.responseText); 
                     var data_json = JSON.parse(this.responseText);
-                    console.log(data_json.insidequickwork.length);
+                    console.log(data_json.insidequickwork);
                     document.getElementById("task_name").value = data_json.insidequickwork[0].appointment_subject;
                     document.getElementById("task_date").value = data_json.insidequickwork[0].niceDate;
-                    document.getElementById("appointment_periodic").value = data_json.insidequickwork[0].appointment_periodic;
+                    //document.getElementById("appointment_periodic").value = data_json.insidequickwork[0].appointment_periodic;
                     document.getElementById("appointment_travel_time").value = data_json.insidequickwork[0].appointment_travel_time;
                     document.getElementById("appointment_remark").value = data_json.insidequickwork[0].appointment_remark;
                     document.getElementById("task_traget_date").value = data_json.insidequickwork[0].targetDate;
@@ -262,7 +300,7 @@
                     document.getElementById("active").value = data_json.insidequickwork[0].appointment_active;
                     document.getElementById("gm1").value = data_json.insidequickwork[0].appointment_with_name;
                     document.getElementById("gm2").value = data_json.insidequickwork[0].appointment_with_email;
-                    document.getElementById("myForm").action = "<?php echo base_url(); ?>Appoinment/req/"+data_json.insidequickwork[0].appointment_id;
+                    document.getElementById("my2Form").action = "<?php echo base_url(); ?>Appoinment/req/"+data_json.insidequickwork[0].appointment_id;
                     
                     for(var i=0; i<data_json.insidequickwork.length ; i++){
                         var j = i +1 ;

@@ -88,67 +88,78 @@
 		
 		
 		public function req(){
+			$this->form_validation->set_rules('date','date','trim|required');
+			$this->form_validation->set_rules('task','task Name','trim|required');
+			$this->form_validation->set_rules('target_date','Target date','trim|required');
+			$this->form_validation->set_rules('remark', 'Remark', 'trim|required');
+			$this->form_validation->set_rules('priority', 'priority', 'trim|required');
+			$this->form_validation->set_rules('status', 'Status','required'); //{10} for 10 digits number
+			$this->form_validation->set_rules('active','Active','trim|required');
 
-			$record_id =$this->uri->segment(3); 
-			$this->load->model('Quickwork_model');
-			if($this->input->post('date') != null){
-				$data = array();
-				$data[0] = array(
-					'date'=>$this->input->post('date'),
-					'task'=>$this->input->post('task'),
-					'target_date'=>$this->input->post('target_date'),
-					'priority'=>$this->input->post('priority'),
-					'remark'=>$this->input->post('remark'),
-					'status'=>$this->input->post('status'),
-					'active'=>$this->input->post('active'),
-
-
-					);
-
-					$data[1] = array(
-					'delegates_name'=>$this->input->post('delegate_to'),
-					'delegates_email'=>$this->input->post('delegate_email'),
-					);
-
-					if($this->uri->segment(3)){
-						//echo "I am in updation";
-						$result = $this->Quickwork_model->updateQuickwork($data , $record_id);
-						if($result)
-						{
-						$param1 =  "<h2>Successfully updated</h2>";
+			
+		   if($this->form_validation->run() == false)
+			  {
+				  $this->index();
+			  }else{
+				$record_id =$this->uri->segment(3); 
+				$this->load->model('Quickwork_model');
+				if($this->input->post('date') != null){
+					$data = array();
+					$data[0] = array(
+						'date'=>$this->input->post('date'),
+						'task'=>$this->input->post('task'),
+						'target_date'=>$this->input->post('target_date'),
+						'priority'=>$this->input->post('priority'),
+						'remark'=>$this->input->post('remark'),
+						'status'=>$this->input->post('status'),
+						'active'=>$this->input->post('active'),
+	
+	
+						);
+	
+						$data[1] = array(
+						'delegates_name'=>$this->input->post('delegate_to'),
+						'delegates_email'=>$this->input->post('delegate_email'),
+						);
+	
+						if($this->uri->segment(3)){
+							//echo "I am in updation";
+							$result = $this->Quickwork_model->updateQuickwork($data , $record_id);
+							if($result)
+							{
+							$param1 =  "<h2>Successfully updated</h2>";
+							
+							}
+							else
+							{
+							$param1 = "<h2>ERROR</h2>";
+							
+							}
+							$this->index(null ,$param1 , $this->uri->segment(3));
+	
 						
+						}else{
+						//echo "I am in addition";
+						$result = $this->Quickwork_model->addQuickwork($data);
+							if($result)
+							{
+							$param1 =  "<h2>Success</h2>";
+							
+							}
+							else
+							{
+							$param1 = "<h2>ERROR</h2>";
+							
+							}
+							$this->index(null , $param1 ,null);
+	
+							
 						}
-						else
-						{
-						$param1 = "<h2>ERROR</h2>";
-						
-						}
-						$this->index(null ,$param1 , $this->uri->segment(3));
-
-					
-					}else{
-					//echo "I am in addition";
-					$result = $this->Quickwork_model->addQuickwork($data);
-						if($result)
-						{
-						$param1 =  "<h2>Success</h2>";
-						
-						}
-						else
-						{
-						$param1 = "<h2>ERROR</h2>";
-						
-						}
-						$this->index(null , $param1 ,null);
-
-						
-					}
-
-			}else{
-				redirect('Quickwork');
-			}
-
-				
+	
+				}else{
+					redirect('Quickwork');
+				}
+			  }
 
 			}
 

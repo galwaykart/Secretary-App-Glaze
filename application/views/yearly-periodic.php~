@@ -4,10 +4,12 @@
 	.mon_class {
 		color:#fff;
 	}
+	.form_error{color:red; font-size:12px;}
+
    </style>
    <?php $this->load->view('header'); ?>
     <!-- user View design page start -->
-    <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Monthly Periodic</p></div>
+    <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Yearly Periodic</p></div>
     <div class="clear"></div>
     <div class="monthly-periodic-task-sheet"><!-- monthly periodic panel start -->
               <h2 id="paddin-left">Yearly Periodic </h2>
@@ -18,6 +20,10 @@
 
                         </div>
                 <!--search button end-->
+				
+<?php if($this->session->flashdata('msg')): ?>
+ <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
+<?php endif; ?>				
               <div class="tabordion ">
                           <section id="section1">
                                         <input type="radio" name="sections" id="option1" <?php if($year == '2018') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('Yearlyperiodic/index/2018') ?>'">
@@ -147,9 +153,14 @@
                                                      </div>
                                         </article>
                           </section>
-                         
+                          <div class="clear"></div>
                     </div><!-- verticle tabs end -->
-
+                    <div class="clear"></div>
+					<div class="tabsPagination">
+							<div class="pagination">
+								  <?php echo $links; ?>
+							</div>
+					</div>
         
 
 
@@ -198,21 +209,25 @@
                                                                 </div>
                                                          </div>			 
                                                                   <div class="clear"></div>
-                  <div class="col-md-12">
+													<div class="col-md-12">
                                                         <div class="clear"></div>
                                                          <div class="col-md-6">
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa  fa-calendar" ></span></div>
-                                                                            <div class="form-control"><input type="date" title="Select Start Date" required name="start_date" /></div>
+                                                                            <div class="form-control"><input type="date" title="Select Start Date"  name="start_date" value="<?php echo set_value('start_date'); ?>" />
+																			<?php echo form_error('start_date', '<span class="form_error">', '</span>'); ?></span>
+																			</div>
                                                                         </div>
                                                                 </div>
                                                          </div>
-                                                            <div class="col-md-6">
+                                                          <div class="col-md-6">
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa fa-calendar" ></span></div>
-                                                                            <div class="form-control"><input type="date" title="Select End Date" required name="end_date" /></div>
+                                                                            <div class="form-control"><input type="date" title="Select End Date"  name="end_date" value="echo " />
+																			<?php echo form_error('start_date', '<span class="form_error">', '</span>'); ?></span>
+																			</div>
                                                                         </div>
                                                                 </div>
                                                          </div>
@@ -231,7 +246,7 @@
                                         </div>
                           </div>
                     </div>
-                </div>
+                                                   </div>
         
                 <div class="clear"></div>
                  <div class="col-md-12">
@@ -240,7 +255,7 @@
                                        <label>Remark</label>
                                         <div class="input-group">
                                             <div class="form-control">
-                                               <textarea id="Textarea1" required class="" name="remark"></textarea>
+                                               <textarea id="Textarea1"  class="" name="remark"></textarea>
                                             </div>
                                         </div>
                            
@@ -253,7 +268,7 @@
                                      <div class="form-group">
                                        <label>Delegate To</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" required title="Delegate To" name="delegate_to[]"/></div>
+                                            <div class="form-control"><input type="text"  title="Delegate To" name="delegate_to[]"/></div>
                                         </div>
                                   </div>
 
@@ -263,7 +278,7 @@
                                                <label>Email Id</label>
                                                 <div class="input-group">
                                                     <div class="form-control">
-                                                        <input type="text" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
+                                                        <input type="text" name="email[]"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
                                                     </div>
                                                 </div>
                                         </div>
@@ -299,7 +314,7 @@
                 <div class="clear"></div>
 		
      <br/><br/><br/> 
-<?php echo $links; ?>	
+	
 
      <!-- globle header for comman end --> 
 	 
