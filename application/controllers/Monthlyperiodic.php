@@ -75,10 +75,12 @@
 			);
 			if($this->uri->segment(3)){
 			$this->Monthly_periodic_model->updatetask($data , $record_id);
+			$this->session->set_flashdata('msg', 'Updated Successfully!!!');
 			redirect('Monthlyperiodic/');
 			}
 			else{
 			$this->Monthly_periodic_model->insertmonthly($data);
+			$this->session->set_flashdata('msg', 'Inserted Successfully!!!');
 			redirect('Monthlyperiodic');
 			}
 

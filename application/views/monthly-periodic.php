@@ -5,6 +5,8 @@
 	}
    </style>
    <?php $this->load->view('header'); ?>
+   
+   
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Monthly Periodic</p></div>
     <div class="clear"></div>
@@ -16,6 +18,10 @@
                             <input type="text" value="" placeholder="Search Task"/><button><span class="fa fa-search"></span></button>
 
                         </div>
+						
+<?php if($this->session->flashdata('msg')): ?>
+ <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
+<?php endif; ?>						
                 <!--search button end-->
               <div class="tabordion">
 			  

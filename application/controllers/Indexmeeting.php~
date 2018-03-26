@@ -74,9 +74,9 @@
 				//print_r($id);
 				$data['fetch'] = $this->Indexmeeting_model->get_meeting($id);
 				if(!$data['fetch']){
-					redirect('');
+					redirect('Indexmeeting/metting_info');
 				}
-				print_r($this->Indexmeeting_model->get_meeting($id));die;
+			//	print_r($this->Indexmeeting_model->get_meeting($id));die;
 				$this->load->view('metting-info',$data);
 
 			  }
@@ -98,16 +98,19 @@
 		 //'agenda_id'=>$this->input->post('agenda'),
 	     'confidentiality'=>$this->input->post('confidentiality'),
 	     'self_seating'=>$this->input->post('seating'),
-	     // 'participants_id'=>1,
-	     // 'conclusion_id'=>1,
-	     // 'agenda_status'=>1,
+	     'index_meeting_next_date'=>$this->input->post('index_meeting_next_date'),
+	     'index_meeting_start_time'=>$this->input->post('index_meeting_start_time'),
+	     'index_meeting_end_time'=>$this->input->post('index_meeting_end_time'),
+
 		);
 		$data[1] = array(
 		
 		 'name'=>$this->input->post('name'),
 		 'department'=>$this->input->post('department'),
 		 'email'=>$this->input->post('email'),
-		 'employee'=>$this->input->post('employee'));
+		 'employee'=>$this->input->post('employee'),
+		 'is_employee'=>$this->input->post('is_employee')
+		 );
 		$data[2] = array(
 		 
 		 'conclusion_type'=>$this->input->post('conclusion_type'),
@@ -124,6 +127,7 @@
 
 		if($this->uri->segment(3)){
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
+		   
 			redirect('indexmeeting');
            }else{
            $this->Indexmeeting_model->form_insert($data,$this->input->post('agenda'));

@@ -3,6 +3,11 @@
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Users</p></div>
     <div class="col-md-12 all-mettings">
+<!--message showing code-->	
+<?php if($this->session->flashdata('msg')): ?>
+ <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
+<?php endif; ?>
+
             <div class="container">
                 <h2 class="heading">All Meeting</h2>
             </div>
@@ -47,7 +52,7 @@
                <a href="<?php echo site_url('indexmeeting/metting_info/'); ?>" class="btn" id="addmeeingsbtn"><span class="fa fa-plus" ></span>&nbsp;Add</a>
            
         </div>
-		<div class=clear></div>
+		<div class="clear"></div>
 		<br><br>
 		<div class="pagination">
 	    <?php echo $links; ?>

@@ -70,7 +70,7 @@
                             <div class="form-group">
                                        <label>Start Date :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" id="start_date" title="Start Date" name="start_date" /></div>
+                                            <div class="form-control"><input type="date" required id="start_date" title="Start Date" name="start_date" /></div>
                                         </div>
                          </div>
                     </div>
@@ -78,7 +78,7 @@
                             <div class="form-group">
                                        <label>End Date :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="date" id="end_date" title="End Date" name="end_date"/></div>
+                                            <div class="form-control"><input type="date" required id="end_date" title="End Date" name="end_date"/></div>
                                         </div>
                          </div>
                     </div>
@@ -89,7 +89,7 @@
                             <div class="form-group">
                                        <label>Start Time :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="Time" title="Start Time" id="start_time" name="start_time"/></div>
+                                            <div class="form-control"><input type="Time" required title="Start Time" id="start_time" name="start_time"/></div>
                                         </div>
                          </div>
                     </div>
@@ -97,7 +97,7 @@
                             <div class="form-group">
                                        <label>End Time :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="Time" title="End Time" id="end_time" name="end_time" /></div>
+                                            <div class="form-control"><input type="Time" required title="End Time" id="end_time" name="end_time" /></div>
                                         </div>
                          </div>
                     </div>
@@ -126,7 +126,7 @@
                            <div class="form-group">
                                        <label>Subject</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text" placeholder="Subject" id="subject" title="Subject" name="subject"/></div>
+                                            <div class="form-control"><input type="text" required placeholder="Subject" id="subject" title="Subject" name="subject"/></div>
                                         </div>
                           </div>
                     </div>
@@ -186,7 +186,6 @@
                                                     <a href="#" class="" id="add"><span class="fa fa-plus" ></span></a>
                                             </div>
                                  </div>
-
                      </div>
 				</div>
 			</div>						
@@ -197,19 +196,16 @@
                         <a href="#">Reset</a>
                 </div>
               </div>
-			  <?php echo $links; ?>    
+ 
+			  <?php
+			  echo $links; ?>    
+			  
 	</form>		  
             <!--  pop up end -->
-               
-               
-
-        </div><!-- right Dashboard end -->
-
-        
-
+          </div><!-- right Dashboard end -->
     </div><!-- Main Dashboard end --> 
  
-     <!-- globle header for comman end --> 
+     <!-- globle header for common end -->  
 	 
 	    <script> 
 				$(function() {

@@ -19,11 +19,27 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-2">
 								<div class="form-group">
 									<label>Next Meeting Date</label>
 									<div class="input-group">
 										<div class="form-control"><input type="date" required title="Next Meeting Date" name="index_meeting_next_date" value="<?php if($fetch){echo $fetch['data1'][0]->index_meeting_next_date;} ?>"/></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Start Time</label>
+									<div class="input-group">
+										<div class="form-control"><input type="time" required title="Start Time" name="index_meeting_start_time" value="<?php if($fetch){echo $fetch['data1'][0]->index_meeting_start_time;} ?>"/></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>End Time</label>
+									<div class="input-group">
+										<div class="form-control"><input type="time" required title="End Time" name="index_meeting_end_time" value="<?php if($fetch){echo $fetch['data1'][0]->index_meeting_end_time;} ?>"/></div>
 									</div>
 								</div>
 							</div>
@@ -323,7 +339,6 @@
 			<div class="clear"></div>
 		</div>	
 			<div class="clear"></div>
-			<div class="clear"></div>
 		<script type = 'text/javascript'>
 		   $("#search").autocomplete({
 				minLength: 1,
@@ -375,6 +390,6 @@
 			}
 		</script>
  
-		 <br /><br /><br /> 
+		 <br/><br/><br/> 
 		<?php $this->load->view('footer'); ?>
  
