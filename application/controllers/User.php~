@@ -45,6 +45,9 @@ class User extends CI_Controller
 	// to view dashboard
 	public function dashboard() {
 			$data["dash_data"] = $this->user_model->getDashboardDetails();
+			// echo "<pre>";
+			// print_r($data);
+			// echo "</pre>";
 			$this->load->view("dashboard" ,$data); 
 		}
 		
@@ -87,7 +90,13 @@ class User extends CI_Controller
 		  'password'=>md5($this->input->post('password')), 
 		  'phonenumber'=>$this->input->post('phonenumber'),
 		  'type'=>$this->input->post('type'),
-			); 
+		   $checked = $this->input->post('status'),
+		 //'status'=>($this->input->post('status')===active)?0:1,
+			);  	
+if((int) $checked == 1){
+echo "active";
+}else{echo "deactive	";}
+			
 		  $data=array(
 		  'firstname'=>$this->input->post('firstname'),
 		  'lastname'=>$this->input->post('lastname'),
@@ -96,6 +105,7 @@ class User extends CI_Controller
 		  'phonenumber'=>$this->input->post('phonenumber'),
 		  'type'=>$this->input->post('type'),
 			); 
+
 			// check username 
 		 $username_check = $this->user_model->username_check($user['username']);
 		 
@@ -115,18 +125,17 @@ class User extends CI_Controller
 			  redirect('user/signup');
 			}
 
-
 		}
 		
 	}
 
-	public function delete(){
-	 if($this->input->post('delete')){
+	public function delete_id(){
 	 $record_id =$this->uri->segment(3);  	
-	 $data['list'] = $this->user_model->delete();
-	 $this->load->view("userlist",$data);
+	 $this->user_model->delete_user($record_id);
+	 $this->session->set_flashdata('msg', 'Deleted Successfully!!!');
+	 redirect('user/userlist');
 	}
-  }
+  
 	
 	public function login_view(){
 

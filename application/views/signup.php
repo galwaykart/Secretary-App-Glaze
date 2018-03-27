@@ -1,5 +1,12 @@
-<?php $this->load->view('head'); ?>
+<?php
+/*
 
+
+
+*/
+?>
+
+<?php $this->load->view('head'); ?>
 <style>
 .form_error{color:red; font-size:10px;}
 </style>
@@ -33,7 +40,7 @@
                     <?php
                   }  
                   ?>
-	<form method="post"  action="<?php if($list){echo base_url()."User/register_user/".$list[0]->id;}else{echo base_url()."User/register_user/";} ?>">
+	<form method="post" action="<?php if($list){echo base_url()."User/register_user/".$list[0]->id;}else{echo base_url()."User/register_user/";} ?>">
 					 <div class="col-md-12 top-feaild">
 											<div class="form-group">
 												<div class="input-group">
@@ -42,7 +49,7 @@
 													 <?php echo form_error('username', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
-					  </div><!-- col-md12 -end -->
+					 </div><!-- col-md12 -end -->
 					<div class="col-md-12">
 								<div class="col-md-6">
 											<div class="form-group">
@@ -92,7 +99,7 @@
 							                        <?php echo form_error('phonenumber', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
-							   </div>
+							    </div>
 								   <div class="col-md-6">
 											<div class="form-group">
 												<div class="input-group">
@@ -109,11 +116,11 @@
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa fa-calendar-check-o" ></span></div>
 													<div class="form-control"> 
-														<select name="type"  value="<?php echo set_value('type'); ?>">
+														<select name="type"  value="<?php  echo set_value('type'); ?>">
 															<option value=""hidden>Select User Type</option> 
-															 <option value="1">Director</option>
-															 <option value="2">HOD</option>
-															 <option value="3">Secretary</option>
+															 <option value="1" <?php if($list){if($list[0]->type == "1"){ echo "selected"; }} ?>>Director</option>
+															 <option value="2" <?php if($list){if($list[0]->type == "2"){ echo "selected"; }} ?>>HOD</option>
+															 <option value="3" <?php if($list){if($list[0]->type == "3"){ echo "selected"; }} ?>>Secretary</option>
 														 </select>
 														 <?php echo form_error('type', '<span class="form_error">', '</span>'); ?></span>
 													</div>
@@ -131,31 +138,26 @@
 							   </div>
 							   -->
 					  </div>
-					  
 					  <!-- col-md12 -end -->
-					<!--<div class="col-md-12 text-right">
-						<p class="active-para">Active/Deactive</p>
+					<div class="col-md-12 text-right">
+						<p class="active-para">Active/Deactivate</p>
 							<label class="switch">
-							  <input type="checkbox" name="status">
-							   <span class="slider round"></span>	
+							  <input type="checkbox"  name="status" value="active" >
+							<span class="slider round"> </span>	
 							</label>
-					</div>-->
+					</div>
 					<div class="clear"></div>
 					<div class="col-md-12 sign-up-btn" style="text-align:center;">
-					
-					<a href="<?php if($list){echo base_url() . "User/delete_id/" . $list[0]->id; }?>" class="btn mybtn del">
-                     Delete</a>
-					   
-							 <input type="submit" value="Registration" class="btn mybtn" /> 
-							 <input type="reset" value="Reset" class="btn reset mybtn" />
-						</div>
+						<a href="<?php if($list){echo base_url() . "User/delete_id/" . $list[0]->id; }?>" class="btn mybtn del">Delete</a>
+						<input type="submit" value="Registration" class="btn mybtn" /> 
+						<input type="reset" value="Reset" class="btn reset mybtn" />
+					</div>
 						<div class="clear"></div>
 					</div>
 					
-				</form> 
+	</form> 
 				 <div class="clear"> </div>
             </div><!-- container 3 end -->
-
     </div> 
 
      <!-- registration design page end --> 

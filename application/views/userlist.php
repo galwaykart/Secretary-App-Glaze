@@ -29,7 +29,7 @@
 								  <td><?php echo $get->phonenumber;?></td>
 								  <td><?php echo $get->email;?></td>
 								  <td><?php if($get->type==1){echo "Director";} if($get->type==2){echo "HOD";}if($get->type==3){echo "Secretary";}?></td>
-								  <td><?php echo $get->status;?></td>
+								  <td><?php if($get->status==1){echo "Active";}else {echo "Deactivate";}?></td>
 							</tr>								  
 							<?php } ?>
                        </tbody>

@@ -1,3 +1,19 @@
+<?php
+/*
+@the data are showing from 4 different tables using join query.
+@auto-search for agenda of meeting.
+@add multiple participants
+@add multiple conclusion for the meeting.
+@show multiple participants and conclusion of meeting.	 
+@update and delete the participants and conclusion.
+@Self-seating- If the self-seating is Yes, the user will be the secretary of the application.
+If the self-seating is No, there should be a choosing option to select the secretary of the meeting. 
+@Participant’s Name – it will be automatically fed with similarity to Index meeting in progress.
+The sheet needs to be shared by the limited number of participants.
+The status should be there to mark the attendance of the participants.
+@Conclusion Communication by – This need to be filled by the user how the communication has been made.
+*/
+?>
 	   <?php $this->load->view('head'); ?> 
 	   <?php $this->load->view('header'); ?>
 		<!-- user View design page start -->
@@ -8,7 +24,6 @@
 	float:left;
 }
 .form_error{color:red; font-size:12px;}
-
 </style>
 		<div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Meeting Info</p></div>
 		<div class="col-md-12 all-mettings">
@@ -131,7 +146,6 @@
 												</div>
 											</div>
 										</div>  
-										
 										<div class="col-md-2" class="RegSpLeft" id="name">
 										 <label>Name</label>
 											<div class="form-group">
@@ -233,7 +247,7 @@
 										</div>  
 													<div class="col-md-2" class="RegSpLeft">								 
 														<div class="btn-group margin-top" style="text-align:center">
-															<a href="#"  onclick="setValues(<?php echo $i; ?>)"  class="btn-eror btn">Delete</a>
+															<a href="#"  onclick="setValues(<?php echo $i; ?>)" class="btn-eror btn">Delete</a>
 														</div>
 													</div>
 								                </div>

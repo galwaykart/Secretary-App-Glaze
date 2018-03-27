@@ -25,7 +25,6 @@
 					  $config["uri_segment"] = 3;
 					  $this->pagination->initialize($config);
 					  $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-				
 					  $data['fetch'] = $this->Reminder_sheet_model->get_reminder($config["per_page"], $page);
 				
 					  $data["links"] = $this->pagination->create_links();
