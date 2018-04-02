@@ -42,22 +42,64 @@ public function username_check($username){
 
 
 	public function getDashboardDetails(){
-		$query1 = $this->db->query('SELECT *  FROM `index_meeting` JOIN index_meeting_agenda ON index_meeting.agenda_id = index_meeting_agenda.agenda_id WHERE `date_of_meeting` = CURDATE()');
+		$year=date('20y');
+		$month=date('m');
+		$user_id = $this->session->userdata['id'];
+		$query1 = $this->db->query('SELECT *  FROM `index_meeting` JOIN index_meeting_agenda ON index_meeting.agenda_id = index_meeting_agenda.agenda_id WHERE `date_of_meeting` = CURDATE() AND user_id = "$user_id"');
 
-		$query2 = $this->db->query('SELECT * FROM `daily_notes` WHERE `task_start_date` = CURDATE()');
+		$query12 = $this->db->query('SELECT *  FROM `index_meeting` JOIN index_meeting_agenda ON index_meeting.agenda_id = index_meeting_agenda.agenda_id WHERE user_id = "$user_id"');
 
-		$query3 = $this->db->query('SELECT COUNT(*) AS `total_works` FROM `quick_work` WHERE `date` = CURDATE()');
+		$query2 = $this->db->query('SELECT * FROM `daily_notes` WHERE `task_start_date` = CURDATE() AND user_id = "$user_id"');
 
-		$query4 = $this->db->query('SELECT COUNT(*) AS `total_projects` FROM `project_delegation`  WHERE `project_delegation_date`  = CURDATE()');
+		$query3 = $this->db->query('SELECT COUNT(*) AS `total_works` FROM `quick_work` WHERE `date` = CURDATE() AND user_id = "$user_id"');
 
-		$query5 = $this->db->query('SELECT *   FROM `appointment` WHERE DATE_FORMAT(`appointment_start_time`, "%Y-%m-%d")  = CURDATE()');
+		$query13 = $this->db->query('SELECT * FROM `quick_work` WHERE user_id = "$user_id"');
 
-		$query71 = $this->db->query('SELECT COUNT(*) AS total_yearlyTask FROM `yearly_periodic` WHERE DAY(CURDATE()) = DAY(yearly_periodic_start_date) AND  MONTH(CURDATE()) = MONTH(yearly_periodic_start_date) AND YEAR(CURDATE()) <= YEAR(yearly_periodic_end_date)');
 
-		$query72 = $this->db->query('SELECT COUNT(*) AS total_monthlyTask FROM `monthly_periodic` WHERE DAY(CURDATE()) = DAY(`monthly_start_date`) AND YEAR(CURDATE()) <= YEAR(`monthly_periodic_end_date`)');
+		$query4 = $this->db->query('SELECT COUNT(*) AS `total_projects` FROM `project_delegation`  WHERE `project_delegation_date`  = CURDATE() AND user_id = "$user_id"');
 
-		$query73 = $this->db->query('SELECT COUNT(*) AS total_weeklyTask FROM `weekly_periodic` WHERE WEEKDAY(CURDATE()) = WEEKDAY(weekly_periodic_start_date) AND YEAR(CURDATE()) <= YEAR(weekly_periodic_end_date)');
+		$query14 = $this->db->query('SELECT * FROM `project_delegation` WHERE user_id = "$user_id"');
+
+		$query5 = $this->db->query('SELECT *   FROM `appointment` WHERE DATE_FORMAT(`appointment_start_time`, "%Y-%m-%d")  = CURDATE() AND user_id = "$user_id"');
+
+		$query15 = $this->db->query('SELECT *   FROM `appointment` WHERE user_id = "$user_id"');
+
+
+		$query71 = $this->db->query('SELECT COUNT(*) AS total_yearlyTask FROM `yearly_periodic` WHERE DAY(CURDATE()) = DAY(yearly_periodic_start_date) AND  MONTH(CURDATE()) = MONTH(yearly_periodic_start_date) AND YEAR(CURDATE()) <= YEAR(yearly_periodic_end_date) AND user_id = "$user_id"');
+
+		$this->db->select('*');
+		$this->db->from('yearly_periodic');
+		$this->db->where('Year(yearly_periodic_start_date) <=',$year);
+		$this->db->where('Year(yearly_periodic_end_date) >=',$year);
+		$this->db->where('user_id',$user_id);
+		$queryYear = $this->db->get();
+		$query711 =  $queryYear->result();
+
+
+		$query72 = $this->db->query('SELECT COUNT(*) AS total_monthlyTask FROM `monthly_periodic` WHERE DAY(CURDATE()) = DAY(`monthly_start_date`) AND YEAR(CURDATE()) <= YEAR(`monthly_periodic_end_date`) AND user_id = "$user_id"');
+
+		$this->db->select('*');
+		$this->db->from('monthly_periodic');
+		$this->db->where('Month(monthly_start_date) <=',$month);
+		$this->db->where('Month(monthly_periodic_end_date) >=',$month);
+		$this->db->where('user_id',$user_id);
+		$queryMonthly = $this->db->get();
+		$query721 = $queryMonthly->result();
+
+		$query73 = $this->db->query('SELECT COUNT(*) AS total_weeklyTask FROM `weekly_periodic` WHERE WEEKDAY(CURDATE()) = WEEKDAY(weekly_periodic_start_date) AND YEAR(CURDATE()) <= YEAR(weekly_periodic_end_date) AND user_id = "$user_id"');
+
 		
+		$this->db->select('*');
+		$this->db->from('weekly_periodic');
+		$this->db->where('Month(weekly_periodic_start_date) <=',$month);
+		$this->db->where('Month(weekly_periodic_end_date) >=',$month);
+		$this->db->where('YEAR(weekly_periodic_end_date) >=',$year);
+		$this->db->where('YEAR(weekly_periodic_end_date) >=',$year);
+		$this->db->where('user_id',$user_id);
+		$queryWeekly = $this->db->get();
+		$query731 = $queryWeekly->result();
+
+
 		$total_periodic = $query71-> result()[0]->total_yearlyTask + 
 		$query72-> result()[0]->total_monthlyTask +
 		$query73-> result()[0]->total_weeklyTask ;
@@ -66,12 +108,17 @@ public function username_check($username){
 		// echo "</pre>";
 
 		$total_dashboard_details = array(
-			"index_meeting" => array("data"=>$query1->result() , "count" => sizeof($query1->result())),
+			"index_meeting" => array("data"=>$query1->result() , "all_data"=>$query12->result() , "count" => sizeof($query1->result())),
 			"daily_notes" => array("data"=>$query2->result() , "count" => sizeof($query2->result())),
 			"quick_work" => $query3->result(),
+			"total_quick_work" => $query13->result(),
 			"project_delegation" => $query4->result(),
-			"appointment" => array("data"=>$query5->result() , "count" => sizeof($query5->result())),
-			"periodic" => $total_periodic,			
+			"total_project_delegation" => $query14->result(),
+			"appointment" => array("data"=>$query5->result() , "all_data"=>$query15->result() , "count" => sizeof($query5->result())),
+			"periodic" => $total_periodic,
+			"yearly_periodic"=> $query711,	
+			"monthly_periodic"=> $query721,		
+			"weekly_periodic"=> $query731,
 		);
 
 		// echo "<pre>";

@@ -2,7 +2,7 @@
 
 	class Indexmeeting extends CI_Controller 
 	{
-	 
+		public $user_id ="";
 		public function __construct(){
 				parent::__construct();
 					$this->load->helper('url'); 
@@ -10,6 +10,7 @@
 					$this->load->model('Indexmeeting_model');
 					$this->load->library("pagination");
 					$this->load->library(array('session', 'form_validation'));
+					$this->user_id = $this->session->userdata['id'];
 					
 		} 
 			 
@@ -117,7 +118,9 @@
 	     'self_seating'=>$this->input->post('seating'),
 	     'index_meeting_next_date'=>$this->input->post('index_meeting_next_date'),
 	     'index_meeting_start_time'=>$this->input->post('index_meeting_start_time'),
-	     'index_meeting_end_time'=>$this->input->post('index_meeting_end_time'),
+		 'index_meeting_end_time'=>$this->input->post('index_meeting_end_time'),
+		 'user_id'=>$this->user_id,
+
 
 		);
 		$data[1] = array(

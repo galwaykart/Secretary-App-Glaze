@@ -2,6 +2,7 @@
 
 	class Monthlyperiodic extends CI_Controller 
 	{
+		public $user_id ="";	 
 	 
 		public function __construct(){
 				parent::__construct();
@@ -10,6 +11,8 @@
 					$this->load->model('Monthly_periodic_model');
 					$this->load->library("pagination");
 					$this->load->library(array('session', 'form_validation'));
+					$this->user_id = $this->session->userdata['id'];
+
 		} 
 			 
 		public function index($month = ''){  
@@ -63,7 +66,9 @@
 			'monthly_start_date'=>$this->input->post('start_date'),
 			'monthly_periodic_end_date'=>$this->input->post('end_date'),
 			'monthly_periodic_status'=>$this->input->post('status'),
-			'monthly_periodic_remark'=>$this->input->post('remark')
+			'monthly_periodic_remark'=>$this->input->post('remark'),
+			'user_id'=>$this->user_id,
+
 			);
 			$data[1] = array(
 			'monthly_periodic_delegates_name'=>$this->input->post('delegate_to'),

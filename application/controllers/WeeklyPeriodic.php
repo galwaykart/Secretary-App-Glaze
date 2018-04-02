@@ -2,6 +2,7 @@
 //defined('BASEPATH') OR exit('No direct script access allowed');
 
 class WeeklyPeriodic extends CI_Controller {
+	public $user_id ="";	 
 
 	public function __construct(){
 		parent::__construct();
@@ -10,6 +11,8 @@ class WeeklyPeriodic extends CI_Controller {
 			$this->load->model('Weekly_periodic_model');
 			$this->load->library("pagination");
 			$this->load->library(array('session', 'form_validation'));
+			$this->user_id = $this->session->userdata['id'];
+
 } 
 	 
 public function index($month = ''){  
@@ -77,7 +80,9 @@ public function add_data(){
 	'weekly_periodic_status'=>$this->input->post('status'),
 	'weekly_periodic_remark'=>$this->input->post('remark'),
 	'Day'=>$this->input->post('day'),
-	'weekly_periodic_supervision'=>$this->input->post('supervision')
+	'weekly_periodic_supervision'=>$this->input->post('supervision'),
+	'user_id'=>$this->user_id,
+
 	);
 	$data[1] = array(
 	'weekly_periodic_delegates_name'=>$this->input->post('delegate_to'),
