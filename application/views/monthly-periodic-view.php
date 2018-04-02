@@ -172,7 +172,7 @@
                                    </div>
                            
                         </div>
-                   </div>
+                    </div>
 						<div class="col-md-3"> 
 							<div class="btn-group margin-top" style="text-align:left">
 								<a href="#" class="ad btn-primary btn" id="add1"><span class="fa fa-plus" ></span></a>
@@ -219,7 +219,8 @@
                    </div>	
 			   
 					<div class="right text-center">
-					  <div class="btn-group"><a style="background: red;" href="#"  onclick="setValues(<?php echo $i; ?>)"><span class="fa fa-minus" style="color: white;"></span></a></div></div>				   
+					  <div class="btn-group"><a style="background: red;" href="#"  onclick="setValues(<?php echo $i; ?>)"><span class="fa fa-minus" style="color: white;"></span></a></div>
+					</div>				   
 			  </div>
 				
 			 <?php } $i++; } }   ?> 
@@ -232,9 +233,7 @@
 	<div class="clear"></div>
   </div><!-- dailly index panel end -->
 <!-- dailly index panel end -->
-       
-	
-	
+ 
    	    <script type="text/javascript"> 
 				$(function() {
 					$('a#add1').click(function(e) {

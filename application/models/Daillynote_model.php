@@ -1,6 +1,6 @@
 <?php
 	class Daillynote_model extends CI_model{
-
+		
 		public function addDailyNotes($data){
 			$output = $this->db->insert('daily_notes', $data[0]);
 			if($output){
@@ -49,14 +49,18 @@
 		}
 
 		public function record_count() {
-			
-				  return $this->db->count_all("daily_notes");
+
+				  $user_id = $this->session->userdata['id'];
+				  $query = $this->db->where('user_id', $user_id)->get('daily_notes');
+				  return $query->num_rows();
 			
 			  }
 
 
 		public function getDailyNotesList($limit, $start){
+			$user_id = $this->session->userdata['id'];
 			$this->db->limit($limit, $start);
+			$this->db->where("user_id", $user_id);
 			$query = $this->db->get("daily_notes"); 
 
 

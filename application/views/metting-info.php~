@@ -1,3 +1,14 @@
+<?php
+/*
+@the data are showing from 4 different tables using join query.
+@auto-search for agenda of meeting.
+@add multiple participants
+@add multiple conclusion for the meeting.
+@show multiple participants and conclusion of meeting.	 
+@update and delete the pa
+
+*/
+?>
 	   <?php $this->load->view('head'); ?> 
 	   <?php $this->load->view('header'); ?>
 		<!-- user View design page start -->
@@ -8,7 +19,6 @@
 	float:left;
 }
 .form_error{color:red; font-size:12px;}
-
 </style>
 		<div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Meeting Info</p></div>
 		<div class="col-md-12 all-mettings">
@@ -91,7 +101,7 @@
 								<label>Agenda of Meeting :</label>
 							</div>
 							<div class="col-md-8">
-								<input type="text" placeholder="Ajenda of Meeting" id="search" name="agenda"  value="<?php if(isset($fetch['data2'])){ echo $fetch['data2'][0]->agenda_name;} else{ echo set_value('agenda'); } ?>" />
+								<input type="text" placeholder="Ajenda of Meeting" required id="search" name="agenda"  value="<?php if(isset($fetch['data2'])){ echo $fetch['data2'][0]->agenda_name;} else{ echo set_value('agenda'); } ?>" />
 								<?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?></span>
 							</div>
 						</div> <!-- start TAB -->
@@ -112,7 +122,7 @@
 											<div class="form-group" >
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-building-o" ></span></div>
-													<div class="form-control"><input type="text" placeholder="Department" id="department" name="department[]" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->department;} else{echo set_value('department[]');} ?>" /></div>
+													<div class="form-control"><input type="text" required placeholder="Department" id="department" name="department[]" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->department;} else{echo set_value('department[]');} ?>" /></div>
 													<?php echo form_error('department[]', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
@@ -131,13 +141,12 @@
 												</div>
 											</div>
 										</div>  
-										
 										<div class="col-md-2" class="RegSpLeft" id="name">
 										 <label>Name</label>
 											<div class="form-group">
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-edit" ></span></div>
-													<div class="form-control"><input type="text" placeholder="Name" id="name" name="name[]" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->name;} else{echo set_value('name[]');} ?>" /></div>
+													<div class="form-control"><input type="text" placeholder="Name" required id="name" name="name[]" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->name;} else{echo set_value('name[]');} ?>" /></div>
 													<?php echo form_error('name[]', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
@@ -147,7 +156,7 @@
 											<div class="form-group">
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
-													<div class="form-control"><input type="text" placeholder="Email Id" id ="email" name="email[]" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->email;} else{echo set_value('email[]');} ?>"/></div>
+													<div class="form-control"><input type="text" placeholder="Email Id" required id ="email" name="email[]" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->email;} else{echo set_value('email[]');} ?>"/></div>
 													<?php echo form_error('email', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
@@ -178,7 +187,7 @@
 														<div class="form-group" >
 															<div class="input-group">
 																<div class="input-addon"><span class="fa fa-building-o" ></span></div>
-																<div class="form-control"><input type="text" placeholder="Department"  id="department" name="department[]" value="<?php if(isset($record)){ echo $record->department;} else{echo set_value('department[]');}?>" />
+																<div class="form-control"><input type="text" placeholder="Department"  id="department" name="department[]" required value="<?php if(isset($record)){ echo $record->department;} else{echo set_value('department[]');}?>" />
 																<?php echo form_error('department[]', '<span class="form_error">', '</span>'); ?></span>
 																</div>
 																
@@ -202,7 +211,7 @@
 														<div class="form-group">
 															<div class="input-group">
 																<div class="input-addon"><span class="fa fa-edit" ></span></div>
-																<div class="form-control"><input type="text" placeholder="Name" id="name" name="name[]" value="<?php if(isset($record)){ echo $record->name;} else{echo set_value('name[]');} ?>" />
+																<div class="form-control"><input type="text" placeholder="Name" required id="name" name="name[]" value="<?php if(isset($record)){ echo $record->name;} else{echo set_value('name[]');} ?>" />
 																<?php echo form_error('name[]', '<span class="form_error">', '</span>'); ?></span>
 																</div>
 															</div>
@@ -212,7 +221,7 @@
 														<div class="form-group">
 															<div class="input-group">
 																<div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
-																<div class="form-control"><input type="text" placeholder="Email Id" id ="email" name="email[]" value="<?php if($record){ echo $record->email;} else{echo set_value('email[]');}?>"/>
+																<div class="form-control"><input type="text" placeholder="Email Id" required id ="email" name="email[]" value="<?php if($record){ echo $record->email;} else{echo set_value('email[]');}?>"/>
 																<?php echo form_error('email[]', '<span class="form_error">', '</span>'); ?></span>
 																</div>
 															</div>
@@ -233,7 +242,7 @@
 										</div>  
 													<div class="col-md-2" class="RegSpLeft">								 
 														<div class="btn-group margin-top" style="text-align:center">
-															<a href="#"  onclick="setValues(<?php echo $i; ?>)"  class="btn-eror btn">Delete</a>
+															<a href="#"  onclick="setValues(<?php echo $i; ?>)" class="btn-eror btn">Delete</a>
 														</div>
 													</div>
 								                </div>
@@ -276,7 +285,7 @@
 												</div>
 												<div class="body-input-tabs">
 													<div class="col-md-3"> <label>Delegate To : </label></div>
-													<div class="col-md-3"> <input type="text"  placeholder="Department"  name="delegated_dept[]" value="<?php if(isset($fetch['data3'])){ echo $fetch['data3'][0]->delegated_dept;} else{echo set_value('delegated_dept[]');}?>"/>
+													<div class="col-md-3"> <input type="text" required placeholder="Department"  name="delegated_dept[]" value="<?php if(isset($fetch['data3'])){ echo $fetch['data3'][0]->delegated_dept;} else{echo set_value('delegated_dept[]');}?>"/>
 													<?php echo form_error('delegated_dept[]', '<span class="form_error">', '</span>'); ?>
 													</div>
 													<div class="col-md-3">
@@ -311,7 +320,7 @@
 														<div class="col-md-3">  <label>Conclusion of Meeting : </label></div>
 														<div class="col-md-9">
 															<textarea class="conclu-text"  required  name="conclusion_textarea[]" >
-																<?php if(isset($record1)){ echo $record1->conclusion_textarea; } else{echo set_value()} ?>
+																<?php if(isset($record1)){ echo $record1->conclusion_textarea; } else{echo set_value('conclusion_textarea[]');} ?>
 															</textarea>
 															<?php echo form_error('conclusion_textarea[]', '<span class="form_error">', '</span>'); ?>
 														</div>
@@ -329,7 +338,9 @@
 													</div>
 													<div class="body-input-tabs">
 														<div class="col-md-3"> <label>Delegate To : </label></div>
-														<div class="col-md-3"> <input type="text"  placeholder="Department"  name="delegated_dept[]" value="<?php if($record1){ echo $record1->delegated_dept;} ?>"/></div>
+														<div class="col-md-3"> <input type="text" required placeholder="Department"  name="delegated_dept[]" value="<?php if($record1){ echo $record1->delegated_dept;} else{echo set_value('delegated_dept[]');} ?>"/>
+														<?php echo form_error('delegated_dept[]', '<span class="form_error">', '</span>'); ?>
+														</div>
 														<div class="col-md-3">
 															<select name="delegated_name[]" >
 																<option value="1" <?php if(isset($record1)){ if($record1->delegated_name == "1"){ echo "selected"; }} ?>>Yes</option>
@@ -340,7 +351,9 @@
 												
 													<div class="body-input-tabs c">
 														<div class="col-md-3"> <label>Target Date : </label></div>
-														<div class="col-md-9"><input type="date" name="targetdate[]" value="<?php if(isset($record1)){ echo $record1->targetdate;} ?>" /></div>
+														<div class="col-md-9"><input type="date" name="targetdate[]" required value="<?php if(isset($record1)){ echo $record1->targetdate;} else {echo set_value('targetdate');} ?>" />
+														<?php echo form_error('targetdate[]', '<span class="form_error">', '</span>'); ?>
+														</div>
 													</div>
 												</div>                 
 												<div class="col-md-2" class="RegSpLeft">								 

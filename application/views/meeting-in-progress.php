@@ -1,3 +1,15 @@
+<?php
+/*
+@the data are showing from 2 different tables using join query and also using the count function we are counting the number of agenda meeting.
+@we are using foreach to get multiple data  from database.
+@Previous Date – To be used as the last date of the meeting. Fed manually by the user.
+In case of first meeting - Previous Date = NA
+@Next Date – To be manually fed by the user
+@Number of the Meeting – count using the the agenda
+@Agenda – The column should consist the provision of manual feeding of the text
+*/
+?>
+
 	<?php $this->load->view('head'); ?>
 		<?php $this->load->view('header'); ?>
     <!-- user View design page start -->
@@ -29,6 +41,7 @@
                        <tbody>
 					   <?php  $i=1;
 					     foreach($meeting as $arr){?>
+						 <!--newDoc is a function to passed the Id from the database-->
                          <tr onclick='newDoc(<?php echo $arr->agenda_id; ?>)'>
 							 <td><?php echo $i++;?></td>
 							 <td><?php echo $arr->agenda_name;?></td>

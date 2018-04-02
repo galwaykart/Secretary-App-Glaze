@@ -22,10 +22,12 @@
 		 }
 		 
 		 public function getmonthly($month,$limit, $start){
+			$user_id = $this->session->userdata['id'];
 			 $this->db->select('*');
 			 $this->db->from('monthly_periodic');
 			 $this->db->where('Month(monthly_start_date) <=',$month);
 			 $this->db->where('Month(monthly_periodic_end_date) >=',$month);
+			 $this->db->where("user_id", $user_id);
 			 $this->db->limit($limit, $start);
 			 $query = $this->db->get();
 		     //print_r($query->result()); 	die;
@@ -33,12 +35,12 @@
 		 }
 		 
 		 public function record_count($month){
-			 $this->db->select('*');
-			 $this->db->from('monthly_periodic');
-			 $this->db->where('Month(monthly_start_date) <=',$month);
-			 $this->db->where('Month(monthly_periodic_end_date) >=',$month);
-			 $query = $this->db->count_all_results();
-			 return $query;
+			 $user_id = $this->session->userdata['id'];
+			 $query = $this->db->where('Month(monthly_start_date) <=',$month)			 
+			 ->where('Month(monthly_periodic_end_date) >=',$month)
+			 ->where('user_id', $user_id)
+			 ->get('monthly_periodic');
+			 return $query ->num_rows();
 
 			//print_r($query);die;
 		 }

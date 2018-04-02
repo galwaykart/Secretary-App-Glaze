@@ -2,8 +2,9 @@
 	class Quickwork_model extends CI_model{
 
 		public function record_count() {
-			
-				  return $this->db->count_all("quick_work");
+					$user_id = $this->session->userdata['id'];
+					$query = $this->db->where('user_id', $user_id)->get('quick_work');
+					return $query->num_rows();
 				  
 			
 			  }
@@ -12,13 +13,11 @@
 
 
 		public function getQuickworkList($limit, $start){
-
+			$user_id = $this->session->userdata['id'];
 			$this->db->limit($limit, $start);
-			
+			$this->db->where("user_id", $user_id);
 				  $query = $this->db->get("quick_work");
-			
-			
-			
+
 				  if ($query->num_rows() > 0) {
 			
 					  foreach ($query->result() as $row) {
@@ -26,7 +25,7 @@
 						  $data[] = $row;
 			
 					  }
-			
+					  
 					  return $data;
 			
 				  }

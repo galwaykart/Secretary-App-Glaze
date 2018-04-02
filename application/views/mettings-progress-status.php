@@ -1,3 +1,13 @@
+<?php
+/*
+@Meeting in progress is the status report which is a detailed sheet, linked to the Index Meeting in Progress.
+@the data are showing from 2 different tables using join query and also using the count function we are counting the number of agenda meeting.
+@we are using foreach to get multiple data  from database.
+@agenda of meeting: agenda name
+
+*/
+?>
+
   <?php $this->load->view('head'); ?> 
   <?php $this->load->view('header'); ?> 
     <!-- user View design page start -->

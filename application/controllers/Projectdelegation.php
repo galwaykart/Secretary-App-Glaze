@@ -2,6 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Projectdelegation extends CI_Controller {
+	public $user_id ="";	 
+
     	public function __construct(){
 				parent::__construct();
 					$this->load->helper('url'); 
@@ -9,6 +11,8 @@ class Projectdelegation extends CI_Controller {
 					$this->load->model('Projectdelegation_model');
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
+					$this->user_id = $this->session->userdata['id'];
+
 		}
 		public function index($param1 = NUll , $param3 = null , $param = Null)
 		{
@@ -117,6 +121,8 @@ class Projectdelegation extends CI_Controller {
 					'project_delegation_target_date'=>$this->input->post('target_date'),
 					'project_delegation_followup_date'=>$this->input->post('followup_date'),
 					'project_delegation_remark'=>$this->input->post('remark'),
+					'user_id'=>$this->user_id,
+
 				   );
 
 				   $data[1] = array(

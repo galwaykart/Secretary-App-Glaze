@@ -21,23 +21,25 @@
 		}
 
 		public function getyear($year,$limit,$start){
+			$user_id = $this->session->userdata['id'];
 			 $this->db->select('*');
 			 $this->db->from('yearly_periodic');
 			 $this->db->where('Year(yearly_periodic_start_date) <=',$year);
 			 $this->db->where('Year(yearly_periodic_end_date) >=',$year);
-			 $this->db->limit($limit, $start);
+			 $this->db->limit($limit, $start);			 
+			 $this->db->where("user_id", $user_id);
 			 $query = $this->db->get();
 		     //print_r($query->result()); 	die;
 			 return $query->result();
 		 }
 		 	 
 		  public function record_count($year){
-			 $this->db->select('*');
-			 $this->db->from('yearly_periodic');
-			 $this->db->where('Year(yearly_periodic_start_date) <=',$year);
-			 $this->db->where('Year(yearly_periodic_end_date) >=',$year);
-			 $query = $this->db->count_all_results();
-			 return $query;
+			 $user_id = $this->session->userdata['id'];
+			 $query = $this->db->where('user_id', $user_id)
+			 ->where('Year(yearly_periodic_start_date) <=',$year)
+			 ->where('Year(yearly_periodic_end_date) >=',$year)
+			 ->get('yearly_periodic');
+			 return $query->num_rows();
 
 			//print_r($query);die;
 		  }

@@ -2,7 +2,8 @@
 
 	class Quickwork extends CI_Controller 
 	{
-	 
+		public $user_id ="";	 
+
 		public function __construct(){
 				parent::__construct();
 					$this->load->helper('url'); 
@@ -10,6 +11,7 @@
 					$this->load->model('Quickwork_model');
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
+					$this->user_id = $this->session->userdata['id'];
 		} 
 			 
 		public function index($param1 = NUll , $param3 = null , $param = Null){  
@@ -23,7 +25,7 @@
 					  $config["base_url"] = base_url() . "Quickwork/index";
 				
 					  $config["total_rows"] = $this->Quickwork_model->record_count();
-					  //echo $this->Quickwork_model->record_count();
+					  echo $this->Quickwork_model->record_count();
 				
 					  $config["per_page"] = 1;
 				
@@ -113,6 +115,7 @@
 						'remark'=>$this->input->post('remark'),
 						'status'=>$this->input->post('status'),
 						'active'=>$this->input->post('active'),
+						'user_id'=>$this->user_id,
 	
 	
 						);
