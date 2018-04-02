@@ -1,11 +1,23 @@
   <?php $this->load->view('head'); ?>
      <?php $this->load->view('header'); ?>
+	 
+	 <style>
+	 .form_error{color:red; font-size:18px;}
+	 </style>
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Monthly Periodic View</p></div>
 	<div class="clear"></div>
     <div class="dailly-notes-index-panel">
+			<?php 
+		if(form_error('end_date') || form_error('note[]') || form_error('date[]')){
+			echo '<span class="form_error">Please provide valid input', '</span>'	;
+		}
+	?>
+	
 	<form method="post"  action="<?php if($list){echo base_url()."yearlyperiodic/add_data/".$list['data1'][0]->yearly_periodic_id;}else{echo base_url()."yearlyperiodic/add_data/";} ?>">
 	<div class="container-5">
+
+       
                        
                         <div class="col-md-12">
                                     <h2>Perodic Task View</h2>
@@ -23,7 +35,7 @@
                                                             <span class="fa fa-calendar" ></span>
                                                             </div>
                                                             <div class="form-control">
-															<input type="date" title="End date" required value="<?php if($list){ echo $list['data1'][0]->yearly_periodic_end_date; }  ?>" /></div>
+															<input type="date" name="end_date" title="End date" required value="<?php if($list){ echo $list['data1'][0]->yearly_periodic_end_date; }  ?>" /></div>
                                                         </div>
                                                 </div>
                                                
@@ -62,7 +74,8 @@
                                          <div class="btn-group margin-top" style="text-align:center">
 											<a href="#" class="ad btn-primary btn" id="add"><span class="fa fa-plus" ></span></a>
 										</div>           
-                                    </div>        
+                                    </div>    
+											
 						 <?php  $j = 0;
 								if($list){									
 									foreach($list['data2'] as $record){	 
@@ -97,7 +110,7 @@
 															</div>
 															
                                                     </div>
-									<div class=" text-center">
+									<div class="right text-center">
 									 <div class="btn-group"><a style="background: red;" href="#"  onclick="setValues1(<?php echo $j; ?>)"><span class="fa fa-minus" style="color: white;"></span></a></div></div>
 										</div>
                                     </div>
@@ -209,7 +222,6 @@
                            
                         </div>
                    </div>	
-			   
 					<div class="right text-center">
 					  <div class="btn-group"><a style="background: red;" href="#"  onclick="setValues(<?php echo $i; ?>)"><span class="fa fa-minus" style="color: white;"></span></a></div></div>				   
 			  </div>
@@ -246,7 +258,7 @@
 					$('a#add').click(function(e) {
 						e.preventDefault();
 						var lnth1 = $('#delete1 .auto-del1').length; 
-					 $('#delete1').append('<div class="clear"><div ></div></div><div id="rm1'+lnth1+'" class="auto-del1"><div class="col-md-3"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required/></div></div></div></div><div class="col-md-3" ><div class="form-group"><label>Email</label><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="col-md-4" style="float:left;"><div class="btn-group" ><a style="background: red;" href="#"  onclick="setValues1('+ lnth1 + ')"><span class="fa fa-minus yel-minus-work" ></span></a></div></div></div>');
+					 $('#delete1').append('<div class="clear"><div class="auto-del"></div></div><div id="rm1'+lnth1+'" class="auto-del1"><div class="col-md-3"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required/></div></div></div></div><div class="col-md-3" ><div class="form-group"><label>Email</label><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="col-md-4" style="float:left;"><div class="btn-group" ><a style="background: red;" href="#"  onclick="setValues1('+ lnth1 + ')"><span class="fa fa-minus yel-minus-work" ></span></a></div></div></div>');
 					  
 					});
 				});

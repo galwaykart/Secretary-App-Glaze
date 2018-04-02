@@ -22,11 +22,25 @@ class User extends CI_Controller
 	// to view signup page
 	public function signUp() {  
 			if($this->session->user == 'logged_in'){
-				$this->load->view("signup");
+			  if($this->uri->segment(3)){
+				$id = $this->uri->segment(3);
+				$data['list'] = $this->user_model->get_user($id);
+				if(!$data['list']){
+					redirect('User/signup');
+				}
+				//print_r($this->user_model->get_user($id));die;
+				$this->load->view('signup',$data);
+
+			  }
+				else{	
+				$data['list'] = array();
+				$this->load->view('signup',$data);
+				}
 			}else{
-				 $this->load->view("login");
+				$this->load->view("login");
 			}
 		}
+		
 		
 	// to view dashboard
 	public function dashboard() {
@@ -37,6 +51,17 @@ class User extends CI_Controller
 			$this->load->view("dashboard" ,$data); 
 		}
 		
+			// get data 
+	public function userlist() {
+		if($this->session->user == 'logged_in'){
+			$data['list'] = $this->user_model->get_userlist();
+			$this->load->view("userlist",$data);
+		}else{
+			 $this->load->view("login");
+		}
+	}
+		
+	
 	public function register_user(){
 	   // validation data
 	  $this->form_validation->set_rules('username','User Name','trim|required');
@@ -51,38 +76,65 @@ class User extends CI_Controller
 	  
 	 if($this->form_validation->run() == false)
 		{
-			$this->load->view('signup');
+			$this->signUp();	
+			//$this->load->view('signup');
 		}
 		else{
+			$record_id =$this->uri->segment(3);  
 			//insert data
 		  $user=array(
+		  'username'=>$this->input->post('username'),
 		  'firstname'=>$this->input->post('firstname'),
 		  'lastname'=>$this->input->post('lastname'),
 		  'email'=>$this->input->post('email'),
-		  'username'=>$this->input->post('username'),
 		  'password'=>md5($this->input->post('password')), 
 		  'phonenumber'=>$this->input->post('phonenumber'),
 		  'type'=>$this->input->post('type'),
-		  //'status'=>($this->input->post('status')===active)?0:1,
-			); 
-			// check username 
-		    $username_check = $this->user_model->username_check($user['username']);
+		  //'status'=> $this->input->post('status'),
+		 'status'=>($this->input->post('status')==active)?0:1,
+			);  	
 
+		  $data=array(
+		  'firstname'=>$this->input->post('firstname'),
+		  'lastname'=>$this->input->post('lastname'),
+		  'email'=>$this->input->post('email'),
+		  'password'=>md5($this->input->post('password')), 
+		  'phonenumber'=>$this->input->post('phonenumber'),
+		  'type'=>$this->input->post('type'),
+		   'status'=>($this->input->post('status')==active)?0:1,
+			); 
+
+			// check username 
+		 $username_check = $this->user_model->username_check($user['username']);
+		 
+		   if($this->uri->segment(3)){
+			   $this->user_model->updateuser($data, $record_id);
+			   $this->session->set_flashdata('msg', 'Updated Successfully!!!');
+			   redirect('user/userlist');
+		   }
 			if($username_check){
 			  $this->user_model->register_user($user);
 			  $this->session->set_flashdata('success_msg', 'Registered successfully.Now login to your account.');
 			  redirect('user/userlist');
+			}
 
-			} else{
-
+			else{
 			  $this->session->set_flashdata('error_msg', 'User name Already Exist,please try again');
 			  redirect('user/signup');
-
 			}
-			//end username
+
 		}
+		
 	}
 
+	public function delete_id(){
+	 $record_id =$this->uri->segment(3);  	
+	 $this->user_model->delete_user($record_id);
+	 $this->session->set_flashdata('msg', 'Deleted Successfully!!!');
+	 redirect('user/userlist');
+	}
+  
+	
 	public function login_view(){
 
 		if($this->session->user == 'logged_in'){
@@ -129,24 +181,12 @@ class User extends CI_Controller
 		}
 	// logout section
 	public function user_logout(){
-
 	  $this->session->sess_destroy();
 	  $this->session->set_flashdata('success_msg','You have been successfully logged out');
 	 // redirect('user/login_view', 'refresh'); 
 	   $this->load->view('login');
 
 	}
-
-	// get data 
-	public function userlist() {
-		if($this->session->user == 'logged_in'){
-			$this->data['list'] = $this->user_model->get_userlist();
-			$this->load->view("userlist",$this->data);
-		}else{
-			 $this->load->view("login");
-		}
-	}
-		 
 }
 
 ?>

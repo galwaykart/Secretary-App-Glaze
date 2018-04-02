@@ -52,10 +52,16 @@
 		}
 		
 		public function add_data(){
-			$this->form_validation->set_rules('previous_date','Previous Meeting Date ','trim|required');
-			 if($this->form_validation->run() == false){
-			$this->load->view('metting-info');
-		    }
+		 $this->form_validation->set_rules('monthly_periodic_time','Time','trim|required');
+		 $this->form_validation->set_rules('work','Work','trim|required');
+		 $this->form_validation->set_rules('start_date','Work','trim|required');
+		 $this->form_validation->set_rules('end_date','End Date','trim|required');
+		 $this->form_validation->set_rules('status','Status','trim|required');
+		 $this->form_validation->set_rules('remark','Remark','trim|required');
+		 if($this->form_validation->run() == false){
+			//$this->load->view('yearly-periodic');
+			$this->index();
+		  }
 			else{
 			$record_id =$this->uri->segment(3); 
 			
@@ -85,12 +91,12 @@
 			}
 			else{
 			$this->Monthly_periodic_model->insertmonthly($data);
-			$this->session->set_flashdata('msg', 'Inserted Successfully!!!');
+			$this->session->set_flashdata('msg', 'Saved Successfully!!!');
 			redirect('Monthlyperiodic');
 			}
 
+			}
 		}
-		 
 	}
 
 ?>

@@ -1,9 +1,22 @@
+<?php
+/*
+the data are showing from 2 different tables using join query and also using the count function we are counting the number of agenda meeting.
+we are using foreach to get multiple data  from database.
+*Previous Date – To be used as the last date of the meeting. Fed manually by the user.
+In case of first meeting - Previous Date = NA
+Next Date – To be manually fed by the user
+Number of the Meeting – count using the the agenda
+Agenda – The column should consist the provision of manual feeding of the text
+
+*/
+?>
+
 	<?php $this->load->view('head'); ?>
 		<?php $this->load->view('header'); ?>
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Users</p></div>
     <div class="col-md-12 all-mettings">
-<!--message showinf-->	
+<!--message showing code-->	
 <?php if($this->session->flashdata('msg')): ?>
  <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
 <?php endif; ?>
@@ -21,7 +34,6 @@
 							   <th>No of Meeting</th>
 							   <th>Previous Meetings Date</th>
 							   <th>Next Meeting Date</th>
-							   <th>Participants</th>
 							   <th>Meeting Called By (Name & Department)</th>
 							   <th>Remarks</th>
 							   <th>Active/Inactive</th>
@@ -30,6 +42,7 @@
                        <tbody>
 					   <?php  $i=1;
 					     foreach($meeting as $arr){?>
+						 <!--newDoc is a function to passed the Id from the database-->
                          <tr onclick='newDoc(<?php echo $arr->agenda_id; ?>)'>
 							 <td><?php echo $i++;?></td>
 							 <td><?php echo $arr->agenda_name;?></td>
@@ -52,7 +65,7 @@
                <a href="<?php echo site_url('indexmeeting/metting_info/'); ?>" class="btn" id="addmeeingsbtn"><span class="fa fa-plus" ></span>&nbsp;Add</a>
            
         </div>
-		<div class=clear></div>
+		<div class="clear"></div>
 		<br><br>
 		<div class="pagination">
 	    <?php echo $links; ?>

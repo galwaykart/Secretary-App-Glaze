@@ -25,7 +25,6 @@
 					  $config["uri_segment"] = 3;
 					  $this->pagination->initialize($config);
 					  $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-				
 					  $data['fetch'] = $this->Reminder_sheet_model->get_reminder($config["per_page"], $page);
 				
 					  $data["links"] = $this->pagination->create_links();
@@ -53,7 +52,16 @@
 		}
 		
 		public function insert_sheet(){
-
+		 $this->form_validation->set_rules('start_date','Start Date','trim|required');
+		 $this->form_validation->set_rules('end_date','End Date','trim|required');
+		 $this->form_validation->set_rules('start_time','Start Time','trim|required');
+		 $this->form_validation->set_rules('end_time','End Time','trim|required');
+		 $this->form_validation->set_rules('frequency','Frequency','trim|required');
+		 $this->form_validation->set_rules('subject','Subject','trim|required');
+	     if($this->form_validation->run() == false){
+			 $this->index();
+		 }
+			else{
 		  $id = $this->uri->segment(3); 
 			$data = array();
 			$data[0] = array(
@@ -80,6 +88,7 @@
 			$this->session->set_flashdata('msg', 'Inserted Successfully!!!');
 			redirect('Reminder');
 			}
+		}
 		}
 	  
 	}

@@ -48,18 +48,28 @@
 		}
 		
 		public function add_data(){
+		  if($this->uri->segment(3)){
+		  $this->form_validation->set_rules('end_date','End Date ','trim|required');
+		  $this->form_validation->set_rules('note[]','Note ','trim|required');
+		  $this->form_validation->set_rules('date[]','Date ','trim|required');
+		 }else{
 		 $this->form_validation->set_rules('start_date','Start Date ','trim|required');
+		 $this->form_validation->set_rules('task','Task ','trim|required');
 		 $this->form_validation->set_rules('end_date','End Date ','trim|required');
 		 $this->form_validation->set_rules('remark','Remark','trim|required');
-		 $this->form_validation->set_rules('delegate_to[]','Delegate','trim|required');
-		 $this->form_validation->set_rules('email[]','Email','trim|required');
+			}
+
 		 if($this->form_validation->run() == false){
 			//$this->load->view('yearly-periodic');
-			$this->index();
+			if($this->uri->segment(3)){
+				$this->view();
+			}else{
+				$this->index();
+			}
+			
 		  }
-		  
 		  else {
-			$record_id =$this->uri->segment(3); 
+			$record_id =$this->uri->segment(3);
 			//echo $record_id;die;
 			$data = array();
 			$data[0] = array(
