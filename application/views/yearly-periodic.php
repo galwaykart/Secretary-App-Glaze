@@ -4,7 +4,7 @@
 	.mon_class {
 		color:#fff;
 	}
-	.form_error{color:red; font-size:12px;}
+	.form_error{color:red; font-size:18px;}
 
    </style>
    <?php $this->load->view('header'); ?>
@@ -23,7 +23,12 @@
 				
 <?php if($this->session->flashdata('msg')): ?>
  <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
-<?php endif; ?>				
+<?php endif; ?>	
+	<?php 
+		if(form_error('start_date') || form_error('task') || form_error('end_date') ||form_error('remark')){
+			echo '<span class="form_error">Please provide valid input', '</span>'	;
+		}
+	?>
               <div class="tabordion ">
                           <section id="section1">
                                         <input type="radio" name="sections" id="option1" <?php if($year == '2018') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('Yearlyperiodic/index/2018') ?>'">
@@ -204,7 +209,7 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa  fa-check-square-o" ></span></div>
-                                                                            <div class="form-control"><input type="text" placeholder="Enter Task" name="task"  /></div>
+                                                                            <div class="form-control"><input type="text" placeholder="Enter Task" name="task" required /></div>
                                                                         </div>
                                                                 </div>
                                                          </div>			 
@@ -215,8 +220,8 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa  fa-calendar" ></span></div>
-                                                                            <div class="form-control"><input type="date" title="Select Start Date"  name="start_date" value="<?php echo set_value('start_date'); ?>" />
-																			<?php echo form_error('start_date', '<span class="form_error">', '</span>'); ?></span>
+                                                                            <div class="form-control"><input type="date" title="Select Start Date"  required name="start_date" value="<?php// echo set_value('start_date'); ?>" />
+																			<?php //echo form_error('start_date', '<span class="form_error">', '</span>'); ?></span>
 																			</div>
                                                                         </div>
                                                                 </div>
@@ -225,8 +230,8 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa fa-calendar" ></span></div>
-                                                                            <div class="form-control"><input type="date" title="Select End Date"  name="end_date" value="<?php echo set_value('end_date');?>" />
-																			<?php echo form_error('end_date', '<span class="form_error">', '</span>'); ?></span>
+                                                                            <div class="form-control"><input type="date" title="Select End Date" required name="end_date" value="<?php //echo set_value('end_date');?>" />
+																			<?php //echo form_error('end_date', '<span class="form_error">', '</span>'); ?></span>
 																			</div>
                                                                         </div>
                                                                 </div>
@@ -238,7 +243,7 @@
                                        <label>Active/Inactive</label>
                                         <div class="input-group">
                                             <div class="form-control">
-											   <select name="status" >
+											   <select name="status" required>
                                                     <option disabled value="" selected hidden>Select Status</option>
                                                     <option value="1">Active</option>
                                                     <option value="0">Inactive</option>
@@ -255,8 +260,8 @@
                                        <label>Remark</label>
                                         <div class="input-group">
                                             <div class="form-control">
-                                               <textarea id="Textarea1"  class="" name="remark" value="<?php echo set_value('remark'); ?>"></textarea>
-											   <?php echo form_error('remark', '<span class="form_error">', '</span>'); ?></span>
+                                               <textarea id="Textarea1"  required class="" name="remark" value="<?php //echo set_value('remark'); ?>"></textarea>
+											   <?php //echo form_error('remark', '<span class="form_error">', '</span>'); ?></span>
                                             </div>
                                         </div>
                            
@@ -269,8 +274,8 @@
                                      <div class="form-group">
                                        <label>Delegate To</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="text"  title="Delegate To" name="delegate_to[]" value="<?php echo set_value('delegate_to[]'); ?>"/>
-											<?php echo form_error('delegate_to[]', '<span class="form_error">', '</span>'); ?></span>
+                                            <div class="form-control"><input type="text" required  title="Delegate To" name="delegate_to[]" value="<?php //echo set_value('delegate_to[]'); ?>"/>
+											<?php //echo form_error('delegate_to[]', '<span class="form_error">', '</span>'); ?></span>
 											</div>
                                         </div>
                                   </div>
@@ -281,8 +286,8 @@
                                                <label>Email Id</label>
                                                 <div class="input-group">
                                                     <div class="form-control">
-                                                        <input type="text" name="email[]"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php set_value('email'); ?>"/>
-														<?php echo form_error('email[]', '<span class="form_error">', '</span>'); ?></span>
+                                                        <input type="text" name="email[]" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php //echo set_value('email'); ?>"/>
+														<?php //echo form_error('email[]', '<span class="form_error">', '</span>'); ?></span>
                                                     </div>
                                                 </div>
                                         </div>
@@ -318,8 +323,6 @@
                 <div class="clear"></div>
 		
      <br/><br/><br/> 
-	
-
      <!-- globle header for comman end --> 
 	 
 	 
@@ -364,6 +367,6 @@
     var url = "<?php echo base_url(); ?>yearlyperiodic/view/"+id;
     window.location.assign(url);
 }
-</script>
+   </script>
 	 
       <?php $this->load->view('footer'); ?>

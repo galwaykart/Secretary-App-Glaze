@@ -1,10 +1,17 @@
   <?php $this->load->view('head'); ?>
      <?php $this->load->view('header'); ?>
-    <!-- user View design page start -->
+    	 <style>
+	 .form_error{color:red; font-size:18px;}
+	 </style>
+	<!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Monthly Periodic View</p></div>
 	<div class="clear"></div>
     <div class="dailly-notes-index-panel">
-	
+			<?php 
+		if(form_error('end_date') || form_error('note[]') || form_error('date[]')){
+			echo '<span class="form_error">Please provide valid input', '</span>'	;
+		}
+	?>
 	<form method="post"  action="<?php if($list){echo base_url()."Monthlyperiodic/add_data/".$list['data1'][0]->monthly_periodic_id;}else{echo base_url()."Monthlyperiodic/add_data/";} ?>">
 	<div class="container-5">
                        
@@ -24,7 +31,7 @@
                                                             <span class="fa fa-calendar" ></span>
                                                             </div>
                                                             <div class="form-control">
-															<input type="date" title="End date" required value="<?php if($list){ echo $list['data1'][0]->monthly_periodic_end_date; }  ?>" /></div>
+															<input type="date" title="End date" required name = "end_date" value="<?php if($list){ echo $list['data1'][0]->monthly_periodic_end_date; }  ?>" /></div>
                                                         </div>
                                                 </div>
                                                
