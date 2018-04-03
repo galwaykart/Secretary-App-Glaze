@@ -143,16 +143,9 @@
            
 
         });
-<<<<<<< HEAD
+
 </script>
-        
-=======
-         
 
->>>>>>> 0af7e0780fbefe551bdec17c6bf175ef0a86e5bd
-
-		
-		
 		
 		
 	   <script type="text/javascript" src="<?php echo base_url(); ?>js/forcast.js"></script> 

@@ -36,7 +36,7 @@
 											<a href="<?php echo site_url('Monthlyperiodic/index/01') ?>" class="mon_class">January</a>
 										</label>
                                         <article>
-                                                     <h2>January 2019 Month Task</h2>
+                                                     <h2>January 2018 Month Task</h2>
                                                      <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -87,7 +87,7 @@
 											Febuary</a>
 										</label>
                                         <article>
-                                                  <h2>Febuary 2019 Month Task</h2>
+                                                  <h2>Febuary 2018 Month Task</h2>
                                                   <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -136,7 +136,7 @@
 											<a href="<?php echo site_url('Monthlyperiodic/index/03') ?>" class="mon_class">March</a>
 										</label>
                                         <article>
-                                                        <h2>March 2019 Month Task</h2>
+                                                        <h2>March 2018 Month Task</h2>
                                                         <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -185,7 +185,7 @@
 											<a href="<?php echo site_url('Monthlyperiodic/index/04') ?>" class="mon_class">April</a>
 										</label>
                                         <article>
-                                                            <h2>April 2019 Month Task</h2>
+                                                            <h2>April 2018 Month Task</h2>
                                                             <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -233,7 +233,7 @@
 													<a href="<?php echo site_url('Monthlyperiodic/index/05') ?>" class="mon_class">May</a>
 												</label>
                                                 <article>
-                                                            <h2>May 2019 Month Task</h2>
+                                                            <h2>May 2018 Month Task</h2>
                                                             <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -283,7 +283,7 @@
 													<a href="<?php echo site_url('Monthlyperiodic/index/06') ?>" class="mon_class">June</a>
 												</label>
                                                 <article>
-                                                              <h2>June 2019 Month Task</h2>
+                                                              <h2>June 2018 Month Task</h2>
                                                               <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -308,7 +308,7 @@
 																	//if($june_month==6){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
-																	  <td><?php echo $i++; ?></td>
+																	   <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_start_date;?></td>
@@ -331,7 +331,7 @@
 															<a href="<?php echo site_url('Monthlyperiodic/index/07') ?>" class="mon_class">July</a>
 														</label>
                                                         <article>
-                                                              <h2>July 2019 Month Task</h2>
+                                                              <h2>July 2018 Month Task</h2>
                                                               <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -380,7 +380,7 @@
 															<a href="<?php echo site_url('Monthlyperiodic/index/08') ?>" class="mon_class">August</a>
 														</label>
                                                         <article>
-                                                            <h2>August 2019 Month Task</h2>
+                                                            <h2>August 2018 Month Task</h2>
                                                             <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -425,10 +425,10 @@
                           <section id="section9">
                                                         <input type="radio" name="sections" id="option9" <?php if($month == '09') { echo "checked"; } ?>  onclick="window.location='<?php echo site_url('Monthlyperiodic/index/09') ?>'">
                                                         <label for="option9">
-															<a href="<?php echo site_url('Monthlyperiodic/index/09') ?>" class="mon_class">Sepetmber</a>
+															<a href="<?php echo site_url('Monthlyperiodic/index/09') ?>" class="mon_class">September</a>
 														</label>
                                                         <article>
-                                                             <h2>Sepetmber 2019 Month Task</h2>
+                                                             <h2>September 2018 Month Task</h2>
                                                              <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -476,7 +476,7 @@
 															<a href="<?php echo site_url('Monthlyperiodic/index/10') ?>" class="mon_class">October</a>
 														</label>
                                                         <article>
-                                                             <h2>October 2019 Month Task</h2>
+                                                             <h2>October 2018 Month Task</h2>
                                                              <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -525,7 +525,7 @@
 															<a href="<?php echo site_url('Monthlyperiodic/index/11') ?>" class="mon_class">November</a>
 														</label>
                                                         <article>
-                                                              <h2>November 2019 Month Task</h2>
+                                                              <h2>November 2018 Month Task</h2>
                                                               <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -573,7 +573,7 @@
 															<a href="<?php echo site_url('Monthlyperiodic/index/12') ?>" class="mon_class">December</a>
 														</label>
                                                         <article>
-                                                              <h2>December 2019 Month Task</h2>
+                                                              <h2>December 2018 Month Task</h2>
                                                               <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -626,13 +626,9 @@
 								  <?php echo $links; ?>
 							</div>
 					</div>
-        
-
-
 
     </div><!-- monthly periodic panel end -->
   
-    
       <!-- popup start -->
 	  <div class="popup-main">
    <form  method="POST" action="<?php echo base_url()."Monthlyperiodic/add_data/" ?>">

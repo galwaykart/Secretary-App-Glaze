@@ -120,8 +120,6 @@
 	     'index_meeting_start_time'=>$this->input->post('index_meeting_start_time'),
 		 'index_meeting_end_time'=>$this->input->post('index_meeting_end_time'),
 		 'user_id'=>$this->user_id,
-
-
 		);
 		$data[1] = array(
 		
@@ -143,7 +141,6 @@
 		$data[3]=array(
 		  'agenda_name'=>$this->input->post('agenda')
 		  );
-
 
 		if($this->uri->segment(3)){
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
@@ -182,7 +179,6 @@
             $this->load->view('metting-info',$data); //Load html view of search results  
         }  		 
 	}
-
 }
 
 ?>
