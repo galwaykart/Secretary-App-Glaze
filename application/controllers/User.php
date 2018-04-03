@@ -45,10 +45,31 @@ class User extends CI_Controller
 	// to view dashboard
 	public function dashboard() {
 			$data["dash_data"] = $this->user_model->getDashboardDetails();
-			// echo "<pre>";
-			// print_r($data);
-			// echo "</pre>";
-			$this->load->view("dashboard" ,$data); 
+			/*
+			
+			$this->load->library('email');
+			$config['protocol']    = 'smtp';
+			$config['smtp_host']    = 'ssl://smtp.gmail.com';
+			$config['smtp_port']    = '465';
+			$config['smtp_timeout'] = '7';
+			$config['smtp_user']    = 'ssbannaji@gmail.com';
+			$config['smtp_pass']    = 'dream@123';
+			$config['charset']    = 'utf-8';
+			$config['newline']    = "\r\n";
+			$config['mailtype'] = 'text'; // or html
+			$config['validation'] = TRUE; // bool whether to validate email or not      
+			$this->email->initialize($config);
+			$this->email->from('ssbannaji@gmail.com', 'surender');
+			$this->email->to('surender.singh@glazegalway.com'); 
+			$this->email->subject('Email Test');
+			$this->email->message('Testing the email class.');  
+			$this->email->send();
+
+			echo $this->email->print_debugger();
+            */
+
+
+			 $this->load->view("dashboard" ,$data); 
 		}
 		
 			// get data 

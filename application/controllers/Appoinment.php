@@ -2,7 +2,7 @@
 
 	class Appoinment extends CI_Controller 
 	{
-	 
+		public $user_id ="";	
 		public function __construct(){
 				parent::__construct();
 					$this->load->helper('url'); 
@@ -10,6 +10,7 @@
 					 $this->load->model('Appointment_model');
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
+					$this->user_id = $this->session->userdata['id'];
 		} 
 			 
 		public function index($param1 = NUll , $param3 = null , $param = Null){  
@@ -110,6 +111,7 @@ $record_id =$this->uri->segment(3);
 		'appointment_travel_time'=>$this->input->post('travel_time'),
 		'appointment_status'=>$this->input->post('status'),
 		'appointment_active'=>$this->input->post('active'),
+		'user_id'=>$this->user_id,
 	   );
 
 	   $data[1] = array(

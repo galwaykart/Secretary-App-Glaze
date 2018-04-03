@@ -2,6 +2,8 @@
 
 	class Yearlyperiodic extends CI_Controller 
 	{
+		public $user_id ="";	 
+
 			public function __construct(){
 				parent::__construct();
 					$this->load->helper('url'); 
@@ -9,6 +11,8 @@
 					$this->load->model('Yearly_periodic_model');
 					$this->load->library("pagination");
 					$this->load->library(array('session', 'form_validation'));
+					$this->user_id = $this->session->userdata['id'];
+
 		}
 		
 		public function index($year=''){
@@ -74,7 +78,9 @@
 			'yearly_periodic_task_name'=>$this->input->post('task'),
 			'yearly_periodic_remark'=>$this->input->post('remark'),
 			'yearly_periodic_status'=>$this->input->post('status'),
-			'yearly_periodic_month'=>$this->input->post('month')
+			'yearly_periodic_month'=>$this->input->post('month'),
+			'user_id'=>$this->user_id,
+
 			);
 			$data[1] = array(
 			'yearly_periodic_delegates_name'=>$this->input->post('delegate_to'),

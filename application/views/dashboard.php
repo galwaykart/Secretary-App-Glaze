@@ -1,6 +1,16 @@
- 
+<?php 
+	
+	// echo "<pre>";
+	// print_r($dash_data);
+    // echo "</pre>";
+    
+	
+?> 
+
+
     <?php $this->load->view('head'); ?> 
 	<?php $this->load->view('header');?>
+
       <div class="col-md-12 heading-tag">
                         <p><span class="fa fa-dashboard" ></span>&nbsp;<span id="dashbiar-name">Dashboard</span></p>
                         </div>
@@ -304,7 +314,221 @@
 
         </div><!-- right deshbrad end -->
 
+<<<<<<< HEAD
+            <script>		
+               $(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+      defaultDate: '2018-03-12',
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'All Day Event',
+          start: '2018-03-01',
+        },
+        {
+          title: 'Long Event',
+          start: '2018-03-07',
+          end: '2018-03-10'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-03-09T16:00:00'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-03-16T16:00:00'
+        },
+        {
+          title: 'Conference',
+          start: '2018-03-11',
+          end: '2018-03-13'
+        },
+        {
+          title: 'Meeting',
+          start: '2018-03-12T10:30:00',
+          end: '2018-03-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2018-03-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2018-03-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2018-03-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2018-03-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2018-03-13T07:00:00'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2018-03-28'
+        }
+      ]
+    });
+
+  });
+
+    </script>
+	
+=======
+
+
+
+
+<script>
+               $(document).ready(function() {
+
+$('#calendar').fullCalendar({
+  header: {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'month,agendaWeek,agendaDay,listWeek'
+  },
+  defaultDate: '2018-03-12',
+  navLinks: true, // can click day/week names to navigate views
+  editable: true,
+  eventLimit: true, // allow "more" link when too many events
+  events: [
+    <?php foreach($dash_data['index_meeting']["all_data"] AS $indexMeeting){?>
+        
+    {      
+        title: '<?php echo $indexMeeting->agenda_name ?>' +' (INDEX MEETINGS)',
+        start: '<?php echo $indexMeeting->date_of_meeting ?>'+'T'+'<?php echo $indexMeeting->index_meeting_start_time ?>',
+       
+    },  
+    <?php }   ?>
+    <?php foreach($dash_data['total_quick_work'] AS $quickworks){?>
+        
+        {      
+            title: '<?php echo $quickworks->task ?>' +' (QUICK WORKS)',
+            start: '<?php echo $quickworks->date ?>',
+           
+        },  
+        <?php }   ?>
+        <?php foreach($dash_data['appointment']['all_data'] AS $appointments){?>
+        
+        {      
+            title: '<?php echo $appointments->appointment_subject ?>' +' (Appointments)',
+            start: '<?php echo $appointments->appointment_start_time ?>',
+           
+        },  
+        <?php }   ?>
+
+        <?php foreach($dash_data['total_project_delegation'] AS $projects){?>
+        
+        {      
+            title: '<?php echo $projects->project_delegation_project ?>' +' (PROJECT DELEGATIONS)',
+            start: '<?php echo $projects->project_delegation_date ?>',
+           
+        },  
+        <?php }   ?>  
+
+        <?php foreach($dash_data['yearly_periodic'] AS $yearly_periodic){?>
+        
+        {      
+            title: '<?php echo $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
+            start: '<?php echo $yearly_periodic->yearly_periodic_start_date ?>',
+           
+        },  
+        <?php }   ?>  
+        <?php foreach($dash_data['monthly_periodic'] AS $monthly_periodic){?>
+        
+        {      
+            title: '<?php echo $monthly_periodic->monthly_periodic_work ?>' +' (Monthly Periodic)',
+            start: '<?php echo $monthly_periodic->monthly_start_date ?>',
+           
+        },  
+        <?php }   ?>    
+        <?php foreach($dash_data['weekly_periodic'] AS $weekly_periodic){?>
+        
+        {      
+            title: '<?php echo $weekly_periodic->weekly_periodic_work ?>' +' (Weekly Periodic)',
+            start: '<?php echo $weekly_periodic->weekly_periodic_start_date ?>',
+           
+        },  
+        <?php }   ?>      
+
+    // {
+    //   title: 'All Day Event',
+    //   start: '2018-03-01',
+    // },
+    // {
+    //   title: 'Long Event',
+    //   start: '2018-03-07',
+    //   end: '2018-03-10'
+    // },
+    // {
+    //   id: 999,
+    //   title: 'Repeating Event',
+    //   start: '2018-03-09T16:00:00'
+    // },
+    // {
+    //   id: 999,
+    //   title: 'Repeating Event',
+    //   start: '2018-03-16T16:00:00'
+    // },
+    // {
+    //   title: 'Conference',
+    //   start: '2018-03-11',
+    //   end: '2018-03-13'
+    // },
+    // {
+    //   title: 'Meeting',
+    //   start: '2018-03-12T10:30:00',
+    //   end: '2018-03-12T12:30:00'
+    // },
+    // {
+    //   title: 'Lunch',
+    //   start: '2018-03-12T12:00:00'
+    // },
+    // {
+    //   title: 'Meeting',
+    //   start: '2018-03-12T14:30:00'
+    // },
+    // {
+    //   title: 'Happy Hour',
+    //   start: '2018-03-12T17:30:00'
+    // },
+    // {
+    //   title: 'Dinner',
+    //   start: '2018-03-12T20:00:00'
+    // },
+    // {
+    //   title: 'Birthday Party',
+    //   start: '2018-03-13T07:00:00'
+    // },
+    // {
+    //   title: 'Click for Google',
+    //   url: 'http://google.com/',
+    //   start: '2018-03-28'
+    // }
+  ]
+});
+
+});
+</script>
             
+>>>>>>> 0af7e0780fbefe551bdec17c6bf175ef0a86e5bd
  
     <?php $this->load->view('footer'); ?>
 	 

@@ -2,8 +2,9 @@
 class Projectdelegation_model extends CI_model{
 
 	public function getprojectdelegation($limit, $start){
-
+		$user_id = $this->session->userdata['id'];
 		$this->db->limit($limit, $start);
+		$this->db->where("user_id", $user_id);
 		$query = $this->db->get("project_delegation"); 
 
 
@@ -25,8 +26,9 @@ class Projectdelegation_model extends CI_model{
 
 
 	public function record_count() {
-		
-			  return $this->db->count_all("project_delegation");
+				$user_id = $this->session->userdata['id'];
+				$query = $this->db->where('user_id', $user_id)->get('project_delegation');
+				return $query->num_rows();
 			  
 		
 		  }

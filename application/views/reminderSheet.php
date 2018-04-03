@@ -204,10 +204,7 @@
                         <a href="#">Reset</a>
                 </div>
               </div>
- 
-			 
-			 
-			  
+   
 	</form>		  
             <!--  pop up end -->
           </div><!-- right Dashboard end -->
@@ -218,8 +215,7 @@
 	<div class="pagination">
   <?php echo $links; ?>    
      <!-- globle header for common end --> 
-
-	 
+ 
 	    <script> 
 				$(function() {
 					$('a#add').click(function(e) {

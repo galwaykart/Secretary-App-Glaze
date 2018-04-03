@@ -34,9 +34,9 @@
 
                <?php 
 	
-	echo "<pre>";
-	print_r($records);
-	echo "</pre>";
+	// echo "<pre>";
+	// print_r($records);
+	// echo "</pre>";
 	
 ?>
         <form method="POST" action="<?php if($records){echo base_url()."Daillynote/req/".$records[0]->daily_notes_id;}else{echo base_url()."Daillynote/req/";} ?>">

@@ -2,7 +2,7 @@
 
 	class Daillynote extends CI_Controller 
 	{
-	 
+		public $user_id ="";
 		public function __construct(){
 				parent::__construct();
 					$this->load->helper('url'); 
@@ -10,6 +10,7 @@
 					$this->load->model('Daillynote_model');
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
+					$this->user_id = $this->session->userdata['id'];
 		} 
 			 
 		public function index($param1 = NUll , $param3 = null , $param = Null){  
@@ -129,6 +130,7 @@
 						'driver_count'=>$this->input->post('deiver_cont'),
 						'car_ount'=>$this->input->post('car_cont'),
 						'notes'=>$this->input->post('notes'),
+						'user_id'=>$this->user_id,
 					   );
 	
 					   $data[1] = array(

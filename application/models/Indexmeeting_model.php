@@ -19,7 +19,8 @@ class Indexmeeting_model extends CI_model{
 			$index_meeting_next_date = $data[0]['index_meeting_next_date'];
 			$index_meeting_start_time = $data[0]['index_meeting_start_time'];
 			$index_meeting_end_time = $data[0]['index_meeting_end_time'];
-			$sql3="insert into index_meeting (date_of_meeting,agenda_id,confidentiality,self_seating,index_meeting_next_date,index_meeting_start_time,index_meeting_end_time)values('$date_of_meeting','$insert_id','$confidentiality','$self_seating','$index_meeting_next_date','$index_meeting_start_time','$index_meeting_end_time')";
+			$user_id = $data[0]['user_id'];
+			$sql3="insert into index_meeting (date_of_meeting,agenda_id,confidentiality,self_seating,index_meeting_next_date,index_meeting_start_time,index_meeting_end_time ,user_id)values('$date_of_meeting','$insert_id','$confidentiality','$self_seating','$index_meeting_next_date','$index_meeting_start_time','$index_meeting_end_time' , '$user_id')";
 			$this->db->query($sql3);
 			$insert_id2=$this->db->insert_id();
 			
@@ -73,7 +74,8 @@ class Indexmeeting_model extends CI_model{
 			$confidentiality=$data[0]['confidentiality'];
 			$self_seating=$data[0]['self_seating'];
 			$index_meeting_next_date = $data[0]['index_meeting_next_date'];
-			$sql3="insert into index_meeting (date_of_meeting,agenda_id,confidentiality,self_seating,index_meeting_next_date)values('$date_of_meeting','$insert_id','$confidentiality','$self_seating','$index_meeting_next_date')";
+			$user_id = $data[0]['user_id'];
+			$sql3="insert into index_meeting (date_of_meeting,agenda_id,confidentiality,self_seating,index_meeting_next_date ,user_id)values('$date_of_meeting','$insert_id','$confidentiality','$self_seating','$index_meeting_next_date','$user_id')";
 			$this->db->query($sql3);
 			$insert_id1=$this->db->insert_id();
 			
@@ -121,7 +123,9 @@ class Indexmeeting_model extends CI_model{
 		//get all meetings
 	   public function get_allmeeting($limit, $start){
 		   $result = array();
+		   $user_id = $this->session->userdata['id'];
 		   $this->db->limit($limit, $start);
+		   $this->db->where("user_id", $user_id);
 		   $this->db->select('index_meeting.agenda_id');
 		   $this->db->distinct();
 		   $query= $this->db->get('index_meeting');
@@ -167,10 +171,12 @@ class Indexmeeting_model extends CI_model{
 	   
 	   // pagination code for meeting status
 	   	public function record_counting($url_id){
+		$user_id = $this->session->userdata['id'];
 		$this->db->select('count(*)');
 		$this->db->from('index_meeting');
 		$this->db->join('index_meeting_agenda','index_meeting.agenda_id=index_meeting_agenda.agenda_id','left');
-		$this->db->where('index_meeting.agenda_id',$url_id);
+		$this->db->where('index_meeting.agenda_id',$url_id)
+		->where('user_id', $user_id);
 		$num_results = $this->db->count_all_results();
 		return $num_results;
 	   }

@@ -256,7 +256,8 @@
 					}
 		</script>
         <script type="text/javascript"> 
-          function newDoc(id) {   
+          function newDoc(id) {
+            //console.log(id);   
             var xhttp;    
             if (id == "") {
             //document.getElementById("txtHint").innerHTML = "";
