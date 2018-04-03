@@ -16,9 +16,7 @@
                 <!--search button start-->
                         <div class="search-btn-perodic">
                             <input type="text" value="" placeholder="Search Task"/><button><span class="fa fa-search"></span></button>
-
                         </div>
-						
 <?php if($this->session->flashdata('msg')): ?>
  <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
 <?php endif; ?>	
@@ -26,7 +24,7 @@
 		if(form_error('start_date') || form_error('monthly_periodic_time') || form_error('end_date') ||form_error('remark') || form_error('work')){
 			echo '<span class="form_error">Please provide valid input', '</span>'	;
 		}
-	?>				
+	?>
                 <!--search button end-->
               <div class="tabordion">
 			  
@@ -198,7 +196,6 @@
 																			  <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Active / Inactive</th>
-
                                                                          </tr>
                                                                      </thead>
                                                                   <tbody>
@@ -645,47 +642,45 @@
                 <span id="close-popup"  title="Close">&times;</span>
             </div>
             <div class="content"><!-- content start -->
-                <div class="col-md-12" class="auto-del">
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Time :</label>
+                            <div class="col-md-12" class="auto-del">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                     <label>Time :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="time" title="Time" required name="monthly_periodic_time" />
-											</div>
+                                           <div class="form-control"><input type="time" title="Time" required name="monthly_periodic_time" />
+										   </div>
                                         </div>
-                         </div>
-                    </div>
-                    <div class="col-md-6">
-                            <div class="form-group">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                   <div class="form-group">
                                        <label>Work :</label>
                                         <div class="input-group">
                                             <div class="form-control"><input type="text" required title="Work" name="work" /></div>
                                         </div>
-                         </div>
-                    </div>
-                </div>
+                                    </div>
+                                </div>
+                            </div>
                 <div class="clear"></div>
-                  <div class="col-md-12">
-                    <div class="col-md-6">
-                            <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
                                    <label>Start Date :</label>
                                       <div class="input-group">
                                          <div class="form-control"><input type="date" required title="Start Date" name="start_date"/></div>
                                       </div>
-                          </div>
-                        
-                    </div>
-                    <div class="col-md-6">
-                            <div class="form-group">
+                                 </div>
+                             </div>
+                                  <div class="col-md-6">
+                                     <div class="form-group">
                                        <label>End Date :</label>
                                         <div class="input-group">
                                             <div class="form-control"><input type="date" required title="End Date" name="end_date"/></div>
                                         </div>
-                          </div>
-                        
-                    </div>
-                      <div class="col-md-6">
-                           <div class="form-group">
+                                     </div>
+                                  </div>
+                                 <div class="col-md-6">
+                                     <div class="form-group">
                                        <label>Active/Inactive</label>
                                         <div class="input-group">
                                             <div class="form-control">
@@ -693,55 +688,52 @@
                                                     <option disabled value="" selected hidden>Select Status</option>
                                                     <option value="1">Active</option>
                                                     <option value="0">Inacive</option>
-                                                </select></div>
+                                                </select>
+											</div>
                                         </div>
-                          </div>
-                    </div>
-                </div>
+                                     </div>
+                                 </div>
+                         </div>
         
                 <div class="clear"></div>
-                 <div class="col-md-12">
-                   
-                            <div class="form-group">
-                                       <label>Remark</label>
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                      <label>Remark</label>
                                         <div class="input-group">
                                             <div class="form-control">
                                                <textarea id="Textarea1" required class="" name="remark"></textarea>
                                             </div>
                                         </div>
-                           
-                    </div>
-                </div>
+                                    </div>
+                                  </div>
 
                      <!-- autometic delegates start -->
 				<div id="delete"> 
-                     <div class="auto-del">
+                            <div class="auto-del">
                                  <div class="left">
                                      <div class="form-group">
                                        <label>Delegate To</label>
                                         <div class="input-group">
                                             <div class="form-control"><input type="text" required title="Delegate To" name="delegate_to[]"/></div>
                                         </div>
-                                  </div>
-
+                                     </div>
                                  </div>
-                                 <div class="center">
-                                         <div class="form-group">
+                                         <div class="center">
+                                             <div class="form-group">
                                                <label>Email Id</label>
                                                 <div class="input-group">
                                                     <div class="form-control">
                                                         <input type="text" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
                                                     </div>
                                                 </div>
-                                        </div>
-                                 </div>
-                                 <div class="right text-center">
+                                             </div>
+                                          </div>
+                                        <div class="right text-center">
                                             <div class="btn-group">
-                                                    <a href="#" class="" id="add"><span class="fa fa-plus" ></span></a>
+                                                  <a href="#" class="" id="add"><span class="fa fa-plus" ></span></a>
                                             </div>
-                                 </div>
-
-                     </div>
+                                        </div>
+                            </div>
 				</div>	 
 							 <div class="clear"></div>   
 
