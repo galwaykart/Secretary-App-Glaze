@@ -22,15 +22,17 @@
 		 }
 		 
 		 public function getmonthly($month,$limit, $start){
+			$year = date('20y');
 			$user_id = $this->session->userdata['id'];
 			 $this->db->select('*');
 			 $this->db->from('monthly_periodic');
 			 $this->db->where('Month(monthly_start_date) <=',$month);
 			 $this->db->where('Month(monthly_periodic_end_date) >=',$month);
+			 $this->db->where('year(monthly_periodic_end_date) >=',$year);
 			 $this->db->where("user_id", $user_id);
 			 $this->db->limit($limit, $start);
 			 $query = $this->db->get();
-		     //print_r($query->result()); 	die;
+		    //print_r($query->result()); 	die;
 			 return $query->result();
 		 }
 		 

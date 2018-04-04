@@ -2,7 +2,7 @@
 
 	class Reminder extends CI_Controller 
 	{
-	 
+	 	public $user_id ="";
 		public function __construct(){
 				parent::__construct();
 					$this->load->helper('url'); 
@@ -11,6 +11,7 @@
 				    $this->load->model('Reminder_sheet_model');
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
+					$this->user_id = $this->session->userdata['id'];
 		} 
 			 
 		public function index(){  
@@ -20,7 +21,7 @@
 			
 					  $config["total_rows"] = $this->Reminder_sheet_model->record_count();
 				
-					  $config["per_page"] = 1;
+					  $config["per_page"] = 10;
 					  $config["uri_segment"] = 3;
 					  $this->pagination->initialize($config);
 					  $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -70,7 +71,8 @@
 			'reminder_sheet_end_time'=>$this->input->post('end_time'),
 			'reminder_sheet_frequency'=>$this->input->post('frequency'),
 			'reminder_sheet_subject'=>$this->input->post('subject'),
-			'reminder_sheet_status'=>$this->input->post('status')
+			'reminder_sheet_status'=>$this->input->post('status'),
+			'user_id'=>$this->user_id,
 			);
 			$data[1] = array(
 			'reminder_sheet_delegates_name'=>$this->input->post('delegate_to'),

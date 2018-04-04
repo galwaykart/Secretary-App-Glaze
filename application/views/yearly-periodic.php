@@ -25,7 +25,7 @@
  <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
 <?php endif; ?>	
 	<?php 
-		if(form_error('start_date') || form_error('task') || form_error('end_date') ||form_error('remark')){
+		if(form_error('start_date') || form_error('task') || form_error('remark')){
 			echo '<span class="form_error">Please provide valid input', '</span>'	;
 		}
 	?>
@@ -63,8 +63,16 @@
 																	 <td><?php echo $list->yearly_periodic_end_date;?></td>
 																	 <td><?php echo $list->yearly_periodic_task_name;?></td>
 																	 <td><?php echo $list->yearly_periodic_remark;?></td>
-																	  <td><?php if($list->yearly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
-                                                                  </tr>  
+																	 </tr>  
+																	 <td>
+																	<!--<form method="POST" action="" >
+																	<select >
+																	
+																	<option>Active</option>
+																	<option onclick="getConfirmation()">Inactive</option>
+																	</select>
+																    </form>	-->
+																	  <?php if($list->yearly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
 																  <?php } }?>
                                                                   </tbody>
                                                               </table>
@@ -226,7 +234,7 @@
                                                                         </div>
                                                                 </div>
                                                          </div>
-                                                          <div class="col-md-6">
+                                                          <!--<div class="col-md-6">
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa fa-calendar" ></span></div>
@@ -235,8 +243,8 @@
 																			</div>
                                                                         </div>
                                                                 </div>
-                                                         </div>
-                                                        <div class="clear"></div>
+                                                         </div>-->
+                                                        
                                                        
                       <div class="col-md-6">
                            <div class="form-group">
@@ -324,8 +332,21 @@
 		
      <br/><br/><br/> 
      <!-- globle header for comman end --> 
-	 
-	 
+     <script type="text/javascript">
+         <!--
+            function getConfirmation(){
+               var retVal = confirm("Do you want to continue ?");
+               if( retVal == true ){
+                  document.write ("User wants to continue!");
+                  return true;
+               }
+               else{
+                  document.write ("User does not want to continue!");
+                  return false;
+               }
+            }
+         //-->
+      </script>
 	 
 	    <script> 
 				$(function() {

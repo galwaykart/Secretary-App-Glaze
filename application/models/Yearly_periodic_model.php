@@ -25,7 +25,7 @@
 			 $this->db->select('*');
 			 $this->db->from('yearly_periodic');
 			 $this->db->where('Year(yearly_periodic_start_date) <=',$year);
-			 $this->db->where('Year(yearly_periodic_end_date) >=',$year);
+			// $this->db->where('Year(yearly_periodic_end_date) >=',$year);
 			 $this->db->limit($limit, $start);			 
 			 $this->db->where("user_id", $user_id);
 			 $query = $this->db->get();
@@ -37,7 +37,7 @@
 			 $user_id = $this->session->userdata['id'];
 			 $query = $this->db->where('user_id', $user_id)
 			 ->where('Year(yearly_periodic_start_date) <=',$year)
-			 ->where('Year(yearly_periodic_end_date) >=',$year)
+			 //->where('Year(yearly_periodic_end_date) >=',$year)
 			 ->get('yearly_periodic');
 			 return $query->num_rows();
 
@@ -70,11 +70,9 @@
 			return $list;
 		}
  
-		 
 		 public function updatetask($data ,$record_id){
 		    $this->db->delete("yearly_periodic_delegates", "yearly_periodic_id = $record_id");
 		    $this->db->delete("yearly_periodic_status", "yearly_periodic_id = $record_id");
-
 			$delegates_name = $data[1]['yearly_periodic_delegates_name'];
 			$delegates_email = $data[1]['yearly_periodic_delegates_email'];
 			$totalname = sizeof($delegates_name);

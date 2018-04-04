@@ -57,8 +57,8 @@
 
 																  foreach($fetch as $record){ 
 																	//$jan_arr = explode('-',$record->start_date);
-																	//$jan_month = $jan_arr[1];
-																	//if($jan_month==1){
+																	//$jan_month = $jan_arr[0];
+																	//if($jan_month==2018){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
 																	  <td><?php echo $i++; ?></td>
@@ -209,7 +209,7 @@
 																	//if($apr_month==4){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
-																	  <td><?php echo $i++; ?></td>
+																	  <td><?php  echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_start_date;?></td>
@@ -251,23 +251,19 @@
                                                                   <?php
 																if($fetch){
 																  $i=1;
-
 																  foreach($fetch as $record){ 
-																	//$may_arr = explode('-',$record->monthly_periodic_end_date);
-																	//$may_month = $may_arr[1];
-																	//if($may_month==5){
 																  ?>
                                                                       <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
-																	  <td><?php echo $i++; ?></td>
+																	   <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_start_date;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
-																	   
+
                                                                       </tr>
 																	<?php 
-																	//} 
+																	
 																	} 
 																	}
 																	?>

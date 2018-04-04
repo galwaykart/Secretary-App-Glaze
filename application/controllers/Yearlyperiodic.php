@@ -55,7 +55,7 @@
 		 }else{
 		 $this->form_validation->set_rules('start_date','Start Date ','trim|required');
 		 $this->form_validation->set_rules('task','Task ','trim|required');
-		 $this->form_validation->set_rules('end_date','End Date ','trim|required');
+		 //$this->form_validation->set_rules('end_date','End Date ','trim|required');
 		 $this->form_validation->set_rules('remark','Remark','trim|required');
 			}
 
@@ -74,7 +74,7 @@
 			$data = array();
 			$data[0] = array(
 			'yearly_periodic_start_date'=>$this->input->post('start_date'),
-			'yearly_periodic_end_date'=>$this->input->post('end_date'),
+			//'yearly_periodic_end_date'=>$this->input->post('end_date'),
 			'yearly_periodic_task_name'=>$this->input->post('task'),
 			'yearly_periodic_remark'=>$this->input->post('remark'),
 			'yearly_periodic_status'=>$this->input->post('status'),

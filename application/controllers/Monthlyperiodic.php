@@ -22,11 +22,11 @@
 					   $month=date('m');
 				   }
 				       $data['month']=  $month;
-					   $config["base_url"] = base_url() ."Monthlyperiodic/index/$month ";
+					   $config["base_url"] = base_url() ."Monthlyperiodic/index/$month";
 					     
 					   $config["total_rows"] = $this->Monthly_periodic_model->record_count($month);
 
-					   $config["per_page"] = 1;
+					   $config["per_page"] = 10;
 				
 					   $config["uri_segment"] = 4;
 					   $this->pagination->initialize($config);

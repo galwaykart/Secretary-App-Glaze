@@ -2,6 +2,8 @@
 
 	class Yearlyperiodic extends CI_Controller 
 	{
+		public $user_id ="";	 
+
 			public function __construct(){
 				parent::__construct();
 					$this->load->helper('url'); 
@@ -9,6 +11,8 @@
 					$this->load->model('Yearly_periodic_model');
 					$this->load->library("pagination");
 					$this->load->library(array('session', 'form_validation'));
+					$this->user_id = $this->session->userdata['id'];
+
 		}
 		
 		public function index($year=''){
@@ -44,11 +48,13 @@
 		}
 		
 		public function add_data(){
-			if($this->uri->segment(3)){
-				$this->form_validation->set_rules('end_date','End Date ','trim|required');
-			}else{
-						 $this->form_validation->set_rules('end_date','End Date ','trim|required');
-						$this->form_validation->set_rules('task','Task ','trim|required');
+		  if($this->uri->segment(3)){
+		  $this->form_validation->set_rules('end_date','End Date ','trim|required');
+		  $this->form_validation->set_rules('note[]','Note ','trim|required');
+		  $this->form_validation->set_rules('date[]','Date ','trim|required');
+		 }else{
+		 $this->form_validation->set_rules('start_date','Start Date ','trim|required');
+		 $this->form_validation->set_rules('task','Task ','trim|required');
 		 $this->form_validation->set_rules('end_date','End Date ','trim|required');
 		 $this->form_validation->set_rules('remark','Remark','trim|required');
 			}
@@ -62,18 +68,19 @@
 			}
 			
 		  }
-		  
 		  else {
 			$record_id =$this->uri->segment(3);
 			//echo $record_id;die;
 			$data = array();
 			$data[0] = array(
 			'yearly_periodic_start_date'=>$this->input->post('start_date'),
-			'yearly_periodic_end_date'=>$this->input->post('end_date'),
+			//'yearly_periodic_end_date'=>$this->input->post('end_date'),
 			'yearly_periodic_task_name'=>$this->input->post('task'),
 			'yearly_periodic_remark'=>$this->input->post('remark'),
 			'yearly_periodic_status'=>$this->input->post('status'),
-			'yearly_periodic_month'=>$this->input->post('month')
+			'yearly_periodic_month'=>$this->input->post('month'),
+			'user_id'=>$this->user_id,
+
 			);
 			$data[1] = array(
 			'yearly_periodic_delegates_name'=>$this->input->post('delegate_to'),
