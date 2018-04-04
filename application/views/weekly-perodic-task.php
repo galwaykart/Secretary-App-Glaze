@@ -3243,7 +3243,7 @@
   
     
       <!-- popup start -->
-
+<div class="popup-main">
 <form id="myForm"  method="POST" action="<?php echo base_url();?>WeeklyPeriodic/add_data" >
             <div class="popup">
                 <div class="header">
@@ -3332,10 +3332,8 @@
                             
                             </div>
                     </div>
-                         
-                    
-    
-                         <!-- autometic delegates start -->
+					<div class="clear"></div>
+                     <!-- autometic delegates start -->
                     <div id="refresh_popup">
                         <div id="auto-del">
                             <div class="auto-del">
@@ -3366,21 +3364,23 @@
                         </div>
                     </div>
                          <!-- autometic delegates end -->                                         
-                    <div class="col-md-12">
+                    <div class="footer">
+					<div class="col-md-12">
                         <button type="submit" class="btargetDatetn-primary btn">Save</button>
                         <!-- <a href="#">Add</a> -->
                         <input type="reset" class="btn-primary btn" value="Reset">
                         <!-- <a href="#">Reset</a> -->
-                    </div>                     
+                    </div>   
+					</div>
+                    <div class="clear"></div>					
                 </div>
                    
             </div>
+			<div class="clear"></div>
 
 </form>
-
-        <!-- PopUp end -->    
-
-        <div class="clear"></div>
+</div>
+        <!-- PopUp end -->     <div class="clear"></div>
     
 
 
@@ -3556,8 +3556,8 @@ echo $links;
             evt.currentTarget.className += " active";
 
         }
-        $('.perdoci-task-add-btn').on('click', function () { $('.popup').css('display', 'block'); });
-        $('#close-popup').on('click', function () { $('.popup').css('display', 'none'); });
+        $('.perdoci-task-add-btn').on('click', function () { $('.popup-main').css('display', 'block');$('.popup').css('display', 'block'); });
+        $('#close-popup').on('click', function () { $('.popup , .popup-main').css('display', 'none'); });
 
     </script>
 

@@ -13,7 +13,21 @@
         <div class="notepad-tag" title="Open Notepad">
             <span class="fa fa-edit"></span>
         </div>
-           
+           <!-- notepad start -->
+<div class="notepad-overlap">
+	<div class="notePad">
+	        
+            <div class="notepad-container">
+			 <span class="close2">&times;</div>
+                <textarea id="cktextarea" class="notepad-area" cols="12" rows="10"></textarea>
+            </div>
+    </div>
+</div>
+
+
+   
+
+      <!-- notepad ends -->   
            
               <!-- mobile menubar -->
         <div class="mobile-menu-bar">
@@ -73,22 +87,12 @@
             
             <!-- daily notification end -->
 
-        <!-- notepad start -->
-
-	<div class="notePad">
-            <div class="notepad-container">
-                <textarea id="cktextarea" class="notepad-area" cols="12" rows="10"></textarea>
-            </div>
-    </div>
-
-
-   
-
-      <!-- notepad ends -->
+     
      <!-- globle header for comman end --> 
 	 
 	 <script>
         $(document).ready(function () {
+
           var  count = 0;
           var count2 = 0;
          
@@ -139,20 +143,12 @@
         $(function () {
 
             $('.close').on('click', function () { $('.notification').hide(400) });
-            $('.notepad-tag').on('click', function () { $('.notePad').toggle(); });
+            $('.notepad-tag , .notepad-tag span').on('click', function () { $('.notepad-overlap').css('display','block'); });
+			 $('.notePad span.close2').on('click', function () { $('.notepad-overlap').css('display','none'); });
            
-
-        });
-<<<<<<< HEAD
-</script>
-        
-=======
-         
-
->>>>>>> 0af7e0780fbefe551bdec17c6bf175ef0a86e5bd
-
-		
-		
+           
+        }); 
+    </script> 
 		
 		
 	   <script type="text/javascript" src="<?php echo base_url(); ?>js/forcast.js"></script> 

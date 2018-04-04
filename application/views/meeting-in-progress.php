@@ -77,7 +77,7 @@ In case of first meeting - Previous Date = NA
 				window.location.assign(url);
 			}
 			</script>
-  		<?php $this->load->view('footer');?>
+  	
 	</div>
 			
     </div> 

@@ -113,7 +113,7 @@ The status should be there to mark the attendance of the participants.
 						<div class="col-md-12 bottompanel-one">
 							<div class="container4">
 								<div class="tab">
-									<a href="#" onclick="openTabs(event, 'one')" id="tabs" class="tablinks active" >Present Participate</a>
+									<a href="#" onclick="openTabs(event, 'one')" id="tabs" class="tablinks active" ></a>
 								</div>
 								<div id="one" class="tabcontent" style="display:block;" >
 									<h3 class="tabconh3">Present Participate</h3>

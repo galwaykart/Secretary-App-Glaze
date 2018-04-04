@@ -102,7 +102,7 @@ outline:0;
 
 #sec-header {width: 100%;
     text-align: center;    z-index: 999999999;
-    vertical-align: middle;
+    vertical-align: middle;top:0;
     background-color: #002653;
     height: 50px;position: fixed;
     border:0;
@@ -371,7 +371,7 @@ table.task-tag tbody tr td:nth-child(3) {text-align:right}
     margin: 0 auto;padding-top: 0px;box-shadow:0px 0px 2px 0px #ccc5c5;
     background-color: white;margin-top: 3%;
     padding: 50px;}
-.registration .container-3 .form-group .input-group .form-control {width:90%;}
+.registration .container-3 .form-group .input-group .form-control {width:90%;position:relative;}
 .registration .container-3 .form-group .input-group .form-control input{height:26px;border-bottom: 1px solid #e8e4e4;width:100%;font-size: 11px;padding-left: 10px;}
 .registration .container-3 .form-group .input-group .form-control select{height:26px;border-bottom: 1px solid #e8e4e4;width:100%;font-size: 11px;padding-left: 10px;}
 .registration .container-3 .form-group .input-group  .input-addon {width:2%;}
@@ -506,13 +506,19 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     .all-mettings .container h2 {    margin-top: 5%;
     font-size: 14px;}
 }
-
+#tabs {
+    background-color: #d87514;
+    color: white;
+    float: left;
+    padding: 5px 16px;
+    font-size: 13px;
+}
 .Mettings-View-index-panel {background-color: white;
     margin: 0% 5%;
     padding: 25px;
     margin-top: 16px;
     box-shadow: 0px 0px 2px 0px #ccc5c5;margin-bottom:2%;}
-.Mettings-View-index-panel table#mettings-table{width: 1300px;    margin-top: 2%;border-collapse: collapse;margin-bottom:1%;}
+.Mettings-View-index-panel table#mettings-table{width: 1300px;  border-collapse: collapse;margin-bottom:1%;}
 .Mettings-View-index-panel table#mettings-table thead tr{background-color: #FF9800;
   
     height: 30px;}
@@ -549,7 +555,7 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     height: 25px;
     color: #585756;
     font-size: 12px;
-    border-bottom: 1px solid #a7a5a4;
+    border: 1px solid #a7a5a4;
     /* border-radius: 4px; */
     /* border-left: 2px solid #70b6cc; */
     padding: 0px 10px;
@@ -558,7 +564,7 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     height: 25px;
     color: #585756;
     font-size: 12px;
-    border-bottom:1px solid #a7a5a4;
+    border:1px solid #a7a5a4;
     /* border-radius: 4px; */
     /* border-left: 2px solid #70b6cc; */
     padding: 0px 10px;
@@ -569,12 +575,12 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
         .meeting-info-panel .form-group .input-group .input-addon span {margin-top: 1px;
     color: #051a2f;}
 
-    .meeting-info-panel .form-group  label {font-size: 12px;
+    .meeting-info-panel .form-group  label {font-size: 13px;
     margin-left: 2%;
     z-index: 9999;
     color: #232222;
-    /* font-weight: 700; */
-    font-family: sans-serif;
+     font-weight: 600; 
+   
    
     }
 
@@ -587,13 +593,11 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     height: 35px;margin-left: 0.5%;
     color: #585756;
     font-size: 12px;
-    border-bottom: 1px solid #a7a5a4;
+    border: 1px solid #a7a5a4;
     /* border-radius: 4px; */
     /* border-left: 2px solid #70b6cc; */
     padding: 0px 10px;
-    border-right:0;
-    border-left:0;
-    border-top:0;
+  
     }
 
 .bottompanel-one {margin-top:3%;}
@@ -627,8 +631,9 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     text-shadow: none;
     font-size: 14px;}
 .btn-group .btn {font-size: 12px;
-    padding: 4px 32px;
-    box-shadow: 1px 1px 3px 0px #d6c9c9;}
+    padding: 7px 32px;
+    box-shadow: 1px 1px 3px 0px #9e9191;
+    border-radius: 16px;}
 .bottompanel-one table {border-collapse: collapse;
     width: 92%;
     margin: 0% 4%;
@@ -700,8 +705,8 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     background-color:#FF9800;}
 .dailly-notes-index-panel table thead tr th {font-size: 12px;
     text-align: left;
-    padding: 4px 9px;}
-.dailly-notes-index-panel table tbody tr td {font-size: 12px;text-align: left;padding: 6px 10px;color: #002653;}
+    padding: 8px 8px;}
+.dailly-notes-index-panel table tbody tr td {font-size: 12px;text-align: left;padding: 8px 8px;color: #002653;}
 .dailly-notes-index-panel table tbody tr {border-bottom: 1px solid #c9dbe0;cursor:pointer;}
 .dailly-notes-index-panel table thead tr th:nth-child(10) {text-align:center;}
 .dailly-notes-index-panel table tbody tr td:nth-child(10) {text-align:center;}
@@ -713,10 +718,9 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 
 .notes-view-first-panel .form-group label{font-size: 12px;font-weight: 600;    color: #084658;}
 .notes-view-first-panel .form-group .input-group {margin: 0;}
-.notes-view-first-panel .form-group .input-group .input-addon{margin-right: 0;width:6%;}
+.notes-view-first-panel .form-group .input-group .input-addon{margin-right: 0;width:7%;}
 .notes-view-first-panel .form-group .input-group .input-addon span{}
-.notes-view-first-panel .form-group .input-group .form-control{    margin-left: 5%;
-    width: 85%;}
+
 .notes-view-first-panel .form-group .input-group .form-control input{width: 100%;margin: 0;border: 1px solid #e0deda;height: 25px;font-size: 11px;padding: 0px 10px;}
 .notes-view-first-panel .form-group .input-group .form-control select{width: 100%;margin: 0;border: 1px solid #e0deda;height: 25px;font-size: 11px;padding: 0px 10px;}
 .notes-view-second-panel .form-group label{font-size: 12px;font-weight: 600;    color: #084658;}
@@ -745,17 +749,21 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     height: 100px;color:black;text-align:left;padding:5px;}
 
 /*tabs design*/
-.tab {overflow: hidden;width: 100%;margin:0;text-align: CENTER;background-color: #eceae9;}
+.tab {overflow: hidden;width: 100%;margin:0;text-align: CENTER;background-color: #e4d2c0;}
 .tabcontent {padding:0;width:100%;height:auto;margin:0;border:0;}
 .margin-top {margin-top:2%;}
-.tabcontent h3 {margin: 1% 0%;font-size: 15px;padding-left: 1%;}
+.tabcontent h3 {
+    margin: 2% 0%;
+    font-size: 18px;
+    padding-left: 0;
+}
 .popup {animation:fade-effact 1s;    width: 400px;
     z-index: 99999999999;
     box-shadow: 0px 0px 6px 2px #d5d8da;
     display: none;
     margin: 0 auto;
     background-color: white;
-    margin-top: 10%;
+    margin-top: 10%;margin-bottom:10%;
 }
 @keyframes fade-effact {from {opacity:0;}to {opacity:1;}}
 .popup .header h3{font-size: 13px;text-align: center;padding: 2% 0%;margin: 0;
@@ -781,8 +789,8 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     box-shadow: 0px 0px 1px 0px #282a2b;
     margin-left: 1%;
     cursor: pointer;}
-.popup .content {padding: 16px;height: auto;margin-bottom: 7%;}
-.popup .content .form-group label{font-size: 11px;font-weight: 500;color: #403e3e;}
+.popup .content {padding: 16px;height: auto;}
+.popup .content .form-group label{font-size: 12px;font-weight: 500;color: #403e3e;}
 .popup .content .form-group .input-group{margin: 1% 0%;padding: 0%;height: 34px;margin-right: 6%;}
 .popup .content .form-group .input-group .input-addon{}
 .popup .content .form-group .input-group .form-control{width: 100%;margin: 0;padding: 0;}
@@ -871,7 +879,9 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
 .auto-del .right a {background-color: black;
     color: white;
     padding: 4px 7px;
-    font-size: 11px;}
+    font-size: 11px;
+    position: absolute;
+    top: 22px;}
 
 .container-5 {transition:1s;}
 .container-5 h2{font-size: 22px;
@@ -1023,18 +1033,18 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
 
 /*ineer tabs desig*/
 
-.monthly-tabs button {    width: 150px;}
+.monthly-tabs button {    width: 25%;}
 .monthly-periodic-task-sheet h2 {font-size:13px;padding-left:0;padding-top:0;margin-top: 0;font-weight: 700;}
 .monthly-periodic-task-sheet table {width:100%;border-collapse:collapse;}
 .monthly-periodic-task-sheet table thead tr{background-color:#FF9800;
     height: 22px;}
 .monthly-periodic-task-sheet table thead tr th{  font-size: 12px;
     text-align: left;
-    padding: 4px 12px;
+    padding: 8px 12px;
     color: white;}
 
     .monthly-periodic-task-sheet table tbody tr td {font-size: 12px;
-    padding: 4px 8px;}
+    padding: 8px 8px;}
         .monthly-periodic-task-sheet table tbody tr {border-bottom: 1px solid #d8d7d7;height: 25px;
     color: #002653;}
             .monthly-periodic-task-sheet table tbody tr td:nth-of-type(6) {text-align: center;}
@@ -1159,7 +1169,9 @@ transition:-webkit-transform .3s ease-out;transition:transform .3s ease-out;tran
 
 /*dashbrad design*/
 
-.main-area-dashboard {transition:1s ease-in-out;}
+.main-area-dashboard {transition: 1s ease-in-out;
+   
+    }
 .main-area-dashboard #left{width:15%;float:left;transition:1s ease-in-out;}
 .main-area-dashboard #right{width:85%;float:left;background-color: #efefef;}
 
@@ -1394,11 +1406,13 @@ table.task-tag tbody tr td:nth-of-type(3) {    color: #002653;font-weight: 700;t
 
 /* notepad design */
 
-.notePad {position: fixed;display:none;
-    top: 25%;
-    left: 15%;
-    z-index: 999999;}
-.notePad .notepad-container {}
+.notePad {z-index: 999999;
+    margin: 0 auto;
+    width: 920px;
+    margin-top: 11%;
+    margin-bottom: 5%;
+    border: 1px solid #bdb7b7;}
+.notePad .notepad-container {position:relative;}
 .notePad .notepad-container .notepad-area{    width: 1000px;
     height: 300px;}
 
@@ -1768,7 +1782,10 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
 }
 
 .quick-cal {background-color:white;padding:10px;box-shadow: 0px 0px 2px 0px #d4c2c2;}
-.meet-second-panel label {    font-size: 23px;}
+.meet-second-panel label {
+    font-size: 16px;
+    padding-left: 8px;
+}
 
 .bottompanel-one .form-group {    margin: 0% 1%;}
 .bottompanel-one .form-group .input-group{border: 1px solid #a7a5a4;
@@ -1856,7 +1873,10 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
 	.padding-btn{padding-top: 9px;}
 	.daiilyNotesviewMargin{}
 	.tabconh3{float:left;}
-	.participater{font-size: 12px;}
+	.participater{font-size: 12px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom: 2px solid #d87515;}
 	.padding-btn-rigth{padding-top:9px;text-align:right;}
 	.removebtn{ position: absolute;
     top: 2px;
@@ -1879,9 +1899,13 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
     bottom: 0;
     z-index: 99999;
     /* opacity: 0.5; */}
-	.customclass .col-md-2 label{font-size: 13px;
+	.customclass .col-md-2 label {
+    font-size: 12px;
     line-height: 28px;
-    color: #2d2c2c;}
+    color: #615a5a;
+    font-weight: 700;
+    padding-left: 0;
+}
 	
 	@media screen and (max-width:480px){
 		
@@ -1913,3 +1937,46 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
 	.monthly-view-list-input .form-group .input-group .form-control textarea{height: 60px;width: 100%;}
 	.monthly-view-list-input label{font-size: 13px;}
 	.yel-minus-work{color: white;padding: 4px;margin-top: 28px;}
+	
+	
+.notes-view-first-panel .form-group .input-group .form-control{   width: 90%;}
+	.btn-group a{    position: absolute;
+    left: 0;
+    top:4px;}
+	.btn-group{position:relative;}
+	.monthly-periodic-task-sheet table tbody tr td:nth-type-of(8){text-align:center;}
+	.reminder-sheet{background-color: white;
+    margin: 0% 5%;
+    padding: 25px;
+    margin-top: 16px;
+    box-shadow: 0px 0px 2px 0px #ccc5c5;
+    margin-bottom: 2%;}
+	
+	.reminder-sheet table{width:100%;margin:0;margin-bottom: 2%;}
+	.reminder-sheet a.rembtn{background-color: #00abdf;
+    color: white;
+    font-size: 12px;
+    box-shadow: 0px 1px 1px 0px #2485a2;}
+	.reminder-emptydiv{    height: 41px;}
+	.registration .container-3 .form-group .input-group{position:relative;}
+	.registration .container-3 .form-group .input-group  span.form_error{    position: absolute;
+    left: 0;
+    top: -9px;
+    font-weight: 700;
+    color: red;}
+	.notepad-overlap{    background-color: #56515147;
+    position: fixed;
+    top: 0;display:none;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99999;}
+	.notePad span.close2{position: absolute;
+    right: 0;
+    background-color: red;
+    color: white;
+    padding: 5px 11px;
+    top: 0;
+    cursor: pointer;}
+	
+	.popup .header #close-popup:hover{color:red;}

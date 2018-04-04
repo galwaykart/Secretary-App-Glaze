@@ -10,13 +10,12 @@
 
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Reminder Sheet</p></div>
     <div class="clear"></div>
-    <div class="monthly-periodic-task-sheet"><!-- Reminder  panel start -->
-              <h2 id="paddin-left">Reminder Sheet </h2>
-              <a href="#" id="open-popup" class="perdoci-task-add-btn" id="addnotes" title="Add New"><span class="fa fa-plus" ></span>&nbsp;Add</a>
-                <!--search button start-->
-                        <div class="search-btn-perodic">
-                            <input type="text" value="" placeholder="Search Reminder Task"/><button><span class="fa fa-search"></span></button>
-                        </div>
+	 <h2  class="headingDaiilyNotes" style="  padding-top: 0%;padding-left:22px;"> Reminder Sheet </h2>
+	  <div class="clear"></div>
+    <div class="monthly-periodic-task-sheet reminder-sheet"><!-- Reminder  panel start -->
+             
+           
+                
 <?php if($this->session->flashdata('msg')): ?>
  <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
 <?php endif; ?>
@@ -27,7 +26,7 @@
 	?>	
                 <!--search button end-->
                 <div class="table-res style-4">
-                            <table class="reminder-table-view-show">
+                            <table class="" >
                                 <thead>
                                     <tr>
                                         <th>Sr No</th>
@@ -59,13 +58,23 @@
 								<?php } } ?>
                                 </tbody>
                             </table>
+							<div class="clear"></div>
                 </div>
-            
+				<div class="clear"></div>
+				<div class="col-md-12">
+			           <a href="#" id="open-popup" class="rembtn btn" id="addnotes" title="Add New"><span class="fa fa-plus" ></span>&nbsp;Add</a>
+				</div>
+			    <div class="reminder-emptydiv"></div>
+				<div class="pagination">
+                      <?php echo $links; ?>
+                </div>					  
+                <div class="clear"></div>
                           
    </div><!-- reminder panel  end -->
             <br /><br /><br /><br />
+			<div class="popup-main">
       <!-- popup start -->
-<form method="post" id="reminder_form" action="<?php echo base_url()."Reminder/insert_sheet/"?>">          
+       <form method="post" id="reminder_form" action="<?php echo base_url()."Reminder/insert_sheet/"?>">          
 		  <div class="popup">
             <div class="header">
                 <h3>Reminder Sheet- <span id="work"> Add</span></h3>
@@ -205,16 +214,12 @@
                 </div>
               </div>
    
-	</form>		  
-            <!--  pop up end -->
-          </div><!-- right Dashboard end -->
+	</form>
+</div>	
+      <!--  pop up end -->
+    </div><!-- right Dashboard end -->
     </div><!-- Main Dashboard end --> 
  
-     <!-- globle header for common end -->  
-
-	<div class="pagination">
-  <?php echo $links; ?>    
-     <!-- globle header for common end --> 
  
 	    <script> 
 				$(function() {
@@ -306,8 +311,8 @@
         });
 
 
-        $('#open-popup').on('click', function () { $('.popup').css('display', 'block'); });
-        $('#close-popup').on('click', function () { $('.popup').css('display', 'none'); })
+        $('#open-popup').on('click', function () { $('.popup , .popup-main').css('display', 'block'); });
+        $('#close-popup').on('click', function () { $('.popup , .popup-main').css('display', 'none'); })
     </script>
  <?php $this->load->view('footer'); ?>
 </div>

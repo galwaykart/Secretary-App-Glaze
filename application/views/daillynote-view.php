@@ -418,26 +418,14 @@
                             <button type="submit" class="btn-primary btn">submit</button>
                         </div>
 
-
-
-
-
-
                     </div>
         </div>
-
+       <div class="clear"></div>
 
 
         
 </form>
     </div>
-
-
-
-
-</div>
-
-
 
 <?php $i = 0; ?>
 

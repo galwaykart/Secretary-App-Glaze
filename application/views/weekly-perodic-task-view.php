@@ -3,23 +3,23 @@
     <div class="clear"></div>
     <!--  changes-->
     <form method="POST" action="<?php echo base_url().'WeeklyPeriodic/add_data/'.$list['data1'][0]->weekly_periodic_id?>" >
-<div class="main-area-dashboard"><!-- Main Dashbrad start -->
-
-    <div id="right"><!-- right deshbrad start -->
-                           
+                     
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Weeklly Periodic View</p></div>
-    <div class="dailly-notes-index-panel"> 
+	 <div class="clear"></div>
+	 <h2 class="headingDaiilyNotes" style="padding-top:0;"> Perodic Task View</h2>
+	 <div class="clear"></div>
+     <div class="dailly-notes-index-panel"> 
        <div class="container-5">                     
                         <div class="col-md-12">
                         <?php
                         // echo "<pre>";
                         // print_r($list);  
-                        // echo "</pre>";                      ?>
-                                    <h2>Perodic Task View</h2>
+                        // echo "</pre>";   ?>
+                                   
                                     <div class="col-md-12"><p>Task Name : <span id="projectname">my task</span></p></div>
                                    
                                     <div class="clear"></div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                          <div class="form-group">
                                                         <label>End Date</label>
                                                         
@@ -32,7 +32,7 @@
                                                 </div>
                                                
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Supervised by:</label>
                                             <div class="input-group">
@@ -43,7 +43,7 @@
                                             </div>
                                         </div>
                                     </div>
-
+                              <div class="clear"></div>
 
  
                                             
@@ -57,6 +57,9 @@
                                             <div class="form-group">
                                                 <label>Delegate To</label>
                                                 <div class="input-group">
+												 <div class="input-addon">
+                                                <span class="fa fa-share" ></span>
+                                                </div>
                                                     <div class="form-control"><input required type="text" id ="gm1" name="delegate_to[]" title="Delegate To" value="<?php echo $list['data2'][0]->weekly_periodic_delegates_name?>"/></div>
                                                 </div>
                                             </div>
@@ -65,6 +68,9 @@
                                             <div class="form-group">
                                                 <label>Email Id</label>
                                                 <div class="input-group">
+												 <div class="input-addon">
+                                                <span class="fa fa-envelope-o" ></span>
+                                                </div>
                                                     <div class="form-control">
                                                         <input required type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="<?php echo $list['data2'][0]->weekly_periodic_delegates_email ?>"/>
                                                     </div>
@@ -112,10 +118,10 @@
                                 </div>
                                                     
                             </div>
-
-                                            <div class="col-md-4">
+                 
+                            <div class="col-md-4">
                                                         
-                                            </div>
+                             </div>
                                 </div><!-- col-md-12 end -->
                                 <div class="clear"></div>
                         <div class="delegatesheet-view">
@@ -149,10 +155,10 @@
                                 </div>
                     </div>
                                 
-        
+                           <div class="clear"></div>
                             <div class="col-md-12">
         
-
+                           
         
         <div id="auto-del1">
             <div class="auto-del">
@@ -180,7 +186,7 @@
                     </div>
                 </div>
             </div>
-
+             <div class="clear"></div>
 
 
             <?php 
@@ -221,11 +227,11 @@
                 <button type="submit" class="btargetDatetn-primary btn">Save</button>
                 <!-- <a href="#">Add</a> -->
             </div>  
-
+   
     
                          
 </div>
-
+<div class="clear"></div>
 
 
        </div><!-- container 5 end -->

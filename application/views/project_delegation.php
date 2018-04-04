@@ -80,6 +80,7 @@
     <!-- popup start -->
 
       <!-- popup start -->
+	  <div class="popup-main">
     <form method="POST" action="<?php echo base_url();?>Projectdelegation/req">                                    
           <div class="popup">
             <div class="header">
@@ -225,7 +226,7 @@
 
 
 </form>
-
+</div>
 
     <!-- popup end -->
     <script type="text/javascript"> 
