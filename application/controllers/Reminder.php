@@ -11,7 +11,9 @@
 				    $this->load->model('Reminder_sheet_model');
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
+					$this->load->library('email');
 					$this->user_id = $this->session->userdata['id'];
+
 		} 
 			 
 		public function index(){  
@@ -86,6 +88,31 @@
 			else{
 			$this->Reminder_sheet_model->reminder_sheet($data);
 			$this->session->set_flashdata('msg', 'Inserted Successfully!!!');
+			
+/* ...........................Mail sending start here!.......................................*/
+
+			$mail_to = implode(",",$data[1]['reminder_sheet_delegates_email']);
+			$config = array (
+				'mailtype' => 'html',
+				'charset'  => 'utf-8',
+				'priority' => '1'
+				);
+			$this->email->initialize($config);
+			$this->email->set_newline("\r\n");
+			$this->email->from('surender.singh@glazegalway.com', 'Surender');
+			$data_quick["mail_data"] = $data;
+			$this->email->to($mail_to);
+
+			$this->email->subject('Remainder Sheet');
+
+			$body = $this->load->view('email_template/remainder_sheet.php',$data_quick,TRUE);
+						
+			$this->email->message($body);
+
+			$this->email->send();
+
+/* ...........................Mail sending end here!................................................*/
+
 			redirect('Reminder');
 			}
 		}

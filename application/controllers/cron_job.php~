@@ -19,12 +19,11 @@
 			 $data['fetch'] = $this->Cron_job_model->get_reminder();
 			 $reminder=array();
 			 foreach($data['fetch'] as $list){
-				$list->reminder_sheet_end_date;
+				array_push($reminder, $list->reminder_sheet_end_date);
 			 }
 			 $end_date = explode('-',$list->reminder_sheet_end_date);
-			 
 			 print_r( $end_date);
-			 //$date = date("Y-m-d",strtotime("-7 days", strtotime($end_date)));
+			 $date = $end_date;
 			 $todayDate = date('Y-m-d');
 			 
 			 }else{

@@ -11,7 +11,10 @@
 					$this->load->model('Yearly_periodic_model');
 					$this->load->library("pagination");
 					$this->load->library(array('session', 'form_validation'));
-					$this->user_id = $this->session->userdata['id'];
+					$this->load->library('email');
+					if($this->session->user == 'logged_in'){
+						$this->user_id = $this->session->userdata['id'];
+						}
 
 		}
 		
@@ -100,6 +103,30 @@
 			else{
 			$this->Yearly_periodic_model->insertyear($data);
 			$this->session->set_flashdata('msg', 'Saved Successfully!!!');
+									/* ...........................Mail sending start here!.......................................*/
+
+									$mail_to = implode(",",$data[1]['yearly_periodic_delegates_email']);
+									$config = array (
+									'mailtype' => 'html',
+									'charset'  => 'utf-8',
+									'priority' => '1'
+									);
+									$this->email->initialize($config);
+									$this->email->set_newline("\r\n");
+									$this->email->from('surender.singh@glazegalway.com', 'Surender');
+									$data_quick["mail_data"] = $data;
+									$this->email->to($mail_to);
+			
+									$this->email->subject('Yearly Periodic Task');
+			
+									$body = $this->load->view('email_template/yearlyPeriodic.php',$data_quick,TRUE);
+			
+									$this->email->message($body);
+			
+									$this->email->send();
+			
+			/* ...........................Mail sending end here!................................................*/
+			
 			redirect('yearlyperiodic');
 			}
 		  }

@@ -3,6 +3,29 @@
 	// echo "<pre>";
 	// print_r($dash_data);
     // echo "</pre>";
+    //$Start_date =array();
+
+//     $date = new DateTime('2006-12-12');
+// $date->modify('+1 year');
+// echo $date->format('Y-m-d');
+
+    // $end_date = explode('-', $dash_data['yearly_periodic'][1]->yearly_periodic_end_date);
+    //  $Start_date = explode('-', $dash_data['yearly_periodic'][1]->yearly_periodic_start_date);
+    //  $year_diff = $end_date[0]  - $Start_date[0];
+    // //print_r($year_diff);
+    // $start_new_date = array();
+    // $new_start_date = $dash_data['yearly_periodic'][1]->yearly_periodic_start_date;
+    // while($new_start_date <= $dash_data['yearly_periodic'][1]->yearly_periodic_end_date){
+    //     array_push($start_new_date , $new_start_date);
+    //     $n_start_d = new DateTime($new_start_date);
+    //     $n_start_d->modify('+1 year');
+    //     $new_start_date = $n_start_d->format('Y-m-d');
+        
+
+    // }
+    // print_r($start_new_date);
+
+    
     
 	
 ?> 
@@ -23,7 +46,7 @@
                                                                            <div class="container1 ">
                                                                                         <div class="left-pop-tag"> <span class="fa fa-american-sign-language-interpreting" ></span></div>
                                                                                         <div class="right-pop-tag">
-                                                                                            <h2>Mettings&nbsp; <span id="">404 M</span></h2>
+                                                                                            <h2>Mettings&nbsp; <span id=""><?php echo($dash_data['count_index_meeting'][0]->total);?></span></h2>
                                                                                             <p>Today Metting <span id=""><?php echo($dash_data['index_meeting']["count"]);?></span></p>
                                                                                         </div>
                                                                             </div>
@@ -38,7 +61,7 @@
                                                                            <div class="container1 ">
                                                                                         <div class="left-pop-tag"> <span class="fa fa-file-text-o" ></span></div>
                                                                                         <div class="right-pop-tag">
-                                                                                            <h2>Daily Notes&nbsp;<span id="Span1">404 M</span></h2>
+                                                                                            <h2>Daily Notes&nbsp;<span id="Span1"><?php echo($dash_data['count_daily_notes'][0]->total);?></span></h2>
                                                                                             <p>Today Daily Notes <span id="Span2"><?php echo($dash_data['daily_notes']["count"]);?> </span></p>
                                                                                         </div>
                                                                             </div>
@@ -50,7 +73,7 @@
                                                                            <div class="container1 ">
                                                                                         <div class="left-pop-tag"> <span class="fa fa-edit" ></span></div>
                                                                                         <div class="right-pop-tag">
-                                                                                            <h2>Quick Work&nbsp; <span id="Span3">404 M</span></h2>
+                                                                                            <h2>Quick Work&nbsp; <span id="Span3"><?php echo($dash_data['count_quickworks'][0]->total);?></span></h2>
                                                                                             <p>Today Quick Work <span id="Span4"><?php echo($dash_data['quick_work'][0]->total_works);?></span></p>
                                                                                         </div>
                                                                             </div>
@@ -62,7 +85,7 @@
                                                                            <div class="container1 ">
                                                                                         <div class="left-pop-tag"> <span class="fa fa-copy" ></span></div>
                                                                                         <div class="right-pop-tag">
-                                                                                            <h2>Delegation Sheet&nbsp;<span id="Span5">404 M</span></h2>
+                                                                                            <h2>Delegation Sheet&nbsp;<span id="Span5"><?php echo($dash_data['count_projectDelegation'][0]->total);?></span></h2>
                                                                                             <p>Today Delegation Task <span id="Span6"><?php echo($dash_data['project_delegation'][0]->total_projects);?></span></p>
                                                                                         </div>
                                                                             </div>
@@ -74,7 +97,7 @@
                                                                            <div class="container1 ">
                                                                                         <div class="left-pop-tag"> <span class="fa fa-coffee" ></span></div>
                                                                                         <div class="right-pop-tag">
-                                                                                            <h2>Appoinment&nbsp;<span id="Span7">404 M</span></h2>
+                                                                                            <h2>Appoinment&nbsp;<span id="Span7"><?php echo($dash_data['count_appointment'][0]->total);?></span></h2>
                                                                                             <p>Today Appoinment <span id="Span8"><?php echo($dash_data['appointment']["count"]);?></span></p>
                                                                                         </div>
                                                                             </div>
@@ -86,7 +109,7 @@
                                                                            <div class="container1 ">
                                                                                         <div class="left-pop-tag"> <span class="fa fa-paw" ></span></div>
                                                                                         <div class="right-pop-tag">
-                                                                                            <h2>Periodic Task&nbsp; <span id="Span9">404 M</span></h2>
+                                                                                            <h2>Periodic Task&nbsp; <span id="Span9"><?php echo($dash_data['count_index_meeting'][0]->total);?></span></h2>
                                                                                             <p>Today Periodic Task <span id="Span10"><?php echo($dash_data['periodic']);?></span></p>
                                                                                         </div>
                                                                             </div>
@@ -98,7 +121,7 @@
                                                                            <div class="container1 ">
                                                                                         <div class="left-pop-tag"> <span class="fa fa-outdent" ></span></div>
                                                                                         <div class="right-pop-tag">
-                                                                                            <h2>Reminder Sheet&nbsp; <span id="Span11">404 M</span></h2>
+                                                                                            <h2>Reminder Sheet&nbsp; <span id="Span11"><?php echo($dash_data['count_index_meeting'][0]->total);?></span></h2>
                                                                                             <p>Today Reminder Task <span id="Span12"><?php echo($dash_data['daily_notes']["count"]);?></span></p>
                                                                                         </div>
                                                                             </div>
@@ -443,30 +466,56 @@ $('#calendar').fullCalendar({
         },  
         <?php }   ?>  
 
-        <?php foreach($dash_data['yearly_periodic'] AS $yearly_periodic){?>
+        <?php foreach($dash_data['yearly_periodic'] AS $yearly_periodic){
+                // $end_date = explode('-', $yearly_periodic->yearly_periodic_end_date);
+                // $Start_date = explode('-', $yearly_periodic->yearly_periodic_start_date);
+                // $year_diff = $end_date[0]  - $Start_date[0];
+                $new_start_date =  $yearly_periodic->yearly_periodic_start_date;
+                while($new_start_date <=  $yearly_periodic->yearly_periodic_end_date){ 
+                ?>
         
         {      
-            title: '<?php echo $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
-            start: '<?php echo $yearly_periodic->yearly_periodic_start_date ?>',
+            title: '<?php echo  $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
+            start: '<?php echo $new_start_date ?>',
            
         },  
-        <?php }   ?>  
-        <?php foreach($dash_data['monthly_periodic'] AS $monthly_periodic){?>
+        <?php 
+                                $n_start_d = new DateTime($new_start_date);
+                                $n_start_d->modify('+1 year');
+                                $new_start_date = $n_start_d->format('Y-m-d');
+        }
+
+                        }?>  
+        <?php foreach($dash_data['monthly_periodic'] AS $monthly_periodic){
+                            $new_start_date =  $monthly_periodic->monthly_start_date;
+                            while($new_start_date <=  $monthly_periodic->monthly_periodic_end_date){ ?>
         
         {      
             title: '<?php echo $monthly_periodic->monthly_periodic_work ?>' +' (Monthly Periodic)',
-            start: '<?php echo $monthly_periodic->monthly_start_date ?>',
+            start: '<?php echo $new_start_date ?>',
            
         },  
-        <?php }   ?>    
-        <?php foreach($dash_data['weekly_periodic'] AS $weekly_periodic){?>
+        <?php 
+                                    $n_start_d = new DateTime($new_start_date);
+                                    $n_start_d->modify('+1 month');
+                                    $new_start_date = $n_start_d->format('Y-m-d');
+    
+    } }  ?>    
+        <?php foreach($dash_data['weekly_periodic'] AS $weekly_periodic){
+                $new_start_date =  $weekly_periodic->weekly_periodic_start_date;
+                while($new_start_date <=  $weekly_periodic->weekly_periodic_end_date){ ?>
         
         {      
             title: '<?php echo $weekly_periodic->weekly_periodic_work ?>' +' (Weekly Periodic)',
-            start: '<?php echo $weekly_periodic->weekly_periodic_start_date ?>',
+            start: '<?php echo $new_start_date ?>',
            
         },  
-        <?php }   ?>      
+        <?php 
+            $n_start_d = new DateTime($new_start_date);
+            $n_start_d->modify('+7 days');
+            $new_start_date = $n_start_d->format('Y-m-d');
+
+        }}   ?>      
 
     // {
     //   title: 'All Day Event',

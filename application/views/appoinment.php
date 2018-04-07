@@ -23,7 +23,7 @@
                     <div class="table-view">
                         <table>
                             <thead>
-                                <tr><th>Sr No</th><th>Start Time</th><th>End Time</th><th>Subject</th><th>Periodic</th><th>Travel Time</th><th>Remerk</th><th>Status</th><th>Active/Inactive</th></tr>
+                                <tr><th>Sr No</th><th>Start Time</th><th>End Time</th><th>Subject</th><th>Travel Time</th><th>Remerk</th><th>Status</th><th>Active/Inactive</th></tr>
                             </thead>
                             <tbody>
 
@@ -36,7 +36,7 @@
                                             echo "<td>".$r->appointment_start_time."</td>"; 
                                             echo "<td>".$r->appointment_end_time."</td>"; 
                                             echo "<td>".$r->appointment_subject."</td>"; 
-                                            echo "<td>".$r->appointment_periodic."</td>"; 
+                                            // echo "<td>".$r->appointment_periodic."</td>"; 
                                             echo "<td>".$r->appointment_travel_time."</td>"; 
                                             echo "<td>".$r->appointment_remark."</td>"; 
                                             echo "<td>".$r->appointment_status."</td>";

@@ -65,8 +65,6 @@ class Appointment_model extends CI_model{
             $existing_array = $p_data;
             $new_array = array('appointment_id'=>$insert_id);
             $new_set_array = array_merge($existing_array, $new_array);
-            //print_r($new_set_array);
-            echo "<br>";
             $result = $this->db->insert('appointment_with', $new_set_array);
         }
 
@@ -124,8 +122,6 @@ class Appointment_model extends CI_model{
                         $existing_array = $p_data;
                         $new_array = array('appointment_id'=>$record_id);
                         $new_set_array = array_merge($existing_array, $new_array);
-                        //print_r($new_set_array);
-                        echo "<br>";
                         $result = $this->db->insert('appointment_with', $new_set_array);
                     } 
                     if($result)

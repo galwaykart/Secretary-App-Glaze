@@ -11,7 +11,11 @@
 					$this->load->model('Monthly_periodic_model');
 					$this->load->library("pagination");
 					$this->load->library(array('session', 'form_validation'));
-					$this->user_id = $this->session->userdata['id'];
+					$this->load->library('email');
+					if($this->session->user == 'logged_in'){
+						$this->user_id = $this->session->userdata['id'];
+						}
+
 
 		} 
 			 
@@ -107,6 +111,30 @@
 			else{
 			$this->Monthly_periodic_model->insertmonthly($data);
 			$this->session->set_flashdata('msg', 'Saved Successfully!!!');
+/* ...........................Mail sending start here!.......................................*/
+
+			$mail_to = implode(",",$data[1]['monthly_periodic_delegates_email']);
+			$config = array (
+			'mailtype' => 'html',
+			'charset'  => 'utf-8',
+			'priority' => '1'
+			);
+			$this->email->initialize($config);
+			$this->email->set_newline("\r\n");
+			$this->email->from('surender.singh@glazegalway.com', 'Surender');
+			$data_quick["mail_data"] = $data;
+			$this->email->to($mail_to);
+
+			$this->email->subject('Monthly Periodic Task');
+
+			$body = $this->load->view('email_template/monthlyPeriodic.php',$data_quick,TRUE);
+
+			$this->email->message($body);
+
+			$this->email->send();
+
+/* ...........................Mail sending end here!................................................*/
+
 			redirect('Monthlyperiodic');
 			}
 

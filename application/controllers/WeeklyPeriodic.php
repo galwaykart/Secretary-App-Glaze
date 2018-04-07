@@ -11,7 +11,11 @@ class WeeklyPeriodic extends CI_Controller {
 			$this->load->model('Weekly_periodic_model');
 			$this->load->library("pagination");
 			$this->load->library(array('session', 'form_validation'));
-			$this->user_id = $this->session->userdata['id'];
+			$this->load->library('email');
+			if($this->session->user == 'logged_in'){
+				$this->user_id = $this->session->userdata['id'];
+				}
+
 
 } 
 	 
@@ -26,7 +30,7 @@ public function index($month = ''){
 				 
 			   $config["total_rows"] = $this->Weekly_periodic_model->record_count($month);
 
-			   $config["per_page"] = 5;
+			   $config["per_page"] = 2;
 		
 			   $config["uri_segment"] = 4;
 			   $this->pagination->initialize($config);
@@ -95,19 +99,46 @@ public function add_data(){
 
 	
 	if($this->uri->segment(3)){
-		echo "updation";
+		//echo "updation";
 		// echo "<pre>";
 		// print_r($data);
 		// echo "<pre>"; die;
 
 		$this->Weekly_periodic_model->updatetask($data , $record_id);
+		$this->session->set_flashdata('msg', 'Updated Successfully!!!');
 		redirect('WeeklyPeriodic/');
 	}
 	else{
-		echo "Insertion";
+		//echo "Insertion";
 		
 		$this->Weekly_periodic_model->insertweekly($data);
+		$this->session->set_flashdata('msg', 'Saved Successfully!!!');
+
 		//print_r($data);die;
+/* ...........................Mail sending start here!.......................................*/
+
+						$mail_to = implode(",",$data[1]['weekly_periodic_delegates_email']);
+						$config = array (
+						'mailtype' => 'html',
+						'charset'  => 'utf-8',
+						'priority' => '1'
+						);
+						$this->email->initialize($config);
+						$this->email->set_newline("\r\n");
+						$this->email->from('surender.singh@glazegalway.com', 'Surender');
+						$data_quick["mail_data"] = $data;
+						$this->email->to($mail_to);
+
+						$this->email->subject('Weekly Periodic Task');
+
+						$body = $this->load->view('email_template/weeklyPeriodic.php',$data_quick,TRUE);
+
+						$this->email->message($body);
+
+						$this->email->send();
+
+/* ...........................Mail sending end here!................................................*/
+		
 		redirect('WeeklyPeriodic');
 	}
 

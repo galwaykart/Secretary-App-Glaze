@@ -16,9 +16,9 @@
 
                                             <div class="inner">
 											<?php 
-													 $firstname = $this->session->firstname; 
-													 $lastname   = $this->session->lastname;  ?>
-                                                        <p class="person-name">WelCome !<br />  <?php  if($firstname){ echo $firstname; }  ?> <?php if($lastname){ echo $lastname; } ?></p>
+													$firstname = $this->session->firstname; 
+													$lastname   = $this->session->lastname;  ?>
+                                                        <p class="person-name">Hello !<br />  <?php if($firstname){ echo $firstname; } ?> <?php if($lastname){ echo $lastname; } ?></p>
                                                         <img src="<?php echo base_url(); ?>img/person.png" alt="person image" id="per-img" class="log-popup"/>
                                             </div>
 
