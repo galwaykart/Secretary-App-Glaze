@@ -10,7 +10,11 @@
 					$this->load->model('Indexmeeting_model');
 					$this->load->library("pagination");
 					$this->load->library(array('session', 'form_validation'));
-					$this->user_id = $this->session->userdata['id'];
+					$this->load->library('email');
+					if($this->session->user == 'logged_in'){
+						$this->user_id = $this->session->userdata['id'];
+						}
+
 					
 		} 
 			 
@@ -148,10 +152,56 @@
 		if($this->uri->segment(3)){
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
 		   $this->session->set_flashdata('msg', 'Updated Successfully!!!');
+		   		   						/* ...........................Mail sending start here!.......................................*/
+
+											  $mail_to = implode(",",$data[1]['email']);
+											  $config = array (
+											  'mailtype' => 'html',
+											  'charset'  => 'utf-8',
+											  'priority' => '1'
+											  );
+											  $this->email->initialize($config);
+											  $this->email->set_newline("\r\n");
+											  $this->email->from('surender.singh@glazegalway.com', 'Surender');
+											  $data_quick["mail_data"] = $data;
+											  $this->email->to($mail_to);
+					  
+											  $this->email->subject('Index Meeting');
+					  
+											  $body = $this->load->view('email_template/index_meeting.php',$data_quick,TRUE);
+					  
+											  $this->email->message($body);
+					  
+											  $this->email->send();
+					  
+					  /* ...........................Mail sending end here!................................................*/
 			redirect('indexmeeting');
            }else{
            $this->Indexmeeting_model->form_insert($data,$this->input->post('agenda'));
 		   $this->session->set_flashdata('msg', 'Saved Successfully!!!');
+		   						/* ...........................Mail sending start here!.......................................*/
+
+								   $mail_to = implode(",",$data[1]['email']);
+								   $config = array (
+								   'mailtype' => 'html',
+								   'charset'  => 'utf-8',
+								   'priority' => '1'
+								   );
+								   $this->email->initialize($config);
+								   $this->email->set_newline("\r\n");
+								   $this->email->from('surender.singh@glazegalway.com', 'Surender');
+								   $data_quick["mail_data"] = $data;
+								   $this->email->to($mail_to);
+		   
+								   $this->email->subject('Index Meeting');
+		   
+								   $body = $this->load->view('email_template/index_meeting.php',$data_quick,TRUE);
+		   
+								   $this->email->message($body);
+		   
+								   $this->email->send();
+		   
+		   /* ...........................Mail sending end here!................................................*/
 		   redirect('indexmeeting');
             }
 		}

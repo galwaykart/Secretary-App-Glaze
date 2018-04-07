@@ -10,13 +10,17 @@
 					 $this->load->model('Appointment_model');
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
+					if($this->session->user == 'logged_in'){
 					$this->user_id = $this->session->userdata['id'];
+					}
+					$this->load->library('email');
+
 		} 
 			 
 		public function index($param1 = NUll , $param3 = null , $param = Null){  
 			if($this->session->user == 'logged_in'){	
 				//$this->load->model('Quickwork_model');
-
+				//echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 				$config = array();
 				
 					  $config["base_url"] = base_url() . "Appoinment/index";
@@ -30,7 +34,7 @@
 					  $this->pagination->initialize($config);
 				
 					if($param){
-						$page = 1;
+						$page = 0;
 					}
 					else{
 						$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -119,7 +123,7 @@ $record_id =$this->uri->segment(3);
 		'delegates_email'=>$this->input->post('delegate_email'),
 	   );
 
-
+	  $contactList = "9999695537,7836984727";
 		//print_r($data);
 	
 	//print_r($data[1]);
@@ -129,6 +133,32 @@ $record_id =$this->uri->segment(3);
 		if($result)	
 		{
 		$param1 =  "<h2>Successfully updated</h2>";
+		// $mail_to = implode(",",$data[1]['delegates_email']);
+		// $config = array (
+		// 	'mailtype' => 'html',
+		// 	'charset'  => 'utf-8',
+		// 	'priority' => '1'
+		// 	 );
+  		// $this->email->initialize($config);
+		// $this->email->set_newline("\r\n");
+		// $this->email->from('surender.singh@glazegalway.com', 'Surender');
+		// $data = array(
+
+		// 	'userName'=> 'Anil Kumar Panigrahi'
+	 
+		// 	  );
+		// $this->email->to($mail_to);
+		// //$this->email->cc('another@another-example.com');
+		// //$this->email->bcc('them@their-example.com');
+
+		// $this->email->subject('Email Test');
+
+		// $body = $this->load->view('email_template/test1.php',$data,TRUE);
+
+
+		// $this->email->message($body);
+
+		// $this->email->send();
 		
 		}
 		else
@@ -145,6 +175,38 @@ $record_id =$this->uri->segment(3);
 		 if($result)
 		 {
 		 $param1 =  "<h2>Success</h2>";
+/* ...........................Mail sending start here!.......................................*/
+
+$mail_to = implode(",",$data[1]['delegates_email']);
+$config = array (
+	'mailtype' => 'html',
+	'charset'  => 'utf-8',
+	'priority' => '1'
+	 );
+  $this->email->initialize($config);
+$this->email->set_newline("\r\n");
+$this->email->from('surender.singh@glazegalway.com', 'Surender');
+$data_quick["mail_data"] = $data;
+$this->email->to($mail_to);
+
+$this->email->subject('Appointment');
+
+$body = $this->load->view('email_template/appointment.php',$data_quick,TRUE);
+			
+$this->email->message($body);
+
+$this->email->send();
+
+/* ...........................Mail sending end here!................................................*/
+/*..............................sms send start here............................................ */
+$text="baba KIng singh gaurav ff.";	 
+$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+$results = curl_exec($chs);
+print_r($results);
+/*..............................sms send end here............................................ */
 		 
 		 }
 		 else

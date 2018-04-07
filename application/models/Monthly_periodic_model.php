@@ -22,22 +22,29 @@
 		 }
 		 
 		 public function getmonthly($month,$limit, $start){
+			 $year = "2018".$month;
+			 //echo $year;
 			$user_id = $this->session->userdata['id'];
 			 $this->db->select('*');
 			 $this->db->from('monthly_periodic');
-			 $this->db->where('Month(monthly_start_date) <=',$month);
-			 $this->db->where('Month(monthly_periodic_end_date) >=',$month);
+			 $this->db->where("DATE_FORMAT(monthly_start_date,'%Y%m') <=",$year);
+			 $this->db->where("DATE_FORMAT(monthly_periodic_end_date,'%Y%m') >=",$year);
+			//  $this->db->where('Month(monthly_start_date) <=',$month);
+			//  $this->db->where('Month(monthly_periodic_end_date) >=',$month);
+			//  $this->db->where('YEAR(monthly_start_date) <=',$year);
+			//  $this->db->where('YEAR(monthly_periodic_end_date) >=',$year);
 			 $this->db->where("user_id", $user_id);
 			 $this->db->limit($limit, $start);
 			 $query = $this->db->get();
-		     //print_r($query->result()); 	die;
+		     //print_r($query->result()); 	
 			 return $query->result();
 		 }
 		 
 		 public function record_count($month){
+			$year = "2018".$month;
 			 $user_id = $this->session->userdata['id'];
-			 $query = $this->db->where('Month(monthly_start_date) <=',$month)			 
-			 ->where('Month(monthly_periodic_end_date) >=',$month)
+			 $query =$this->db->where("DATE_FORMAT(monthly_start_date,'%Y%m') <=",$year)		 
+			 ->where("DATE_FORMAT(monthly_periodic_end_date,'%Y%m') >=",$year)
 			 ->where('user_id', $user_id)
 			 ->get('monthly_periodic');
 			 return $query ->num_rows();

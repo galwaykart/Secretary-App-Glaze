@@ -10,10 +10,12 @@ class User extends CI_Controller
   	 		$this->load->model('user_model');
             $this->load->library('session');
 			$this->load->library(array('session', 'form_validation'));
-} 
+			$this->load->library('email');
+		} 
 	
 	public function index(){  
 			if($this->session->user == 'logged_in'){
+				echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 				$this->dashboard();
 			}else{
 				 $this->load->view("login");
@@ -114,11 +116,33 @@ class User extends CI_Controller
 		   }
 			if($username_check){
 			  $this->user_model->register_user($user);
-			  $this->session->set_flashdata('success_msg', 'Registered successfully.Now login to your account.');
-			  redirect('user/userlist');
-			}
+				$this->session->set_flashdata('msg', 'Registered successfully.Now login to your account.');
+/* ...........................Mail sending start here!.......................................*/
 
-			else{
+		$mail_to = $user['email'];
+		$config = array (
+			'mailtype' => 'html',
+			'charset'  => 'utf-8',
+			'priority' => '1'
+			);
+			$this->email->initialize($config);
+		$this->email->set_newline("\r\n");
+		$this->email->from('gaurav.gupta0705@gmail.com', 'Gaurav');
+		$data_quick["mail_data"] = $user;
+		$this->email->to($mail_to);
+
+		$this->email->subject('Welcome To Secretary App.');
+
+		$body = $this->load->view('email_template/register.php',$data_quick,TRUE);
+					
+		$this->email->message($body);
+
+		$this->email->send();
+
+/* ...........................Mail sending end here!................................................*/
+
+			  redirect('user/userlist');
+			}else{
 			  $this->session->set_flashdata('error_msg', 'User name Already Exist,please try again');
 			  redirect('user/signup');
 			}
@@ -157,6 +181,19 @@ class User extends CI_Controller
 		$data = $this->user_model->login_user($user_login['username'],$user_login['password']);
 		  if($data)
 		  {
+
+				
+
+// $this->email->from('surender.singh@glazegalway.com', 'Surender');
+// $this->email->to('gaurav.gupta0705@gmail.com');
+// //$this->email->cc('another@another-example.com');
+// //$this->email->bcc('them@their-example.com');
+
+// $this->email->subject('Email Test');
+// $this->email->message('Testing the email class in Codeigniter by suri id.');
+
+// $this->email->send();
+
 			$this->session->set_userdata('id',$data['id']);
 			$this->session->set_userdata('username',$data['username']);
 			$this->session->set_userdata('firstname',$data['firstname']);

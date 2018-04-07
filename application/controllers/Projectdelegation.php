@@ -2,7 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Projectdelegation extends CI_Controller {
-	public $user_id ="";	 
+	public $user_id ="";	
+	public $deledates =""; 
 
     	public function __construct(){
 				parent::__construct();
@@ -11,7 +12,11 @@ class Projectdelegation extends CI_Controller {
 					$this->load->model('Projectdelegation_model');
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
-					$this->user_id = $this->session->userdata['id'];
+					$this->load->library('email');
+					if($this->session->user == 'logged_in'){
+						$this->user_id = $this->session->userdata['id'];
+						}
+
 
 		}
 		public function index($param1 = NUll , $param3 = null , $param = Null)
@@ -57,13 +62,16 @@ class Projectdelegation extends CI_Controller {
 			if($this->session->user == 'logged_in'){	
 				if($this->uri->segment(3)){
 					$record_id =$this->uri->segment(3); 
-					//$listOfDataById['records'] = array();
 					$listOfDataById['records']	= $this->Projectdelegation_model->getProjectDelegationStatus($record_id);
-					
+					 $deli =array();
+					foreach($listOfDataById['records']['delegates_data'] as $delegates){
+						array_push($deli, $delegates->project_delegation_delegated_email);
 
-					//  echo "<pre>";
-					//  print_r($listOfDataById['records']);
-					//  echo "</pre>";die;
+					}
+					$this->deledates = implode(",",$deli);
+
+					
+					 
 					
 					$listOfDataById['message'] = $param2;
 					$listOfDataById['record_id'] = $record_id;
@@ -156,6 +164,31 @@ class Projectdelegation extends CI_Controller {
 					 if($result)
 					 {
 					 $param1 =  "<h2>Success</h2>";
+
+						/* ...........................Mail sending start here!.......................................*/
+
+						$mail_to = implode(",",$data[1]['delegates_email']);
+						$config = array (
+						'mailtype' => 'html',
+						'charset'  => 'utf-8',
+						'priority' => '1'
+						);
+						$this->email->initialize($config);
+						$this->email->set_newline("\r\n");
+						$this->email->from('surender.singh@glazegalway.com', 'Surender');
+						$data_quick["mail_data"] = $data;
+						$this->email->to($mail_to);
+
+						$this->email->subject('Project Delegations');
+
+						$body = $this->load->view('email_template/project_delegation.php',$data_quick,TRUE);
+
+						$this->email->message($body);
+
+						$this->email->send();
+
+/* ...........................Mail sending end here!................................................*/
+
 					 
 					 }
 					 else
@@ -195,6 +228,24 @@ class Projectdelegation extends CI_Controller {
 								 if($result)
 								 {
 								 $param1 =  "<h2>Success</h2>";
+								//  $mail_to = implode(",",$data[1]['delegates_email']);
+								$listOfDataById['records']	= $this->Projectdelegation_model->getProjectDelegationStatus($record_id);
+								$deli =array();
+							   foreach($listOfDataById['records']['delegates_data'] as $delegates){
+								   array_push($deli, $delegates->project_delegation_delegated_email);
+		   
+							   }
+							   $this->deledates = implode(",",$deli);
+
+								 $this->email->from('surender.singh@glazegalway.com', 'Surender');
+								 $this->email->to($this->deledates);
+								 //$this->email->cc('another@another-example.com');
+								 //$this->email->bcc('them@their-example.com');
+						 
+								 $this->email->subject('Project status');
+								 $this->email->message("Next Followup date : ".$this->input->post('nxt_followup_date'));
+						 
+								 $this->email->send();
 								 
 								 }
 								 else
