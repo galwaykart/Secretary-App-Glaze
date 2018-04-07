@@ -65,16 +65,23 @@
                              
                             </tbody>
                         </table>
+                       
+                        </div>
+                     </div>
+                    <div class="clear"></div>
+                    <br></br>
+                    <div class="pagination">
+
+                      <?php echo $links; ?>
+
                     </div>
-					 <div class="clear"></div>
-					  
-            </div>
-			<div class="col-md-12">
-						<br />
-							<a href="#" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
-					</div>
-				    <div class="clear"></div>
-        <div class="clear"></div>
+                    <div class="clear"></div>
+			               <div class="col-md-12">
+						          <br />
+							          <a href="#" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
+					            </div>
+				              <div class="clear"></div>
+                     <div class="clear"></div>
       
     </div><!-- dailly index panel end -->
     <!-- popup start -->
@@ -246,14 +253,6 @@
        
      <br /><br /><br />
  
-
-    <div id="container">
-       <div id="body">
-          <p><?php echo $links; ?></p>
-       </div>
-    </div>
-
-
     <script>
       
 function newDoc(id) {

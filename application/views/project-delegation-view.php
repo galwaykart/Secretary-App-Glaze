@@ -3,165 +3,198 @@
      <?php $this->load->view('header'); ?>
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Project Status</p></div>
+    <div class="container">
+      <h2 class="headingDaiilyNotes">Project Status</h2>
+    </div>
     <div class="dailly-notes-index-panel">
     <?php 
 // echo "<pre>";
 // print_r($records);
 // echo "</pre>"; 
 ?>  
-       <div class="container-5">
+       <div class="container-5 project-del-view-main-panel">
                         <div class="col-md-12">
                         <?php if($message){
                         echo "<div style='color:#1dd670'>".$message."</div>";
                         } ?>
-                                    <h2>Project Status</h2>
-                                    <div class="col-md-12"><p>Project Name : <span id="projectname"> <?php echo $records['delegates_data'][0]->project_delegation_project; ?> </span></p></div>
                                    
+                                    <div class="col-md-12"><p>Project Name : <span id="projectname"> <?php echo $records['delegates_data'][0]->project_delegation_project; ?> </span></p></div>
                                     <div class="clear"></div>
-                                    <!-- <div class="col-md-4">
-                                                 <div class="form-group">
-                                                        <label>Delegate To</label>
-                                                        
-                                                        <div class="input-group">
-                                                            <div class="input-addon">
-                                                                <span class="fa fa-share" ></span>
-                                                            </div>
-                                                            <div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" /></div>
-                                                        </div>
-                                                </div>
-                                    </div> -->
-                                    <div class="col-md-4">
-                                                <div class="form-group">
-                                                        <label>Start Date</label>
-                                                        
-                                                        <div class="input-group">
-                                                            <div class="input-addon">
-                                                            <span class="fa fa-calendar" ></span>
-                                                            </div>
-                                                            <div class="form-control"><input type="date" title="Start date" required value="<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_date ;}?>"  /></div>
-                                                        </div>
-                                                </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                                <div class="form-group">
-                                                        <label>Target date</label>
-                                                        
-                                                        <div class="input-group">
-                                                            <div class="input-addon">
-                                                            <span class=" fa fa-line-chart" ></span>
-                                                            </div>
-                                                            <div class="form-control"><input type="date" title="Target Date" required value="<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_target_date ;}?>"/></div>
-                                                        </div>
-                                                </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                                <div class="form-group">
-                                                        <label>Total days</label>
-                                                        
-                                                        <div class="input-group">
-                                                            <div class="input-addon">
-                                                            <span class=" fa fa fa-cogs" ></span>
-                                                            </div>
-                                                            <div class="form-control"><input type="text" title="Total days" readonly placeholder="Total Days" value="<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/></div>
-                                                        </div>
-                                                </div>
-                                    </div>
-                        </div><!-- col-md-12 end -->
-                        <div class="clear"></div>
+                          <div class="project-panel-top">
+                            <div class="top-panel">
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Start Date</label>
 
-                <form method="POST" action="<?php echo base_url().'/Projectdelegation/UpdateDelegates/'.$record_id;?>">                             <!-- autometic delegates start -->
-                    <div>
-                        <div class="left">
-                            <div class="form-group">
-                                <label>Extended date</label>
                                 <div class="input-group">
-                                    <div class="form-control"><input  type="date" id ="extend_date" name="extend_date" title="extend_date" /></div>
+                                  <div class="input-addon">
+                                    <span class="fa fa-calendar" ></span>
+                                  </div>
+                                  <div class="form-control">
+                                    <input type="date" title="Start date" required="" value=""<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_date ;}?>"  />
+                                  </div>
                                 </div>
+                              </div>
                             </div>
-                        </div>
-                        <div class="center">
-                            <div class="form-group">
-                                <label>Reason</label>
-                                <div class="input-group">
-                                    <div class="form-control">
-                                        <input  type="text" id="reason"   name="reason" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="refresh_popups"> 
-                        <div id="auto-dels"> 
-                            <div class="auto-del">
-                                <div class="left">
-                                    <div class="form-group">
-                                        <label>Delegate To</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input required type="text" id ="gm1" name="delegate_to[]" title="Delegate To" value="<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_name;} ?>"/></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="center">
-                                    <div class="form-group">
-                                        <label>Email Id</label>
-                                        <div class="input-group">
-                                            <div class="form-control">
-                                                <input required type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_email;} ?>"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="right text-center">
-                                    <div class="btn-group">
-                                        <a href="#" class="plus" id="plus"><span class="fa fa-plus" ></span></a>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Target date</label>
 
-                            <!-- auto generation already added delegates -->
-                            <div id="one">
-                                <?php 
+                                <div class="input-group">
+                                  <div class="input-addon">
+                                    <span class=" fa fa-line-chart" ></span>
+                                  </div>
+                                  <div class="form-control">
+                                    <input type="date" title="Target Date" required="" value=""<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_target_date ;}?>"/>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Total days</label>
+
+                                <div class="input-group">
+                                  <div class="input-addon">
+                                    <span class=" fa fa fa-cogs" ></span>
+                                  </div>
+                                  <div class="form-control">
+                                    <input type="text" title="Total days" readonly="" placeholder="Total Days" value=""<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                                   
+                                      <div class="clear"></div>
+                                     <form method="POST" action=""
+                                       <?php echo base_url().'/Projectdelegation/UpdateDelegates/'.$record_id;?>">                             <!-- autometic delegates start -->
+                                       <div>
+                                         <div class="col-md-6">
+                                           <div class="form-group form">
+                                             <label>Extended date</label>
+                                             <div class="input-group">
+                                               <div class="input-addon">
+                                                 <span class="fa fa-calendar"></span>
+                                               </div>
+                                               <div class="form-control">
+                                                 <input  type="date" id ="extend_date" name="extend_date" title="extend_date" />
+                                               </div>
+                                             </div>
+                                           </div>
+                                         </div>
+                                         <div class="col-md-6">
+                                           <div class="form-group form">
+                                             <label>Reason</label>
+                                             <div class="input-group">
+                                               <div class="input-addon">
+                                                 <span class="fa fa-edit"></span>
+                                               </div>
+                                               <div class="form-control">
+                                                 <input  type="text" id="reason"   name="reason" />
+                                               </div>
+                                             </div>
+                                           </div>
+                                         </div>
+                                       </div>
+
+                                       <div id="refresh_popups">
+                                         <div id="auto-dels">
+                                           <div class="auto-del">
+                                             <div class="left">
+                                               <div class="form-group">
+                                                 <label>Delegate To</label>
+                                                 <div class="input-group">
+                                                   <div class="input-addon">
+                                                     <span class="fa fa-share"></span>
+                                                   </div>
+                                                   <div class="form-control">
+                                                     <input required="" type="text" id ="gm1" name="delegate_to[]" title="Delegate To" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_name;} ?>"/>
+                                                   </div>
+                                                 </div>
+                                               </div>
+                                             </div>
+                                             <div class="center">
+                                               <div class="form-group">
+                                                 <label>Email Id</label>
+                                                 <div class="input-group">
+                                                   <div class="input-addon">
+                                                     <span class="fa fa-envelope-o"></span>
+                                                   </div>
+                                                   <div class="form-control">
+                                                     <input required="" type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_email;} ?>"/>
+                                                   </div>
+                                                 </div>
+                                               </div>
+                                             </div>
+                                             <div class="right text-center">
+                                               <div class="btn-group">
+                                                 <a href="#" class="plus" id="plus">
+                                                   <span class="fa fa-plus" ></span>
+                                                 </a>
+                                               </div>
+                                             </div>
+                                           </div>
+
+                                           <!-- auto generation already added delegates -->
+                                           <div id="one">
+                                             <?php 
                                 for($i=1 ; $i<sizeof($records['delegates_data']) ; $i++){
                                     $j = $i - 1;
                                     //echo $records['delegates_data'][$i]->project_delegation_delegated_name;
                                 ?>
-                                    <div class="clear"></div>
-                                    <div id="<?php   echo "rm".$j ?>" class="auto-del">
-                                        <div class="auto-del">
-                                            <div class="left">
-                                                <div class="form-group"><label>Delegate To</label>
-                                                    <div class="input-group">
-                                                        <div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_name;} ?>"/></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="center">
-                                                <div class="form-group"><label>Email Id</label>
-                                                    <div class="input-group">
-                                                        <div class="form-control"><input required type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_email;} ?>"/></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="right text-center">
-                                                <div class="btn-group"><a style="background: red;" href="#"  onclick="setValues(<?php echo $j; ?>)"><span class="fa fa-minus" style="color: white;"></span></a></div>
-                                            </div>
-                                        </div>
-                                    </div>                        
-                                
-                                <?php 
+                                             <div class="clear"></div>
+                                             <div id=""
+                                               <?php   echo "rm".$j ?>" class="auto-del">
+                                               <div class="auto-del">
+                                                 <div class="left">
+                                                   <div class="form-group">
+                                                     <label>Delegate To</label>
+                                                     <div class="input-group">
+                                                       <div class="form-control">
+                                                         <input required="" type="text" title="Delegate To" name="delegate_to[]" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_name;} ?>"/>
+                                                       </div>
+                                                     </div>
+                                                   </div>
+                                                 </div>
+                                                 <div class="center">
+                                                   <div class="form-group">
+                                                     <label>Email Id</label>
+                                                     <div class="input-group">
+                                                      
+                                                       <div class="form-control">
+                                                         <input required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_email;} ?>"/>
+                                                       </div>
+                                                     </div>
+                                                   </div>
+                                                 </div>
+                                                 <div class="right text-center">
+                                                   <div class="btn-group">
+                                                     <a style="background: red;" href="#"  onclick="setValues("
+                                                       <?php echo $j; ?>)"><span class="fa fa-minus" style="color: white;"></span>
+                                                     </a>
+                                                   </div>
+                                                 </div>
+                                               </div>
+                                             </div>
+
+                                             <?php 
                                 }
                                 ?>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="footer">
-                        <div class="col-md-12">
-                            <button type="submit" class="btargetDatetn-primary btn">Save</button>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </form>
+                                           </div>
+                                         </div>
+                                       </div>
+                                       <div class="footer">
+                                         <div class="col-md-12">
+                                           <button type="submit" class="btargetDatetn-primary btn">Save</button>
+                                         </div>
+                                       </div>
+                                       <div class="clear"></div>
+                                     </form>
+                        </div><!-- col-md-12 end -->
+                        <div class="clear"></div>
+
+               
 
 <br><br><br>
 <!-- Extended dates data table start -->
