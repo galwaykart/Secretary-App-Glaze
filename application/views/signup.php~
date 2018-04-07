@@ -1,6 +1,6 @@
 <?php
 /*
-@
+
 
 
 */
@@ -40,7 +40,7 @@
                     <?php
                   }  
                   ?>
-	<form method="post"  action="<?php if($list){echo base_url()."User/register_user/".$list[0]->id;}else{echo base_url()."User/register_user/";} ?>">
+	<form method="post" action="<?php if($list){echo base_url()."User/register_user/".$list[0]->id;}else{echo base_url()."User/register_user/";} ?>">
 					 <div class="col-md-12 top-feaild">
 											<div class="form-group">
 												<div class="input-group">
@@ -49,7 +49,7 @@
 													 <?php echo form_error('username', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
-					  </div><!-- col-md12 -end -->
+					 </div><!-- col-md12 -end -->
 					<div class="col-md-12">
 								<div class="col-md-6">
 											<div class="form-group">
@@ -138,28 +138,25 @@
 							   </div>
 							   -->
 					  </div>
-					  
 					  <!-- col-md12 -end -->
 					<div class="col-md-12 text-right">
 						<p class="active-para">Active/Deactivate</p>
 							<label class="switch">
-							  <input type="checkbox" name="status" value="active" >
+							  <input type="checkbox"  name="status" value="active" >
 							<span class="slider round"> </span>	
 							</label>
 					</div>
 					<div class="clear"></div>
 					<div class="col-md-12 sign-up-btn" style="text-align:center;">
-						<a href="<?php if($list){echo base_url() . "User/delete_id/" . $list[0]->id; }?>" class="btn mybtn del">Delete</a>
 						<input type="submit" value="Registration" class="btn mybtn" /> 
 						<input type="reset" value="Reset" class="btn reset mybtn" />
 					</div>
 						<div class="clear"></div>
 					</div>
 					
-				</form> 
+	</form> 
 				 <div class="clear"> </div>
             </div><!-- container 3 end -->
-
     </div> 
 
      <!-- registration design page end --> 

@@ -1,7 +1,4 @@
-     <!-- main theam chenges end -->
-
-     <!-- header start -->
-    <header id="sec-header">
+<header id="sec-header">
                                         <div id="toggle-btn-box">
                                                 <span id="bar" class="fa  fa-navicon"  >
                                                    <!-- <div class="one"></div>
@@ -55,14 +52,11 @@
                                                     <li><a href="<?php echo site_url('Projectdelegation'); ?>">Project Delegation</a></li>
 													<li>
 														<div>Periodic tasks</div>
-														<ul>
-															<li><a href="">Yearly periodic task (Quarterly)</a></li>
-															<li><a href="<?php echo site_url('yearlyperiodic') ?>">Yearly periodic status sheet</a></li>
-															<li><a href="<?php echo site_url('Monthlyperiodic') ?>">Monthly periodic Status Sheet</a></li>
-															<li><a href="">Everyday periodic Task</a></li>
-															<li><a href="">Everyday Periodic Status Sheet</a></li>
-															<li><a href="<?php echo site_url('WeeklyPeriodic') ?>">Weekly periodic Task</a></li>
-															<li><a href="">Weekly periodic status sheet</a></li> 
+														<ul> 
+															<li><a href="<?php echo site_url('yearlyperiodic') ?>">Yearly periodic Task</a></li>
+															<li><a href="<?php echo site_url('Monthlyperiodic') ?>">Monthly periodic Task</a></li>
+															<li><a href="">Everyday periodic Task</a></li> 
+															<li><a href="<?php echo site_url('WeeklyPeriodic') ?>">Weekly periodic Task</a></li> 
 														</ul>
 													</li>
 													<li><a href="<?php echo site_url('Reminder') ?>">Reminder Sheet</a></li>

@@ -16,9 +16,7 @@
                 <!--search button start-->
                         <div class="search-btn-perodic">
                             <input type="text" value="" placeholder="Search Task"/><button><span class="fa fa-search"></span></button>
-
                         </div>
-						
 <?php if($this->session->flashdata('msg')): ?>
  <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
 <?php endif; ?>	
@@ -26,7 +24,7 @@
 		if(form_error('start_date') || form_error('monthly_periodic_time') || form_error('end_date') ||form_error('remark') || form_error('work')){
 			echo '<span class="form_error">Please provide valid input', '</span>'	;
 		}
-	?>				
+	?>
                 <!--search button end-->
               <div class="tabordion">
 			  
@@ -38,7 +36,7 @@
 											<a href="<?php echo site_url('Monthlyperiodic/index/01') ?>" class="mon_class">January</a>
 										</label>
                                         <article>
-                                                     <h2>January 2019 Month Task</h2>
+                                                     <h2>January 2018 Month Task</h2>
                                                      <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -59,8 +57,8 @@
 
 																  foreach($fetch as $record){ 
 																	//$jan_arr = explode('-',$record->start_date);
-																	//$jan_month = $jan_arr[1];
-																	//if($jan_month==1){
+																	//$jan_month = $jan_arr[0];
+																	//if($jan_month==2018){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
 																	  <td><?php echo $i++; ?></td>
@@ -89,7 +87,7 @@
 											Febuary</a>
 										</label>
                                         <article>
-                                                  <h2>Febuary 2019 Month Task</h2>
+                                                  <h2>Febuary 2018 Month Task</h2>
                                                   <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -138,7 +136,7 @@
 											<a href="<?php echo site_url('Monthlyperiodic/index/03') ?>" class="mon_class">March</a>
 										</label>
                                         <article>
-                                                        <h2>March 2019 Month Task</h2>
+                                                        <h2>March 2018 Month Task</h2>
                                                         <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -187,7 +185,7 @@
 											<a href="<?php echo site_url('Monthlyperiodic/index/04') ?>" class="mon_class">April</a>
 										</label>
                                         <article>
-                                                            <h2>April 2019 Month Task</h2>
+                                                            <h2>April 2018 Month Task</h2>
                                                             <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -198,7 +196,6 @@
 																			  <th>Start Date</th>
                                                                              <th>End Date</th>
                                                                              <th>Active / Inactive</th>
-
                                                                          </tr>
                                                                      </thead>
                                                                   <tbody>
@@ -212,7 +209,7 @@
 																	//if($apr_month==4){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
-																	  <td><?php echo $i++; ?></td>
+																	  <td><?php  echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_start_date;?></td>
@@ -236,7 +233,7 @@
 													<a href="<?php echo site_url('Monthlyperiodic/index/05') ?>" class="mon_class">May</a>
 												</label>
                                                 <article>
-                                                            <h2>May 2019 Month Task</h2>
+                                                            <h2>May 2018 Month Task</h2>
                                                             <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -254,23 +251,19 @@
                                                                   <?php
 																if($fetch){
 																  $i=1;
-
 																  foreach($fetch as $record){ 
-																	//$may_arr = explode('-',$record->monthly_periodic_end_date);
-																	//$may_month = $may_arr[1];
-																	//if($may_month==5){
 																  ?>
                                                                       <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
-																	  <td><?php echo $i++; ?></td>
+																	   <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_start_date;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
 																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
-																	   
+
                                                                       </tr>
 																	<?php 
-																	//} 
+																	
 																	} 
 																	}
 																	?>
@@ -286,7 +279,7 @@
 													<a href="<?php echo site_url('Monthlyperiodic/index/06') ?>" class="mon_class">June</a>
 												</label>
                                                 <article>
-                                                              <h2>June 2019 Month Task</h2>
+                                                              <h2>June 2018 Month Task</h2>
                                                               <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -311,7 +304,7 @@
 																	//if($june_month==6){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
-																	  <td><?php echo $i++; ?></td>
+																	   <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_start_date;?></td>
@@ -334,7 +327,7 @@
 															<a href="<?php echo site_url('Monthlyperiodic/index/07') ?>" class="mon_class">July</a>
 														</label>
                                                         <article>
-                                                              <h2>July 2019 Month Task</h2>
+                                                              <h2>July 2018 Month Task</h2>
                                                               <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -383,7 +376,7 @@
 															<a href="<?php echo site_url('Monthlyperiodic/index/08') ?>" class="mon_class">August</a>
 														</label>
                                                         <article>
-                                                            <h2>August 2019 Month Task</h2>
+                                                            <h2>August 2018 Month Task</h2>
                                                             <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -428,10 +421,10 @@
                           <section id="section9">
                                                         <input type="radio" name="sections" id="option9" <?php if($month == '09') { echo "checked"; } ?>  onclick="window.location='<?php echo site_url('Monthlyperiodic/index/09') ?>'">
                                                         <label for="option9">
-															<a href="<?php echo site_url('Monthlyperiodic/index/09') ?>" class="mon_class">Sepetmber</a>
+															<a href="<?php echo site_url('Monthlyperiodic/index/09') ?>" class="mon_class">September</a>
 														</label>
                                                         <article>
-                                                             <h2>Sepetmber 2019 Month Task</h2>
+                                                             <h2>September 2018 Month Task</h2>
                                                              <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -479,7 +472,7 @@
 															<a href="<?php echo site_url('Monthlyperiodic/index/10') ?>" class="mon_class">October</a>
 														</label>
                                                         <article>
-                                                             <h2>October 2019 Month Task</h2>
+                                                             <h2>October 2018 Month Task</h2>
                                                              <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -528,7 +521,7 @@
 															<a href="<?php echo site_url('Monthlyperiodic/index/11') ?>" class="mon_class">November</a>
 														</label>
                                                         <article>
-                                                              <h2>November 2019 Month Task</h2>
+                                                              <h2>November 2018 Month Task</h2>
                                                               <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -576,7 +569,7 @@
 															<a href="<?php echo site_url('Monthlyperiodic/index/12') ?>" class="mon_class">December</a>
 														</label>
                                                         <article>
-                                                              <h2>December 2019 Month Task</h2>
+                                                              <h2>December 2018 Month Task</h2>
                                                               <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -629,13 +622,9 @@
 								  <?php echo $links; ?>
 							</div>
 					</div>
-        
-
-
 
     </div><!-- monthly periodic panel end -->
   
-    
       <!-- popup start -->
 	  <div class="popup-main">
    <form  method="POST" action="<?php echo base_url()."Monthlyperiodic/add_data/" ?>">
@@ -645,47 +634,45 @@
                 <span id="close-popup"  title="Close">&times;</span>
             </div>
             <div class="content"><!-- content start -->
-                <div class="col-md-12" class="auto-del">
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Time :</label>
+                            <div class="col-md-12" class="auto-del">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                     <label>Time :</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input type="time" title="Time" required name="monthly_periodic_time" />
-											</div>
+                                           <div class="form-control"><input type="time" title="Time" required name="monthly_periodic_time" />
+										   </div>
                                         </div>
-                         </div>
-                    </div>
-                    <div class="col-md-6">
-                            <div class="form-group">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                   <div class="form-group">
                                        <label>Work :</label>
                                         <div class="input-group">
                                             <div class="form-control"><input type="text" required title="Work" name="work" /></div>
                                         </div>
-                         </div>
-                    </div>
-                </div>
+                                    </div>
+                                </div>
+                            </div>
                 <div class="clear"></div>
-                  <div class="col-md-12">
-                    <div class="col-md-6">
-                            <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
                                    <label>Start Date :</label>
                                       <div class="input-group">
                                          <div class="form-control"><input type="date" required title="Start Date" name="start_date"/></div>
                                       </div>
-                          </div>
-                        
-                    </div>
-                    <div class="col-md-6">
-                            <div class="form-group">
+                                 </div>
+                             </div>
+                                  <div class="col-md-6">
+                                     <div class="form-group">
                                        <label>End Date :</label>
                                         <div class="input-group">
                                             <div class="form-control"><input type="date" required title="End Date" name="end_date"/></div>
                                         </div>
-                          </div>
-                        
-                    </div>
-                      <div class="col-md-6">
-                           <div class="form-group">
+                                     </div>
+                                  </div>
+                                 <div class="col-md-6">
+                                     <div class="form-group">
                                        <label>Active/Inactive</label>
                                         <div class="input-group">
                                             <div class="form-control">
@@ -693,55 +680,52 @@
                                                     <option disabled value="" selected hidden>Select Status</option>
                                                     <option value="1">Active</option>
                                                     <option value="0">Inacive</option>
-                                                </select></div>
+                                                </select>
+											</div>
                                         </div>
-                          </div>
-                    </div>
-                </div>
+                                     </div>
+                                 </div>
+                         </div>
         
                 <div class="clear"></div>
-                 <div class="col-md-12">
-                   
-                            <div class="form-group">
-                                       <label>Remark</label>
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                      <label>Remark</label>
                                         <div class="input-group">
                                             <div class="form-control">
                                                <textarea id="Textarea1" required class="" name="remark"></textarea>
                                             </div>
                                         </div>
-                           
-                    </div>
-                </div>
+                                    </div>
+                                  </div>
 
                      <!-- autometic delegates start -->
 				<div id="delete"> 
-                     <div class="auto-del">
+                            <div class="auto-del">
                                  <div class="left">
                                      <div class="form-group">
                                        <label>Delegate To</label>
                                         <div class="input-group">
                                             <div class="form-control"><input type="text" required title="Delegate To" name="delegate_to[]"/></div>
                                         </div>
-                                  </div>
-
+                                     </div>
                                  </div>
-                                 <div class="center">
-                                         <div class="form-group">
+                                         <div class="center">
+                                             <div class="form-group">
                                                <label>Email Id</label>
                                                 <div class="input-group">
                                                     <div class="form-control">
                                                         <input type="text" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
                                                     </div>
                                                 </div>
-                                        </div>
-                                 </div>
-                                 <div class="right text-center">
+                                             </div>
+                                          </div>
+                                        <div class="right text-center">
                                             <div class="btn-group">
-                                                    <a href="#" class="" id="add"><span class="fa fa-plus" ></span></a>
+                                                  <a href="#" class="" id="add"><span class="fa fa-plus" ></span></a>
                                             </div>
-                                 </div>
-
-                     </div>
+                                        </div>
+                            </div>
 				</div>	 
 							 <div class="clear"></div>   
 

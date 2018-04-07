@@ -26,7 +26,7 @@
 					   $month=date('m');
 				   }
 				       $data['month']=  $month;
-					   $config["base_url"] = base_url() ."Monthlyperiodic/index/$month ";
+					   $config["base_url"] = base_url() ."Monthlyperiodic/index/$month";
 					     
 					   $config["total_rows"] = $this->Monthly_periodic_model->record_count($month);
 

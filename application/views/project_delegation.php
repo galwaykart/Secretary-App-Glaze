@@ -226,6 +226,9 @@
 
 </form>
 
+    <div class="pagination">
+          <p><?php echo $links; ?></p>
+    </div>
 
     <!-- popup end -->
     <script type="text/javascript"> 
@@ -245,14 +248,6 @@
        
      <br /><br /><br />
  
-
-    <div id="container">
-       <div id="body">
-          <p><?php echo $links; ?></p>
-       </div>
-    </div>
-
-
     <script>
       
 function newDoc(id) {

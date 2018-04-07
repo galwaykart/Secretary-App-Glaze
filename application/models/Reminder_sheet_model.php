@@ -23,16 +23,20 @@
 		}
 		
 		public function get_reminder($limit, $start){
+			$user_id = $this->session->userdata['id'];
 		    $this->db->select('*');
 			$this->db->from('reminder_sheet');
+			$this->db->where("user_id", $user_id);
 			$this->db->limit($limit, $start);
 			$query = $this->db->get();
 			return $query->result();
 		}
 		
 		public function record_count(){
+			$user_id = $this->session->userdata['id'];
 		    $this->db->select('*');
 			$this->db->from('reminder_sheet');
+			$this->db->where("user_id", $user_id);
 			 $query = $this->db->count_all_results();
 			 return $query;
 		}

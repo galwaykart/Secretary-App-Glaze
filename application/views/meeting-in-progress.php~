@@ -1,13 +1,12 @@
 <?php
 /*
-the data are showing from 2 different tables using join query and also using the count function we are counting the number of agenda meeting.
-we are using foreach to get multiple data  from database.
-*Previous Date – To be used as the last date of the meeting. Fed manually by the user.
+@the data are showing from 2 different tables using join query and also using the count function we are counting the number of agenda meeting.
+@we are using foreach to get multiple data  from database.
+@Previous Date – To be used as the last date of the meeting. Fed manually by the user.
 In case of first meeting - Previous Date = NA
-Next Date – To be manually fed by the user
-Number of the Meeting – count using the the agenda
-Agenda – The column should consist the provision of manual feeding of the text
-
+@Next Date – To be manually fed by the user
+@Number of the Meeting – count using the the agenda
+@Agenda – The column should consist the provision of manual feeding of the text
 */
 ?>
 
@@ -30,9 +29,9 @@ Agenda – The column should consist the provision of manual feeding of the text
                    <table id="mettings-table">
                        <thead>
                            <tr>
-							   <th>Sr No</th><th>Ajenda</th>
+							   <th>Sr No</th>
+							   <th>Ajenda</th>
 							   <th>No of Meeting</th>
-							   <th>Previous Meetings Date</th>
 							   <th>Next Meeting Date</th>
 							   <th>Meeting Called By (Name & Department)</th>
 							   <th>Remarks</th>
@@ -40,6 +39,7 @@ Agenda – The column should consist the provision of manual feeding of the text
 						   </tr>
                        </thead>
                        <tbody>
+					   <?php //print_r($meeting); ?>
 					   <?php  $i=1;
 					     foreach($meeting as $arr){?>
 						 <!--newDoc is a function to passed the Id from the database-->
@@ -48,8 +48,10 @@ Agenda – The column should consist the provision of manual feeding of the text
 							 <td><?php echo $arr->agenda_name;?></td>
 							 <td><?php echo $arr->counter;?></td>
 							 <td><?php echo $arr->index_meeting_next_date;?></td>
-							 <td><?php echo $arr->index_meeting_next_date;?></td>
-							 <td></td>
+							 <td><?php $firstname = $this->session->user_id;
+            						   $lastname   = $this->session->lastname;   
+									   if($firstname){ echo $firstname; } ?>
+									  <?php if($lastname){ echo $lastname; }?></td>
 							 <td></td>
 							 <td></td>
 							 <td></td>
