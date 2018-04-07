@@ -274,17 +274,17 @@
                     </div>
                 </div>
                      <!-- autometic delegates start -->
-				<div id="delete"> 
+				            <div id="delete"> 
                      <div class="auto-del">
                                  <div class="left">
-                                     <div class="form-group">
-                                       <label>Delegate To</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input type="text" required  title="Delegate To" name="delegate_to[]" value="<?php //echo set_value('delegate_to[]'); ?>"/>
-											<?php //echo form_error('delegate_to[]', '<span class="form_error">', '</span>'); ?></span>
-											</div>
-                                        </div>
-                                  </div>
+                                           <div class="form-group">
+                                             <label>Delegate To</label>
+                                              <div class="input-group">
+                                                  <div class="form-control"><input type="text" required  title="Delegate To" name="delegate_to[]" value="<?php //echo set_value('delegate_to[]'); ?>"/>
+											                             <?php //echo form_error('delegate_to[]', '<span class="form_error">', '</span>'); ?></span>
+											                            </div>
+                                              </div>
+                                           </div>
 
                                  </div>
                                  <div class="center">
@@ -293,7 +293,7 @@
                                                 <div class="input-group">
                                                     <div class="form-control">
                                                         <input type="text" name="email[]" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php //echo set_value('email'); ?>"/>
-														<?php //echo form_error('email[]', '<span class="form_error">', '</span>'); ?></span>
+														                            <?php //echo form_error('email[]', '<span class="form_error">', '</span>'); ?></span>
                                                     </div>
                                                 </div>
                                         </div>
@@ -305,28 +305,24 @@
                                  </div>
 
                      </div>
-				</div>	 
+				        </div>	 
 							 <div class="clear"></div>   
 
-		 </div>
-                     <!-- autometic delegates end -->
+		           </div>
+               <!-- autometic delegates end -->
 
-            
-				<div class="footer">
-                
-                    <div class="col-md-12">
-						<button type="submit" class="btargetDatetn-primary btn">Save</button>
-                        <!-- <a href="#">Add</a> -->
-                        <input type="reset" class="btn-primary btn" value="Reset">
-                        <!-- <a href="#">Reset</a> -->
-                    </div>
-					
-				</div>
-               
-                </div>
+              <div class="clear"></div>
+              <div class="col-md-12">
+						           <button type="submit" class="btargetDatetn-primary btn"/>Save</button>
+                       <input type="reset" class="btn-primary btn" value="Reset"/>
+                       
+              </div>
+              <div class="clear"></div>
+           </div>
 				
-	</form>	
-     </div>           <div class="clear"></div>
+	    </form>	
+     </div> 
+    <div class="clear"></div>
 		
      <br/><br/><br/> 
      <!-- globle header for comman end --> 

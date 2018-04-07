@@ -21,7 +21,6 @@
 					  $config["total_rows"] = $this->Reminder_sheet_model->record_count();
 				
 					  $config["per_page"] = 1;
-				
 					  $config["uri_segment"] = 3;
 					  $this->pagination->initialize($config);
 					  $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -50,7 +49,7 @@
 				$this->load->view("login");
 			}
 		}
-		
+
 		public function insert_sheet(){
 		 $this->form_validation->set_rules('start_date','Start Date','trim|required');
 		 $this->form_validation->set_rules('end_date','End Date','trim|required');
@@ -90,7 +89,6 @@
 			}
 		}
 		}
-	  
 	}
 
 ?>

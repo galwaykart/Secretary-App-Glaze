@@ -68,8 +68,7 @@
 					</div>
     </div><!-- dailly index panel end --> 
 	
-     <br /><br /><br />
-            <!-- ********************pagination code***************************  -->
+     <br /><br /><br /> 
 
             <div id="container">
 

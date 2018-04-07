@@ -116,7 +116,7 @@
                                         <div class="input-group">
                                             <div class="form-control"><input type="Time" required title="End Time" id="end_time" name="end_time" /></div>
                                         </div>
-                         </div>
+                            </div>
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -134,7 +134,6 @@
                                                     <option value="4">Every Month</option>
                                                     <option value="5">Every Year</option>
                                                 </select>
-
                                             </div>
                                         </div>
                           </div>
@@ -149,7 +148,7 @@
                     </div>
                 </div>
                 <div class="clear"></div>
-                    <div class="col-md-12">
+                  <div class="col-md-12">
                     <div class="col-md-6">
                             <div class="form-group">
                                        <label>Active/Inactive :</label>
@@ -162,9 +161,9 @@
 
                                             </div>
                                         </div>
-                         </div>
+                            </div>
                     </div>
-                </div>
+                 </div>
 
                <div class="clear"></div>
 			 <div id="refresh_popup_js">  
@@ -219,8 +218,7 @@
       <!--  pop up end -->
     </div><!-- right Dashboard end -->
     </div><!-- Main Dashboard end --> 
- 
- 
+  
 	    <script> 
 				$(function() {
 					$('a#add').click(function(e) {

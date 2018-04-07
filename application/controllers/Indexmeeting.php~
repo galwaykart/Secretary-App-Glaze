@@ -2,7 +2,7 @@
 
 	class Indexmeeting extends CI_Controller 
 	{
-	 
+		public $user_id ="";
 		public function __construct(){
 				parent::__construct();
 					$this->load->helper('url'); 
@@ -10,6 +10,7 @@
 					$this->load->model('Indexmeeting_model');
 					$this->load->library("pagination");
 					$this->load->library(array('session', 'form_validation'));
+					$this->user_id = $this->session->userdata['id'];
 					
 		} 
 			 
@@ -97,11 +98,12 @@
 		 $this->form_validation->set_rules('index_meeting_start_time','Start Time','trim|required');
 		 $this->form_validation->set_rules('index_meeting_end_time','End Time','trim|required');
 		 $this->form_validation->set_rules('agenda','agenda ','trim|required');
-		 $this->form_validation->set_rules('department','department ','trim|required');
-		 $this->form_validation->set_rules('name','Name ','trim|required');
-		 $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-		 $this->form_validation->set_rules('conclusion_textarea', 'Textarea', 'trim|required');
-		 $this->form_validation->set_rules('conclusion_textarea', 'Textarea', 'trim|required');
+		 $this->form_validation->set_rules('department[]','department ','trim|required');
+		 $this->form_validation->set_rules('name[]','Name ','trim|required');
+		 $this->form_validation->set_rules('email[]', 'Email', 'trim|required|valid_email');
+		 $this->form_validation->set_rules('conclusion_textarea[]', 'Textarea', 'trim|required');
+		 $this->form_validation->set_rules('targetdate[]', 'Target Date', 'trim|required');
+		 $this->form_validation->set_rules('delegated_dept[]', 'Delegate', 'trim|required');
 	      if($this->form_validation->run() == false)
 		  {
 			$this->load->view('metting-info');
@@ -116,7 +118,9 @@
 	     'self_seating'=>$this->input->post('seating'),
 	     'index_meeting_next_date'=>$this->input->post('index_meeting_next_date'),
 	     'index_meeting_start_time'=>$this->input->post('index_meeting_start_time'),
-	     'index_meeting_end_time'=>$this->input->post('index_meeting_end_time'),
+		 'index_meeting_end_time'=>$this->input->post('index_meeting_end_time'),
+		 'user_id'=>$this->user_id,
+	pr
 
 		);
 		$data[1] = array(
@@ -147,7 +151,7 @@
 			redirect('indexmeeting');
            }else{
            $this->Indexmeeting_model->form_insert($data,$this->input->post('agenda'));
-		   $this->session->set_flashdata('msg', 'Inserted Successfully!!!');
+		   $this->session->set_flashdata('msg', 'Saved Successfully!!!');
 		   redirect('indexmeeting');
             }
 		}

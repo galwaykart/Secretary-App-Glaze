@@ -43,7 +43,7 @@ The status should be there to mark the attendance of the participants.
 									</div>
 								</div>
 							</div>	
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<div class="form-group">
 									<label>Next Meeting Date</label>
 									<div class="input-group">
@@ -97,19 +97,28 @@ The status should be there to mark the attendance of the participants.
 									</div>
 								</div>
 							</div> <!-- end col-md-4 column -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Agenda of Meeting :</label>
+                  <div class="input-group second-panel-input-group">
+                    <div class="form-control">
+                      <input type="text" placeholder="Ajenda of Meeting" required="" id="search" name="agenda"  value=""<?php if(isset($fetch['data2'])){ echo $fetch['data2'][0]->agenda_name;} else{ echo set_value('agenda'); } ?>" />
+                    </div>
+                    <?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?>
+                    </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+              
 						</div>
 					</div> <!-- next second panel start --->
 					<div class="clear"></div>
 					<div class="col-md-12 meet-second-panel">
-						<div class="container4">
-							<div class="col-md-4">
-								<label>Agenda of Meeting :</label>
-							</div>
-							<div class="col-md-8">
-								<input type="text" placeholder="Ajenda of Meeting" required id="search" name="agenda"  value="<?php if(isset($fetch['data2'])){ echo $fetch['data2'][0]->agenda_name;} else{ echo set_value('agenda'); } ?>" />
-								<?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?></span>
-							</div>
-						</div> <!-- start TAB -->
+						
 						<div class="col-md-12 bottompanel-one">
 							<div class="container4">
 								<div class="tab">
@@ -118,7 +127,9 @@ The status should be there to mark the attendance of the participants.
 								<div id="one" class="tabcontent" style="display:block;" >
 									<h3 class="tabconh3">Present Participate</h3>
 									<div class="padding-btn-rigth">
-									      <a href="#" class="ad btn-primary btn participater" id="add1">Add Participate</a>
+									      <a href="#" class="ad btn-primary btn participater" id="add1" title="Add New Participate">
+                          <span class="fa fa-plus"></span>
+                        </a>
 									</div>
 									<div class="clear"></div>
 									<div class="customclass">
@@ -245,9 +256,9 @@ The status should be there to mark the attendance of the participants.
 												</div>
 											</div>
 										</div>  
-													<div class="col-md-2" class="RegSpLeft">								 
-														<div class="btn-group margin-top" style="text-align:center">
-															<a href="#"  onclick="setValues(<?php echo $i; ?>)" class="btn-eror btn">Delete</a>
+													<div class="" class="">								 
+														<div class="margin-top" style="text-align:center">
+															<a href="#"  onclick="setValues(<?php echo $i; ?>)" class="ad btn-eror btn removebtn">&times;</a>
 														</div>
 													</div>
 								                </div>
@@ -265,8 +276,14 @@ The status should be there to mark the attendance of the participants.
 							<div class="container4">
 								<div class="col-md-12">
 									<div class="conclution-body" id="conclusion">
-							
-											<div class="canclution-inner-body  col-md-6">
+                    <div class="col-md-12 text-right" >
+                      <a href="#" class="btn btn-primary participater" id="add" title="Add New Conclusion">
+                        <span class="fa fa-plus"></span>
+                      </a>
+                    </div>
+                    <br></br>
+                    <div class="clear"></div>
+											<div class="canclution-inner-body  col-md-12">
 												<div class="body-input-tabs">
 													<div class="col-md-3">  <label>Conclusion of Meeting : </label></div>
 													<div class="col-md-9">
@@ -307,20 +324,18 @@ The status should be there to mark the attendance of the participants.
 													</div>
 												</div>
 											</div>
-											<div class="body-input-tabs col-md-6"> 
-												<div class="col-md-9">
-													<a href="#" class="btn btn-primary participater" id="add">Add Conclusion</a> &nbsp;&nbsp;
-												</div>
+											<div class="body-input-tabs "> 
+												
 											</div>
-												<div class="clear"></div>		  
-								
+										 <div class="clear"></div>
+                    
 							 <?php  $j = 0;
 								if(isset($fetch['data3'])){									
 									foreach($fetch['data3'] as $record1){	 
 										if($j != '0'){  ?>
 											
 											<div id="rm1<?php echo $j; ?>" style="margin: 27px 0;" class="col-md-12 customclass1"> 
-												<div class="canclution-inner-body  col-md-6">
+												<div class="canclution-inner-body  ">
 													<div class="body-input-tabs">
 														<div class="col-md-3">  <label>Conclusion of Meeting : </label></div>
 														<div class="col-md-9">
@@ -376,7 +391,7 @@ The status should be there to mark the attendance of the participants.
 							</div>
 						</div>
 				  
-					<div class="btn-group col-md-12 metting-ingo-submit-btn" style="height:  74px;">
+					<div class="btn-group col-md-12 metting-ingo-submit-btn text-center" style="height:  74px;">
 						<button type="submit" class="btn-primary btn">submit</button>
 					</div>
 					<div style="height:80px;"></div>
@@ -428,7 +443,7 @@ The status should be there to mark the attendance of the participants.
 				$('a#add').click(function(e) {
 					e.preventDefault();
 					var lnth1 = $('#conclusion .customclass1').length; 
-				 $('#conclusion').append('<div id="rm1'+lnth1+'"  style="margin: 27px 0;"  class="col-md-12 customclass1"><div class="col-md-12"><div class="container4"><div class="col-md-12"><div class="conclution-body"><div class="canclution-inner-body col-md-6"><div class="body-input-tabs"><div class="col-md-3">  <label>Conclusion of Meeting : </label></div><div class="col-md-9"><textarea class="conclu-text" required name="conclusion_textarea[]" ></textarea></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Conclusion Type : </label></div><div class="col-md-9"><select  name="conclusion_type[]"><option value="1">Minute</option><option value="2">decision</option><option value="3">reminder</option><option value="4">Appointment/Quick Work/Periodic/Project/other</option></select></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Delegate To : </label></div><div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]"/></div><div class="col-md-3"><select name="delegated_name[]" ><option value="1" >Yes</option><option value="0" >No</option></select></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Target Date : </label></div><div class="col-md-9"><input type="date" required name="targetdate[]" /></div></div></div><div class="body-input-tabs col-md-6"><div class="col-md-9"><a href="#"  onclick="setValues1('+ lnth1 + ')"  class="ad btn-eror btn inputclass">&times;</a></div></div></div></div></div></div></div>');
+				 $('#conclusion').append('<div id="rm1'+lnth1+'"  style="margin: 27px 0;"  class="col-md-12 customclass1"><div class="col-md-12"><div class="container4"><div class="col-md-12"><div class="conclution-body"><div class="canclution-inner-body col-md-12"><div class="body-input-tabs"><div class="col-md-3">  <label>Conclusion of Meeting : </label></div><div class="col-md-9"><textarea class="conclu-text" required name="conclusion_textarea[]" ></textarea></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Conclusion Type : </label></div><div class="col-md-9"><select  name="conclusion_type[]"><option value="1">Minute</option><option value="2">decision</option><option value="3">reminder</option><option value="4">Appointment/Quick Work/Periodic/Project/other</option></select></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Delegate To : </label></div><div class="col-md-3"> <input type="text"  placeholder="Department" required name="delegated_dept[]"/></div><div class="col-md-3"><select name="delegated_name[]" ><option value="1" >Yes</option><option value="0" >No</option></select></div></div><div class="body-input-tabs"><div class="col-md-3"> <label>Target Date : </label></div><div class="col-md-9"><input type="date" required name="targetdate[]" /></div></div></div><div class="body-input-tabs col-md-12"><div class="col-md-12 text-rigth"><a href="#"  onclick="setValues1('+ lnth1 + ')"  class="ad btn-eror btn inputclass">&times;</a></div></div></div></div></div></div></div><div class="clear"></div>');
 				  
 				});
 			});

@@ -46,10 +46,7 @@
                                 <div class="form-group">
                                          <label>Task</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa fa-edit" ></span>
-
-                                              </div>
+                                             
                                             <div class="form-control"><input type="text" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}"  name="task" value="<?php if($records){ echo $records[0]->task_name; } ?>" /></div>
                                             <?php echo form_error('task', '<span class="form_error">', '</span>'); ?>
                                             </div>
@@ -60,10 +57,7 @@
                                 <div class="form-group">
                                          <label>Date</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa fa-calendar" ></span>
-
-                                              </div>
+                                             
                                             <div class="form-control"><input type="date" title="Date"  required   name="date" value="<?php if($records){  echo $records[0]->startDate ; } ?>"/></div>
                                             <?php echo form_error('date', '<span class="form_error">', '</span>'); ?>
                                             </div>
@@ -72,10 +66,7 @@
 					    <div class="col-md-3"> <div class="form-group">
                                          <label>Task Type</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa fa-calendar-check-o" ></span>
-
-                                              </div>
+                                             
                                             <div class="form-control"><select name="task_type" required>
                                                                         <option value="1" <?php if($records){ if($records[0]->task_type == "1"){ echo "selected"; }} ?> >a</option>
                                                                         <option value="2" <?php if($records){ if($records[0]->task_type == "2"){ echo "selected"; }}?> >b</option>
@@ -101,10 +92,7 @@
                              <div class="form-group">
                                          <label>Department</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa fa-building-o" ></span>
-
-                                              </div>
+                                              
                                             <div class="form-control"><input type="text" placeholder="Department"  title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" name="Department" value="<?php if($records){ echo $records[0]->department; } ?>"/></div>
                                             <?php echo form_error('Department', '<span class="form_error">', '</span>'); ?>
                                             </div>
@@ -140,10 +128,7 @@
                              <div class="form-group">
                                          <label>Target Date</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa fa-calendar" ></span>
-
-                                              </div>
+                                             
                                             <div class="form-control"><input type="date" title="Target Date" name="target_date" required value="<?php if($records){ echo $records[0]->endDate; } ?>"/></div>
                                             <?php echo form_error('target_date', '<span class="form_error">', '</span>'); ?>
                                             </div>
@@ -152,10 +137,7 @@
                         <div class="col-md-3"> <div class="form-group">
                                          <label>Delegate To</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa fa-share" ></span>
-
-                                              </div>
+                                             
                                             <div class="form-control"><input type="text" placeholder="Delegate To"  title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" name="delegate" value="<?php if($records){ echo $records[0]->delegated; } ?>"/></div>
                                             <?php echo form_error('delegate', '<span class="form_error">', '</span>'); ?>
                                             </div>
@@ -166,10 +148,6 @@
                              <div class="form-group">
                                          <label>Email</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa fa-envelope-o" ></span>
-
-                                              </div>
                                             <div class="form-control"><input type="email" placeholder="Email" name="email_to" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" value="<?php if($records){ echo $records[0]->email; } ?>"/></div>
                                             <?php echo form_error('email_to', '<span class="form_error">', '</span>'); ?>
                                             </div>
@@ -179,10 +157,6 @@
                              <div class="form-group">
                                          <label>Seretary Name</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa fa-id-badge" ></span>
-
-                                              </div>
                                             <div class="form-control"><input type="text" title="Seretary Name" name="secretary_name"  title="Only Alphabets allowed" required  pattern="[A-Za-z ]{1,30}" value="<?php if($records){ echo $records[0]->seretary_name; } ?>"/></div>
                                             <?php echo form_error('secretary_name', '<span class="form_error">', '</span>'); ?>
                                             </div>
@@ -192,10 +166,6 @@
                              <div class="form-group">
                                          <label>Confidentiality</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa  fa-retweet" ></span>
-
-                                              </div>
                                             <div class="form-control">
                                                                     <select name="confidential" >
                                                                         <option value="0" <?php if($records){ if($records[0]->confidentiality == "0"){ echo "selected"; }} ?>>High</option><option value="1" <?php if($records){ if($records[0]->confidentiality == "1"){ echo "selected"; }} ?>>Medium</option><option value="2" <?php if($records){ if($records[0]->confidentiality == "2"){ echo "selected"; }} ?>>Low</option>
@@ -205,13 +175,9 @@
                                             </div>
                                 </div>
                         </div>
-                       <div class="col-md-3"> <div class="form-group">
+                       <div class="col-md-4"> <div class="form-group">
                                          <label>My Seating</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa fa-calendar-check-o" ></span>
-
-                                              </div>
                                             <div class="form-control"><select name="mysitting" >
                                                                         <option value="1" >Yes</option><option value="2">No</option>
                                                                       </select></div>
@@ -221,14 +187,10 @@
 
                         </div>
                         <!-- col-md-2 ends -->
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                                          <div class="form-group">
                                          <label>Priority</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa  fa-line-chart" ></span>
-
-                                              </div>
                                             <div class="form-control">
                                                                         <select name="priority" >
                                                                         <option value="0" <?php if($records){ if($records[0]->priority == "0"){ echo "selected"; }} ?>>High</option><option value="1" <?php if($records){ if($records[0]->priority == "1"){ echo "selected"; }} ?>>Medium</option><option value="2" <?php if($records){ if($records[0]->priority == "2"){ echo "selected"; }} ?>>Low</option>
@@ -238,27 +200,19 @@
                                             </div>
                                 </div>
                         </div>
-                         <div class="col-md-3">
+                         <div class="col-md-4">
                                          <div class="form-group">
                                          <label>Venue</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa fa-map-marker" ></span>
-
-                                              </div>
                                             <div class="form-control"><input type="text" title="Venue" name="venue"  title="Only Alphabets allowed" required   value="<?php if($records){ echo $records[0]->venue; } ?>"/></div>
                                             <?php echo form_error('venue', '<span class="form_error">', '</span>'); ?>
                                             </div>
                                 </div>
                         </div>
-                         <div class="col-md-3">
+                         <div class="col-md-4">
                                          <div class="form-group">
                                          <label>Communication Medium</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="	fa fa-exchange" ></span>
-
-                                              </div>
                                             <div class="form-control"><input type="text" title="Communication Medium"  title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" name="comm_medium" value="<?php if($records){ echo $records[0]->communication_medium; } ?>"/></div>
                                             <?php echo form_error('comm_medium', '<span class="form_error">', '</span>'); ?>
                                             </div>
@@ -368,9 +322,7 @@
                                          <div class="form-group">
                                          <label>Seat Count</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa   fa-coffee" ></span>
-                                              </div>
+                                             
                                             <div class="form-control"><input type="number" title=""  name="seat_cont" required  value="<?php if($records){ echo $records[0]->seat_count; } ?>"/></div>
                                             <?php echo form_error('seat_cont', '<span class="form_error">', '</span>'); ?>
                                             </div>
@@ -380,9 +332,7 @@
                                          <div class="form-group">
                                          <label>Driver Count</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="fa fa-group" ></span>
-                                              </div>
+                                              
                                             <div class="form-control"><input type="number" title="" name="deiver_cont" required   value="<?php if($records){ echo $records[0]->driver_count; } ?>"/></div>
                                             <?php echo form_error('deiver_cont', '<span class="form_error">', '</span>'); ?>
                                             </div>
@@ -392,9 +342,7 @@
                                          <div class="form-group">
                                          <label>Car Count</label>
                                           <div class="input-group">
-                                              <div class="input-addon">
-                                                  <span class="	fa fa-car" ></span>
-                                              </div>
+                                             
                                             <div class="form-control"><input type="number" title=" " name="car_cont" required    value="<?php if($records){ echo $records[0]->car_ount; } ?>"/></div>
                                             <?php echo form_error('car_cont', '<span class="form_error">', '</span>'); ?>
                                             </div>
