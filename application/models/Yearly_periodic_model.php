@@ -21,18 +21,18 @@
 		}
 
 		public function getyear($year,$limit,$start){
-			$user_id = $this->session->userdata['id'];
+			 $user_id = $this->session->userdata['id'];
 			 $this->db->select('*');
 			 $this->db->from('yearly_periodic');
 			 $this->db->where('Year(yearly_periodic_start_date) <=',$year);
-			// $this->db->where('Year(yearly_periodic_end_date) >=',$year);
-			 $this->db->limit($limit, $start);			 
+			 $this->db->where('Year(yearly_periodic_end_date) >=',$year);
 			 $this->db->where("user_id", $user_id);
+			 $this->db->limit($limit, $start);		
 			 $query = $this->db->get();
-		     //print_r($query->result()); 	die;
+		    // print_r($query->result()); 	
 			 return $query->result();
-		 }
-		 	 
+		} 
+		
 		  public function record_count($year){
 			 $user_id = $this->session->userdata['id'];
 			 $query = $this->db->where('user_id', $user_id)
@@ -95,6 +95,14 @@
 			//print_r($sql1);die;
 			$this->db->query($sql1);	 
 			  }
+		 }
+		 
+		 public function changeStatus($id ,$status,$end_date){
+			$this->db->set('yearly_periodic_status',$status); 
+			$this->db->set('yearly_periodic_end_date',date("Y-m-d")); 
+            $this->db->where("yearly_periodic_id", $id); 
+            $this->db->update("yearly_periodic");
+			 //echo "Hurray i am in";
 		 }
 	}
 	

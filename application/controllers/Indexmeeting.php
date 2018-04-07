@@ -22,7 +22,7 @@
 			
 					  $config["total_rows"] = $this->Indexmeeting_model->record_count();
 
-					  $config["per_page"] = 1;
+					  $config["per_page"] = 10;
 				
 					  $config["uri_segment"] = 3;
 					  $this->pagination->initialize($config);
@@ -49,7 +49,7 @@
 				
 					  $config["total_rows"] = $this->Indexmeeting_model->record_counting($url_id);
 				
-					  $config["per_page"] = 1;
+					  $config["per_page"] = 10;
 				
 					  $config["uri_segment"] = 4;
 					  $this->pagination->initialize($config);
@@ -92,7 +92,7 @@
 				
 		} 
 			
-		public function insert_meeting(){ 
+	public function insert_meeting(){ 
 		 $this->form_validation->set_rules('previous_date','Previous Meeting Date ','trim|required');
 		 $this->form_validation->set_rules('index_meeting_next_date','Next Meeting Date ','trim|required');
 		 $this->form_validation->set_rules('index_meeting_start_time','Start Time','trim|required');

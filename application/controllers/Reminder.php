@@ -3,11 +3,11 @@
 	class Reminder extends CI_Controller 
 	{
 	 	public $user_id ="";
+		
 		public function __construct(){
 				parent::__construct();
 					$this->load->helper('url'); 
 					$this->load->library('session');
-					$this->load->model('Reminder_model');
 				    $this->load->model('Reminder_sheet_model');
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
@@ -18,7 +18,6 @@
 			if($this->session->user == 'logged_in'){
 				$config = array();
 					  $config["base_url"] = base_url() ."Reminder/index";
-			
 					  $config["total_rows"] = $this->Reminder_sheet_model->record_count();
 				
 					  $config["per_page"] = 10;
