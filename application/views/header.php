@@ -19,7 +19,7 @@
 													$firstname = $this->session->firstname; 
 													$lastname   = $this->session->lastname;  ?>
                                                         <p class="person-name">Hello !<br />  <?php if($firstname){ echo $firstname; } ?> <?php if($lastname){ echo $lastname; } ?></p>
-                                                        <img src="<?php echo base_url(); ?>img/person.png" alt="person image" id="per-img" class="log-popup"/>
+                                                        <img src="<?php echo base_url(); ?>img/person.jpg" alt="person image" id="per-img" class="log-popup"/>
                                             </div>
 
                                         </div>
@@ -42,7 +42,7 @@
                     <aside  id="aside">
                                    <div class="profile">
                                      <div class="col-md-3">
-                                          <img src="http://192.168.10.32/Secretary-App-Glaze/img/person.jpg" alt="person image" id="per-img" class="log-popup"/>
+                                          <img src="http://192.168.10.32/Secretary-App-Glaze/img/person.jpg" alt="person image"  />
                                      </div>
                                      <div class="col-md-9">
                                           <h2><span class="name">Surendar Singh</span></h2>

@@ -174,7 +174,8 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/quickworkCalender.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/thems.js"></script>
     <script src="<?php echo base_url(); ?>js/ckeditor/ckeditor.js"></script>
-    <script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/utils.js"></script>
+<script>
                 //console.log("editor enabled");
                 // Replace the <textarea id="editor1"> with a CKEditor
                 // instance, using default configuration.

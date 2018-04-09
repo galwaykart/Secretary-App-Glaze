@@ -2043,13 +2043,6 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
     }
 .right-pop-tag {width:100%;}
 
-.box-data-for-2 {border: 1px solid #dbe0e6;
-    min-height: 220px;
-    height: auto;
-    width: auto;
-    position: relative;
-    margin: 2px 2px;
-   }
 
 .box-data-for-2 h2{font-size: 12px;
     text-transform: uppercase;
@@ -2103,7 +2096,8 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
 
 
 
-.col-mew-33 {width:30%;float:left;}
+.col-mew-33 {width: 21%;
+    float: left;}
 .box-data-for-2 .container1 span.fa-bars {position: absolute;
     right: 10px;
     top: 10px;cursor:pointer;
@@ -2208,7 +2202,7 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
     color: #7d0303;
     
 }
-.clock {    margin-left: 25%;
+.clock {   margin-left: 15%;
     margin-top: 11%;}
 
 
@@ -2468,3 +2462,17 @@ a.delgate-minus3 {
     left: 66%;
     font-size: 12px;
 }
+    .box-data-for-2 {border: 1px solid #dbe0e6;
+    min-height: 220px;
+    height: auto;
+    width: auto;
+    position: relative;
+   
+    margin: 2px 2px;
+   }
+
+.col-44 {width:18%;float:left;}
+.no-border-box {}
+
+
+.main-area-body-box .one-box {background-image:url('../img/unnamed.png')}
