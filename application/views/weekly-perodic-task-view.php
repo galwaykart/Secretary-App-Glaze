@@ -10,7 +10,7 @@
 	 <div class="clear"></div>
      <div class="dailly-notes-index-panel"> 
        <div class="container-5">                     
-                        <div class="col-md-12">
+                        <div class="col-md-12 project-del-view-main-panel">
                         <?php
                         // echo "<pre>";
                         // print_r($list);  
@@ -20,7 +20,7 @@
                                    
                                     <div class="clear"></div>
                                     <div class="col-md-6">
-                                         <div class="form-group">
+                                         <div class="form-group form">
                                                         <label>End Date</label>
                                                         
                                                         <div class="input-group">
@@ -33,7 +33,7 @@
                                                
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group form">
                                             <label>Supervised by:</label>
                                             <div class="input-group">
                                                 <div class="input-addon">
@@ -53,22 +53,22 @@
         
                                 <div id="auto-del">
                                     <div class="auto-del">
-                                        <div class="left">
-                                            <div class="form-group">
+                                        <div class="col-md-6">
+                                            <div class="form-group form">
                                                 <label>Delegate To</label>
                                                 <div class="input-group">
-												 <div class="input-addon">
+												                            <div class="input-addon">
                                                 <span class="fa fa-share" ></span>
                                                 </div>
                                                     <div class="form-control"><input required type="text" id ="gm1" name="delegate_to[]" title="Delegate To" value="<?php echo $list['data2'][0]->weekly_periodic_delegates_name?>"/></div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="center">
-                                            <div class="form-group">
+                                        <div class="col-md-6">
+                                            <div class="form-group form">
                                                 <label>Email Id</label>
-                                                <div class="input-group">
-												 <div class="input-addon">
+                                                <div class="input-group form">
+												                            <div class="input-addon">
                                                 <span class="fa fa-envelope-o" ></span>
                                                 </div>
                                                     <div class="form-control">
@@ -77,9 +77,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="right text-center">
+                                        <div class="pro-del-btn" style="float:left;">
                                             <div class="btn-group">
-                                                <a href="#" class="plus" id="plus"><span class="fa fa-plus" ></span></a>
+                                                <a href="#" class="plus delgate-plus3" id="plus"><span class="fa fa-plus" ></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -89,26 +89,33 @@
                                         $j = $i - 1;
                                     ?>
                                     <div id="<?php   echo "rm".$j ?>" class="auto-del">
-                                            <div class="left">
-                                                <div class="form-group">
+                                            <div class="col-md-6">
+                                                <div class="form-group form">
                                                     <label>Delegate To</label>
-                                                    <div class="input-group">
+                                                    <div class="input-group form">
+                                                      
+                                                        <div class="input-addon">
+                                                          <span class="fa fa-share" ></span>
+                                                        </div>
                                                         <div class="form-control"><input required type="text"  name="delegate_to[]" title="Delegate To" value="<?php echo $list['data2'][$i]->weekly_periodic_delegates_name?>"/></div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="center">
-                                                <div class="form-group">
+                                            <div class="col-md-6">
+                                                <div class="form-group form">
                                                     <label>Email Id</label>
                                                     <div class="input-group">
+                                                        <div class="input-addon">
+                                                        <span class="fa fa-envelope-o" ></span>
+                                                      </div>
                                                         <div class="form-control">
                                                             <input required type="text"   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="<?php echo $list['data2'][$i]->weekly_periodic_delegates_email?>"/>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="right text-center">
-                                                <div class="btn-group"><a style="background: red;" href="#"  onclick="setValues(<?php echo $j; ?>)"><span class="fa fa-minus" style="color: white;"></span></a>
+                                            <div class="pro-del-btn" style="float:left;">
+                                                <div class="btn-group"><a class="delgate-minus3 " style="background-color:red;border:0;"  href="#"  onclick="setValues(<?php echo $j; ?>)"><span class="fa fa-minus" style="color: white;"></span></a>
                                                 </div>
                                             </div>                                    
                                     </div>
@@ -161,28 +168,34 @@
                            
         
         <div id="auto-del1">
-            <div class="auto-del">
-                <div class="left">
+            <div class="auto-del autodel-container">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label>Date</label>
                         <div class="input-group">
+                          <div class="input-addon">
+                            <span class="fa fa-calendar"></span>
+                          </div>
                             <div class="form-control"><input required type="date"  name="status_date[]" title="Delegate To" value="<?php if($list['data3']){ echo $list['data3'][0]->weekly_periodic_status_date ;}?>"/></div>
                         </div>
                     </div>
                 </div>
-                <div class="center">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label>Note</label>
                         <div class="input-group">
+                          <div class="input-addon">
+                            <span class="fa fa-edit"></span>
+                          </div>
                             <div class="form-control">
-                            <textarea required type="text"  name="status_note[]"><?php if($list['data3']){ echo $list['data3'][0]->weekly_periodic_status_note; }?></textarea>
+                            <textarea required class="noteViewTextArea" type="text"  name="status_note[]"><?php if($list['data3']){ echo $list['data3'][0]->weekly_periodic_status_note; }?></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="right text-center">
+                <div class=" text-center" style="float:left;">
                     <div class="btn-group">
-                        <a href="#" class="plus" id="plus1"><span class="fa fa-plus" ></span></a>
+                        <a href="#" class="plus delgate-plus3" id="plus1"><span class="fa fa-plus" ></span></a>
                     </div>
                 </div>
             </div>
@@ -194,27 +207,33 @@
             for($k=1 ; $k<sizeof($list['data3']) ; $k++){
                 $j = $k - 1;
             ?>
-            <div id="<?php   echo "dm".$j ?>" class="auto-del">
-                    <div class="left">
+            <div id="<?php   echo "dm".$j ?>" class="auto-del autodel-container">
+              <div class="col-md-6">
                         <div class="form-group">
                             <label>Date</label>
                             <div class="input-group">
+                                <div class="input-addon">
+                                  <span class="fa fa-calendar"></span>
+                                </div>
                                 <div class="form-control"><input required type="date"  name="status_date[]" title="Date" value="<?php echo $list['data3'][$k]->weekly_periodic_status_date?>"/></div>
                             </div>
                         </div>
                     </div>
-                    <div class="center">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Note</label>
                             <div class="input-group">
+                                  <div class="input-addon">
+                                    <span class="fa fa-edit"></span>
+                                  </div>
                                 <div class="form-control">
                                     <textarea required type="text"  name="status_note[]"><?php echo $list['data3'][$k]->weekly_periodic_status_note?></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="right text-center">
-                        <div class="btn-group"><a style="background: red;" href="#"  onclick="dsetValues(<?php echo $j; ?>)"><span class="fa fa-minus" style="color: white;"></span></a>
+                    <div class="right text-center" style="float:left">
+                        <div class="btn-group"><a style="background: #d4554d;" href="#"  onclick="dsetValues(<?php echo $j; ?>)"><span class="fa fa-minus" style="color: white;"></span></a>
                         </div>
                     </div>                                    
             </div>
@@ -222,9 +241,9 @@
             }
             ?>
         </div>
-
-            <div class="col-md-12">
-                <button type="submit" class="btargetDatetn-primary btn">Save</button>
+                              <br></br>
+            <div class="col-md-12 btn-group text-center">
+                <button type="submit" class="btargetDatetn-primary btn btn-primary">Save</button>
                 <!-- <a href="#">Add</a> -->
             </div>  
    
@@ -276,110 +295,16 @@
 
     
 
-    <!-- don-t change -->
-    <div style="height:50px;"></div>
-    <footer id="footer">
-        <p>&copy; Copyright By Glaze India Pvt. Ltd.</p>
-    </footer>
-
-     
-              <!-- mobile menubar -->
-               <div class="mobile-menu-bar">
-                                  <aside class="" id="aside1">
-                                    <div class="accordion" id="accordion2">
-                                        <ul>
-                                            <li>
-                                                <div>Sollicitudin</div>
-                                                <ul>
-                                                    <li><a href="?11">Lorem ipsum</a></li>
-                                                    <li><a href="?12">Dolor sit</a></li>
-                                                    <li>
-                                                        <div>Commodo Rhoncus</div>
-                                                        <ul>
-                                                            <li><a href="demo.html">Current</a></li>
-                                                            <li><a href="?132">Consectetur</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <div>Quis Porttitor</div>
-                                                <ul>
-                                                    <li><a href="?21">Finibus Bonorum</a></li>
-                                                    <li><a href="?22">Sed ut</a></li>
-                                                    <li><a href="?23">Neque porro</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <div>Odio Ac</div>
-                                                <ul>
-                                                    <li><a href="?31">Minima veniam</a></li>
-                                                    <li><a href="?32">Voluptate velit</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="?4">Sapien quam</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                        </aside>
-               </div>
-            <!-- mobile menubar end -->
   
 
-
-     <!-- globle header for comman end --> 
-    <script>
-        $(document).ready(function () {
-            var count = 0;
-            var count2 = 0;
-
-
-            $('#sec-header #toggle-btn-box span#bar').click(function () {
-                if ($(window).width() >= 769) {
-                    if (count % 2 == 0) { $('#aside').css('display', 'none'); $('.main-area-dashboard #left').css('width', '0%'); $('.main-area-dashboard #right').css('width', '100%'); }
-                    else { $('#aside').css('display', 'block'); $('.main-area-dashboard #left').css('width', '15%'); $('.main-area-dashboard #right').css('width', '85%'); }
-                    count++;
-                }
-                else {
-
-                    if (count2 % 2 == 0) { $('.mobile-menu-bar').css('display', 'block'); }
-                    else { $('.mobile-menu-bar').css('display', 'none'); }
-                    count2++;
-                }
-
-            });
-
-            $('.log-popup').on('click', function () {
-                $('.log-up-body').toggle('slow');
-
-            });
-
-
-
-
-            // window resize option
-            $(window).bind('resize', function () {
-                if ($(window).width() > 768) {
-                    $('#aside').css('display', 'block'); $('.mobile-menu-bar').css('display', 'none');
-                    $('.main-area-dashboard #right').css('width', '85%');
-                    $('.main-area-dashboard #left').css('width', '15%');
-                }
-                else {
-                    $('#aside').css('display', 'none');
-                    $('.main-area-dashboard #right').css('width', '100%'); $('.mobile-menu-bar').css('display', 'none');
-                }
-            });
-        });
-
-    </script>
+   
 
     <script type="text/javascript"> 
         $(function() {
             $('a#plus').click(function(e) {
                 e.preventDefault();
                 var lnth = $('#auto-del .auto-del').length; 
-                $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+                $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="col-md-6"><div class="form-group form"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="col-md-6"><div class="form-group form"><label>Email Id</label><div class="input-group form"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/></div></div></div></div><div class="pro-del-btn" style="float:left;"><div class="btn-group"><a style="background: #d4554d;" href="#" class="delgate-minus3"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
                 
             });
         });
@@ -392,8 +317,8 @@
             $('a#plus1').click(function(e) {
                 e.preventDefault();
                 var lnth = $('#auto-del1 .auto-del').length; 
-                $('#auto-del1').append('<div class="clear"></div><div id="dm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Date</label><div class="input-group"><div class="form-control"><input required type="date" value="" name="status_date[]" title="Date" /></div></div></div></div><div class="center"><div class="form-group"><label>Note</label><div class="input-group"><div class="form-control"><textarea required type="text"  name="status_note[]" value=""></textarea></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="dsetValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
-                
+                $('#auto-del1').append('<div class="clear"></div><div id="dm'+lnth+'" class="auto-del"><div class="auto-del autodel-container"><div class="col-md-6"><div class="form-group form"><label>Date</label><div class="input-group"><div class="input-addon"><span class="fa fa-calendar"></span></div><div class="form-control"><input required type="date" value="" name="status_date[]" title="Date" /></div></div></div></div><div class="col-md-6"><div class="form-group form"><label>Note</label><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><textarea class="noteViewTextArea" required type="text"  name="status_note[]" value=""></textarea></div></div></div></div><div class="pro-del-btn" style="float:left;"><div class="btn-group"><a style="background: #d4554d;" href="#"  class="delgate-minus3" onclick="dsetValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+
             });
         });
             function dsetValues(id){     

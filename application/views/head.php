@@ -22,15 +22,6 @@
      <script src=""<?php echo base_url(); ?>js/dragable.js">
      </script>
 
-
-
-
-
-
-
-
-
-  
 </head>
 <body class="body style-6"><!-- body tag start -->
 

@@ -8,6 +8,7 @@
     margin: 5% auto;
     overflow-x: hidden;
 }
+tr {cursor:pointer;}
 div {box-sizing:content-box;}
 input:focus, select:focus {outline:0;}
 html , body{position:relative;}
@@ -453,7 +454,11 @@ table.task-tag tbody tr td:nth-child(3) {text-align:right}
 .registration .container-3 .reset {background-color: white;border: 1px solid #cec1c1;color: black;}
 .registration .container-3 .empty-box {height:40px;}
 .registration .container-3 .mybtn:hover {box-shadow: 0px 2px 3px -1px #483b3b}
-.registration .container-3 .del {background-color: #fd5f5f;border: 1px solid #fd5f5f;}
+.registration .container-3 .del {background-color: #fd5f5f;
+    border: 1px solid #fd5f5f;
+    margin-right: 4px;
+    padding: 4px 44px;
+    padding-bottom: 5px;}
 
 @media screen and (min-width:320px) and (max-width:480px) {
 
@@ -464,14 +469,20 @@ table.task-tag tbody tr td:nth-child(3) {text-align:right}
 .registration .container-3 .mybtn {margin-top:0%;margin-bottom:5px;}
 
 }
-.switch {position: relative;display: inline-block;width: 50px;height: 17px;margin-right: 3%;    float: left;    margin-top: 1.5%;}
+.switch {    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 12px;
+    margin-right: 3%;
+    float: left;
+    margin-top: 3.5%;}
 .switch input {display:none;}
 .slider {position: absolute;cursor: pointer;top: 0;left: 0;right: 0;bottom: 0;background-color: #00abdf;-webkit-transition: .4s;transition: .4s;}
 .slider:before {position: absolute;
     content: "";
-    height: 26px;
-    width: 23px;
-    left: 3px;
+    height: 19px;
+    width: 19px;
+    left: 2px;
     bottom: 3px;
     top: -4px;
     background-color: white;
@@ -508,7 +519,7 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     margin-bottom: 2%;}
 .all-user-panel .user-content-panel-view table{    width: 100%;border-collapse: collapse;}
 .all-user-panel .user-content-panel-view table thead{}
-.all-user-panel .user-content-panel-view table thead tr{background-color: #FF9800;}
+.all-user-panel .user-content-panel-view table thead tr{background-color: #e24545;}
 .all-user-panel .user-content-panel-view table thead tr th{font-size: 12px;padding: 8px 8px;color: white;text-align:left;}
 .all-user-panel .user-content-panel-view table tbody tr{    border-bottom: 1px solid #b9d5de;}
 .all-user-panel .user-content-panel-view table tbody tr td{    font-size: 12px;
@@ -950,18 +961,14 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
 .container-5 h2{font-size: 22px;
     margin: 0;
     margin-bottom: 0%;}
-.container-5 .form-group .input-group .form-control input{    margin-left: 7%;
+.container-5 .form-group .input-group .form-control input{margin-left: 5%;
     border: 1px solid #eae3e3;
     color: grey;
     font-size: 11px;
-    width: 93%;
+    width: 95%;
     padding: 5px;}
 .container-5 .form-group .input-group .input-addon {margin:0;}
-    .container-5 .form-group  label {
-    color: grey;
-    /* font-style: italic; */
-    font-size: 12px;
-    margin-left: 9.5%;}
+
 .container-5 .form-group .input-group {    margin-top: 1%;
     margin-left: 10%;}
 .container-5 p {color: #e24545;
@@ -1102,7 +1109,7 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
 .monthly-tabs button {    width: 25%;}
 .monthly-periodic-task-sheet h2 {font-size:13px;padding-left:0;padding-top:0;margin-top: 0;font-weight: 700;}
 .monthly-periodic-task-sheet table {width:100%;border-collapse:collapse;}
-.monthly-periodic-task-sheet table thead tr{background-color:#FF9800;
+.monthly-periodic-task-sheet table thead tr{background-color:#e24545;
     height: 22px;}
 .monthly-periodic-task-sheet table thead tr th{  font-size: 12px;
     text-align: left;
@@ -1866,7 +1873,7 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
 	
 	.tabsPagination
 	{margin-top: 4%;
-    margin-left: 23%;}
+   }
 	
 	.notesviewForm .form-group{    margin-bottom: 15px;}
 	.notesview-lastPanel  .form-group .input-group .form-control{margin-left: 8%;
@@ -1946,7 +1953,7 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
 
 	
 	.monthly-view-list-input .form-group .input-group .form-control{width:90%;}
-	.monthly-view-list-input .form-group .input-group .form-control textarea{height: 60px;width: 100%;}
+	.monthly-view-list-input .form-group .input-group .form-control textarea{height: 60px;width: 100%;border: 1px solid #eae3e3;}
 	.monthly-view-list-input label{font-size: 13px;}
 	.yel-minus-work{color: white;padding: 4px;margin-top: 28px;}
 	
@@ -2191,7 +2198,8 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
 .box-data-for-2 h2.temp {font-size: 4em;
     font-weight: normal;
     margin-top: 55px;
-    color: black;
+    color: #941919;
+    text-shadow: 4px -5px 0px #ccc4c4;
 }
 
 .box-data-for-2 h2.title {margin-top: 6%;
@@ -2315,19 +2323,148 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
     font-size: 10px;
     margin-top: 1px;
     width: 27px;}
-.project-panel-top {background-color: whitesmoke;
+.project-panel-top {    background-color: whitesmoke;
     padding: 10px;
     border: 1px solid #e6e0e0;
     margin: 0% 2%;
+    padding: 35px 0px;
 }
 
 .project-del-view-main-panel {}
-.project-del-view-main-panel .form{}
+.project-del-view-main-panel .form1 .input-group{margin-left: 0;}
 .project-del-view-main-panel .form .input-group {}
+.project-del-view-main-panel .form-group label{}
 .project-del-view-main-panel .form .input-group .form-control {}
-.project-del-view-main-panel .form .input-group .form-control input{    width: 105%;
-    margin-left: 3%;}
+.project-del-view-main-panel .form .input-group .form-control input{margin-left: 1.5%;}
 
-    .project-del-view-main-panel .top-panel {width: 98%;
-    margin-left: 3%;
+    .project-del-view-main-panel .top-panel {margin-left: 1.8%;
+    margin-right: 0.5%;
     }
+
+
+    .container-5 .form-group .input-group .input-addon span{font-size: 15px;
+    margin-top: 7px;}
+
+        .container-5 .form-group  label {
+    color: #212020;
+    /* font-style: italic; */
+    font-size: 12px;
+    margin-left: 9.5%;}
+.auto-del .right a.delgate-plus { background-color: #00abdf;
+    position: absolute;
+    top: 27px;
+    left: -16px;
+    padding: 8px 10px;
+    border: 1px solid #0c97c1;
+}
+
+
+.auto-del .right a.delgate-plus { background-color: #00abdf;
+    position: absolute;
+    top: 27px;
+    left: -16px;
+    padding: 8px 10px;
+    border: 1px solid #0c97c1;
+}
+.auto-del .right a.delgate-minus { 
+    position: absolute;
+    top: 28px;
+    left: -34px;
+    padding: 8.5px 10px;
+    background: #e82929;
+    border: 0;
+}
+div.pro-del-btn button {font-size: 12px;
+    padding: 7px 32px;
+    box-shadow: 0px 2px 1px 0px #1e414c;
+    border-radius: 16px;
+    background-color: #00abdf;
+    color: white;}
+
+div.pro-del-btn {position:relative;}
+
+a.delgate-plus2 {background-color: #00abdf;
+    position: absolute;
+    top: 29px;
+    left: -32px;
+    padding: 8px 10px;
+    border: 1px solid #0c97c1;
+    color: white;
+    font-size: 11px;
+}
+
+.container-5 .form-group .input-group .form-control input.total-day {    width: 88%;}
+ a.addiion-task {
+}
+
+a.delgate-plus3 {      background-color: #00abdf;
+    position: absolute;
+    top: 25px;
+    left: -33px;
+    padding: 10px 12px;
+    border: 1px solid #0c97c1;
+    color: white;
+    font-size: 11px;
+}
+
+a.delgate-minus3 {      
+   position: absolute;
+    top: 25px;
+    left: -33px;
+    padding: 11px 12px;
+    color: white;
+    font-size: 11px;
+}
+.noteViewTextArea {    width: 96%;
+    height: 50px;
+    border: 1px solid #eae3e3;
+}
+.autodel-container {    background-color: whitesmoke;
+    height: 79px;
+    padding: 18px 10px;
+    border: 1px solid #ece5e5;
+    margin-bottom: 5px;
+}
+.right-btn {position: absolute;
+    top: 30px;
+    right: -13px;
+}
+.right-btn-minus {
+          background-color: #e24545;
+    color: white;
+    padding: 5px 7px;
+    top: 26px;
+    position: absolute;
+    left: -13px;
+    font-size: 12px;
+}
+
+.leftItemsonBotton-yearly-task-view {    margin: 0% 2%;
+}
+
+    .leftItemsonBotton-yearly-task-view textaera.textarea {
+    }
+
+
+    .leftItemsonBotton-yearly-task-view .participater3 {left: 0;
+    position: absolute;
+    width: 25px;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 100%;
+    text-align: CENTER;
+    }
+
+
+    .leftItemsonBotton-yearly-task-view .form-group .input-group .form-control input {border: 1px solid #eae3e3;
+    }
+
+    .right-btn-minus2 {
+    background-color: #e24545;
+    color: white;
+    padding: 5px 7px;
+    top: 29px;
+    position: absolute;
+    left: 66%;
+    font-size: 12px;
+}

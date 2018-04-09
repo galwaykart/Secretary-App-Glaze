@@ -76,8 +76,13 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
-                                                   
-                             
+
+                                          <div class='clear'></div>
+                                          <div class="tabsPagination">
+                                            <div class="pagination">
+                                              <?php echo $links; ?>
+                                            </div>
+                                          </div>
                                         </article>
                           </section>
                           <section id="section2">
@@ -126,8 +131,13 @@
 																	?>
                                                                   </tbody>
                                                               </table>
-                                                     </div>  
-                              
+                                                     </div>
+                                          <div class='clear'></div>
+                                          <div class="tabsPagination">
+                                            <div class="pagination">
+                                              <?php echo $links; ?>
+                                            </div>
+                                          </div>
                                         </article>
                           </section>
                           <section id="section3">
@@ -177,6 +187,12 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
+                                          <div class='clear'></div>
+                                          <div class="tabsPagination">
+                                            <div class="pagination">
+                                              <?php echo $links; ?>
+                                            </div>
+                                          </div>
                                         </article>
                           </section>
                           <section id="section4">
@@ -224,6 +240,12 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
+                                          <div class='clear'></div>
+                                          <div class="tabsPagination">
+                                            <div class="pagination">
+                                              <?php echo $links; ?>
+                                            </div>
+                                          </div>
                             
                                         </article>
                           </section>
@@ -274,7 +296,12 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
-                            
+                                                  <div class='clear'></div>
+                                                  <div class="tabsPagination">
+                                                    <div class="pagination">
+                                                      <?php echo $links; ?>
+                                                    </div>
+                                                  </div>
                                                 </article>
                           </section>
                           <section id="section6">
@@ -323,6 +350,12 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
+                                                  <div class='clear'></div>
+                                                  <div class="tabsPagination">
+                                                    <div class="pagination">
+                                                      <?php echo $links; ?>
+                                                    </div>
+                                                  </div>
                                                 </article>
                           </section>
                           <section id="section7">
@@ -371,6 +404,12 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
+                                                          <div class='clear'></div>
+                                                          <div class="tabsPagination">
+                                                            <div class="pagination">
+                                                              <?php echo $links; ?>
+                                                            </div>
+                                                          </div>
                             
                                                         </article>
                           </section>
@@ -420,6 +459,12 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
+                                                          <div class='clear'></div>
+                                                          <div class="tabsPagination">
+                                                            <div class="pagination">
+                                                              <?php echo $links; ?>
+                                                            </div>
+                                                          </div>
                                                         </article>
                           </section>
                           <section id="section9">
@@ -468,6 +513,12 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
+                                                          <div class='clear'></div>
+                                                          <div class="tabsPagination">
+                                                            <div class="pagination">
+                                                              <?php echo $links; ?>
+                                                            </div>
+                                                          </div>
                                                         </article>
                           </section>
                           <section id="section10">
@@ -516,8 +567,13 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
-                            
-                                                        </article>
+                                                          <div class='clear'></div>
+                                                          <div class="tabsPagination">
+                                                            <div class="pagination">
+                                                              <?php echo $links; ?>
+                                                            </div>
+                                                          </div>
+                                   </article>
                           </section>
                           <section id="section11">
                                                         <input type="radio" name="sections" id="option11" <?php if($month == '11') { echo "checked"; } ?>  onclick="window.location='<?php echo site_url('Monthlyperiodic/index/11') ?>'">
@@ -564,8 +620,13 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
-                            
-                                                        </article>
+                                                          <div class='clear'></div>
+                                                          <div class="tabsPagination">
+                                                            <div class="pagination">
+                                                              <?php echo $links; ?>
+                                                            </div>
+                                                          </div>
+                                 </article>
                           </section>
                           <section id="section12">
                                                         <input type="radio" name="sections" id="option12" <?php if($month == '12') { echo "checked"; } ?>  onclick="window.location='<?php echo site_url('Monthlyperiodic/index/12') ?>'">
@@ -615,17 +676,18 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
-                            
-                                                       </article>
+                                         <div class='clear'></div>
+                                          <div class="tabsPagination">
+                                            <div class="pagination">
+                                              <?php echo $links; ?>
+                                            </div>
+                                          </div>
+                                    </article>
                           </section>
 						  <div class="clear"></div>
                     </div><!-- verticle tabs end -->
 					<div class="clear"></div>
-					<div class="tabsPagination">
-							<div class="pagination">
-								  <?php echo $links; ?>
-							</div>
-					</div>
+				
 
     </div><!-- monthly periodic panel end -->
   

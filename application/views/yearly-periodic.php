@@ -69,7 +69,12 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
-                                                   
+                                          <div class="clear"></div>
+                                          <div class="tabsPagination">
+                                            <div class="pagination">
+                                              <?php echo $links; ?>
+                                            </div>
+                                          </div>
                              
                                         </article>
                           </section>
@@ -112,7 +117,13 @@
 																  <?php } }?>
                                                                   </tbody>
                                                               </table>
-                                                     </div>  
+                                                     </div>
+                                          <div class="clear"></div>
+                                          <div class="tabsPagination">
+                                            <div class="pagination">
+                                              <?php echo $links; ?>
+                                            </div>
+                                          </div>
                               
                                         </article>
                           </section>
@@ -156,16 +167,18 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
+                                          <div class="clear"></div>
+                                          <div class="tabsPagination">
+                                            <div class="pagination">
+                                              <?php echo $links; ?>
+                                            </div>
+                                          </div>
                                         </article>
                           </section>
                           <div class="clear"></div>
                     </div><!-- verticle tabs end -->
                     <div class="clear"></div>
-					<div class="tabsPagination">
-							<div class="pagination">
-								  <?php echo $links; ?>
-							</div>
-					</div>
+					
         
 
 
@@ -312,7 +325,7 @@
                <!-- autometic delegates end -->
 
               <div class="clear"></div>
-              <div class="col-md-12">
+              <div class=" footer">
 						           <button type="submit" class="btargetDatetn-primary btn"/>Save</button>
                        <input type="reset" class="btn-primary btn" value="Reset"/>
                        
