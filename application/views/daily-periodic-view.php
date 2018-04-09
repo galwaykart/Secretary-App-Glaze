@@ -76,22 +76,9 @@
                                 </table>
                         </div>
                </div>
-                        
-
-
-
-
        </div><!-- container 5 end -->
-   
-
         </div><!-- right deshbrad end -->
-
-            
-
     </div><!-- Main Dashbrad end -->
-   
-
-   
    
  <div style="height:50px;"></div>
       <?php $this->load->view('footer'); ?>
