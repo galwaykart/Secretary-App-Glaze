@@ -117,8 +117,6 @@
 							$existing_array = $p_data;
 							$new_array = array('quick_work_id'=>$record_id);
 							$new_set_array = array_merge($existing_array, $new_array);
-							//print_r($new_set_array);
-							echo "<br>";
 							$result = $this->db->insert('quick_work_delegates', $new_set_array);
 							
 						}

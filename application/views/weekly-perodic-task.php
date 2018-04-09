@@ -7,11 +7,19 @@
               <h2 id="paddin-left">Weekly Periodic </h2>
               <a href="#" id="" class="perdoci-task-add-btn"><span class="fa fa-plus" ></span>Add</a>
                 <!--search button start-->
+                <?php 
+                // echo "<pre>";
+                // print_r($fetch);
+                // echo "</pre>";
+                ?>
                         <div class="search-btn-perodic">
                             <input type="text" value="" placeholder="Search Task"/><button><span class="fa fa-search"></span></button>
 
                         </div>
                 <!--search button end-->
+                <?php if($this->session->flashdata('msg')): ?>
+                <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
+                <?php endif; ?>	
               <div class="tabordion">
                           <section id="section1">
                                         <input type="radio" name="sections" id="option1" <?php if($month == '01') { echo "checked"; } ?> onclick="window.location='<?php echo site_url('WeeklyPeriodic/index/01') ?>'">
@@ -35,7 +43,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -52,35 +60,44 @@
                                                                                         foreach($fetch as $r) { 
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
+                                                                                           
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            echo $end_month . " + " . $year. " + " . $end_date . "+++++++++++".$r->weekly_periodic_start_date; 
+                                                                                           $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                            //echo $end_month . " + " . $year. " + " . $end_date . "+++++++++++".$r->weekly_periodic_start_date; 
 
-                                                                                            if( $end_month == "Jan" && $year == "2018" ){
+                                                                                            if( $end_month == "Jan" && $year >= 2018 ){
                                                                                                 if($end_date >=1 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Jan" && $start_date>8){
+                                                                                                        continue;
+                                                                                                    }
+                                                                                                    
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
-                                                                                                }else{
+                                                                                                } else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Jan" && $start_date>8){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -100,7 +117,7 @@
                                                                                                      <th>SR NO</th>
                                                                                                      <th>Day</th>
                                                                                                      <th>Time</th>
-                                                                                                     <th>End Date</th>
+                                                                                                     <th>Start Date</th><th>End Date</th>
                                                                                                      <th>Task</th>
                                                                                                      <!-- <th>Delegate To</th> -->
                                                                                                      <th>Supervised By</th>
@@ -116,36 +133,52 @@
 
                                                                                         foreach($fetch as $r) { 
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
+																							$start_date =  date("d" , strtotime($r->weekly_periodic_start_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                            
+                                                                                            
+
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
+
+                                                                                            if( $end_month == "Jan" && $year >= 2018 ){
+                                                                                                echo $start_date_month . " + " . $start_date_year. " + " . $start_date;
+                                                                                                if($end_date >=8 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Jan" && $start_date>15){
+                                                                                                        continue;
+                                                                                                    }
 
                                                                                             if( $end_month == "Jan" && $year == "2018" ){
-                                                                                                if($end_date >=8 && $end_date <=31){
+																							
+                                                                                                if($end_date >=8 && $end_date <=31 ){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
-                                                                                                }else{
+																							 } else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Jan" && $start_date>15){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -164,7 +197,7 @@
                                                                                                  <th>SR NO</th>
                                                                                                  <th>Day</th>
                                                                                                  <th>Time</th>
-                                                                                                 <th>End Date</th>
+                                                                                                 <th>Start Date</th><th>End Date</th>
                                                                                                  <th>Task</th>
                                                                                                  <!-- <th>Delegate To</th> -->
                                                                                                  <th>Supervised By</th>
@@ -182,34 +215,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jan" && $year == "2018" ){
+                                                                                            if( $end_month == "Jan" && $year >= 2018 ){
                                                                                                 if($end_date >=15 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Jan" && $start_date>22){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Jan" && $start_date>22){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -228,7 +268,7 @@
                                                                                                      <th>SR NO</th>
                                                                                                      <th>Day</th>
                                                                                                      <th>Time</th>
-                                                                                                     <th>End Date</th>
+                                                                                                     <th>Start Date</th><th>End Date</th>
                                                                                                      <th>Task</th>
                                                                                                      <!-- <th>Delegate To</th> -->
                                                                                                      <th>Supervised By</th>
@@ -246,19 +286,21 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jan" && $year == "2018" ){
+                                                                                            if( $end_month == "Jan" && $year >= 2018 ){
                                                                                                 if($end_date >=22 && $end_date <=31){
+                                                                                                    
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
@@ -269,11 +311,11 @@
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -311,7 +353,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -329,34 +371,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Feb" && $year == "2018" ){
+                                                                                            if( $end_month == "Feb" && $year >= 2018 ){
                                                                                                 if($end_date >=1 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Feb" && $start_date>8){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Feb" && $start_date>8){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -375,7 +424,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -393,34 +442,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Feb" && $year == "2018" ){
+                                                                                            if( $end_month == "Feb" && $year >= 2018 ){
                                                                                                 if($end_date >=8 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Feb" && $start_date>15){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Feb" && $start_date>15){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -439,7 +495,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -457,34 +513,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Feb" && $year == "2018" ){
+                                                                                            if( $end_month == "Feb" && $year >= 2018 ){
                                                                                                 if($end_date >=15 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Feb" && $start_date>22){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Feb" && $start_date>22){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -503,7 +566,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -521,19 +584,20 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Feb" && $year == "2018" ){
+                                                                                            if( $end_month == "Feb" && $year >= 2018 ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
@@ -544,11 +608,11 @@
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -585,7 +649,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -603,34 +667,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Mar" && $year == "2018" ){
+                                                                                            if( $end_month == "Mar" && $year >= 2018 ){
                                                                                                 if($end_date >=1 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Mar" && $start_date>8){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Mar" && $start_date>8){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -649,7 +720,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -667,34 +738,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Mar" && $year == "2018" ){
+                                                                                            if( $end_month == "Mar" && $year >= 2018 ){
                                                                                                 if($end_date >=8 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Mar" && $start_date>15){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Mar" && $start_date>15){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -713,7 +791,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -731,34 +809,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Mar" && $year == "2018" ){
+                                                                                            if( $end_month == "Mar" && $year >= 2018 ){
                                                                                                 if($end_date >=15 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Mar" && $start_date>22){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Mar" && $start_date>22){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -777,7 +862,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -795,19 +880,20 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Mar" && $year == "2018" ){
+                                                                                            if( $end_month == "Mar" && $year >= 2018 ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
@@ -818,11 +904,11 @@
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -859,7 +945,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -877,34 +963,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Apr" && $year == "2018" ){
+                                                                                            if( $end_month == "Apr" && $year >= 2018 ){
                                                                                                 if($end_date >=1 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Apr" && $start_date>8){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Apr" && $start_date>8){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -923,7 +1016,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -941,34 +1034,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Apr" && $year == "2018" ){
+                                                                                            if( $end_month == "Apr" && $year >= 2018 ){
                                                                                                 if($end_date >=8 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Apr" && $start_date>15){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Apr" && $start_date>15){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -987,7 +1087,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1005,34 +1105,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Apr" && $year == "2018" ){
+                                                                                            if( $end_month == "Apr" && $year >= 2018 ){
                                                                                                 if($end_date >=15 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Apr" && $start_date>22){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Apr" && $start_date>22){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1051,7 +1158,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1069,19 +1176,20 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Apr" && $year == "2018" ){
+                                                                                            if( $end_month == "Apr" && $year >= 2018 ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
@@ -1092,11 +1200,11 @@
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1135,7 +1243,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1153,34 +1261,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "May" && $year == "2018" ){
+                                                                                            if( $end_month == "May" && $year >= 2018 ){
                                                                                                 if($end_date >=1 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="May" && $start_date>8){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="May" && $start_date>8){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1199,7 +1314,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1217,34 +1332,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "May" && $year == "2018" ){
+                                                                                            if( $end_month == "May" && $year >= 2018 ){
                                                                                                 if($end_date >=8 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="May" && $start_date>15){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="May" && $start_date>15){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1263,7 +1385,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1281,34 +1403,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "May" && $year == "2018" ){
+                                                                                            if( $end_month == "May" && $year >= 2018 ){
                                                                                                 if($end_date >=15 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="May" && $start_date>22){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="May" && $start_date>22){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1327,7 +1456,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1345,19 +1474,20 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "May" && $year == "2018" ){
+                                                                                            if( $end_month == "May" && $year >= 2018 ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
@@ -1368,11 +1498,11 @@
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1410,7 +1540,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1428,34 +1558,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jun" && $year == "2018" ){
+                                                                                            if( $end_month == "Jun" && $year >= 2018 ){
                                                                                                 if($end_date >=1 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Jun" && $start_date>8){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Jun" && $start_date>8){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1474,7 +1611,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1492,34 +1629,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jun" && $year == "2018" ){
+                                                                                            if( $end_month == "Jun" && $year >= 2018 ){
                                                                                                 if($end_date >=8 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Jun" && $start_date>15){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Jun" && $start_date>15){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1538,7 +1682,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1556,34 +1700,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jun" && $year == "2018" ){
+                                                                                            if( $end_month == "Jun" && $year >= 2018 ){
                                                                                                 if($end_date >=15 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Jun" && $start_date>22){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Jun" && $start_date>22){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1602,7 +1753,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1620,19 +1771,20 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jun" && $year == "2018" ){
+                                                                                            if( $end_month == "Jun" && $year >= 2018 ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
@@ -1643,11 +1795,11 @@
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1682,7 +1834,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1700,34 +1852,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jul" && $year == "2018" ){
+                                                                                            if( $end_month == "Jul" && $year >= 2018 ){
                                                                                                 if($end_date >=1 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Jul" && $start_date>8){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Jul" && $start_date>8){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1743,7 +1902,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1761,34 +1920,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jul" && $year == "2018" ){
+                                                                                            if( $end_month == "Jul" && $year >= 2018 ){
                                                                                                 if($end_date >=8 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Jul" && $start_date>15){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Jul" && $start_date>15){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1804,7 +1970,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1822,34 +1988,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jul" && $year == "2018" ){
+                                                                                            if( $end_month == "Jul" && $year >= 2018 ){
                                                                                                 if($end_date >=15 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Jul" && $start_date>22){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Jul" && $start_date>22){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1865,7 +2038,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1883,19 +2056,20 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Jul" && $year == "2018" ){
+                                                                                            if( $end_month == "Jul" && $year >= 2018 ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
@@ -1906,11 +2080,11 @@
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -1944,7 +2118,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -1962,34 +2136,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Aug" && $year == "2018" ){
+                                                                                            if( $end_month == "Aug" && $year >= 2018 ){
                                                                                                 if($end_date >=1 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Aug" && $start_date>8){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Aug" && $start_date>8){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2005,7 +2186,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -2023,34 +2204,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Aug" && $year == "2018" ){
+                                                                                            if( $end_month == "Aug" && $year >= 2018 ){
                                                                                                 if($end_date >=8 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Aug" && $start_date>15){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Aug" && $start_date>15){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2066,7 +2254,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -2084,34 +2272,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Aug" && $year == "2018" ){
+                                                                                            if( $end_month == "Aug" && $year >= 2018 ){
                                                                                                 if($end_date >=15 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Aug" && $start_date>22){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Aug" && $start_date>22){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2127,7 +2322,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -2145,19 +2340,20 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Aug" && $year == "2018" ){
+                                                                                            if( $end_month == "Aug" && $year >= 2018 ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
@@ -2168,11 +2364,11 @@
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2205,7 +2401,7 @@
                                                                         <th>SR NO</th>
                                                                         <th>Day</th>
                                                                         <th>Time</th>
-                                                                        <th>End Date</th>
+                                                                        <th>Start Date</th><th>End Date</th>
                                                                         <th>Task</th>
                                                                         <!-- <th>Delegate To</th> -->
                                                                         <th>Supervised By</th>
@@ -2223,34 +2419,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Sep" && $year == "2018" ){
+                                                                                            if( $end_month == "Sep" && $year >= 2018 ){
                                                                                                 if($end_date >=1 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Sep" && $start_date>8){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Sep" && $start_date>8){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2266,7 +2469,7 @@
                                                                         <th>SR NO</th>
                                                                         <th>Day</th>
                                                                         <th>Time</th>
-                                                                        <th>End Date</th>
+                                                                        <th>Start Date</th><th>End Date</th>
                                                                         <th>Task</th>
                                                                         <!-- <th>Delegate To</th> -->
                                                                         <th>Supervised By</th>
@@ -2284,34 +2487,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Sep" && $year == "2018" ){
+                                                                                            if( $end_month == "Sep" && $year >= 2018 ){
                                                                                                 if($end_date >=8 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Sep" && $start_date>15){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Sep" && $start_date>15){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2327,7 +2537,7 @@
                                                                         <th>SR NO</th>
                                                                         <th>Day</th>
                                                                         <th>Time</th>
-                                                                        <th>End Date</th>
+                                                                        <th>Start Date</th><th>End Date</th>
                                                                         <th>Task</th>
                                                                         <!-- <th>Delegate To</th> -->
                                                                         <th>Supervised By</th>
@@ -2345,34 +2555,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Sep" && $year == "2018" ){
+                                                                                            if( $end_month == "Sep" && $year >= 2018 ){
                                                                                                 if($end_date >=15 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Sep" && $start_date>22){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Sep" && $start_date>22){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2388,7 +2605,7 @@
                                                                         <th>SR NO</th>
                                                                         <th>Day</th>
                                                                         <th>Time</th>
-                                                                        <th>End Date</th>
+                                                                        <th>Start Date</th><th>End Date</th>
                                                                         <th>Task</th>
                                                                         <!-- <th>Delegate To</th> -->
                                                                         <th>Supervised By</th>
@@ -2406,19 +2623,20 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Sep" && $year == "2018" ){
+                                                                                            if( $end_month == "Sep" && $year >= 2018 ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
@@ -2429,11 +2647,11 @@
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2467,7 +2685,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -2485,34 +2703,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Oct" && $year == "2018" ){
+                                                                                            if( $end_month == "Oct" && $year >= 2018 ){
                                                                                                 if($end_date >=1 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Oct" && $start_date>8){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Oct" && $start_date>8){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2528,7 +2753,7 @@
                                                                         <th>SR NO</th>
                                                                         <th>Day</th>
                                                                         <th>Time</th>
-                                                                        <th>End Date</th>
+                                                                        <th>Start Date</th><th>End Date</th>
                                                                         <th>Task</th>
                                                                         <!-- <th>Delegate To</th> -->
                                                                         <th>Supervised By</th>
@@ -2546,34 +2771,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Oct" && $year == "2018" ){
+                                                                                            if( $end_month == "Oct" && $year >= 2018 ){
                                                                                                 if($end_date >=8 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Oct" && $start_date>15){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Oct" && $start_date>15){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2589,7 +2821,7 @@
                                                                         <th>SR NO</th>
                                                                         <th>Day</th>
                                                                         <th>Time</th>
-                                                                        <th>End Date</th>
+                                                                        <th>Start Date</th><th>End Date</th>
                                                                         <th>Task</th>
                                                                         <!-- <th>Delegate To</th> -->
                                                                         <th>Supervised By</th>
@@ -2607,34 +2839,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Oct" && $year == "2018" ){
+                                                                                            if( $end_month == "Oct" && $year >= 2018 ){
                                                                                                 if($end_date >=15 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Oct" && $start_date>22){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Oct" && $start_date>22){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2650,7 +2889,7 @@
                                                                         <th>SR NO</th>
                                                                         <th>Day</th>
                                                                         <th>Time</th>
-                                                                        <th>End Date</th>
+                                                                        <th>Start Date</th><th>End Date</th>
                                                                         <th>Task</th>
                                                                         <!-- <th>Delegate To</th> -->
                                                                         <th>Supervised By</th>
@@ -2668,19 +2907,20 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Oct" && $year == "2018" ){
+                                                                                            if( $end_month == "Oct" && $year >= 2018 ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
@@ -2691,11 +2931,11 @@
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2729,7 +2969,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -2747,34 +2987,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Nov" && $year == "2018" ){
+                                                                                            if( $end_month == "Nov" && $year >= 2018 ){
                                                                                                 if($end_date >=1 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Nov" && $start_date>8){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Nov" && $start_date>8){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2790,7 +3037,7 @@
                                                                         <th>SR NO</th>
                                                                         <th>Day</th>
                                                                         <th>Time</th>
-                                                                        <th>End Date</th>
+                                                                        <th>Start Date</th><th>End Date</th>
                                                                         <th>Task</th>
                                                                         <!-- <th>Delegate To</th> -->
                                                                         <th>Supervised By</th>
@@ -2808,34 +3055,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Nov" && $year == "2018" ){
+                                                                                            if( $end_month == "Nov" && $year >= 2018 ){
                                                                                                 if($end_date >=8 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Nov" && $start_date>15){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Nov" && $start_date>15){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2851,7 +3105,7 @@
                                                                         <th>SR NO</th>
                                                                         <th>Day</th>
                                                                         <th>Time</th>
-                                                                        <th>End Date</th>
+                                                                        <th>Start Date</th><th>End Date</th>
                                                                         <th>Task</th>
                                                                         <!-- <th>Delegate To</th> -->
                                                                         <th>Supervised By</th>
@@ -2869,34 +3123,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Nov" && $year == "2018" ){
+                                                                                            if( $end_month == "Nov" && $year >= 2018 ){
                                                                                                 if($end_date >=15 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Nov" && $start_date>22){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Nov" && $start_date>22){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2912,7 +3173,7 @@
                                                                         <th>SR NO</th>
                                                                         <th>Day</th>
                                                                         <th>Time</th>
-                                                                        <th>End Date</th>
+                                                                        <th>Start Date</th><th>End Date</th>
                                                                         <th>Task</th>
                                                                         <!-- <th>Delegate To</th> -->
                                                                         <th>Supervised By</th>
@@ -2930,19 +3191,20 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Nov" && $year == "2018" ){
+                                                                                            if( $end_month == "Nov" && $year >= 2018 ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
@@ -2953,11 +3215,11 @@
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -2991,7 +3253,7 @@
                                                                                          <th>SR NO</th>
                                                                                          <th>Day</th>
                                                                                          <th>Time</th>
-                                                                                         <th>End Date</th>
+                                                                                         <th>Start Date</th><th>End Date</th>
                                                                                          <th>Task</th>
                                                                                          <!-- <th>Delegate To</th> -->
                                                                                          <th>Supervised By</th>
@@ -3009,34 +3271,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Dec" && $year == "2018" ){
+                                                                                            if( $end_month == "Dec" && $year >= 2018 ){
                                                                                                 if($end_date >=1 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Dec" && $start_date>8){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Dec" && $start_date>8){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -3052,7 +3321,7 @@
                                                                         <th>SR NO</th>
                                                                         <th>Day</th>
                                                                         <th>Time</th>
-                                                                        <th>End Date</th>
+                                                                        <th>Start Date</th><th>End Date</th>
                                                                         <th>Task</th>
                                                                         <!-- <th>Delegate To</th> -->
                                                                         <th>Supervised By</th>
@@ -3070,34 +3339,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Dec" && $year == "2018" ){
+                                                                                            if( $end_month == "Dec" && $year >= 2018 ){
                                                                                                 if($end_date >=8 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Dec" && $start_date>15){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Dec" && $start_date>15){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -3113,7 +3389,7 @@
                                                                         <th>SR NO</th>
                                                                         <th>Day</th>
                                                                         <th>Time</th>
-                                                                        <th>End Date</th>
+                                                                        <th>Start Date</th><th>End Date</th>
                                                                         <th>Task</th>
                                                                         <!-- <th>Delegate To</th> -->
                                                                         <th>Supervised By</th>
@@ -3131,34 +3407,41 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Dec" && $year == "2018" ){
+                                                                                            if( $end_month == "Dec" && $year >= 2018 ){
                                                                                                 if($end_date >=15 && $end_date <=31){
+                                                                                                    if($start_date_year == 2018 && $start_date_month=="Dec" && $start_date>22){
+                                                                                                        continue;
+                                                                                                    }
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
                                                                                                 }
 
                                                                                             }else{
+                                                                                                if($start_date_year == 2018 && $start_date_month=="Dec" && $start_date>22){
+                                                                                                    continue;
+                                                                                                }
                                                                                                 echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -3174,7 +3457,7 @@
                                                                         <th>SR NO</th>
                                                                         <th>Day</th>
                                                                         <th>Time</th>
-                                                                        <th>End Date</th>
+                                                                        <th>Start Date</th><th>End Date</th>
                                                                         <th>Task</th>
                                                                         <!-- <th>Delegate To</th> -->
                                                                         <th>Supervised By</th>
@@ -3192,19 +3475,20 @@
                                                                                             $end_month = date("M" , strtotime($r->weekly_periodic_end_date));
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
-                                                                                            // echo $end_month . " + " . $year. " + " . $end_date; 
+                                                                                            $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
+                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
 
-                                                                                            if( $end_month == "Dec" && $year == "2018" ){
+                                                                                            if( $end_month == "Dec" && $year >= 2018 ){
                                                                                                 if($end_date >=22 && $end_date <=31){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                    echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                     echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                    echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                    if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                     echo "<tr>";
                                                                                                 }else{
                                                                                                     continue;
@@ -3215,11 +3499,11 @@
                                                                                                 echo "<td>".$i++."</td>"; 
                                                                                                 echo "<td>".$r->Day."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_time."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_end_date."</td>"; 
+                                                                                                echo "<td>".$r->weekly_periodic_start_date."</td>"; echo "<td>".$r->weekly_periodic_end_date."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_work."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_supervision."</td>"; 
                                                                                                 echo "<td>".$r->weekly_periodic_remark."</td>"; 
-                                                                                                echo "<td>".$r->weekly_periodic_status."</td>"; 
+                                                                                                if($r->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; } 
                                                                                                 echo "<tr>";                                                                                                
                                                                                             } 
                                                                                         } 
@@ -3285,6 +3569,7 @@
                         <div class="form-control">
                           <input type="date" title="End Date" name="end_date"/>
                         </div>
+<<<<<<< HEAD
                       </div>
                     </div>
                   </div>
@@ -3298,6 +3583,20 @@
                             <option value="Active">Active</option>
                             <option value="Inactive">Inacive</option>
                           </select>
+=======
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Active/Inactive</label>
+                                <div class="input-group">
+                                    <div class="form-control"><select name="status">
+                                            <option>Select Status</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Inacive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+>>>>>>> 77a204acbe730649846bd0cac83210a314027af0
                         </div>
                       </div>
                     </div>

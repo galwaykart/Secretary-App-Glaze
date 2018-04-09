@@ -14,9 +14,15 @@
                         <?php
                         // echo "<pre>";
                         // print_r($list);  
+<<<<<<< HEAD
                         // echo "</pre>";   ?>
                                    
                                     <div class="col-md-12"><p>Task Name : <span id="projectname">my task</span></p></div>
+=======
+                        // echo "</pre>";                      ?>
+                                    <h2>Perodic Task View</h2>
+                                    <div class="col-md-12"><p>Task Name : <span id="projectname"><?php echo $list['data1'][0]->weekly_periodic_work?></span></p></div>
+>>>>>>> 77a204acbe730649846bd0cac83210a314027af0
                                    
                                     <div class="clear"></div>
                                     <div class="col-md-6">
@@ -136,7 +142,7 @@
                                         <table >
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
+                                                    <!-- <th>ID</th> -->
                                                     <th>End Date</th>
                                                     <th>Status</th>
                                                     <th>Remark</th>
@@ -149,9 +155,9 @@
                                                     $i=1;
         
                                                     echo "<tr>"; 
-                                                    echo "<td>".$i."</td>"; 
+                                                    // echo "<td>".$i."</td>"; 
                                                     echo "<td>".$list['data1'][0]->weekly_periodic_end_date."</td>"; 
-                                                    echo "<td>".$list['data1'][0]->weekly_periodic_status."</td>"; 
+                                                    if($list['data1'][0]->weekly_periodic_status == 0){ echo "<td>Inactive</td>"; }else{ echo "<td>Active</td>"; }
                                                     echo "<td>".$list['data1'][0]->weekly_periodic_remark."</td>"; 
                                                     echo "</tr>"; 
         

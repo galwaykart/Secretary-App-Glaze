@@ -29,9 +29,9 @@ In case of first meeting - Previous Date = NA
                    <table id="mettings-table">
                        <thead>
                            <tr>
-							   <th>Sr No</th><th>Ajenda</th>
+							   <th>Sr No</th>
+							   <th>Ajenda</th>
 							   <th>No of Meeting</th>
-							   <th>Previous Meetings Date</th>
 							   <th>Next Meeting Date</th>
 							   <th>Meeting Called By (Name & Department)</th>
 							   <th>Remarks</th>
@@ -39,6 +39,7 @@ In case of first meeting - Previous Date = NA
 						   </tr>
                        </thead>
                        <tbody>
+					   <?php //print_r($meeting); ?>
 					   <?php  $i=1;
 					     foreach($meeting as $arr){?>
 						 <!--newDoc is a function to passed the Id from the database-->
@@ -47,8 +48,7 @@ In case of first meeting - Previous Date = NA
 							 <td><?php echo $arr->agenda_name;?></td>
 							 <td><?php echo $arr->counter;?></td>
 							 <td><?php echo $arr->index_meeting_next_date;?></td>
-							 <td><?php echo $arr->index_meeting_next_date;?></td>
-							 <td></td>
+							 <td><?php echo $arr->meeting_called_by?></td>
 							 <td></td>
 							 <td></td>
 							 <td></td>

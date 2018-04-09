@@ -19,12 +19,12 @@
                                   <th>Date</th>
                                   <th>Department</th>
                                   <th>Outsoursing</th>
-                                  <th>Delegate To</th>
+                                  <!-- <th>Delegate To</th> -->
                                   <th>Followup form</th>
                                   <th>Target Date</th>
-                                  <th>Extended Date</th>
-                                  <th>Old Status Date</th>
-                                  <th>New Followup date</th>
+                                  <!-- <th>Extended Date</th> -->
+                                  <!-- <th>Old Status Date</th> -->
+                                  <!-- <th>New Followup date</th> -->
                                   <th>Remarks</th>
                               </tr>
                             </thead>
@@ -44,12 +44,12 @@
                                                 echo "<td>Inhouse</td>";
                                             }
                                             
-                                            echo "<td>"."yuhi achanak kisi ko bhi"."</td>"; 
+                                            // echo "<td>"."yuhi achanak kisi ko bhi"."</td>"; 
                                             echo "<td>".$r->project_delegation_followup_date."</td>"; 
                                             echo "<td>".$r->project_delegation_target_date."</td>"; 
-                                            echo "<td>"."NA"."</td>"; 
-                                            echo "<td>"."NA"."</td>"; 
-                                            echo "<td>"."NA"."</td>";
+                                            // echo "<td>"."NA"."</td>"; 
+                                            // echo "<td>"."NA"."</td>"; 
+                                            // echo "<td>"."NA"."</td>";
                                             echo "<td>".$r->project_delegation_remark."</td>";
                                             
                                            
@@ -233,7 +233,14 @@
 
 
 </form>
+<<<<<<< HEAD
 </div>
+=======
+
+    <div class="pagination">
+          <p><?php echo $links; ?></p>
+    </div>
+>>>>>>> 77a204acbe730649846bd0cac83210a314027af0
 
     <!-- popup end -->
     <script type="text/javascript"> 

@@ -57,8 +57,8 @@
 
 																  foreach($fetch as $record){ 
 																	//$jan_arr = explode('-',$record->start_date);
-																	//$jan_month = $jan_arr[1];
-																	//if($jan_month==1){
+																	//$jan_month = $jan_arr[0];
+																	//if($jan_month==2018){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
 																	  <td><?php echo $i++; ?></td>
@@ -209,7 +209,7 @@
 																	//if($apr_month==4){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
-																	  <td><?php echo $i++; ?></td>
+																	  <td><?php  echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_start_date;?></td>
@@ -253,9 +253,10 @@
 																  $i=1;
 
 																  foreach($fetch as $record){ 
-																	//$may_arr = explode('-',$record->monthly_periodic_end_date);
-																	//$may_month = $may_arr[1];
-																	//if($may_month==5){
+																	$may_arr = explode('-',$record->monthly_periodic_end_date);
+																	$may_month = $may_arr[0];
+																	//echo $may_month;die;
+																	if($may_month >=2018){
 																  ?>
                                                                       <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
 																	  <td><?php echo $i++; ?></td>
@@ -308,7 +309,7 @@
 																	//if($june_month==6){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
-																	  <td><?php echo $i++; ?></td>
+																	   <td><?php echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_start_date;?></td>
@@ -425,10 +426,10 @@
                           <section id="section9">
                                                         <input type="radio" name="sections" id="option9" <?php if($month == '09') { echo "checked"; } ?>  onclick="window.location='<?php echo site_url('Monthlyperiodic/index/09') ?>'">
                                                         <label for="option9">
-															<a href="<?php echo site_url('Monthlyperiodic/index/09') ?>" class="mon_class">Sepetmber</a>
+															<a href="<?php echo site_url('Monthlyperiodic/index/09') ?>" class="mon_class">September</a>
 														</label>
                                                         <article>
-                                                             <h2>Sepetmber 2018 Month Task</h2>
+                                                             <h2>September 2018 Month Task</h2>
                                                              <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -525,7 +526,7 @@
 															<a href="<?php echo site_url('Monthlyperiodic/index/11') ?>" class="mon_class">November</a>
 														</label>
                                                         <article>
-                                                              <h2>November 2019 Month Task</h2>
+                                                              <h2>November 2018 Month Task</h2>
                                                               <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -573,7 +574,7 @@
 															<a href="<?php echo site_url('Monthlyperiodic/index/12') ?>" class="mon_class">December</a>
 														</label>
                                                         <article>
-                                                              <h2>December 2019 Month Task</h2>
+                                                              <h2>December 2018 Month Task</h2>
                                                               <div class="table-res style-6">
                                                               <table class="">
                                                                      <thead>
@@ -626,13 +627,9 @@
 								  <?php echo $links; ?>
 							</div>
 					</div>
-        
-
-
 
     </div><!-- monthly periodic panel end -->
   
-    
       <!-- popup start -->
 	  <div class="popup-main">
    <form  method="POST" action="<?php echo base_url()."Monthlyperiodic/add_data/" ?>">

@@ -23,15 +23,17 @@
             }
             
             public function getmonthly($month,$limit, $start){
-                $year = 2018;
+                $year = "2018".$month;
                 $user_id = $this->session->userdata['id'];
                 //$year=date('20y');
                 $this->db->select('*');
                 $this->db->from('weekly_periodic');
-                $this->db->where('Month(weekly_periodic_start_date) <=',$month);
-                $this->db->where('Month(weekly_periodic_end_date) >=',$month);
-                $this->db->where('YEAR(weekly_periodic_end_date) >=',$year);
-                $this->db->where('YEAR(weekly_periodic_end_date) >=',$year);                
+                // $this->db->where('Month(weekly_periodic_start_date) <=',$month);
+                // $this->db->where('Month(weekly_periodic_end_date) >=',$month);
+                // $this->db->where('YEAR(weekly_periodic_end_date) >=',$year);
+                // $this->db->where('YEAR(weekly_periodic_start_date) >=',$year);
+                $this->db->where("DATE_FORMAT(weekly_periodic_start_date,'%Y%m') <=",$year);
+                $this->db->where("DATE_FORMAT(weekly_periodic_end_date,'%Y%m') >=",$year);                
                 $this->db->limit($limit, $start);
                 $this->db->where("user_id", $user_id);
                 $query = $this->db->get();
@@ -40,9 +42,10 @@
             }
             
             public function record_count($month){
+                $year = "2018".$month;
                 $user_id = $this->session->userdata['id'];
-                $query = $this->db->where('Month(weekly_periodic_start_date) <=',$month)
-                ->where('Month(weekly_periodic_end_date) >=',$month)
+                $query = $this->db->where("DATE_FORMAT(weekly_periodic_start_date,'%Y%m') <=",$year)
+                ->where("DATE_FORMAT(weekly_periodic_end_date,'%Y%m') >=",$year)
                 ->where('user_id', $user_id)->get('weekly_periodic');
                 return $query->num_rows();
 

@@ -11,20 +11,23 @@
 					$this->load->model('Yearly_periodic_model');
 					$this->load->library("pagination");
 					$this->load->library(array('session', 'form_validation'));
-					$this->user_id = $this->session->userdata['id'];
+					$this->load->library('email');
+					if($this->session->user == 'logged_in'){
+						$this->user_id = $this->session->userdata['id'];
+						}
 
 		}
 		
 		public function index($year=''){
 			if($this->session->user == 'logged_in'){
 			$config = array();
-			if($year==''){
-		    $year=date('20y');
+			if($year ==''){
+				$year = date('20y');  // 20y means selected year			 
 			}
 		    $data['year']=  $year;
 	        $config["base_url"] = base_url() ."yearlyperiodic/index/$year ";
 		    $config["total_rows"] = $this->Yearly_periodic_model->record_count($year);
-            $config["per_page"] = 1;
+            $config["per_page"] = 10;
 		    $config["uri_segment"] = 4;
 			$this->pagination->initialize($config);
 			$page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
@@ -55,10 +58,9 @@
 		 }else{
 		 $this->form_validation->set_rules('start_date','Start Date ','trim|required');
 		 $this->form_validation->set_rules('task','Task ','trim|required');
-		 $this->form_validation->set_rules('end_date','End Date ','trim|required');
+		 //$this->form_validation->set_rules('end_date','End Date ','trim|required');
 		 $this->form_validation->set_rules('remark','Remark','trim|required');
 			}
-
 		 if($this->form_validation->run() == false){
 			//$this->load->view('yearly-periodic');
 			if($this->uri->segment(3)){
@@ -72,9 +74,11 @@
 			$record_id =$this->uri->segment(3);
 			//echo $record_id;die;
 			$data = array();
+			$end_date = '2050-01-01';
 			$data[0] = array(
 			'yearly_periodic_start_date'=>$this->input->post('start_date'),
-			'yearly_periodic_end_date'=>$this->input->post('end_date'),
+			// 'yearly_periodic_end_date'=>$this->input->post('end_date'),
+			'yearly_periodic_end_date'=>$end_date,
 			'yearly_periodic_task_name'=>$this->input->post('task'),
 			'yearly_periodic_remark'=>$this->input->post('remark'),
 			'yearly_periodic_status'=>$this->input->post('status'),
@@ -99,11 +103,53 @@
 			else{
 			$this->Yearly_periodic_model->insertyear($data);
 			$this->session->set_flashdata('msg', 'Saved Successfully!!!');
+									/* ...........................Mail sending start here!.......................................*/
+
+									$mail_to = implode(",",$data[1]['yearly_periodic_delegates_email']);
+									$config = array (
+									'mailtype' => 'html',
+									'charset'  => 'utf-8',
+									'priority' => '1'
+									);
+									$this->email->initialize($config);
+									$this->email->set_newline("\r\n");
+									$this->email->from('surender.singh@glazegalway.com', 'Surender');
+									$data_quick["mail_data"] = $data;
+									$this->email->to($mail_to);
+			
+									$this->email->subject('Yearly Periodic Task');
+			
+									$body = $this->load->view('email_template/yearlyPeriodic.php',$data_quick,TRUE);
+			
+									$this->email->message($body);
+			
+									$this->email->send();
+			
+			/* ...........................Mail sending end here!................................................*/
+			
 			redirect('yearlyperiodic');
 			}
 		  }
 		}
-		 
+		
+		public function changeStatus(){
+
+			if(isset($_GET["id"])){
+				$id = $_GET["id"];
+				$status = $_GET["status"];
+				$end_date = $_GET["end_date"];
+				
+				if($status == "false"){
+					$this->Yearly_periodic_model->changeStatus($id ,$status,$end_date);
+					//$sql = "UPDATE PAGE SET status='0' WHERE ID = $id";
+				}
+				else{
+					$this->Yearly_periodic_model->changeStatus($id ,$status,$end_date);
+					//$sql = "UPDATE PAGE SET status='1' WHERE ID = $id"; 
+				}
+			}
+					}
+					 
 	}
 ?>	
 		

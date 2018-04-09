@@ -37,8 +37,8 @@ The status should be there to mark the attendance of the participants.
 									<label>Preview Meeting Date</label>
 									<div class="input-group">
 										<div class="form-control">
-											<input type="date" title="Prev Meeting Date" name="previous_date" required  value="<?php if(isset($fetch['data1'])){echo $fetch['data1'][0]->date_of_meeting;} else{echo set_value('previous_date'); }  ?>" />
-											<?php echo form_error('previous_date', '<span class="form_error">', '</span>'); ?></span>
+											<input type="date" title="Prev Meeting Date" name="previous_date"  value="<?php if(isset($fetch['data1'])){echo $fetch['data1'][0]->date_of_meeting;} //else{echo set_value('previous_date'); }  ?>" />
+											<?php //echo form_error('previous_date', '<span class="form_error">', '</span>'); ?></span>
 										</div>
 									</div>
 								</div>
@@ -97,6 +97,7 @@ The status should be there to mark the attendance of the participants.
 									</div>
 								</div>
 							</div> <!-- end col-md-4 column -->
+<<<<<<< HEAD
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Agenda of Meeting :</label>
@@ -114,6 +115,17 @@ The status should be there to mark the attendance of the participants.
               
               
               
+=======
+								<div class="col-md-4" >
+									<label>Meeting Called By</label>
+										<div class="form-group">
+											<div class="input-group">
+												<div class="form-control"><input type="text" placeholder="Meeting Called By" required  name="meeting_called_by" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->meeting_called_by;} else{echo set_value('meeting_called_by[]');} ?>" /></div>
+												<?php echo form_error('meeting_called_by', '<span class="form_error">', '</span>'); ?></span>
+											</div>
+										</div>
+								</div> 
+>>>>>>> 77a204acbe730649846bd0cac83210a314027af0
 						</div>
 					</div> <!-- next second panel start --->
 					<div class="clear"></div>
@@ -177,6 +189,16 @@ The status should be there to mark the attendance of the participants.
 												</div>
 											</div>
 										</div> 
+										<div class="col-md-2" class="RegSpLeft" id="number">
+										 <label>Phone Number</label>
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa fa-phone" ></span></div>
+													<div class="form-control"><input type="text" placeholder="Phone Number" required  name="phone_number[]" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->phone_number;} else{echo set_value('phone_number[]');} ?>"/></div>
+													<?php echo form_error('phone_number', '<span class="form_error">', '</span>'); ?></span>
+												</div>
+											</div>
+										</div> 
 										<div class="col-md-2" class="RegSpLeft" id="addmr">
 										 <label>Present/Absent</label>
 											<div class="form-group">
@@ -191,6 +213,7 @@ The status should be there to mark the attendance of the participants.
 												</div>
 											</div>
 										</div>  
+
 									</div> 
 									
 							        <?php
@@ -243,6 +266,16 @@ The status should be there to mark the attendance of the participants.
 															</div>
 														</div>
 													</div> 
+										<div class="col-md-2" class="RegSpLeft" id="number">
+										
+											<div class="form-group">
+												<div class="input-group">
+													<div class="input-addon"><span class="fa fa-phone" ></span></div>
+													<div class="form-control"><input type="text" placeholder="Phone Number" required  name="phone_number[]" value="<?php if($record){ echo $record->phone_number;} else{echo set_value('phone_number[]');} ?>"/></div>
+													<?php echo form_error('phone_number', '<span class="form_error">', '</span>'); ?></span>
+												</div>
+											</div>
+										</div> 
 										<div class="col-md-2" class="RegSpLeft" id="addmr">
 											<div class="form-group">
 												<div class="input-group">
@@ -256,9 +289,16 @@ The status should be there to mark the attendance of the participants.
 												</div>
 											</div>
 										</div>  
+<<<<<<< HEAD
 													<div class="" class="">								 
 														<div class="margin-top" style="text-align:center">
 															<a href="#"  onclick="setValues(<?php echo $i; ?>)" class="ad btn-eror btn removebtn">&times;</a>
+=======
+
+													<div class="col-md-2" class="RegSpLeft">								 
+														<div class="btn-group margin-top" style="text-align:center">
+															<a href="#"  onclick="setValues(<?php echo $i; ?>)" class="btn-eror btn">Delete</a>
+>>>>>>> 77a204acbe730649846bd0cac83210a314027af0
 														</div>
 													</div>
 								                </div>
@@ -430,7 +470,7 @@ The status should be there to mark the attendance of the participants.
 					e.preventDefault();
 					  var lnth = $('#one .customclass').length; 
 					console.log(lnth);
-				   $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="employee[]" ><option value="1" >Yes</option><option value="0" >No</option></select></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" required pattern="[a-zA-Z ]{1,100}" title="Name should only contain letters. e.g. john"   id="name"  name="name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-2" class="RegSpLeft" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o" ></span></div><div class="form-control"><select name="is_employee[]" ><option value="1" >Present</option><option value="0" >Absent</option></select></div></div></div><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn removebtn">&times;</a></div></div>');
+				   $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="employee[]" ><option value="1" >Yes</option><option value="0" >No</option></select></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" required pattern="[a-zA-Z ]{1,100}" title="Name should only contain letters. e.g. john"   id="name"  name="name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-2" id="number"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-phone"></span></div><div class="form-control"><input type="text" placeholder="Phone Number" required="" name="phone_number[]" value=""></div></div></div></div><div class="col-md-2" class="RegSpLeft" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o" ></span></div><div class="form-control"><select name="is_employee[]" ><option value="1" >Present</option><option value="0" >Absent</option></select></div></div></div><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn removebtn">&times;</a></div></div>');
 				});
 			});
 			function setValues(id){

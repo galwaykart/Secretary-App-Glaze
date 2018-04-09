@@ -29,8 +29,6 @@
 				$existing_array = $p_data;
 				$new_array = array('daily_notes_id'=>$insert_id);
 				$new_set_array = array_merge($existing_array, $new_array);
-				//print_r($new_set_array);
-				echo "<br>";
 				$result =	$this->db->insert('daily_notes_participents', $new_set_array);
 			}
 
@@ -130,8 +128,6 @@
 				$existing_array = $p_data;
 				$new_array = array('daily_notes_id'=>$record_id);
 				$new_set_array = array_merge($existing_array, $new_array);
-				//print_r($new_set_array);
-				echo "<br>";
 				$result =	$this->db->insert('daily_notes_participents', $new_set_array);
 
 				

@@ -10,7 +10,11 @@
 					$this->load->model('Indexmeeting_model');
 					$this->load->library("pagination");
 					$this->load->library(array('session', 'form_validation'));
-					$this->user_id = $this->session->userdata['id'];
+					$this->load->library('email');
+					if($this->session->user == 'logged_in'){
+						$this->user_id = $this->session->userdata['id'];
+						}
+
 					
 		} 
 			 
@@ -22,7 +26,7 @@
 			
 					  $config["total_rows"] = $this->Indexmeeting_model->record_count();
 
-					  $config["per_page"] = 1;
+					  $config["per_page"] = 10;
 				
 					  $config["uri_segment"] = 3;
 					  $this->pagination->initialize($config);
@@ -49,7 +53,7 @@
 				
 					  $config["total_rows"] = $this->Indexmeeting_model->record_counting($url_id);
 				
-					  $config["per_page"] = 1;
+					  $config["per_page"] = 10;
 				
 					  $config["uri_segment"] = 4;
 					  $this->pagination->initialize($config);
@@ -92,14 +96,16 @@
 				
 		} 
 			
-		public function insert_meeting(){ 
-		 $this->form_validation->set_rules('previous_date','Previous Meeting Date ','trim|required');
+	public function insert_meeting(){ 
+		// $this->form_validation->set_rules('previous_date','Previous Meeting Date ','trim|required');
 		 $this->form_validation->set_rules('index_meeting_next_date','Next Meeting Date ','trim|required');
 		 $this->form_validation->set_rules('index_meeting_start_time','Start Time','trim|required');
 		 $this->form_validation->set_rules('index_meeting_end_time','End Time','trim|required');
+		 $this->form_validation->set_rules('meeting_called_by','Meeting Called By','trim|required');
 		 $this->form_validation->set_rules('agenda','agenda ','trim|required');
 		 $this->form_validation->set_rules('department[]','department ','trim|required');
 		 $this->form_validation->set_rules('name[]','Name ','trim|required');
+		 $this->form_validation->set_rules('phone_number[]','Phone Number ','trim|required');
 		 $this->form_validation->set_rules('email[]', 'Email', 'trim|required|valid_email');
 		 $this->form_validation->set_rules('conclusion_textarea[]', 'Textarea', 'trim|required');
 		 $this->form_validation->set_rules('targetdate[]', 'Target Date', 'trim|required');
@@ -119,6 +125,7 @@
 	     'index_meeting_next_date'=>$this->input->post('index_meeting_next_date'),
 	     'index_meeting_start_time'=>$this->input->post('index_meeting_start_time'),
 		 'index_meeting_end_time'=>$this->input->post('index_meeting_end_time'),
+		 'meeting_called_by'=>$this->input->post('meeting_called_by'),
 		 'user_id'=>$this->user_id,
 		);
 		$data[1] = array(
@@ -127,7 +134,8 @@
 		 'department'=>$this->input->post('department'),
 		 'email'=>$this->input->post('email'),
 		 'employee'=>$this->input->post('employee'),
-		 'is_employee'=>$this->input->post('is_employee')
+		 'is_employee'=>$this->input->post('is_employee'),
+		 'phone_number'=>$this->input->post('phone_number')
 		 );
 		$data[2] = array(
 		 
@@ -135,7 +143,6 @@
 		 'conclusion_textarea'=>$this->input->post('conclusion_textarea'),
 		 'targetdate'=>$this->input->post('targetdate'),
 		 'delegated_dept'=>$this->input->post('delegated_dept'),
-
 		 'delegated_name'=>$this->input->post('delegated_name'));
 
 		$data[3]=array(
@@ -145,10 +152,56 @@
 		if($this->uri->segment(3)){
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
 		   $this->session->set_flashdata('msg', 'Updated Successfully!!!');
+		   		   						/* ...........................Mail sending start here!.......................................*/
+
+											  $mail_to = implode(",",$data[1]['email']);
+											  $config = array (
+											  'mailtype' => 'html',
+											  'charset'  => 'utf-8',
+											  'priority' => '1'
+											  );
+											  $this->email->initialize($config);
+											  $this->email->set_newline("\r\n");
+											  $this->email->from('surender.singh@glazegalway.com', 'Surender');
+											  $data_quick["mail_data"] = $data;
+											  $this->email->to($mail_to);
+					  
+											  $this->email->subject('Index Meeting');
+					  
+											  $body = $this->load->view('email_template/index_meeting.php',$data_quick,TRUE);
+					  
+											  $this->email->message($body);
+					  
+											  $this->email->send();
+					  
+					  /* ...........................Mail sending end here!................................................*/
 			redirect('indexmeeting');
            }else{
            $this->Indexmeeting_model->form_insert($data,$this->input->post('agenda'));
 		   $this->session->set_flashdata('msg', 'Saved Successfully!!!');
+		   						/* ...........................Mail sending start here!.......................................*/
+
+								   $mail_to = implode(",",$data[1]['email']);
+								   $config = array (
+								   'mailtype' => 'html',
+								   'charset'  => 'utf-8',
+								   'priority' => '1'
+								   );
+								   $this->email->initialize($config);
+								   $this->email->set_newline("\r\n");
+								   $this->email->from('surender.singh@glazegalway.com', 'Surender');
+								   $data_quick["mail_data"] = $data;
+								   $this->email->to($mail_to);
+		   
+								   $this->email->subject('Index Meeting');
+		   
+								   $body = $this->load->view('email_template/index_meeting.php',$data_quick,TRUE);
+		   
+								   $this->email->message($body);
+		   
+								   $this->email->send();
+		   
+		   /* ...........................Mail sending end here!................................................*/
 		   redirect('indexmeeting');
             }
 		}

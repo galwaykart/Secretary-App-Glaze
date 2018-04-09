@@ -11,7 +11,10 @@
 					$this->load->model('Quickwork_model');
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
-					$this->user_id = $this->session->userdata['id'];
+					$this->load->library('email');
+					if($this->session->user == 'logged_in'){
+						$this->user_id = $this->session->userdata['id'];
+						}
 		} 
 			 
 		public function index($param1 = NUll , $param3 = null , $param = Null){  
@@ -25,7 +28,7 @@
 					  $config["base_url"] = base_url() . "Quickwork/index";
 				
 					  $config["total_rows"] = $this->Quickwork_model->record_count();
-					  echo $this->Quickwork_model->record_count();
+					  //echo $this->Quickwork_model->record_count();
 				
 					  $config["per_page"] = 1;
 				
@@ -33,7 +36,7 @@
 				
 					  $this->pagination->initialize($config);
 						if($param){
-							$page = 1;
+							$page = 0;
 						}
 						else{
 							$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -131,6 +134,8 @@
 							if($result)
 							{
 							$param1 =  "<h2>Successfully updated</h2>";
+
+
 							
 							}
 							else
@@ -147,6 +152,40 @@
 							if($result)
 							{
 							$param1 =  "<h2>Success</h2>";
+/* ...........................Mail sending start here!.......................................*/
+
+							$mail_to = implode(",",$data[1]['delegates_email']);
+							$config = array (
+								'mailtype' => 'html',
+								'charset'  => 'utf-8',
+								'priority' => '1'
+								 );
+							  $this->email->initialize($config);
+							$this->email->set_newline("\r\n");
+							$this->email->from('surender.singh@glazegalway.com', 'Surender');
+							$data_quick["quickwork_data"] = $data;
+							$this->email->to($mail_to);
+					
+							$this->email->subject('Quickwork');
+					
+							$body = $this->load->view('email_template/quickwork.php',$data_quick,TRUE);
+										
+							$this->email->message($body);
+					
+							$this->email->send();
+
+/* ...........................Mail sending end here!................................................*/
+
+// $text="Quickwork :";
+// // $chs = curl_init('http://bhashsms.com/api/sendmsg.php?user=Galway&pass=P@nas0n1C&sender=GALWAY&phone='.$telphone.'&text='.urlencode($text).'&priority=ndnd&stype=normal');		 
+// $chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537&from=SECAPP&text='.urlencode($text));		 
+// curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+// curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+// curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+// $results = curl_exec($chs);
+
+
+
 							
 							}
 							else

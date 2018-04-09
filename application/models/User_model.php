@@ -45,6 +45,7 @@ public function username_check($username){
 		$year=date('20y');
 		$month=date('m');
 		$user_id = $this->session->userdata['id'];
+		//echo $user_id;
 		$query1 = $this->db->query('SELECT *  FROM `index_meeting` JOIN index_meeting_agenda ON index_meeting.agenda_id = index_meeting_agenda.agenda_id WHERE `date_of_meeting` = CURDATE() AND user_id = "$user_id"');
 
 		$query12 = $this->db->query('SELECT *  FROM `index_meeting` JOIN index_meeting_agenda ON index_meeting.agenda_id = index_meeting_agenda.agenda_id WHERE user_id = "$user_id"');
@@ -103,9 +104,15 @@ public function username_check($username){
 		$total_periodic = $query71-> result()[0]->total_yearlyTask + 
 		$query72-> result()[0]->total_monthlyTask +
 		$query73-> result()[0]->total_weeklyTask ;
-		// echo "<pre>";
-		// print_r($query2->result());
-		// echo "</pre>";
+
+
+		$total_meeting = $this->db->query("SELECT count(*) As total  FROM index_meeting  WHERE user_id = '$user_id'");
+		//echo 'Gaurav='.$user_id;
+		$total_daily_notes = $this->db->query("SELECT count(*) As total    FROM daily_notes  WHERE user_id = '$user_id'");
+		$total_quickworks = $this->db->query("SELECT count(*)  As total   FROM quick_work  WHERE user_id = '$user_id'");	
+		$total_appointment = $this->db->query("SELECT count(*)  As total   FROM appointment  WHERE user_id = '$user_id'");	
+		//$total_periodic = $this->db->query('SELECT count(*)  FROM daily_notes  WHERE user_id = "$user_id"');		
+		$total_projectDelegation = $this->db->query("SELECT count(*) As total    FROM project_delegation  WHERE user_id = '$user_id'");	
 
 		$total_dashboard_details = array(
 			"index_meeting" => array("data"=>$query1->result() , "all_data"=>$query12->result() , "count" => sizeof($query1->result())),
@@ -119,10 +126,19 @@ public function username_check($username){
 			"yearly_periodic"=> $query711,	
 			"monthly_periodic"=> $query721,		
 			"weekly_periodic"=> $query731,
+			"count_index_meeting" => $total_meeting->result(),
+			"count_quickworks" => $total_quickworks->result(),
+			"count_appointment" => $total_appointment->result(),
+			"count_projectDelegation" => $total_projectDelegation->result(),
+			"count_daily_notes" => $total_daily_notes->result(),
+			
+			//"count_daily_notes" => $total_daily_notes->result(),
+
 		);
 
+		// echo $user_id;
 		// echo "<pre>";
-		// print_r($total_dashboard_details);
+		// print_r( $total_dashboard_details);
 		// echo "</pre>";		
 
 		return $total_dashboard_details;

@@ -10,7 +10,11 @@
 					$this->load->model('Daillynote_model');
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
-					$this->user_id = $this->session->userdata['id'];
+					$this->load->library('email');
+					if($this->session->user == 'logged_in'){
+						$this->user_id = $this->session->userdata['id'];
+						}
+
 		} 
 			 
 		public function index($param1 = NUll , $param3 = null , $param = Null){  
@@ -28,7 +32,7 @@
 				$this->pagination->initialize($config);
 
 				if($param){
-					$page = 1;
+					$page = 0;
 				}
 				else{
 					$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -161,6 +165,31 @@
 						if($result)
 						{
 						$param1 =  "<h2>Success</h2>";
+
+						/* ...........................Mail sending start here!.......................................*/
+
+						$mail_to = implode(",",$data[1]['email']);
+						$config = array (
+						'mailtype' => 'html',
+						'charset'  => 'utf-8',
+						'priority' => '1'
+						);
+						$this->email->initialize($config);
+						$this->email->set_newline("\r\n");
+						$this->email->from('surender.singh@glazegalway.com', 'Surender');
+						$data_quick["mail_data"] = $data;
+						$this->email->to($mail_to);
+
+						$this->email->subject('Dailnotes');
+
+						$body = $this->load->view('email_template/dailynotes.php',$data_quick,TRUE);
+
+						$this->email->message($body);
+
+						$this->email->send();
+
+/* ...........................Mail sending end here!................................................*/
+
 						
 						}
 						else
