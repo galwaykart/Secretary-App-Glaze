@@ -15,18 +15,11 @@
                                         <div class="rigth-log-box">
 
                                             <div class="inner">
-											<?php 
-<<<<<<< HEAD
-													 $firstname = $this->session->firstname; 
-													 $lastname   = $this->session->lastname;  ?>
-                                                        <p class="person-name">WelCome !<br />  <?php  if($firstname){ echo $firstname; }  ?> <?php if($lastname){ echo $lastname; } ?></p>
-                                                        <img src="<?php echo base_url(); ?>img/person.jpg" alt="person image" id="per-img" class="log-popup"/>
-=======
+											<?php  
 													$firstname = $this->session->firstname; 
 													$lastname   = $this->session->lastname;  ?>
                                                         <p class="person-name">Hello !<br />  <?php if($firstname){ echo $firstname; } ?> <?php if($lastname){ echo $lastname; } ?></p>
                                                         <img src="<?php echo base_url(); ?>img/person.png" alt="person image" id="per-img" class="log-popup"/>
->>>>>>> 77a204acbe730649846bd0cac83210a314027af0
                                             </div>
 
                                         </div>

@@ -97,35 +97,28 @@ The status should be there to mark the attendance of the participants.
 									</div>
 								</div>
 							</div> <!-- end col-md-4 column -->
-<<<<<<< HEAD
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Agenda of Meeting :</label>
-                  <div class="input-group second-panel-input-group">
-                    <div class="form-control">
-                      <input type="text" placeholder="Ajenda of Meeting" required="" id="search" name="agenda"  value=""<?php if(isset($fetch['data2'])){ echo $fetch['data2'][0]->agenda_name;} else{ echo set_value('agenda'); } ?>" />
-                    </div>
-                    <?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?>
-                    </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              
-              
-              
-              
-=======
+							  <div class="col-md-6">
+								<div class="form-group">
+								  <label>Agenda of Meeting :</label>
+								  <div class="input-group second-panel-input-group">
+									<div class="form-control">
+									  <input type="text" placeholder="Ajenda of Meeting" required="" id="search" name="agenda"  value="<?php if(isset($fetch['data2'])){ echo $fetch['data2'][0]->agenda_name;} else{ echo set_value('agenda'); } ?>" />
+									</div>
+									<?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?>
+									</span>
+									</span>
+								  </div>
+								</div>
+							  </div> 
 								<div class="col-md-4" >
-									<label>Meeting Called By</label>
-										<div class="form-group">
-											<div class="input-group">
-												<div class="form-control"><input type="text" placeholder="Meeting Called By" required  name="meeting_called_by" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->meeting_called_by;} else{echo set_value('meeting_called_by[]');} ?>" /></div>
-												<?php echo form_error('meeting_called_by', '<span class="form_error">', '</span>'); ?></span>
-											</div>
+									<div class="form-group">
+									    <label>Meeting Called By</label>
+										<div class="input-group">
+											<div class="form-control"><input type="text" placeholder="Meeting Called By" required  name="meeting_called_by" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->meeting_called_by;} else{echo set_value('meeting_called_by[]');} ?>" /></div>
+											<?php echo form_error('meeting_called_by', '<span class="form_error">', '</span>'); ?></span>
 										</div>
-								</div> 
->>>>>>> 77a204acbe730649846bd0cac83210a314027af0
+									</div>
+								</div>  
 						</div>
 					</div> <!-- next second panel start --->
 					<div class="clear"></div>
@@ -288,24 +281,20 @@ The status should be there to mark the attendance of the participants.
 													</div>
 												</div>
 											</div>
-										</div>  
-<<<<<<< HEAD
-													<div class="" class="">								 
-														<div class="margin-top" style="text-align:center">
-															<a href="#"  onclick="setValues(<?php echo $i; ?>)" class="ad btn-eror btn removebtn">&times;</a>
-=======
-
-													<div class="col-md-2" class="RegSpLeft">								 
-														<div class="btn-group margin-top" style="text-align:center">
-															<a href="#"  onclick="setValues(<?php echo $i; ?>)" class="btn-eror btn">Delete</a>
->>>>>>> 77a204acbe730649846bd0cac83210a314027af0
-														</div>
+										</div>   
+										<div class="" class="">								 
+											<div class="margin-top" style="text-align:center">
+												<a href="#"  onclick="setValues(<?php echo $i; ?>)" class="ad btn-eror btn removebtn">&times;</a>
+												<div class="col-md-2" class="RegSpLeft">								 
+													<div class="btn-group margin-top" style="text-align:center">
+														<a href="#"  onclick="setValues(<?php echo $i; ?>)" class="btn-eror btn">Delete</a>
 													</div>
-								                </div>
-                                      <?php } 
-								  $i++; } 
-									}?>
-								</div> 
+												</div>
+											</div>
+											  <?php } 
+										  $i++; } 
+											}?>
+										</div> 
 									
 							</div>	
 						</div>	

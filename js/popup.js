@@ -26,7 +26,20 @@
 	  
 	
     });
-    
+        $('#addnotes').on('click',function(){
+       $("#reminder_form").attr('action', 'http://localhost/Secretary-App-Glaze/Reminder/insert_sheet/');
+    $('#reminder_form input[type="text"]').val('');
+    $('#reminder_form input[type="date"]').val('');
+    $('#reminder_form textarea').val('');
+    $('#reminder_form input[type="Time"]').val(''); 
+    $('#reminder_form select').val('');
+    $('#refresh_popup_js .auto-del').remove();
+    $('#delete').append('<div  class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input type="text" required id="delegate_name" title="Delegate To" name="delegate_to[]" value="'+ data_json.insidereminder[j].reminder_sheet_delegates_name +'" /></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input type="text" name="email[]" required id="delegate_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="'+ data_json.insidereminder[j].reminder_sheet_delegates_email +'" /></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" id="phone" name="phone[]" required value="'+ data_json.insidereminder[j].reminder_sheet_delegates_phone +'" /></div></div></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div></div>');		$('.popup-main').css('display','block');
+		$('.popup-main').css('display','block');
+		$('.popup').show();
+	  
+	
+    });
 
     $('#addnotes').on('click',function(){
     $("#my2form").attr('action', 'http://localhost/Practice/Codeigniter-prac/Secretary-App-Glaze/Appoinment/req/');

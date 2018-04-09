@@ -15,7 +15,6 @@ class User extends CI_Controller
 	
 	public function index(){  
 			if($this->session->user == 'logged_in'){
-				echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 				$this->dashboard();
 			}else{
 				 $this->load->view("login");

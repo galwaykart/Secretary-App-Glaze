@@ -264,6 +264,8 @@
                 xhttp.open("GET", "<?php echo base_url(); ?>Reminder/reminder_view/"+id, true);
                 xhttp.send();
                 $('.popup').show(); 
+				 $('.popup-main').css('display','block');
+				 $('.popup').css('display','block');
             }
 
             
