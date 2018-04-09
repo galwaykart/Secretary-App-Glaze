@@ -81,7 +81,7 @@
 														                                <ul class="has-menu"> 
 															                                <li><a href="<?php echo site_url('yearlyperiodic') ?>">Yearly periodic Task</a></li>
 															                                <li><a href="<?php echo site_url('Monthlyperiodic') ?>">Monthly periodic Task</a></li>
-															                                <li><a href="">Everyday periodic Task</a></li> 
+															                                <li><a href="<?php echo site_url('Dailyperiodic') ?>">">Everyday periodic Task</a></li> 
 															                                <li><a href="<?php echo site_url('WeeklyPeriodic') ?>">Weekly periodic Task</a></li> 
 														                                </ul>
 													                          </li>

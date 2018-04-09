@@ -1,109 +1,19 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dailly Perodic Task View</title>
-   
-    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/bootsnip.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet"/>
-      <script src="js/float-panel.js"></script>
-    <script src="js/accordion-menu.js"></script>
-    <script src="js/jquery-3.2.1.min.js"></script>
-</head>
-<body class="body style-6"><!-- body tag start -->
-    
 
-
-   <!-- globle header for comman start --> 
-     
-    <header id="sec-header">
-        <div id="toggle-btn-box">
-                <span id="bar" class="fa  fa-navicon"  >
-                   <!-- <div class="one"></div>
-                    <div class="two"></div>
-                    <div class="three"></div>-->
-
-                </span>
-            <span id="close">&times</span>
-        </div>
-        <img src="img/galway_logo.png" alt="logo" id="img"/>
-        <h1>Secratory App</h1>
-        <div class="rigth-log-box">
-
-            <div class="inner">
-                        <p class="person-name">vishal rathour</p>
-                        <img src="img/person.png" alt="person image" id="per-img" class="log-popup"/>
-            </div>
-
-        </div>
-        <div class="log-up-body">
-           <ul>
-               <li><a href="#">Profile</a></li>
-                <li><a href="#">Setting</a></li>
-                <li><a href="#">LogOut</a></li>
-           </ul>
-        </div>
-    </header>
-    <div class="clear"></div>
-    <!--  changes-->
-    <div class="main-area-dashboard"><!-- Main Dashbrad start -->
-
-        <div id="left"><!-- left deshbrad start -->
-
-                    <aside  id="aside">
-                                    <div  id="accordion">
-                                        <ul>
-                                            <li>
-                                                <div>Sollicitudin</div>
-                                                <ul>
-                                                    <li><a href="?11">Lorem ipsum</a></li>
-                                                    <li><a href="?12">Dolor sit</a></li>
-                                                    <li>
-                                                        <div>Commodo Rhoncus</div>
-                                                        <ul>
-                                                            <li><a href="demo.html">Current</a></li>
-                                                            <li><a href="?132">Consectetur</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <div>Quis Porttitor</div>
-                                                <ul>
-                                                    <li><a href="?21">Finibus Bonorum</a></li>
-                                                    <li><a href="?22">Sed ut</a></li>
-                                                    <li><a href="?23">Neque porro</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <div>Odio Ac</div>
-                                                <ul>
-                                                    <li><a href="?31">Minima veniam</a></li>
-                                                    <li><a href="?32">Voluptate velit</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="?4">Sapien quam</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                     </aside>
-
-
-        </div><!-- left deshbrad end -->
-        <div id="right"><!-- right deshbrad start -->
-                            <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Dailly Perodic Task View</p></div>
+ <?php $this->load->view('head'); ?>
+    <?php $this->load->view('header'); ?>
+    <!-- user View design page start -->
+	<div class="clear"></div>
+	<div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Dailly Perodic Task View</p></div>
     <div class="dailly-notes-index-panel">
      
        <div class="container-5">
                        
                         <div class="col-md-12">
                                     <h2>Perodic Task </h2>
-                                    <div class="col-md-12"><p>Task Name : <span id="projectname">my task</span></p></div>
-                                   
+                                    <div class="col-md-12"><p>Task Name : <span id="projectname"><?php echo $fetch[0]->daily_periodic_task; ?></span></p></div>
                                     <div class="clear"></div>
                                     <div class="col-md-4">
                                          <div class="form-group">
@@ -126,7 +36,7 @@
                                                                     <div class="input-addon">
                                                                     <span class="fa fa-user" ></span>
                                                                     </div>
-                                                                    <div class="form-control"><input type="text" title="Supervised by"  /></div>
+                                                                    <div class="form-control"><input type="text" title="Supervised by" value="<?php if($fetch){ echo $fetch[0]->daliy_periodic_supervise; }  ?>" /></div>
                                                                 </div>
                                                         </div>
                                                
@@ -156,15 +66,24 @@
                         <div class="table-res">
                                 <table >
                                     <thead>
+
                                         <tr>
                                             <th>End Date</th><th>Status</th>
                                             <th>Remark</th>
                                            
                                         </tr>
+										
                                     </thead>
                                     <tbody>
-                                       <tr><td>12/04/2019</td><td>Active</td><td>no remarks</td></tr>
-                                         
+									<?php $i=0;
+										foreach($fetch as $arr){	
+									?>
+                                       <tr>
+									     <td><?php echo $arr->daily_periodic_end_date; ?></td>
+									     <td><?php if($arr->daily_periodic_status==1){echo "Active";}else{echo "Inactive";} ?></td>
+									     <td><?php echo $arr->daily_periodic_remark; ?></td>
+									   </tr>
+                                     <?php } ?>
                                     </tbody>
                                 </table>
                         </div>
@@ -184,50 +103,23 @@
     </div><!-- Main Dashbrad end -->
    
 
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
 
    
-    
+ <div style="height:50px;"></div>
+      <?php $this->load->view('footer'); ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-    
 
     <!-- don-t change -->
     <div style="height:50px;"></div>
     <footer id="footer">
         <p>&copy; Copyright By Glaze India Pvt. Ltd.</p>
     </footer>
-
      <!-- notepad start -->
         <div class="notepad-tag" title="Open Notepad">
             <span class="fa fa-edit"></span>
             </div>
             <div class="note-pad-box">
-                <div >
+                <div>
                     <div class="header">
             
                          <p>Notepad:-</p>

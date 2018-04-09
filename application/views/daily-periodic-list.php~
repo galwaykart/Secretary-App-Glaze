@@ -2,6 +2,8 @@
 <html>
 <head>
 
+                             
+
  <?php $this->load->view('head'); ?>
     <?php $this->load->view('header'); ?>
     <!-- user View design page start -->
@@ -19,7 +21,7 @@
                    <tbody>
 					    <?php  $i=1;
 					     foreach($fetch as $arr){?>
-                       <tr onclick='daily_status(<?php echo $arr->daily_periodic_id; ?>)'>
+					   <tr> 
 						 <td><?php echo $i++;?></td>
 						 <td><?php if($arr->daily_periodic_day==1){echo "Monday";} if($arr->daily_periodic_day==2){echo "Tuesday";} if($arr->daily_periodic_day==3){echo "Wednesday";}if($arr->daily_periodic_day==4){echo "Thursday";}if($arr->daily_periodic_day==5){echo "Friday";}if($arr->daily_periodic_day==6){echo "Saturday";}if($arr->daily_periodic_day==7){echo "Sunday";}?></td>
 						 <td><?php echo $arr->daily_periodic_time;?></td>
@@ -149,7 +151,7 @@
       
 			function daily_status(id) {
 			   // console.log("id ====" ,id);
-				var url = "<?php echo base_url(); ?>Dailyperiodic/view/"+id;
+				var url = "<?php echo base_url(); ?>Dailyperiodic/listpage/view/"+id;
 				window.location.assign(url);
 			}
 			</script>

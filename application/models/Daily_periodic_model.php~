@@ -33,10 +33,9 @@
 		}
 		
 		public function view_periodic_task($id){
-			$user_id = $this->session->userdata['id'];
+						$user_id = $this->session->userdata['id'];
 		    $this->db->select('*');
 			$this->db->from('daily_periodic');
-			$this->db->where('daily_periodic_id',$id);
 			//$this->db->where("user_id", $user_id);
 			$query = $this->db->get();
 			return $query->result();

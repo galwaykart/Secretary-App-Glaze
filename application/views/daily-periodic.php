@@ -3,13 +3,12 @@
     <!-- user View design page start -->
 	<div class="clear"></div>
 	<div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Dailly Periodic task</p></div>
+
                                 <div class="dailly-notes-index-panel">
                                             <div class="add-task-view-button">
-                                                <a href="#" > <span class="fa fa-plus">&nbsp;Add </span></a>
+                                                <a href="<?php echo base_url('Dailyperiodic/add'); ?>" > <span class="fa fa-plus">&nbsp;Add </span></a>
                                             </div>
-
-                                <div class="dailly-task "><!-- monthly periodic panel start -->
-             
+                                <div class="dailly-task "><!-- monthly periodic panel start -->	
                                         <div id='calendar'></div>
                                         <br /><br /><br /><br />
 
@@ -21,38 +20,8 @@
        <div style="height:50px;"></div>
       <?php $this->load->view('footer'); ?>
 
-
+    </div><!-- Main Dashbrad end -->
    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 
     <!-- don-t change -->
     <div style="height:50px;"></div>
