@@ -42,14 +42,24 @@
                         <div class="main-area-body-box"> 
                                         <div class="col-md-12">
                                                <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2">
+                                                                       <div class="box-data-for-2 one-box ">
                                                                            <div class="container1 ">
-                                                                                        <div class="left-pop-tag"> <span class="fa fa-american-sign-language-interpreting" ></span></div>
+                                                                                        <span class="fa fa-bars new-right"></span>
+                                                                                        <div class="contextMenu">
+                                                                                         <p>Resize</p>
+                                                                                         <ul><li><a href="#" class="small">Small</a></li>
+                                                                                             <li><a href="#" class="mid">Medium</a></li>
+                                                                                             <li><a href="#" class="large">Large</a></li>
+                                                                                         </ul>
+                                                                                        </div>
+                                                                                       <!-- contect menu end -->
+                                                                                        <div class="left-pop-tag"> <span class="fa fa-handshake-o one" ></span></div>
                                                                                         <div class="right-pop-tag">
                                                                                             <h2>Mettings&nbsp; <span id=""><?php echo($dash_data['count_index_meeting'][0]->total);?></span></h2>
                                                                                             <p>Today Metting <span id=""><?php echo($dash_data['index_meeting']["count"]);?></span></p>
                                                                                         </div>
                                                                             </div>
+                                                                           
                                                                        </div>
                                               </div>
                                               
@@ -57,92 +67,209 @@
 
                                             
                                              <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2">
+                                                                       <div class="box-data-for-2 img">
                                                                            <div class="container1 ">
-                                                                                        <div class="left-pop-tag"> <span class="fa fa-file-text-o" ></span></div>
+                                                                                        <span class="fa fa-bars new-right"></span>
+                                                                                       <div class="contextMenu">
+                                                                                         <p>Resize</p>
+                                                                                         <ul>
+                                                                                           <li>
+                                                                                             <a href="#">Small</a>
+                                                                                           </li>
+                                                                                           <li>
+                                                                                             <a href="#">Medium</a>
+                                                                                           </li>
+                                                                                           <li>
+                                                                                             <a href="#">Large</a>
+                                                                                           </li>
+                                                                                         </ul>
+                                                                                       </div>
+                                                                                        <div class="left-pop-tag"> <span class="fa fa-file-text-o two" ></span></div>
                                                                                         <div class="right-pop-tag">
                                                                                             <h2>Daily Notes&nbsp;<span id="Span1"><?php echo($dash_data['count_daily_notes'][0]->total);?></span></h2>
                                                                                             <p>Today Daily Notes <span id="Span2"><?php echo($dash_data['daily_notes']["count"]);?> </span></p>
                                                                                         </div>
                                                                             </div>
+                                                                        
+                                                                         
                                                                        </div>
                                               </div>
                                              
                                              <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2">
+                                                                       <div class="box-data-for-2 ">
                                                                            <div class="container1 ">
-                                                                                        <div class="left-pop-tag"> <span class="fa fa-edit" ></span></div>
+                                                                                       <span class="fa fa-bars new-right"></span>
+                                                                                       <div class="contextMenu">
+                                                                                         <p>Resize</p>
+                                                                                         <ul>
+                                                                                           <li>
+                                                                                             <a href="#">Small</a>
+                                                                                           </li>
+                                                                                           <li>
+                                                                                             <a href="#">Medium</a>
+                                                                                           </li>
+                                                                                           <li>
+                                                                                             <a href="#">Large</a>
+                                                                                           </li>
+                                                                                         </ul>
+                                                                                       </div>
+                                                                                        <div class="left-pop-tag"> <span class="fa fa-edit three" ></span></div>
                                                                                         <div class="right-pop-tag">
                                                                                             <h2>Quick Work&nbsp; <span id="Span3"><?php echo($dash_data['count_quickworks'][0]->total);?></span></h2>
                                                                                             <p>Today Quick Work <span id="Span4"><?php echo($dash_data['quick_work'][0]->total_works);?></span></p>
                                                                                         </div>
                                                                             </div>
+                                                                        
                                                                        </div>
+                                               
                                               </div>
                                               
                                              <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2">
+                                                                       <div class="box-data-for-2 ">
                                                                            <div class="container1 ">
-                                                                                        <div class="left-pop-tag"> <span class="fa fa-copy" ></span></div>
+                                                                                        <span class="fa fa-bars new-right"></span>
+                                                                                         <div class="contextMenu">
+                                                                                           <p>Resize</p>
+                                                                                           <ul>
+                                                                                             <li>
+                                                                                               <a href="#">Small</a>
+                                                                                             </li>
+                                                                                             <li>
+                                                                                               <a href="#">Medium</a>
+                                                                                             </li>
+                                                                                             <li>
+                                                                                               <a href="#">Large</a>
+                                                                                             </li>
+                                                                                           </ul>
+                                                                                         </div>
+                                                                                        <div class="left-pop-tag"> <span class="fa fa-copy four" ></span></div>
                                                                                         <div class="right-pop-tag">
                                                                                             <h2>Delegation Sheet&nbsp;<span id="Span5"><?php echo($dash_data['count_projectDelegation'][0]->total);?></span></h2>
                                                                                             <p>Today Delegation Task <span id="Span6"><?php echo($dash_data['project_delegation'][0]->total_projects);?></span></p>
                                                                                         </div>
                                                                             </div>
+                                                                        
                                                                        </div>
                                               </div>
                                              
                                              <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2">
+                                                                       <div class="box-data-for-2 ">
                                                                            <div class="container1 ">
-                                                                                        <div class="left-pop-tag"> <span class="fa fa-coffee" ></span></div>
+                                                                                        <span class="fa fa-bars new-right"></span>
+                                                                                         <div class="contextMenu">
+                                                                                           <p>Resize</p>
+                                                                                           <ul>
+                                                                                             <li>
+                                                                                               <a href="#">Small</a>
+                                                                                             </li>
+                                                                                             <li>
+                                                                                               <a href="#">Medium</a>
+                                                                                             </li>
+                                                                                             <li>
+                                                                                               <a href="#">Large</a>
+                                                                                             </li>
+                                                                                           </ul>
+                                                                                         </div>
+                                                                                        <div class="left-pop-tag"> <span class="fa fa-coffee five" ></span></div>
                                                                                         <div class="right-pop-tag">
                                                                                             <h2>Appoinment&nbsp;<span id="Span7"><?php echo($dash_data['count_appointment'][0]->total);?></span></h2>
                                                                                             <p>Today Appoinment <span id="Span8"><?php echo($dash_data['appointment']["count"]);?></span></p>
                                                                                         </div>
                                                                             </div>
+                                                                        
                                                                        </div>
                                               </div>
                                              
                                              <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2">
+                                                                       <div class="box-data-for-2 ">
                                                                            <div class="container1 ">
-                                                                                        <div class="left-pop-tag"> <span class="fa fa-paw" ></span></div>
+                                                                                       <span class="fa fa-bars new-right"></span>
+                                                                                         <div class="contextMenu">
+                                                                                           <p>Resize</p>
+                                                                                           <ul>
+                                                                                             <li>
+                                                                                               <a href="#">Small</a>
+                                                                                             </li>
+                                                                                             <li>
+                                                                                               <a href="#">Medium</a>
+                                                                                             </li>
+                                                                                             <li>
+                                                                                               <a href="#">Large</a>
+                                                                                             </li>
+                                                                                           </ul>
+                                                                                         </div>
+                                                                                        <div class="left-pop-tag"> <span class="fa fa-paw six" ></span></div>
                                                                                         <div class="right-pop-tag">
                                                                                             <h2>Periodic Task&nbsp; <span id="Span9"><?php echo($dash_data['count_index_meeting'][0]->total);?></span></h2>
                                                                                             <p>Today Periodic Task <span id="Span10"><?php echo($dash_data['periodic']);?></span></p>
                                                                                         </div>
                                                                             </div>
+                                                                         
                                                                        </div>
                                               </div>
                                               
                                              <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2">
+                                                                       <div class="box-data-for-2 ">
                                                                            <div class="container1 ">
-                                                                                        <div class="left-pop-tag"> <span class="fa fa-outdent" ></span></div>
+                                                                                        <span class="fa fa-bars new-right"></span>
+                                                                                         <div class="contextMenu">
+                                                                                           <p>Resize</p>
+                                                                                           <ul>
+                                                                                             <li>
+                                                                                               <a href="#">Small</a>
+                                                                                             </li>
+                                                                                             <li>
+                                                                                               <a href="#">Medium</a>
+                                                                                             </li>
+                                                                                             <li>
+                                                                                               <a href="#">Large</a>
+                                                                                             </li>
+                                                                                           </ul>
+                                                                                         </div>
+                                                                                        <div class="left-pop-tag"> <span class="fa fa-outdent seven" ></span></div>
                                                                                         <div class="right-pop-tag">
                                                                                             <h2>Reminder Sheet&nbsp; <span id="Span11"><?php echo($dash_data['count_index_meeting'][0]->total);?></span></h2>
                                                                                             <p>Today Reminder Task <span id="Span12"><?php echo($dash_data['daily_notes']["count"]);?></span></p>
                                                                                         </div>
                                                                             </div>
+                                                                        
                                                                        </div>
                                               </div>
-                                            <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2">
+                                            <div class="col-mew-33 ">
+                                                                       <div class="box-data-for-2 temprature">
                                                                            <div class="container1 ">
+                                                                            
                                                                                         <div class="left-pop-tag">
                                                                                            <div id="cl-weth"> </div>
                                                                                         </div>
                                                                                         <div class="right-pop-tag">
-                                                                                            <h2>Wheather Forcast</h2>
-                                                                                            <p><span id="temprature"></span></p>
+                                                                                            <h2 class="title">Wheather Forcast</h2>
+                                                                                            <p><span ></span></p>
+                                                                                             <h2 id="temprature" class="temp"></h2>
                                                                                         </div>
+                                                                                       
                                                                             </div>
+                                                                       
                                                                        </div>
                                               </div>
+                                            <div class="col-mew-33 ">
+                                              <div class="box-data-for-2 no-border-box">
+                                                <div class="container1 text-center">
+                                                  <canvas id="canvas"  class="clock" width="180" >
+                                                  </canvas>
+                                                  <!-- container clock end -->
+                                                
+                                                </div>
+                                              </div>
+                                            </div>
+                                          <div class="col-44">
+                                                    <div class="container1 color" >
+                                                      <div id='myChart2'></div>
+                                                    </div>
+                                          </div>
                                               
 
-                                        </div>
+                                          </div><!-- div end  -->
 
 
 
@@ -275,41 +402,41 @@
                                          } 
                                         }
                               ?>
-                                                                        <!-- <tr>
-                                                                            <td><span class="fa fa-american-sign-language-interpreting"></span></td>
+                                                                       <tr>
+                                                                           
                                                                             <td>today </td>
-                                                                            <td>2</td>
+                                                                            
                                                                             <td>Immideaiet effact</td>
                                                                             <td><span class="run">Running</span></td>
                                                                         </tr>
                                                                           <tr>
-                                                                             <td><span class="fa fa-american-sign-language-interpreting"></span></td>
+                                                                            
                                                                             <td>today </td>
-                                                                            <td>2</td>
+                                                                           
                                                                             <td>Immideaiet effact</td>
                                                                               <td><span class="comp">Cmpleted</span></td>
                                                                         </tr>
                                                                           <tr>
-                                                                             <td><span class="fa fa-american-sign-language-interpreting"></span></td>
+                                                                             
                                                                             <td>today </td>
-                                                                            <td>2</td>
+                                                                            
                                                                             <td>Immideaiet effact</td>
                                                                               <td><span class="comp">Cmpleted</span></td>
                                                                         </tr>
                                                                          <tr>
-                                                                            <td><span class="fa fa-american-sign-language-interpreting"></span></td>
+                                                                           
                                                                             <td>today </td>
-                                                                            <td>2</td>
+                                                                           
                                                                             <td>Immideaiet effact</td>
                                                                              <td><span class="next">Next</span></td>
                                                                         </tr>
                                                                          <tr>
-                                                                            <td><span class="fa fa-american-sign-language-interpreting"></span></td>
+                                                                            
                                                                             <td>today </td>
-                                                                            <td>2</td>
+                                                                           
                                                                             <td>Immideaiet effact</td>
                                                                              <td><span class="next">Next</span></td>
-                                                                        </tr> -->
+                                                                        </tr> 
                                                                          
                                                                     </tbody>
                                                                 </table>
@@ -317,7 +444,7 @@
 
                                                         </div>
 
-                                                            <!-- calender end -->
+                                                            
                                                         </div>
                                                     </div>
 
@@ -336,40 +463,84 @@
                                             <!--  quick work calender end -->
 
         </div><!-- right deshbrad end -->
+        <div class='clear'></div>
 
 <script>
-               $(document).ready(function() {
+  $(document).ready(function() {
 
-$('#calendar').fullCalendar({
+  $('#calendar').fullCalendar({
   header: {
-    left: 'prev,next today',
-    center: 'title',
-    right: 'month,agendaWeek,agendaDay,listWeek'
+  left:'',
+  center: 'prev,title,next',
+  right: 'month,agendaWeek,agendaDay,listWeek'
   },
+
   defaultDate: '2018-03-12',
   navLinks: true, // can click day/week names to navigate views
   editable: true,
   eventLimit: true, // allow "more" link when too many events
+
+  eventRender: function(event, element) {
+  if(event.id == 1) {
+  element.css('background-color', '#ffa50094').css('border','1px solid rgb(230, 182, 93)').css('color','black');
+  }
+  if(event.id == 6) {
+  element.css('background-color', 'rgb(221, 140, 243)').css('border','1px solid rgb(197, 120, 218)').css('color','black');
+  }
+  if(event.id == 7) {
+  element.css('background-color', 'rgb(206, 199, 127)').css('border','1px solid rgb(183, 176, 106)').css('color','black');
+  }
+
+  if(event.id == 8) {
+  element.css('background-color', 'rgb(206, 199, 127)').css('border','1px solid rgb(183, 176, 106)').css('color','black');
+  }
+
+  },
+
+
+
+
+  eventMouseover: function(calEvent, jsEvent) {
+  var tooltip = '<div class="tooltipevent" ><h2 >Metting Title : ' + calEvent.title + '</h2><p> Start Time : '+  calEvent.start  + '</p></div>';
+  var $tooltip = $(tooltip).appendTo('body');
+
+  $(this).mouseover(function(e) {
+  $(this).css('z-index', 10000);
+  $tooltip.fadeIn('500');
+  $tooltip.fadeTo('10', 1.9);
+  }).mousemove(function(e) {
+  $tooltip.css('top', e.pageY + 10);
+  $tooltip.css('left', e.pageX + 20);
+  });
+  },
+
+  eventMouseout: function(calEvent, jsEvent) {
+  $(this).css('z-index', 8);
+  $('.tooltipevent').remove();
+  },
+
+
+
   events: [
-    <?php foreach($dash_data['index_meeting']["all_data"] AS $indexMeeting){?>
+  <?php foreach($dash_data['index_meeting']["all_data"] AS $indexMeeting){?>
         
-    {      
+    {   id:1, 
         title: '<?php echo $indexMeeting->agenda_name ?>' +' (INDEX MEETINGS)',
         start: '<?php echo $indexMeeting->date_of_meeting ?>'+'T'+'<?php echo $indexMeeting->index_meeting_start_time ?>',
        
     },  
     <?php }   ?>
     <?php foreach($dash_data['total_quick_work'] AS $quickworks){?>
-        
-        {      
-            title: '<?php echo $quickworks->task ?>' +' (QUICK WORKS)',
+
+  {        id:2,
+           title: '<?php echo $quickworks->task ?>' +' (QUICK WORKS)',
             start: '<?php echo $quickworks->date ?>',
            
         },  
         <?php }   ?>
         <?php foreach($dash_data['appointment']['all_data'] AS $appointments){?>
         
-        {      
+        {    id:3,
             title: '<?php echo $appointments->appointment_subject ?>' +' (Appointments)',
             start: '<?php echo $appointments->appointment_start_time ?>',
            
@@ -378,7 +549,7 @@ $('#calendar').fullCalendar({
 
         <?php foreach($dash_data['total_project_delegation'] AS $projects){?>
         
-        {      
+        {   id:4,  
             title: '<?php echo $projects->project_delegation_project ?>' +' (PROJECT DELEGATIONS)',
             start: '<?php echo $projects->project_delegation_date ?>',
            
@@ -393,9 +564,9 @@ $('#calendar').fullCalendar({
                 while($new_start_date <=  $yearly_periodic->yearly_periodic_end_date){ 
                 ?>
         
-        {      
-            title: '<?php echo  $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
-            start: '<?php echo $new_start_date ?>',
+        {   id:5,
+            title: '<?php echo $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
+            start: '<?php echo $yearly_periodic->yearly_periodic_start_date ?>',
            
         },  
         <?php 
@@ -409,7 +580,8 @@ $('#calendar').fullCalendar({
                             $new_start_date =  $monthly_periodic->monthly_start_date;
                             while($new_start_date <=  $monthly_periodic->monthly_periodic_end_date){ ?>
         
-        {      
+        {     
+            id:6,
             title: '<?php echo $monthly_periodic->monthly_periodic_work ?>' +' (Monthly Periodic)',
             start: '<?php echo $new_start_date ?>',
            
@@ -424,7 +596,7 @@ $('#calendar').fullCalendar({
                 $new_start_date =  $weekly_periodic->weekly_periodic_start_date;
                 while($new_start_date <=  $weekly_periodic->weekly_periodic_end_date){ ?>
         
-        {      
+        {    id:7,
             title: '<?php echo $weekly_periodic->weekly_periodic_work ?>' +' (Weekly Periodic)',
             start: '<?php echo $new_start_date ?>',
            
@@ -495,7 +667,254 @@ $('#calendar').fullCalendar({
 
 });
 </script>
-            
+<script>
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  var radius = canvas.height / 2;
+  ctx.translate(radius, radius);
+  radius = radius * 0.90
+  setInterval(drawClock, 1000);
+
+  function drawClock() {
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
+  }
+
+  function drawFace(ctx, radius) {
+  var grad;
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.fillStyle = '#e24545';
+  ctx.fill();
+  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  grad.addColorStop(0, 'white');
+  grad.addColorStop(0.5, 'white');
+  grad.addColorStop(1, 'orange');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.1;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+  }
+
+  function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius*0.15 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  for(num = 1; num < 13; num++){
+    ang = num * Math.PI / 6;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius*0.85);
+    ctx.rotate(-ang);
+    ctx.fillText(num.toString(), 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius*0.85);
+    ctx.rotate(-ang);
+  }
+}
+
+function drawTime(ctx, radius){
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    //hour
+    hour=hour%12;
+    hour=(hour*Math.PI/6)+
+    (minute*Math.PI/(6*60))+
+    (second*Math.PI/(360*60));
+    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    //minute
+    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    // second
+    second=(second*Math.PI/30);
+    drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+
+    $(function(){
+       $('.box-data-for-2 .container1 span.fa-bars').on('click',function(){
+            // $('.contextMenu').css('display','none');
+             
+             $(this).next('.contextMenu').toggle('slow');
+             
+    
+    });
+       
+        $('.contextMenu ul li a.small').on('click',function(e){
+          
+           $('.box-data-for-2').css('width','10%');
+    });    
+    
+    
+    
+    
+    });
+    
+    // chart
+    
+    
+    var myConfig = {
+
+ 	type: "ring",
+ 	title: {
+ 	  text: "Attendence",
+ 	  
+ 	  "adjust-layout": true,
+ 	  fontColor: "#002653",
+ 	},
+ 	subtitle: {
+ 	  text: "View All Attendence Detail",
+ 	  "font-weight": "normal"
+ 	},
+ 	plot: {
+ 	  slice:'50%',
+ 	  borderWidth:0,
+ 	  backgroundColor:'#FBFCFE',
+ 	  animation:{
+ 	    effect:2,
+ 	    sequence:3
+ 	  },
+ 	  valueBox: [
+ 	    {
+ 	      type: 'all',
+ 	      text: '%t',
+ 	      placement: 'out'
+ 	    }, 
+ 	    {
+ 	      type: 'all',
+ 	      text: '%npv%',
+ 	      placement: 'in'
+ 	    }
+ 	  ]
+ 	},
+  tooltip:{
+ 	    fontSize:16,
+ 	    anchor:'c',
+ 	    x:'50%',
+ 	    y:'50%',
+ 	    sticky:true,
+ 	    backgroundColor:'none',
+ 	    borderWidth:0,
+ 	    thousandsSeparator:',',
+ 	    text:''
+    
+  },
+ 	plotarea: {
+ 	  backgroundColor: 'transparent',
+ 	  borderWidth: 0,
+ 	  borderRadius: "0 0 0 10",
+ 	  margin: "70 0 10 0"
+ 	},
+ 	legend : {
+    toggleAction:'remove',
+    backgroundColor:'#FBFCFE',
+    borderWidth:0,
+    adjustLayout:true,
+    align:'center',
+    verticalAlign:'bottom',
+    marker: {
+        type:'circle',
+        cursor:'pointer',
+        borderWidth:0,
+        size:5
+    },
+    item: {
+        fontColor: "#777",
+        cursor:'pointer',
+        offsetX:-6,
+        fontSize:12
+    },
+    mediaRules:[
+        {
+            maxWidth:500,
+            visible:false
+        }
+    ]
+ 	},
+ 	scaleR:{
+ 	  refAngle:270
+ 	},
+	series : [
+		{
+		    text: "Late Arrival",
+			values : [106541],
+			lineColor: "#00BAF2",
+			backgroundColor: "#00BAF2",
+			lineWidth: 1,
+			marker: {
+			  backgroundColor: '#00BAF2'
+			}
+		},
+		{
+		    text: "Mispunch",
+			values : [56711],
+			lineColor: "#E80C60",
+			backgroundColor: "#E80C60",
+			lineWidth: 1,
+			marker: {
+			  backgroundColor: '#E80C60'
+			}
+		},
+		{
+		  text: "Tour Gone",
+			values : [43781],
+			lineColor: "#9B26AF",
+			backgroundColor: "#9B26AF",
+			lineWidth: 1,
+			marker: {
+			  backgroundColor: '#9B26AF'
+			}
+		}
+	]
+};
  
-    <?php $this->load->view('footer'); ?>
-	 
+zingchart.render({ 
+	id : 'myChart2', 
+  data: {
+    gui:{
+      contextMenu:{
+        
+        position: "right",
+        backgroundColor:"", /*sets background for entire contextMenu*/
+        docked: true, 
+        item:{
+          backgroundColor:"#306EAA",
+          borderColor:"#306EAA",
+          borderWidth: 0,
+          fontFamily: "Lato",
+          color:"#fff"
+        }
+      
+      },
+    },
+    graphset: [myConfig]
+  },
+	
+});
+    
+    
+    
+</script>
+             
+<?php $this->load->view('footer'); ?>
+
+
+
+

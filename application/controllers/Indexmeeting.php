@@ -97,13 +97,15 @@
 		} 
 			
 	public function insert_meeting(){ 
-		 $this->form_validation->set_rules('previous_date','Previous Meeting Date ','trim|required');
+		// $this->form_validation->set_rules('previous_date','Previous Meeting Date ','trim|required');
 		 $this->form_validation->set_rules('index_meeting_next_date','Next Meeting Date ','trim|required');
 		 $this->form_validation->set_rules('index_meeting_start_time','Start Time','trim|required');
 		 $this->form_validation->set_rules('index_meeting_end_time','End Time','trim|required');
+		 $this->form_validation->set_rules('meeting_called_by','Meeting Called By','trim|required');
 		 $this->form_validation->set_rules('agenda','agenda ','trim|required');
 		 $this->form_validation->set_rules('department[]','department ','trim|required');
 		 $this->form_validation->set_rules('name[]','Name ','trim|required');
+		 $this->form_validation->set_rules('phone_number[]','Phone Number ','trim|required');
 		 $this->form_validation->set_rules('email[]', 'Email', 'trim|required|valid_email');
 		 $this->form_validation->set_rules('conclusion_textarea[]', 'Textarea', 'trim|required');
 		 $this->form_validation->set_rules('targetdate[]', 'Target Date', 'trim|required');
@@ -123,6 +125,7 @@
 	     'index_meeting_next_date'=>$this->input->post('index_meeting_next_date'),
 	     'index_meeting_start_time'=>$this->input->post('index_meeting_start_time'),
 		 'index_meeting_end_time'=>$this->input->post('index_meeting_end_time'),
+		 'meeting_called_by'=>$this->input->post('meeting_called_by'),
 		 'user_id'=>$this->user_id,
 		);
 		$data[1] = array(
@@ -131,7 +134,8 @@
 		 'department'=>$this->input->post('department'),
 		 'email'=>$this->input->post('email'),
 		 'employee'=>$this->input->post('employee'),
-		 'is_employee'=>$this->input->post('is_employee')
+		 'is_employee'=>$this->input->post('is_employee'),
+		 'phone_number'=>$this->input->post('phone_number')
 		 );
 		$data[2] = array(
 		 
@@ -139,7 +143,6 @@
 		 'conclusion_textarea'=>$this->input->post('conclusion_textarea'),
 		 'targetdate'=>$this->input->post('targetdate'),
 		 'delegated_dept'=>$this->input->post('delegated_dept'),
-
 		 'delegated_name'=>$this->input->post('delegated_name'));
 
 		$data[3]=array(

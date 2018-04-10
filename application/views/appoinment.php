@@ -95,68 +95,81 @@
     <form id="my2Form" method="POST" action="<?php echo base_url();?>Appoinment/req" >
 	
     <div class="popup" style="display: none;">
-            <div class="header">
-                <h3>Appointment - <span id="work">Add</span></h3>
-                <span id="close-popup"  title="Close">&times;</span>
+      <div class="header">
+        <h3>
+          Appointment - <span id="work">Add</span>
+        </h3>
+        <span id="close-popup"  title="Close">&times;</span>
+      </div>
+      <div class="content">
+        <!-- content start -->
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Date :</label>
+              <div class="input-group">
+                <div class="form-control">
+                  <input required="" type="date" id="task_date" name="date" title="Date" />
+                </div>
+
+              </div>
             </div>
-            <div class="content"><!-- content start -->
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Date :</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input required type="date" id="task_date" name="date" title="Date" /></div>
-                                            
-                                        </div>
-                         </div>
-                    </div>
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Subject :</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input required type="text" id="task_name" name="task" title="Task" /></div>
-                                            
-                                        </div>
-                         </div>
-                    </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Subject :</label>
+              <div class="input-group">
+                <div class="form-control">
+                  <input required="" type="text" id="task_name" name="task" title="Task" />
                 </div>
-                <div class="clear"></div>
 
-                <div class="col-md-12">
-                    <!-- <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Peroidic :</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input required type="text" id="appointment_periodic" name="peroidic" title="Date" /></div>
-                                            <?php //echo form_error('peroidic', '<span class="form_error">', '</span>'); ?></span>
-                                        </div>
-                         </div>
-                    </div> -->
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Travel Time :</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input required type="text" id="appointment_travel_time" name="travel_time" title="Task" /></div>
-                                            
-                                        </div>
-                         </div>
-                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Venue :</label>
+              <div class="input-group">
+                <div class="form-control">
+                  <input required="" type="text" placeholder="Venue"/>
                 </div>
-                <div class="clear"></div>
 
-                 <div class="col-md-12">
-                   
-                    <div class="col-md-12">
-                            <div class="form-group">
-                                       <label>Target Date</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input required type="date" id="task_traget_date" name="target_date" title="Target Date" /></div>
-                                            
-                                        </div>
-                          </div>
-                        
-                    </div>
-                      <!-- <div class="col-md-6">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Travel Time :</label>
+              <div class="input-group">
+                <div class="form-control">
+                  <input required="" type="text" id="appointment_travel_time" name="travel_time" title="Task" />
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+
+        <div class="col-md-12">
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Target Date</label>
+              <div class="input-group">
+                <div class="form-control">
+                  <input required="" type="date" id="task_traget_date" name="target_date" title="Target Date" />
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <!-- <div class="col-md-6">
                            <div class="form-group">
                                        <label>Priority</label>
                                         <div class="input-group">
@@ -166,79 +179,61 @@
                                         </div>
                           </div>
                     </div> -->
+        </div>
+        <div class="clear"></div>
+        <div class="col-md-12">
+
+          <div class="form-group">
+            <label>Remark</label>
+            <div class="input-group">
+              <div class="form-control">
+                <textarea id="appointment_remark" name="remark" class=""></textarea>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="clear"></div>
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Status</label>
+              <div class="input-group">
+                <div class="form-control">
+                  <input required="" type="text" id="task_status" name="status" title="Status" />
                 </div>
-                <div class="clear"></div>
-                 <div class="col-md-12">
-                   
-                            <div class="form-group">
-                                       <label>Remark</label>
-                                        <div class="input-group">
-                                            <div class="form-control">
-                                               <textarea id="appointment_remark" name="remark" class=""></textarea>
-                                            </div>
-                                            
-                                        </div>
-                                        
-                    </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Active/Inactive</label>
+              <div class="input-group">
+                <div class="form-control">
+                  <select name="active" id="active">
+                    <option value='1' >Yes</option>
+                    <option value='0'>No</option>
+                  </select>
                 </div>
-                     
-                <div class="clear"></div>
-                 <div class="col-md-12">
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Status</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input required type="text" id="task_status" name="status" title="Status" /></div>
-                                        </div>
-                           </div>
-                    </div>
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Active/Inactive</label>
-                                        <div class="input-group">
-                                            <div class="form-control">
-                                                <select name="active" id="active"><option value='1' >Yes</option><option value='0'>No</option></select>
-                                            </div>
-                                        </div>
-                           </div>
-                    </div>
+              </div>
+            </div>
+          </div>
 
-                      <!-- autometic delegates start -->
-                    <div id="refresh_popup">
-                      <div id="auto-del">
-                          <div class="auto-del">
-                                      <div class="left">
-                                          <div class="form-group">
-                                                <label>Delegate To</label>
-                                                 <div class="input-group">
-                                                     <div class="form-control"><input required type="text" id ="gm1" name="delegate_to[]" title="Delegate To" /></div>
-                                                 </div>
-                                             </div>
-
-                                      </div>
-                                      <div class="center">
-                                              <div class="form-group">
-                                                    <label>Email Id</label>
-                                                     <div class="input-group">
-                                                         <div class="form-control">
-                                                         <input required type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/>
-                                                         </div>
-                                                     </div>
-                                             </div>
-                                      </div>
-                                      <div class="right text-center">
-                                                 <div class="btn-group">
-                                                         <a href="#" class="plus" id="plus"><span class="fa fa-plus" ></span></a>
-                                                 </div>
-                                      </div>
-
-                          </div>
+          <!-- autometic delegates start -->
+          <div id="refresh_popup">
+            <div id="auto-del">
+              <div class="auto-del">
+                <div class="left">
+                  <div class="form-group">
+                    <label>Delegate To</label>
+                    <div class="input-group">
+                      <div class="form-control">
+                        <input required="" type="text" id ="gm1" name="delegate_to[]" title="Delegate To" />
                       </div>
+                    </div>
                   </div>
-
-                  <div id="one">
-                  </div>
-                  <!-- autometic delegates end -->
 
                 </div>
                 <div class="clear"></div>
@@ -254,30 +249,92 @@
                     <span id="set_submail"></span>
                                    <!-- <a href="#">Reset</a> -->
                     </div>
-                
-            </div><!-- footer end -->
-<script type="text/javascript"> 
-    $(function() {
-        $('a#plus').click(function(e) {
-            e.preventDefault();
-            var lnth = $('#auto-del .auto-del').length; 
-            $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
-            
-        });
-    });
-        function setValues(id){     
-                document.getElementById("rm"+id).remove();
-        }
-</script>                                    
-   
+                  </div>
+                </div>
+                <div class="right text-center">
+                  <div class="btn-group">
+                    <a href="#" class="plus addiion-task" id="plus" onClick="alert()"><span class="fa fa-plus " ></span>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+              <div class="clear"></div>
+            </div>
+            <!--auto del end -->
+          </div>
+
+
+          <!-- autometic delegates end -->
+
+        </div>
+        <div class="clear"></div>
+      </div>
+      <!-- container end -->
+      <div class="footer">
+
+        <div class="col-md-12">
+          <button type="submit" class="btn-primary btn">Save</button>
+          <input required="" class="btn-primary btn" type="reset" value="Reset">
+            <!-- <a href="#">Reset</a> -->
+          </div>
+
+      </div>
+      <!-- footer end -->
+
+    </div>
     </form>
     <!-- popup ends -->
 	</div>
- </div>
+ 
 
 
 
+<script type="text/javascript">
+  $(function() {
+  $('a#plus').click(function(e) {
+  e.preventDefault();
+  alert()
 
+  var lnth = $('#delete .auto-del').length;
+  $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del">
+    <div class="auto-del">
+      <div class="left">
+        <div class="form-group">
+          <label>Delegate To</label>
+          <div class="input-group">
+            <div class="form-control">
+              <input required="" type="text" title="Delegate To" required="" name="delegate_to[]" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="center">
+        <div class="form-group">
+          <label>Email Id</label>
+          <div class="input-group">
+            <div class="form-control">
+              <input required="" type="text" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right text-center">
+        <div class="btn-group">
+          <a style="background: red;" href="#"  onclick="setValues('+ lnth + ')">
+            <span class="fa fa-minus" style="color: white;"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>');
+
+  });
+  });
+  function setValues(id){
+  document.getElementById("rm"+id).remove();
+  }
+</script>
 <script type="text/javascript"> 
           function newDoc(id) {   
             var xhttp;    

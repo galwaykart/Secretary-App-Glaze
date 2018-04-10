@@ -5,6 +5,7 @@
 	 </style>
 	<!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Monthly Periodic View</p></div>
+   <h2 class="headingDaiilyNotes">Perodic Task View</h2>
 	<div class="clear"></div>
     <div class="dailly-notes-index-panel">
 			<?php 
@@ -16,13 +17,13 @@
 	<div class="container-5">
                        
                         <div class="col-md-12">
-                                    <h2>Perodic Task View</h2>
+                                    
                                     <div class="col-md-12"><p>Task Name :
 										<?php if($list['data1']){ echo $list['data1'][0]->monthly_periodic_work;} ?>
 									<span id="projectname"></span></p></div>
                                    
                                     <div class="clear"></div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                          <div class="form-group">
                                                         <label>End Date</label>
                                                         
@@ -36,8 +37,8 @@
                                                 </div>
                                                
                                     </div>
-							<div id="delete1" class="auto-del">
-                                    <div class="col-md-4" >
+							<div id="delete1" class="auto-del" style="position:relative">
+                                    <div class="col-md-3" >
                                          <div class="form-group">
                                                    <label>Delegate To</label>
                                                         <div class="input-group">
@@ -51,7 +52,7 @@
                                                         </div>
 										</div>
                                     </div>
-									 <div class="col-md-4">
+									 <div class="col-md-3">
                                          <div class="form-group">
                                                <label>Email</label>
                                                         
@@ -66,10 +67,10 @@
                                                     </div>
 										</div>
                                     </div>
-                                    <div class="col-md-4">
-                                         <div class="btn-group margin-top" style="text-align:center">
-											<a href="#" class="ad btn-primary btn" id="add"><span class="fa fa-plus" ></span></a>
-										</div>           
+                                    <div class="col-md-3" style="float:left">
+                                         <div class=" margin-top">
+											                      <a href="#" class="aad btn-primary btn participater right-btn" id="add"><span class="fa fa-plus" ></span></a>
+										                      </div>           
                                     </div>        
 						 <?php  $j = 0;
 								if($list){									
@@ -77,8 +78,8 @@
 									//print_r($list['data2']);
 						     	if($j != '0'){  ?>
 								<div class="clear"></div>
-							      <div id="rm1<?php echo $j; ?>"  class="auto-del">
-                                    <div class="col-md-4" >
+							      <div id="rm1<?php echo $j; ?>"  class="auto-del" style="position:relative">
+                      <div class="col-md-4" >
                                          <div class="form-group">
                                                    <label>Delegate To</label>
                                                         <div class="input-group">
@@ -141,7 +142,7 @@
 
    </div><!-- container 5 end -->
 
-		<div class="col-md-12 monthly-view-list-input" id="delete">
+		<div class="col-md-12 monthly-view-list-input leftItemsonBotton-yearly-task-view" id="delete">
 		  	
 					<div class="col-md-3">
 						<div class="form-group">
@@ -173,8 +174,8 @@
                         </div>
                     </div>
 						<div class="col-md-3"> 
-							<div class="btn-group margin-top" style="text-align:left">
-								<a href="#" class="ad btn-primary btn" id="add1"><span class="fa fa-plus" ></span></a>
+							<div class=" margin-top" style="text-align:left">
+								<a href="#" class="ad btn-primary btn participater3" id="add1"><span class="fa fa-plus" ></span></a>
 							</div>	
 						</div> 
 										
@@ -218,14 +219,15 @@
                    </div>	
 			   
 					<div class="right text-center">
-					  <div class="btn-group"><a style="background: red;" href="#"  onclick="setValues(<?php echo $i; ?>)"><span class="fa fa-minus" style="color: white;"></span></a></div>
+					  <div class=""><a style="background: red;" href="#"  onclick="setValues(<?php echo $i; ?>)"><span class="fa fa-minus" style="color: white;"></span></a></div>
 					</div>				   
 			  </div>
 				
 			 <?php } $i++; } }   ?> 
 	
 			</div>	 
-			<div class="col-md-12" style="text-align:center">
+			<div class="col-md-12 btn-group" style="text-align:center">
+        <br></br>
 				<button type="submit" class="btn-primary btn">Submit</button>
 				<?php if($this->uri->segment(3)){?>
 				<input type="submit" name="submail" class="btn-primary btn" value="submit & Mail"></input>
@@ -241,7 +243,7 @@
 					$('a#add1').click(function(e) {
 						e.preventDefault();
 						var lnth = $('#delete .custom').length; 
-					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="custom"><div class="auto-del"><div class="col-md-3"><div class="form-group"><label>Status Date</label><div class="input-group"><div class="input-addon"><span class="fa fa-calendar" ></span></div><div class="form-control"><input type="date" title="Status date" name="date[]" required /></div></div></div></div> <div class="col-md-3"><div class="form-group"><label>Note</label><div class="input-group"><div class="input-addon"><span class="fa fa-edit" ></span></div><div class="form-control"><textarea id="Textarea1" class="" name="note[]" required></textarea></div></div></div></div><div class="right "><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div>');
+					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="custom"><div class="auto-del" style="position:relative"><div class="col-md-3"><div class="form-group"><label>Status Date</label><div class="input-group"><div class="input-addon"><span class="fa fa-calendar" ></span></div><div class="form-control"><input type="date" title="Status date" name="date[]" required /></div></div></div></div> <div class="col-md-3"><div class="form-group"><label>Note</label><div class="input-group"><div class="input-addon"><span class="fa fa-edit" ></span></div><div class="form-control"><textarea id="Textarea1" class="" name="note[]" required></textarea></div></div></div></div><div class="right "><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div>');
 					  
 					});
 				});
@@ -255,7 +257,7 @@
 					$('a#add').click(function(e) {
 						e.preventDefault();
 						var lnth1 = $('#delete1 .auto-del1').length; 
-					 $('#delete1').append('<div class="clear"></div><div id="rm1'+lnth1+'" class="auto-del1"><div class="col-md-4"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required/></div></div></div></div><div class="col-md-4" ><div class="form-group"><label>Email</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues1('+ lnth1 + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div>');
+					 $('#delete1').append('<div class="clear"></div><div id="rm1'+lnth1+'" class="auto-del1" style="position:relative"><div class="col-md-3"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required/></div></div></div></div><div class="col-md-3" ><div class="form-group"><label>Email</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div><div class="col-md-4" ><div class=""><a class="right-btn-minus2" href="#"  onclick="setValues1('+ lnth1 + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div>');
 					  
 					});
 				});

@@ -17,38 +17,42 @@
             <div class="container">
                 <h2 class="heading">Meeting Status</h2>
             </div>
-        <div class="Mettings-View-index-panel">
+        <div class="Mettings-View-index-panel" >
              
-               <div class="table-res">
-                   <table id="mettings-table">
+               <div class="table-res style-4">
+                   <table  class="mettings-table-second" id="mettings-table" style="width:100%;">
                        <thead>
                            <tr>
-							   <th>SR No.</th>
-							   <th>Ajenda of Meeting</th>
-							   <th>Previous Meetings Date</th>
-							   <th>Next Meeting Date</th>
-						   </tr>
+							               <th>SR No.</th>
+							               <th>Ajenda of Meeting</th>
+							               <th>Previous Meetings Date</th>
+							               <th>Next Meeting Date</th>
+						               </tr>
                        </thead>
                        <tbody>
-					   <?php   $i=1;
-					       foreach($list as $get){?>
-						   <tr onclick ='newDoc(<?php echo $get->index_meeting_id; ?>)'>
-								<td><?php echo $i++;?></td>
-								<td><?php echo $get->agenda_name;?></td>
-								<td><?php echo $get->date_of_meeting;?></td>
-								<td><?php echo $get->index_meeting_next_date;?></td>
-								<td> </td>
-								<td> </td>
-                           </tr>
-					   <?php } ?>
+					               <?php   $i=1;
+					                   foreach($list as $get){?>
+						               <tr onclick ='newDoc(<?php echo $get->index_meeting_id; ?>)'>
+								            <td><?php echo $i++;?></td>
+								            <td><?php echo $get->agenda_name;?></td>
+								            <td><?php echo $get->date_of_meeting;?></td>
+								            <td><?php echo $get->index_meeting_next_date;?></td>
+								           
+								           
+                                       </tr>
+					               <?php } ?>
                        </tbody>
                    </table>
 
                </div>
+              <div class='clear'></div>
+              <br></br>
+              <div class="pagination">
+                   <?php echo $links; ?>
+              </div>
         </div>
     </div>
-	<div class="pagination">
-   <?php echo $links; ?>
+	
  
 <script>
   function newDoc(id) {
@@ -58,5 +62,5 @@
 }
 </script>
 	<?php $this->load->view('footer'); ?>
-	</div>
+	
  

@@ -48,10 +48,7 @@ In case of first meeting - Previous Date = NA
 							 <td><?php echo $arr->agenda_name;?></td>
 							 <td><?php echo $arr->counter;?></td>
 							 <td><?php echo $arr->index_meeting_next_date;?></td>
-							 <td><?php $firstname = $this->session->firstname;
-            						   $lastname   = $this->session->lastname;   
-									   if($firstname){ echo $firstname; } ?>
-									  <?php if($lastname){ echo $lastname; }?></td>
+							 <td><?php echo $arr->meeting_called_by?></td>
 							 <td></td>
 							 <td></td>
 							 <td></td>
@@ -80,7 +77,7 @@ In case of first meeting - Previous Date = NA
 				window.location.assign(url);
 			}
 			</script>
-  		<?php $this->load->view('footer');?>
+  	
 	</div>
 			
     </div> 

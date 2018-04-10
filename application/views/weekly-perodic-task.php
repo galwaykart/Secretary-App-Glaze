@@ -3508,7 +3508,7 @@
                                                                     </tbody>
                                                                 </table>
                                                                 </div>
-
+                                                             
                                                      <!-- january weekly tabs ends -->
                             
                                                         </article>
@@ -3523,144 +3523,160 @@
   
     
       <!-- popup start -->
-
+<div class="popup-main">
 <form id="myForm"  method="POST" action="<?php echo base_url();?>WeeklyPeriodic/add_data" >
             <div class="popup">
                 <div class="header">
                     <h3>Project Delegation Sheet- <span id="work">Add</span></h3>
                     <span id="close-popup"  title="Close">&times;</span>
                 </div>
-                <div class="content"><!-- content start -->
-                    <div class="col-md-12">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Time :</label>
-                                <div class="input-group">
-                                    <div class="form-control"><input type="time" title="Time" name="weekly_periodic_time"/></div>
-                                </div>
-                            </div>
+              <div class="content">
+                <!-- content start -->
+                <div class="col-md-12">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Time :</label>
+                      <div class="input-group">
+                        <div class="form-control">
+                          <input type="time" title="Time" name="weekly_periodic_time"/>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Work :</label>
-                                <div class="input-group">
-                                    <div class="form-control"><input type="text" title="Work" name="work"/></div>
-                                </div>
-                            </div>
-                        </div>
+                      </div>
                     </div>
-    
-                    <div class="clear"></div>
-    
-                    <div class="col-md-12">        
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>End Date :</label>
-                                <div class="input-group">
-                                    <div class="form-control"><input type="date" title="End Date" name="end_date"/></div>
-                                </div>
-                            </div>                        
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Work :</label>
+                      <div class="input-group">
+                        <div class="form-control">
+                          <input type="text" title="Work" name="work"/>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Active/Inactive</label>
-                                <div class="input-group">
-                                    <div class="form-control"><select name="status">
-                                            <option>Select Status</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Inacive</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      </div>
                     </div>
-    
-                    <div class="clear"></div>
+                  </div>
+                </div>
 
-                    <div class="col-md-12">        
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Day :</label>
-                                <div class="input-group">
-                                    <div class="form-control"><input type="text" title="Day" name="day"/></div>
-                                </div>
-                            </div>                        
+                <div class="clear"></div>
+
+                <div class="col-md-12">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>End Date :</label>
+                      <div class="input-group">
+                        <div class="form-control">
+                          <input type="date" title="End Date" name="end_date"/>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Supervision</label>
-                                <div class="input-group">
-                                    <div class="form-control">
-                                        <input type="text" title="Supervision" name="supervision"/>
-                                    </div>
-                                </div>
-                            </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Active/Inactive</label>
+                      <div class="input-group">
+                        <div class="form-control">
+                          <select name="status">
+                            <option>Select Status</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inacive</option>
+                          </select>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="col-md-12">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Day :</label>
+                      <div class="input-group">
+                        <div class="form-control">
+                          <input type="text" title="Day" name="day"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Supervision</label>
+                      <div class="input-group">
+                        <div class="form-control">
+                          <input type="text" title="Supervision" name="supervision"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Remark</label>
+                    <div class="input-group">
+                      <div class="form-control">
+                        <textarea id="Textarea1" class="" name="remark"></textarea>
+                      </div>
                     </div>
 
-                    <div class="clear"></div>
-    
-                    <div class="col-md-12">                
-                            <div class="form-group">
-                                        <label>Remark</label>
-                                        <div class="input-group">
-                                            <div class="form-control">
-                                                <textarea id="Textarea1" class="" name="remark"></textarea>
-                                            </div>
-                                        </div>
-                            
+                  </div>
+                </div>
+                <div class="clear"></div>
+                <!-- autometic delegates start -->
+                <div id="refresh_popup">
+                  <div id="auto-del">
+                    <div class="auto-del">
+                      <div class="left">
+                        <div class="form-group">
+                          <label>Delegate To</label>
+                          <div class="input-group">
+                            <div class="form-control">
+                              <input required="" type="text" id ="gm1" name="delegate_to[]" title="Delegate To" />
                             </div>
-                    </div>
-                         
-                    
-    
-                         <!-- autometic delegates start -->
-                    <div id="refresh_popup">
-                        <div id="auto-del">
-                            <div class="auto-del">
-                                <div class="left">
-                                    <div class="form-group">
-                                        <label>Delegate To</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input required type="text" id ="gm1" name="delegate_to[]" title="Delegate To" /></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="center">
-                                    <div class="form-group">
-                                        <label>Email Id</label>
-                                        <div class="input-group">
-                                            <div class="form-control">
-                                                <input required type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="right text-center">
-                                    <div class="btn-group">
-                                        <a href="#" class="plus" id="plus"><span class="fa fa-plus" ></span></a>
-                                    </div>
-                                </div>
-                            </div>
+                          </div>
                         </div>
+                      </div>
+                      <div class="center">
+                        <div class="form-group">
+                          <label>Email Id</label>
+                          <div class="input-group">
+                            <div class="form-control">
+                              <input required="" type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="right text-center">
+                        <div class="btn-group">
+                          <a href="#" class="plus" id="plus">
+                            <span class="fa fa-plus" ></span>
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                         <!-- autometic delegates end -->                                         
-                    <div class="col-md-12">
+                  </div>
+                </div>
+                <div class="clear"></div>
+                <!-- autometic delegates end -->
+              </div>
+                    <div class="footer">
+					
                         <button type="submit" class="btargetDatetn-primary btn">Save</button>
                         <!-- <a href="#">Add</a> -->
                         <input type="reset" class="btn-primary btn" value="Reset">
                         <!-- <a href="#">Reset</a> -->
-                    </div>                     
+                    </div>   
+					
+                   		
                 </div>
                    
             </div>
+			<div class="clear"></div>
 
 </form>
-
-        <!-- PopUp end -->    
-
-        <div class="clear"></div>
+</div>
+        <!-- PopUp end -->     <div class="clear"></div>
     
 
 
@@ -3676,151 +3692,7 @@ echo $links;
    
 
    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    <!-- don-t change -->
-    <div style="height:50px;"></div>
-    <footer id="footer">
-        <p>&copy; Copyright By Glaze India Pvt. Ltd.</p>
-    </footer>
-
-
-
-
-     <!-- notepad start -->
-        <div class="notepad-tag" title="Open Notepad">
-            <span class="fa fa-edit"></span>
-            </div>
-            <div class="note-pad-box">
-                <div >
-                    <div class="header">
-            
-                         <p>Notepad:-</p>
-                     </div>
-
-                 </div>
-                <div class="body"><textarea></textarea></div>
-                <div class="footer"></div>
-            </div>
-              <!-- mobile menubar -->
-               <div class="mobile-menu-bar">
-                                  <aside class="" id="aside1">
-                                    <div class="accordion" id="accordion2">
-                                        <ul>
-                                            <li>
-                                                <div>Sollicitudin</div>
-                                                <ul>
-                                                    <li><a href="?11">Lorem ipsum</a></li>
-                                                    <li><a href="?12">Dolor sit</a></li>
-                                                    <li>
-                                                        <div>Commodo Rhoncus</div>
-                                                        <ul>
-                                                            <li><a href="demo.html">Current</a></li>
-                                                            <li><a href="?132">Consectetur</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <div>Quis Porttitor</div>
-                                                <ul>
-                                                    <li><a href="?21">Finibus Bonorum</a></li>
-                                                    <li><a href="?22">Sed ut</a></li>
-                                                    <li><a href="?23">Neque porro</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <div>Odio Ac</div>
-                                                <ul>
-                                                    <li><a href="?31">Minima veniam</a></li>
-                                                    <li><a href="?32">Voluptate velit</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="?4">Sapien quam</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                        </aside>
-               </div>
-            <!-- mobile menubar end -->
-  
-
-
-     <!-- globle header for comman end --> 
-    <script>
-        $(document).ready(function () {
-            var count = 0;
-            var count2 = 0;
-
-
-            $('#sec-header #toggle-btn-box span#bar').click(function () {
-                if ($(window).width() >= 769) {
-                    if (count % 2 == 0) { $('#aside').css('display', 'none'); $('.main-area-dashboard #left').css('width', '0%'); $('.main-area-dashboard #right').css('width', '100%'); }
-                    else { $('#aside').css('display', 'block'); $('.main-area-dashboard #left').css('width', '15%'); $('.main-area-dashboard #right').css('width', '85%'); }
-                    count++;
-                }
-                else {
-
-                    if (count2 % 2 == 0) { $('.mobile-menu-bar').css('display', 'block'); }
-                    else { $('.mobile-menu-bar').css('display', 'none'); }
-                    count2++;
-                }
-
-            });
-
-            $('.log-popup').on('click', function () {
-                $('.log-up-body').toggle('slow');
-
-            });
-
-
-
-
-            // window resize option
-            $(window).bind('resize', function () {
-                if ($(window).width() > 768) {
-                    $('#aside').css('display', 'block'); $('.mobile-menu-bar').css('display', 'none');
-                    $('.main-area-dashboard #right').css('width', '85%');
-                    $('.main-area-dashboard #left').css('width', '15%');
-                }
-                else {
-                    $('#aside').css('display', 'none');
-                    $('.main-area-dashboard #right').css('width', '100%'); $('.mobile-menu-bar').css('display', 'none');
-                }
-            });
-        });
-
-    </script>
     <script>
         function openTabs(evt, Name) {
             var i, tabcontent, tablinks;
@@ -3836,8 +3708,8 @@ echo $links;
             evt.currentTarget.className += " active";
 
         }
-        $('.perdoci-task-add-btn').on('click', function () { $('.popup').css('display', 'block'); });
-        $('#close-popup').on('click', function () { $('.popup').css('display', 'none'); });
+        $('.perdoci-task-add-btn').on('click', function () { $('.popup-main').css('display', 'block');$('.popup').css('display', 'block'); });
+        $('#close-popup').on('click', function () { $('.popup , .popup-main').css('display', 'none'); });
 
     </script>
 

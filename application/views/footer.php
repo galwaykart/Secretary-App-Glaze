@@ -10,10 +10,30 @@
 		</footer>
 
 				<!-- notepad start -->
-        <div class="notepad-tag" title="Open Notepad">
-            <span class="fa fa-edit"></span>
+        <div class="notepad-tag" title="Open Notepad"  id="notepad-tag">
+                  <div id="notepad-tagheader">
+                    <span class="fa fa-edit"></span>
+                  </div>
         </div>
-           
+
+
+
+
+           <!-- notepad start -->
+<div class="notepad-overlap">
+	<div class="notePad" id="">
+	        
+            <div class="notepad-container">
+			 <span class="close2">&times;</div>
+                <textarea id="cktextarea" class="notepad-area" cols="12" rows="10"></textarea>
+            </div>
+    </div>
+</div>
+
+
+   
+
+      <!-- notepad ends -->   
            
               <!-- mobile menubar -->
         <div class="mobile-menu-bar">
@@ -73,22 +93,12 @@
             
             <!-- daily notification end -->
 
-        <!-- notepad start -->
-
-	<div class="notePad">
-            <div class="notepad-container">
-                <textarea id="cktextarea" class="notepad-area" cols="12" rows="10"></textarea>
-            </div>
-    </div>
-
-
-   
-
-      <!-- notepad ends -->
+     
      <!-- globle header for comman end --> 
 	 
 	 <script>
         $(document).ready(function () {
+
           var  count = 0;
           var count2 = 0;
          
@@ -139,14 +149,23 @@
         $(function () {
 
             $('.close').on('click', function () { $('.notification').hide(400) });
-            $('.notepad-tag').on('click', function () { $('.notePad').toggle(); });
-           
+            $('.notepad-tag , .notepad-tag span').on('click', function () { $('.notepad-overlap').css('display','block'); });
+			      $('.notePad span.close2').on('click', function () { $('.notepad-overlap').css('display','none'); });
+        }); 
+    </script>
+    <script>
+      var count=0;
+      $('#accordion ul li ul li div.has-menu-div').on('click',function(){
+      if(count%2==0){
+      $('#accordion ul li ul li ul.has-menu').css('display','block');
+      $('#accordion ul li ul li div.has-menu-div span.checge').removeClass('fa-angle-down').addClass('fa-angle-up');
+      }
+      else
+      { $('#accordion ul li ul li ul.has-menu').css('display','none');$('#accordion ul li ul li div.has-menu-div span.checge').removeClass('fa-angle-up').addClass('fa-angle-down');}
+      count++;
 
-        });
-
-</script>
-
-		
+      });
+    </script>
 		
 	   <script type="text/javascript" src="<?php echo base_url(); ?>js/forcast.js"></script> 
     <script type="text/javascript" src="<?php echo base_url(); ?>js/caleandar.js"></script> 
@@ -155,7 +174,8 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/quickworkCalender.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/thems.js"></script>
     <script src="<?php echo base_url(); ?>js/ckeditor/ckeditor.js"></script>
-    <script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/utils.js"></script>
+<script>
                 //console.log("editor enabled");
                 // Replace the <textarea id="editor1"> with a CKEditor
                 // instance, using default configuration.

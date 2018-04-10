@@ -65,21 +65,29 @@
                              
                             </tbody>
                         </table>
+                       
+                        </div>
+                     </div>
+                    <div class="clear"></div>
+                    <br></br>
+                    <div class="pagination">
+
+                      <?php echo $links; ?>
+
                     </div>
-					 <div class="clear"></div>
-					  
-            </div>
-			<div class="col-md-12">
-						<br />
-							<a href="#" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
-					</div>
-				    <div class="clear"></div>
-        <div class="clear"></div>
+                    <div class="clear"></div>
+			               <div class="col-md-12">
+						          <br />
+							          <a href="#" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
+					            </div>
+				              <div class="clear"></div>
+                     <div class="clear"></div>
       
     </div><!-- dailly index panel end -->
     <!-- popup start -->
 
       <!-- popup start -->
+	  <div class="popup-main">
     <form method="POST" action="<?php echo base_url();?>Projectdelegation/req">                                    
           <div class="popup">
             <div class="header">
@@ -225,10 +233,14 @@
 
 
 </form>
+<<<<<<< HEAD
+</div>
+=======
 
     <div class="pagination">
           <p><?php echo $links; ?></p>
     </div>
+>>>>>>> 77a204acbe730649846bd0cac83210a314027af0
 
     <!-- popup end -->
     <script type="text/javascript"> 

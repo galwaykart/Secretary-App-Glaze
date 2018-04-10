@@ -82,7 +82,12 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
-                                                   
+                                          <div class="clear"></div>
+                                          <div class="tabsPagination">
+                                            <div class="pagination">
+                                              <?php echo $links; ?>
+                                            </div>
+                                          </div>
                              
                                         </article>
                           </section>
@@ -138,7 +143,13 @@
 																	  <?php }  }?>
                                                                   </tbody>
                                                               </table>
-                                                     </div>  
+                                                     </div>
+                                          <div class="clear"></div>
+                                          <div class="tabsPagination">
+                                            <div class="pagination">
+                                              <?php echo $links; ?>
+                                            </div>
+                                          </div>
                               
                                         </article>
                           </section>
@@ -196,16 +207,18 @@
                                                                   </tbody>
                                                               </table>
                                                      </div>
+                                          <div class="clear"></div>
+                                          <div class="tabsPagination">
+                                            <div class="pagination">
+                                              <?php echo $links; ?>
+                                            </div>
+                                          </div>
                                         </article>
                           </section>
                           <div class="clear"></div>
                     </div><!-- verticle tabs end -->
                     <div class="clear"></div>
-					<div class="tabsPagination">
-							<div class="pagination">
-								  <?php echo $links; ?>
-							</div>
-					</div>
+					
         
 
 
@@ -214,6 +227,7 @@
   
     
       <!-- popup start -->
+	  <div class="popup-main">
    <form  method="POST" action="<?php echo base_url()."yearlyperiodic/add_data/" ?>">
           <div class="popup">
             <div class="header">
@@ -223,8 +237,9 @@
             <div class="content"><!-- content start -->
                                                         <div class="col-md-6">
                                                                 <div class="form-group">
+																<label>Select Month</label>
                                                                         <div class="input-group">
-                                                                            <div class="input-addon"><span class="fa fa-calendar-check-o" ></span></div>
+                                                                            
                                                                             <div class="form-control">
                                                                                 <select title="select month" name="month">
                                                                                     <option value="1">Jan</option>
@@ -246,9 +261,11 @@
                                                                 </div>
                                                          </div>
 												         <div class="col-md-6">
+														
                                                                 <div class="form-group">
+																 <label>Task Name</label>
                                                                         <div class="input-group">
-                                                                            <div class="input-addon"><span class="fa  fa-check-square-o" ></span></div>
+                                                                           
                                                                             <div class="form-control"><input type="text" placeholder="Enter Task" name="task" required /></div>
                                                                         </div>
                                                                 </div>
@@ -258,8 +275,9 @@
                                                         <div class="clear"></div>
                                                          <div class="col-md-6">
                                                                 <div class="form-group">
+																 <label>Start Date</label>
                                                                         <div class="input-group">
-                                                                            <div class="input-addon"><span class="fa  fa-calendar" ></span></div>
+                                                                           
                                                                             <div class="form-control"><input type="date" title="Select Start Date"  required name="start_date" value="<?php// echo set_value('start_date'); ?>" />
 																			<?php //echo form_error('start_date', '<span class="form_error">', '</span>'); ?></span>
 																			</div>
@@ -268,8 +286,9 @@
                                                          </div>
                                                           <!--<div class="col-md-6">
                                                                 <div class="form-group">
+																 <label>End Date</label>
                                                                         <div class="input-group">
-                                                                            <div class="input-addon"><span class="fa fa-calendar" ></span></div>
+                                                                            
                                                                             <div class="form-control"><input type="date" title="Select End Date" required name="end_date" value="<?php //echo set_value('end_date');?>" />
 																			<?php //echo form_error('end_date', '<span class="form_error">', '</span>'); ?></span>
 																			</div>
@@ -309,17 +328,17 @@
                     </div>
                 </div>
                      <!-- autometic delegates start -->
-				<div id="delete"> 
+				            <div id="delete"> 
                      <div class="auto-del">
                                  <div class="left">
-                                     <div class="form-group">
-                                       <label>Delegate To</label>
-                                        <div class="input-group">
-                                            <div class="form-control"><input type="text" required  title="Delegate To" name="delegate_to[]" value="<?php //echo set_value('delegate_to[]'); ?>"/>
-											<?php //echo form_error('delegate_to[]', '<span class="form_error">', '</span>'); ?></span>
-											</div>
-                                        </div>
-                                  </div>
+                                           <div class="form-group">
+                                             <label>Delegate To</label>
+                                              <div class="input-group">
+                                                  <div class="form-control"><input type="text" required  title="Delegate To" name="delegate_to[]" value="<?php //echo set_value('delegate_to[]'); ?>"/>
+											                             <?php //echo form_error('delegate_to[]', '<span class="form_error">', '</span>'); ?></span>
+											                            </div>
+                                              </div>
+                                           </div>
 
                                  </div>
                                  <div class="center">
@@ -328,7 +347,7 @@
                                                 <div class="input-group">
                                                     <div class="form-control">
                                                         <input type="text" name="email[]" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php //echo set_value('email'); ?>"/>
-														<?php //echo form_error('email[]', '<span class="form_error">', '</span>'); ?></span>
+														                            <?php //echo form_error('email[]', '<span class="form_error">', '</span>'); ?></span>
                                                     </div>
                                                 </div>
                                          </div>
@@ -340,28 +359,24 @@
                                  </div>
 
                      </div>
-				</div>	 
+				        </div>	 
 							 <div class="clear"></div>   
 
-		 </div>
-                     <!-- autometic delegates end -->
+		           </div>
+               <!-- autometic delegates end -->
 
-            
-				<div class="footer">
-                
-                    <div class="col-md-12">
-						<button type="submit" class="btargetDatetn-primary btn">Save</button>
-                        <!-- <a href="#">Add</a> -->
-                        <input type="reset" class="btn-primary btn" value="Reset">
-                        <!-- <a href="#">Reset</a> -->
-                    </div>
-					
-				</div>
-               
-                </div>
+              <div class="clear"></div>
+              <div class=" footer">
+						           <button type="submit" class="btargetDatetn-primary btn"/>Save</button>
+                       <input type="reset" class="btn-primary btn" value="Reset"/>
+                       
+              </div>
+              <div class="clear"></div>
+           </div>
 				
-	</form>	
-                <div class="clear"></div>
+	    </form>	
+     </div> 
+    <div class="clear"></div>
 		
      <br/><br/><br/> 
      <!-- globle header for comman end --> 
@@ -412,7 +427,7 @@ function toggle(id) {
             evt.currentTarget.className += " active";
 
         }
-        $('.perdoci-task-add-btn').on('click', function () { $('.popup').css('display', 'block'); });
+        $('.perdoci-task-add-btn').on('click', function () { $('.popup').css('display', 'block');$('.popup-main').css('display', 'block'); });
         $('#close-popup').on('click', function () { $('.popup').css('display', 'none'); });
         
     </script>

@@ -54,7 +54,7 @@
 			}
 		}
 
-		public function insert_sheet(){
+	public function insert_sheet(){
 		 $this->form_validation->set_rules('start_date','Start Date','trim|required');
 		 $this->form_validation->set_rules('end_date','End Date','trim|required');
 		 $this->form_validation->set_rules('start_time','Start Time','trim|required');
@@ -156,7 +156,7 @@ print_r($results);
 			redirect('Reminder');
 			}
 		}
-		}
+      }
 	}
 
 ?>

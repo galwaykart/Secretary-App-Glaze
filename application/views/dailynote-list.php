@@ -68,8 +68,7 @@
 					</div>
     </div><!-- dailly index panel end --> 
 	
-     <br /><br /><br />
-            <!-- ********************pagination code***************************  -->
+     <br /><br /><br /> 
 
             <div id="container">
 
@@ -85,7 +84,4 @@
     <div style="height:50px;"></div>
       <?php $this->load->view('footer'); ?>
 
-
-
-<?php $this->load->view('footer'); ?>
 

@@ -11,7 +11,7 @@ class Indexmeeting_model extends CI_model{
 		if($count == 0){
 		//echo "inserted"; die();
 		$result = $this->db->insert('index_meeting_agenda', $data[3]);
-		$insert_id=$this->db->insert_id();
+		$insert_id = $this->db->insert_id();
 		if($result){
 			$date_of_meeting=$data[0]['date_of_meeting'];
 			$confidentiality=$data[0]['confidentiality'];
@@ -19,8 +19,9 @@ class Indexmeeting_model extends CI_model{
 			$index_meeting_next_date = $data[0]['index_meeting_next_date'];
 			$index_meeting_start_time = $data[0]['index_meeting_start_time'];
 			$index_meeting_end_time = $data[0]['index_meeting_end_time'];
+			$meeting_called_by = $data[0]['meeting_called_by'];
 			$user_id = $data[0]['user_id'];
-			$sql3="insert into index_meeting (date_of_meeting,agenda_id,confidentiality,self_seating,index_meeting_next_date,index_meeting_start_time,index_meeting_end_time ,user_id)values('$date_of_meeting','$insert_id','$confidentiality','$self_seating','$index_meeting_next_date','$index_meeting_start_time','$index_meeting_end_time' , '$user_id')";
+			$sql3="insert into index_meeting (date_of_meeting,agenda_id,confidentiality,self_seating,index_meeting_next_date,index_meeting_start_time,index_meeting_end_time ,user_id,meeting_called_by)values('$date_of_meeting','$insert_id','$confidentiality','$self_seating','$index_meeting_next_date','$index_meeting_start_time','$index_meeting_end_time' , '$user_id','$meeting_called_by')";
 			$this->db->query($sql3);
 			$insert_id2=$this->db->insert_id();
 			$name = $data[1]['name'];
@@ -28,6 +29,7 @@ class Indexmeeting_model extends CI_model{
 			$email = $data[1]['email'];
 			$emp = $data[1]['employee'];
 			$is_employee = $data[1]['is_employee'];
+			$phone_number = $data[1]['phone_number'];
 			// insert 2 or more data
 			$totalname = sizeof($name);
 			for($i=0;$i<$totalname;$i++) {
@@ -36,9 +38,10 @@ class Indexmeeting_model extends CI_model{
 			$insertemail=$email[$i];
 			$insertemp=$emp[$i];
 			$insertis_employee=$is_employee[$i];
+			$insertphone_number=$phone_number[$i];
 			
-			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee,is_employee)
-					values ('$insert_id2', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee')";
+			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee,is_employee,phone_number)
+					values ('$insert_id2', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee','$insertphone_number')";
 			$this->db->query($sql1);
 			 }
 			// echo $sql1; die;
@@ -74,7 +77,8 @@ class Indexmeeting_model extends CI_model{
 			$index_meeting_start_time = $data[0]['index_meeting_start_time'];
 			$index_meeting_end_time = $data[0]['index_meeting_end_time'];
 			$user_id = $data[0]['user_id'];
-			$sql3="insert into index_meeting (date_of_meeting,agenda_id,confidentiality,self_seating,index_meeting_next_date ,index_meeting_start_time,index_meeting_end_time,user_id)values('$date_of_meeting','$insert_id','$confidentiality','$self_seating','$index_meeting_next_date','$index_meeting_start_time','$index_meeting_end_time','$user_id')";
+			$meeting_called_by = $data[0]['meeting_called_by'];
+			$sql3="insert into index_meeting (date_of_meeting,agenda_id,confidentiality,self_seating,index_meeting_next_date ,index_meeting_start_time,index_meeting_end_time,user_id,meeting_called_by)values('$date_of_meeting','$insert_id','$confidentiality','$self_seating','$index_meeting_next_date','$index_meeting_start_time','$index_meeting_end_time','$user_id','$meeting_called_by')";
 			$this->db->query($sql3);
 			$insert_id1=$this->db->insert_id();
 			
@@ -83,6 +87,7 @@ class Indexmeeting_model extends CI_model{
 			$email = $data[1]['email'];
 			$emp = $data[1]['employee'];
 			$is_employee = $data[1]['is_employee'];
+			$phone_number = $data[1]['phone_number'];
 			// insert 2 or more data
 			$totalname = sizeof($name);
 			for($i=0;$i<$totalname;$i++) {
@@ -91,8 +96,9 @@ class Indexmeeting_model extends CI_model{
 			$insertemail=$email[$i];
 			$insertemp=$emp[$i];
 			$insertis_employee=$is_employee[$i];
-			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee,is_employee)
-					values ('$insert_id1', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee')";
+			$insertphone_number=$phone_number[$i];
+			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee,is_employee,phone_number)
+					values ('$insert_id1', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee','$insertphone_number')";
 			$this->db->query($sql1);
 			 }
 			  $conclusion_type= $data[2]['conclusion_type'];
@@ -137,7 +143,7 @@ class Indexmeeting_model extends CI_model{
 			  for($i=0 ;$i<$counting ; $i++){
 					//echo $res[$i]->agenda_id;
 					$agenda_id = $res[$i]->agenda_id;
-					$query = $this->db->query("SELECT DISTINCT index_meeting.agenda_id ,index_meeting.index_meeting_next_date,index_meeting_agenda.agenda_name ,(select count(index_meeting.agenda_id) from index_meeting where index_meeting.agenda_id = $agenda_id) as counter FROM index_meeting JOIN index_meeting_agenda on index_meeting.agenda_id=index_meeting_agenda.agenda_id where index_meeting.agenda_id = $agenda_id");
+					$query = $this->db->query("SELECT DISTINCT index_meeting.agenda_id ,index_meeting.index_meeting_next_date,index_meeting_agenda.agenda_name ,meeting_called_by,(select count(index_meeting.agenda_id) from index_meeting where index_meeting.agenda_id = $agenda_id) as counter FROM index_meeting JOIN index_meeting_agenda on index_meeting.agenda_id=index_meeting_agenda.agenda_id where index_meeting.agenda_id = $agenda_id");
 					$output = $query->result();
 					$result[$i] =  $output[0];
 			  }
@@ -228,6 +234,7 @@ class Indexmeeting_model extends CI_model{
 			$email = $data[1]['email'];
 			$emp = $data[1]['employee'];
 			$is_employee = $data[1]['is_employee'];
+			$phone_number = $data[1]['phone_number'];
 			// insert 2 or more data
 			$totalname = sizeof($name);
 			for($i=0;$i<$totalname;$i++) {
@@ -236,9 +243,10 @@ class Indexmeeting_model extends CI_model{
 			$insertemail=$email[$i];
 			$insertemp=$emp[$i];
 			$insertis_employee=$is_employee[$i];
+			$insertphone_number = $phone_number[$i];
 			
-			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee,is_employee)
-					 values ('$record_id', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee')";
+			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee,is_employee,phone_number)
+					 values ('$record_id', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee','$insertphone_number')";
 			$this->db->query($sql1);
 			 }
 			  $conclusion_type= $data[2]['conclusion_type'];
