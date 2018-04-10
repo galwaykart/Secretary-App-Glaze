@@ -251,6 +251,7 @@
                     <div class="col-md-12">
                     <button type="submit" class="btn-primary btn">Save</button>
                     <input required class="btn-primary btn" type="reset" value="Reset">
+                    <span id="set_submail"></span>
                                    <!-- <a href="#">Reset</a> -->
                     </div>
                 
@@ -301,7 +302,8 @@
                     document.getElementById("gm1").value = data_json.insidequickwork[0].appointment_with_name;
                     document.getElementById("gm2").value = data_json.insidequickwork[0].appointment_with_email;
                     document.getElementById("my2Form").action = "<?php echo base_url(); ?>Appoinment/req/"+data_json.insidequickwork[0].appointment_id;
-                    
+                    document.getElementById("set_submail").innerHTML = "<input type='submit' name='submail' class='btn-primary btn check_mail' value='submit & Mail'></input>";
+
                     for(var i=0; i<data_json.insidequickwork.length ; i++){
                         var j = i +1 ;
                         $('#auto-del').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" value="'+ data_json.insidequickwork[j].appointment_with_name +'" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_email[]" value="'+data_json.insidequickwork[j].appointment_with_email+'"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');

@@ -142,18 +142,12 @@
 
                                                                                              //echo $end_month . " + " . $year. " + " . $end_date; 
 
-<<<<<<< HEAD
                                                                                             if( $end_month == "Jan" && $year >= 2018 ){
-                                                                                                echo $start_date_month . " + " . $start_date_year. " + " . $start_date;
+                                                                                                //echo $start_date_month . " + " . $start_date_year. " + " . $start_date;
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     if($start_date_year == 2018 && $start_date_month=="Jan" && $start_date>15){
                                                                                                         continue;
                                                                                                     }
-=======
-                                                                                            if( $end_month == "Jan" && $year == "2018" ){
-																							
-                                                                                                if($end_date >=8 && $end_date <=31 ){
->>>>>>> 87ba433793588bdf9254f56cb1720d4d2f5893f7
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 

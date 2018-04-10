@@ -221,11 +221,13 @@
             <div class="clear"></div>
             <div class="footer">
                 
-                    <div class="col-md-12">
+                    <div  class="col-md-12">
                     <button type="submit" class="btargetDatetn-primary btn">Save</button>
                                    <!-- <a href="#">Add</a> -->
-                                   <input required class="btn-primary btn" type="reset" value="Reset">
+                    <input required class="btn-primary btn" type="reset" value="Reset">
+                    
                                    <!-- <a href="#">Reset</a> -->
+                                   <span id="set_submail"></span>
                     </div>
                 
             </div><!-- footer end -->
@@ -279,12 +281,15 @@
                     document.getElementById("gm1").value = data_json.insidequickwork[0].delegates_name;
                     document.getElementById("gm2").value = data_json.insidequickwork[0].delegates_email;
                     document.getElementById("myForm").action = "<?php echo base_url(); ?>Quickwork/req/"+data_json.insidequickwork[0].quick_work_id;
-                    
+                    document.getElementById("set_submail").innerHTML = "<input type='submit' name='submail' class='btn-primary btn check_mail' value='submit & Mail'></input>";
+                    //$('#set_submail').append('<input type="submit" name="submail" class="btn-primary btn" value="submit & Mail"></input>');
                     for(var i=0; i<data_json.insidequickwork.length ; i++){
                         var j = i +1 ;
                         $('#auto-del').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" value="'+ data_json.insidequickwork[j].delegates_name +'" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="'+data_json.insidequickwork[j].delegates_email+'"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 
                     }
+                    
+                    
                 }
             };
                 xhttp.open("GET", "<?php echo base_url(); ?>Quickwork/quickwork_view/"+id, true);

@@ -133,32 +133,34 @@ $record_id =$this->uri->segment(3);
 		if($result)	
 		{
 		$param1 =  "<h2>Successfully updated</h2>";
-		// $mail_to = implode(",",$data[1]['delegates_email']);
-		// $config = array (
-		// 	'mailtype' => 'html',
-		// 	'charset'  => 'utf-8',
-		// 	'priority' => '1'
-		// 	 );
-  		// $this->email->initialize($config);
-		// $this->email->set_newline("\r\n");
-		// $this->email->from('surender.singh@glazegalway.com', 'Surender');
-		// $data = array(
+		$submail = $this->input->post('submail');
+		if($submail){
+			
+/* ...........................Mail sending start here!.......................................*/
 
-		// 	'userName'=> 'Anil Kumar Panigrahi'
-	 
-		// 	  );
-		// $this->email->to($mail_to);
-		// //$this->email->cc('another@another-example.com');
-		// //$this->email->bcc('them@their-example.com');
+$mail_to = implode(",",$data[1]['delegates_email']);
+$config = array (
+	'mailtype' => 'html',
+	'charset'  => 'utf-8',
+	'priority' => '1'
+	 );
+  $this->email->initialize($config);
+$this->email->set_newline("\r\n");
+$this->email->from('surender.singh@glazegalway.com', 'Surender');
+$data_quick["mail_data"] = $data;
+$this->email->to($mail_to);
 
-		// $this->email->subject('Email Test');
+$this->email->subject('Appointment');
 
-		// $body = $this->load->view('email_template/test1.php',$data,TRUE);
+$body = $this->load->view('email_template/appointment.php',$data_quick,TRUE);
+			
+$this->email->message($body);
 
+$this->email->send();
 
-		// $this->email->message($body);
+/* ...........................Mail sending end here!................................................*/
 
-		// $this->email->send();
+		}
 		
 		}
 		else
@@ -198,6 +200,7 @@ $this->email->message($body);
 $this->email->send();
 
 /* ...........................Mail sending end here!................................................*/
+
 /*..............................sms send start here............................................ */
 $text="baba KIng singh gaurav ff.";	 
 $chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 

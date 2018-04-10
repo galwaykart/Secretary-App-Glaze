@@ -62,7 +62,8 @@
                                                             <div class="input-addon">
                                                             <span class=" fa fa fa-cogs" ></span>
                                                             </div>
-                                                            <div class="form-control"><input type="text" title="Total days" readonly placeholder="Total Days" value="<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/></div>
+                                                            <div class="form-control"><input type="text" title="Total days" readonly placeholder="Total Days" value="<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/>
+                                                            </div>
                                                         </div>
                                                 </div>
                                     </div>
@@ -158,6 +159,9 @@
                     <div class="footer">
                         <div class="col-md-12">
                             <button type="submit" class="btargetDatetn-primary btn">Save</button>
+                            <?php if($this->uri->segment(3)){?>
+                            <input type="submit" name="submail" class="btn-primary btn" value="submit & Mail"></input>
+                            <?php }?>
                         </div>
                     </div>
                     <div class="clear"></div>
@@ -336,6 +340,7 @@
                                    <!-- <a href="#">Add</a> -->
                                    <input required class="btn-primary btn" type="reset" value="Reset">
                                    <!-- <a href="#">Reset</a> -->
+
                     </div>
                 
             </div><!-- footer end -->

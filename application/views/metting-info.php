@@ -378,6 +378,9 @@ The status should be there to mark the attendance of the participants.
 				  
 					<div class="btn-group col-md-12 metting-ingo-submit-btn" style="height:  74px;">
 						<button type="submit" class="btn-primary btn">submit</button>
+						<?php if($this->uri->segment(3)){?>
+                            <input type="submit" name="submail" class="btn-primary btn" value="submit & Mail"></input>
+                            <?php }?>
 					</div>
 					<div style="height:80px;"></div>
 					<div class="clear"></div>

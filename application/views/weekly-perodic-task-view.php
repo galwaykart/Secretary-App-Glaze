@@ -219,6 +219,9 @@
 
             <div class="col-md-12">
                 <button type="submit" class="btargetDatetn-primary btn">Save</button>
+                <?php if($this->uri->segment(3)){?>
+                <input type="submit" name="submail" class="btn-primary btn" value="Save & Mail"></input>
+                <?php }?>
                 <!-- <a href="#">Add</a> -->
             </div>  
 
