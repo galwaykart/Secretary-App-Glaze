@@ -248,7 +248,7 @@
                 </div>
                 <div class="right text-center">
                   <div class="btn-group">
-                    <a href="#" class="plus addiion-task" id="plus" onClick="alert()"><span class="fa fa-plus " ></span>
+                    <a href="#" class="plus addiion-task" id="plus"><span class="fa fa-plus " ></span>
                     </a>
                   </div>
                 </div>
@@ -289,7 +289,7 @@
   $(function() {
   $('a#plus').click(function(e) {
   e.preventDefault();
-  alert()
+  
 
   var lnth = $('#delete .auto-del').length;
   $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del">
