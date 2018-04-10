@@ -137,11 +137,7 @@
                                                                                             $year  = date("Y" , strtotime($r->weekly_periodic_end_date));
                                                                                             $end_date =  date("d" , strtotime($r->weekly_periodic_end_date));
                                                                                             $start_date =  date("d" , strtotime($r->weekly_periodic_start_date)); $start_date_month =  date("M" , strtotime($r->weekly_periodic_start_date));                                                                                             $start_date_year =  date("Y" , strtotime($r->weekly_periodic_start_date));
-                                                                                            
-                                                                                            
-
-                                                                                             //echo $end_month . " + " . $year. " + " . $end_date; 
-
+                                                                                             
                                                                                             if( $end_month == "Jan" && $year >= 2018 ){
                                                                                                 echo $start_date_month . " + " . $start_date_year. " + " . $start_date;
                                                                                                 if($end_date >=8 && $end_date <=31){
@@ -183,10 +179,12 @@
                                                                                             } 
                                                                                         } 
                                                                                     }
+                                                                                   }
+                                                                                 }
                                                                                 ?>
-                                                                                              </tbody>
-                                                                                        </table>
-                                                                                </div>
+                                                                              </tbody>
+                                                                       </table>
+                                                                     </div>
                                                                 </div>
                                                                 <div id="weekthree" class="tabcontent">
                                                                     <br />
@@ -3569,22 +3567,7 @@
                         <div class="form-control">
                           <input type="date" title="End Date" name="end_date"/>
                         </div>
-<<<<<<< HEAD
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Active/Inactive</label>
-                      <div class="input-group">
-                        <div class="form-control">
-                          <select name="status">
-                            <option>Select Status</option>
-                            <option value="Active">Active</option>
-                            <option value="Inactive">Inacive</option>
-                          </select>
-=======
-                        <div class="col-md-6">
+                <div class="col-md-6">
                             <div class="form-group">
                                 <label>Active/Inactive</label>
                                 <div class="input-group">
@@ -3595,9 +3578,8 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
->>>>>>> 77a204acbe730649846bd0cac83210a314027af0
-                        </div>
+                            </div> 
+                  </div>
                       </div>
                     </div>
                   </div>

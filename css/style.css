@@ -41,7 +41,7 @@ textarea:focus {outline:0;}
                     padding-bottom: 12px;
             }
            
-.form-group {}
+
 .form-group .input-group{margin: 5%;
     padding: 0%;
     height: 34px;}
@@ -664,7 +664,8 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
    
     }
 
-
+.meeting-info-panel .form-group {position:relative;
+}
 .container4 {margin: 0 auto;
     width: 1000px;
 }
@@ -2303,18 +2304,12 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
 
 
 
-.tooltipevent {width:200px;min-height:100px;background:#3a87ad;position:absolute;z-index:10001;
-               left:0;height:auto;
-               border:1px solid white;
-               border-radius:10px;
-               padding:20px;
-}
 
     .tooltipevent p {color:white;font-weight:600;font-size:14px;padding:0;margin:0;text-transform:lowercase;line-height:20px;
     }
 
 
-    .tooltipevent h2 {font-size:14px;font-weight:600;margin:0;padding:0;color:#002653;}
+    .tooltipevent h2 {font-size:14px;font-weight:600;margin:0;padding:0;color:white;}
 
 .inputclass {position: absolute;
     top: 0;
@@ -2645,4 +2640,19 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     box-shadow: 2px 2px 1px 0px #454b4c;
 }
 
-.tooltipevent .title {color:white;background-color:#64bfdc;width:150%;z-index:9999;padding:5px;margin-bottom:2%;border-radius:16px;margin-left:-25%;text-align:center;}
+.tooltipevent {width:200px;min-height:100px;background:rgb(75, 84, 103);position:absolute;z-index:10001;
+               left:0;height:auto;
+               border:1px solid white;
+               border-radius:10px;
+               padding:20px;
+}
+.tooltipevent .title {color:white;background-color:rgb(128, 232, 222);width:150%;z-index:9999;padding:5px;margin-bottom:2%;border-radius:16px;margin-left:-25%;text-align:center;}
+
+.ui-helper-hidden-accessible {position: absolute;
+    top: 53px;
+    font-size: 12px;
+    left: 4px;
+    white-space: nowrap;
+    color: green;
+    font-weight: 600;
+}
