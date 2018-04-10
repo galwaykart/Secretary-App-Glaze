@@ -465,8 +465,6 @@
         </div><!-- right deshbrad end -->
         <div class='clear'></div>
 
-        
-
 <script>
   $(document).ready(function() {
 
@@ -566,15 +564,9 @@
                 while($new_start_date <=  $yearly_periodic->yearly_periodic_end_date){ 
                 ?>
         
-<<<<<<< HEAD
         {   id:5,
             title: '<?php echo $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
             start: '<?php echo $yearly_periodic->yearly_periodic_start_date ?>',
-=======
-        {      
-            title: '<?php echo  $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
-            start: '<?php echo $new_start_date ?>',
->>>>>>> 77a204acbe730649846bd0cac83210a314027af0
            
         },  
         <?php 

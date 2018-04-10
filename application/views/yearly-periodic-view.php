@@ -252,6 +252,9 @@
 			<div class="col-md-12 btn-group" style="text-align:center">
         <br></br>
 				<button type="submit" class="btn-primary btn">Submit</button>
+				<?php if($this->uri->segment(3)){?>
+					<input type="submit" name="submail" class="btn-primary btn" value="submit & Mail"></input>
+                <?php }?>
 			</div>	
 	</form>
 	<div class="clear"></div>

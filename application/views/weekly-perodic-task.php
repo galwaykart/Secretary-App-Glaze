@@ -143,15 +143,11 @@
                                                                                              //echo $end_month . " + " . $year. " + " . $end_date; 
 
                                                                                             if( $end_month == "Jan" && $year >= 2018 ){
-                                                                                                echo $start_date_month . " + " . $start_date_year. " + " . $start_date;
+                                                                                                //echo $start_date_month . " + " . $start_date_year. " + " . $start_date;
                                                                                                 if($end_date >=8 && $end_date <=31){
                                                                                                     if($start_date_year == 2018 && $start_date_month=="Jan" && $start_date>15){
                                                                                                         continue;
                                                                                                     }
-
-                                                                                            if( $end_month == "Jan" && $year == "2018" ){
-																							
-                                                                                                if($end_date >=8 && $end_date <=31 ){
                                                                                                     echo "<tr onclick='status($r->weekly_periodic_id)'>"; 
                                                                                                     echo "<td>".$i++."</td>"; 
                                                                                                     echo "<td>".$r->Day."</td>"; 
@@ -3569,7 +3565,6 @@
                         <div class="form-control">
                           <input type="date" title="End Date" name="end_date"/>
                         </div>
-<<<<<<< HEAD
                       </div>
                     </div>
                   </div>
@@ -3583,20 +3578,6 @@
                             <option value="Active">Active</option>
                             <option value="Inactive">Inacive</option>
                           </select>
-=======
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Active/Inactive</label>
-                                <div class="input-group">
-                                    <div class="form-control"><select name="status">
-                                            <option>Select Status</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Inacive</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
->>>>>>> 77a204acbe730649846bd0cac83210a314027af0
                         </div>
                       </div>
                     </div>
@@ -3662,6 +3643,16 @@
                           <div class="input-group">
                             <div class="form-control">
                               <input required="" type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="left">
+                        <div class="form-group">
+                          <label>Phone number</label>
+                          <div class="input-group">
+                            <div class="form-control">
+                              <input required="" type="text" id="gm3"   name="delegate_phone[]"/>
                             </div>
                           </div>
                         </div>
@@ -3738,7 +3729,7 @@ echo $links;
         $('a#plus').click(function(e) {
             e.preventDefault();
             var lnth = $('#auto-del .auto-del').length; 
-            $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+            $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/></div></div></div></div><div class="left"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_phone[]" id="gm3"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
             
         });
     });

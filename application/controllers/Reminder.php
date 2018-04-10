@@ -12,7 +12,9 @@
 					$this->load->library(array('session', 'form_validation'));
 					$this->load->library("pagination");
 					$this->load->library('email');
+					if($this->session->user == 'logged_in'){
 					$this->user_id = $this->session->userdata['id'];
+					}
 
 		} 
 			 
@@ -83,6 +85,44 @@
 			if($this->uri->segment(3)){
 			$this->Reminder_sheet_model->update_reminder($data,$id);
 			$this->session->set_flashdata('msg', 'Updated Successfully!!!');
+			$submail = $this->input->post('submail');
+			if($submail){
+				
+			/* ...........................Mail sending start here!.......................................*/
+
+			$mail_to = implode(",",$data[1]['reminder_sheet_delegates_email']);
+			$config = array (
+				'mailtype' => 'html',
+				'charset'  => 'utf-8',
+				'priority' => '1'
+				);
+			$this->email->initialize($config);
+			$this->email->set_newline("\r\n");
+			$this->email->from('surender.singh@glazegalway.com', 'Surender');
+			$data_quick["mail_data"] = $data;
+			$this->email->to($mail_to);
+
+			$this->email->subject('Remainder Sheet');
+
+			$body = $this->load->view('email_template/remainder_sheet.php',$data_quick,TRUE);
+						
+			$this->email->message($body);
+
+			$this->email->send();
+
+			/* ...........................Mail sending end here!................................................*/
+			/*..............................sms send start here............................................ */
+			$send_to = implode(",",$data[1]['reminder_sheet_delegates_phone']);
+			$text="REmainder gaurav test.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			//print_r($results);
+			/*..............................sms send end here............................................ */
+
+		}
 			redirect('Reminder');
 			}
 			else{
@@ -112,6 +152,17 @@
 			$this->email->send();
 
 /* ...........................Mail sending end here!................................................*/
+
+			/*..............................sms send start here............................................ */
+			$send_to = implode(",",$data[1]['reminder_sheet_delegates_phone']);
+			$text="REmainder insert gaurav test.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			print_r($results);
+			/*..............................sms send end here............................................ */
 
 			redirect('Reminder');
 			}

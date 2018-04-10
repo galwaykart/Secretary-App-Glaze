@@ -56,6 +56,7 @@
 		
 				$name= $data[1]['delegates_name'];
 				$email= $data[1]['delegates_email'];
+				$phone= $data[1]['delegates_phone'];
 		
 		
 				$fLen = count($total_participants);
@@ -66,6 +67,7 @@
 					$p_data = array(
 						'delegates_name'=>$name[$i],
 						'delegates_email'=>$email[$i],
+						'phone_number'=>$phone[$i],
 					   );
 		
 					$existing_array = array();
@@ -101,6 +103,8 @@
 				if($output){
 						$delegates_name= $data[1]['delegates_name'];
 						$delegates_email= $data[1]['delegates_email'];
+						$phone= $data[1]['delegates_phone'];
+
 				
 				
 						$fLen = count($delegates_name);
@@ -111,6 +115,7 @@
 							$p_data = array(
 								'delegates_name'=>$delegates_name[$i],
 								'delegates_email'=>$delegates_email[$i],
+								'phone_number'=>$phone[$i],
 							   );
 				
 							$existing_array = array();

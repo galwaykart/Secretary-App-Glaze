@@ -233,14 +233,7 @@
 
 
 </form>
-<<<<<<< HEAD
 </div>
-=======
-
-    <div class="pagination">
-          <p><?php echo $links; ?></p>
-    </div>
->>>>>>> 77a204acbe730649846bd0cac83210a314027af0
 
     <!-- popup end -->
     <script type="text/javascript"> 

@@ -210,6 +210,7 @@
                 <div class="footer">
                    	<button type="submit" class="btn-primary btn">Save</button>
                         <a href="#">Reset</a>
+                        <span id="set_submail"></span>
                 </div>
               </div>
    
@@ -255,6 +256,8 @@
                     document.getElementById("delegate_email").value = data_json.insidereminder[0].reminder_sheet_delegates_email;
                     document.getElementById("phone").value = data_json.insidereminder[0].reminder_sheet_delegates_phone;
     				document.getElementById("reminder_form").action = "<?php echo base_url(); ?>Reminder/insert_sheet/"+data_json.insidereminder[0].reminder_sheet_id;
+                    document.getElementById("set_submail").innerHTML = "<input type='submit' name='submail' class='btn-primary btn check_mail' value='submit & Mail'></input>";
+
                     for(var i=0; i<data_json.insidereminder.length ; i++){
                         var j = i +1 ;
                         $('#delete').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del" ><div id="refresh_popup_js"><div id="auto-del"><div  class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input type="text" required id="delegate_name" title="Delegate To" name="delegate_to[]" value="'+ data_json.insidereminder[j].reminder_sheet_delegates_name +'" /></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input type="text" name="email[]" required id="delegate_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="'+ data_json.insidereminder[j].reminder_sheet_delegates_email +'" /></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" id="phone" name="phone[]" required value="'+ data_json.insidereminder[j].reminder_sheet_delegates_phone +'" /></div></div></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div></div>');
