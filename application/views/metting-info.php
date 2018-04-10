@@ -120,7 +120,7 @@ The status should be there to mark the attendance of the participants.
 									</div>
 								</div>  
 						</div>
-					</div> <!-- next second panel start --->
+					</div> <!-- next second panel start -->
 					<div class="clear"></div>
 					<div class="col-md-12 meet-second-panel">
 						

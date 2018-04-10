@@ -158,6 +158,7 @@
 		   /* ...........................Mail sending start here!.......................................*/
 
 		   $mail_to = implode(",",$data[1]['email']);
+		   $send_to = implode(",",$data[1]['phone_number']);
 		   $config = array (
 		   'mailtype' => 'html',
 		   'charset'  => 'utf-8',
@@ -179,6 +180,16 @@
 
 		   /* ...........................Mail sending end here!................................................*/
 
+		   /*..............................sms send start here............................................ */
+			$text="baba KIng singh gaurav ffupdate.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			print_r($results);
+			/*..............................sms send end here............................................ */
+
 		   }
 
 			redirect('indexmeeting');
@@ -188,6 +199,7 @@
 		   						/* ...........................Mail sending start here!.......................................*/
 
 								   $mail_to = implode(",",$data[1]['email']);
+								   $send_to = implode(",",$data[1]['phone_number']);
 								   $config = array (
 								   'mailtype' => 'html',
 								   'charset'  => 'utf-8',
@@ -209,8 +221,8 @@
 		   
 		   /* ...........................Mail sending end here!................................................*/
 /*..............................sms send start here............................................ */
-$text="baba KIng singh gaurav ff.";	 
-$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+$text="baba KIng singh gaurav ffinsert.";	 
+$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
 curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
 curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));

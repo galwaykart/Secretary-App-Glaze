@@ -53,7 +53,7 @@
         
                                 <div id="auto-del">
                                     <div class="auto-del">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group form">
                                                 <label>Delegate To</label>
                                                 <div class="input-group">
@@ -64,7 +64,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group form">
                                                 <label>Email Id</label>
                                                 <div class="input-group form">
@@ -77,7 +77,20 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="pro-del-btn" style="float:left;">
+                                        <div class="col-md-4">
+                                            <div class="form-group form">
+                                                <label>Phone Number</label>
+                                                <div class="input-group form">
+												                            <div class="input-addon">
+                                                <span class="fa fa-envelope-o" ></span>
+                                                </div>
+                                                    <div class="form-control">
+                                                        <input required type="text" id="gm3"   name="delegate_phone[]" value="<?php echo $list['data2'][0]->phone_number ?>"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pro-del-btn" style="float:right;">
                                             <div class="btn-group">
                                                 <a href="#" class="plus delgate-plus3" id="plus"><span class="fa fa-plus" ></span></a>
                                             </div>
@@ -101,7 +114,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group form">
                                                     <label>Email Id</label>
                                                     <div class="input-group">
@@ -110,6 +123,19 @@
                                                       </div>
                                                         <div class="form-control">
                                                             <input required type="text"   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="<?php echo $list['data2'][$i]->weekly_periodic_delegates_email?>"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group form">
+                                                    <label>Phone number</label>
+                                                    <div class="input-group">
+                                                        <div class="input-addon">
+                                                        <span class="fa fa-envelope-o" ></span>
+                                                      </div>
+                                                        <div class="form-control">
+                                                            <input required type="text"  name="delegate_phone[]" value="<?php echo $list['data2'][$i]->phone_number?>"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -307,7 +333,7 @@
             $('a#plus').click(function(e) {
                 e.preventDefault();
                 var lnth = $('#auto-del .auto-del').length; 
-                $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="col-md-6"><div class="form-group form"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="col-md-6"><div class="form-group form"><label>Email Id</label><div class="input-group form"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/></div></div></div></div><div class="pro-del-btn" style="float:left;"><div class="btn-group"><a style="background: #d4554d;" href="#" class="delgate-minus3"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+                $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="col-md-4"><div class="form-group form"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="col-md-4"><div class="form-group form"><label>Email Id</label><div class="input-group form"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/></div></div></div></div><div class="col-md-4"><div class="form-group form"><label>Phone Number</label><div class="input-group form"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><div class="form-control"><input required type="text" name="delegate_phone[]" id="gm3"/></div></div></div></div><div class="pro-del-btn" style="float:right;"><div class="btn-group"><a style="background: #d4554d;" href="#" class="delgate-minus3"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
                 
             });
         });

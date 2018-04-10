@@ -111,6 +111,16 @@
 			$this->email->send();
 
 			/* ...........................Mail sending end here!................................................*/
+			/*..............................sms send start here............................................ */
+			$send_to = implode(",",$data[1]['reminder_sheet_delegates_phone']);
+			$text="REmainder gaurav test.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			//print_r($results);
+			/*..............................sms send end here............................................ */
 
 		}
 			redirect('Reminder');
@@ -143,15 +153,16 @@
 
 /* ...........................Mail sending end here!................................................*/
 
-/*..............................sms send start here............................................ */
-$text="baba KIng singh gaurav ff.";	 
-$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
-curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
-curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
-$results = curl_exec($chs);
-print_r($results);
-/*..............................sms send end here............................................ */
+			/*..............................sms send start here............................................ */
+			$send_to = implode(",",$data[1]['reminder_sheet_delegates_phone']);
+			$text="REmainder insert gaurav test.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			print_r($results);
+			/*..............................sms send end here............................................ */
 
 			redirect('Reminder');
 			}

@@ -98,7 +98,9 @@
 			 $this->form_validation->set_rules('Employee[]','Employee Type','trim|required');
 			 $this->form_validation->set_rules('parti_name[]','Name of Paticipants','trim|required');
 			 $this->form_validation->set_rules('parti_email[]','Email','trim|required|valid_email');
+			 $this->form_validation->set_rules('parti_phone[]','Phone number','trim|required');
 
+			 
 
 			 
 			//  $this->form_validation->set_rules('venue', 'venue', 'trim|required|valid_email');
@@ -143,6 +145,7 @@
 						'employee'=>$this->input->post('Employee'),
 						'name'=>$this->input->post('parti_name'),
 						'email'=>$this->input->post('parti_email'),
+						'Phone_number'=>$this->input->post('parti_phone'),
 					   );
 					
 					//print_r($data[1]);
@@ -177,6 +180,16 @@
 						$this->email->send();
 
 						/* ...........................Mail sending end here!................................................*/
+			/*..............................sms send start here............................................ */
+			$send_to = implode(",",$data[1]['Phone_number']);
+			$text="dailynotes gaurav test.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			//print_r($results);
+			/*..............................sms send end here............................................ */
 
 						}
 						
@@ -219,15 +232,16 @@
 
 /* ...........................Mail sending end here!................................................*/
 
-/*..............................sms send start here............................................ */
-$text="baba KIng singh gaurav ff.";	 
-$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
-curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
-curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
-$results = curl_exec($chs);
-print_r($results);
-/*..............................sms send end here............................................ */
+			/*..............................sms send start here............................................ */
+			$send_to = implode(",",$data[1]['Phone_number']);
+			$text="dailynotes insert gaurav test.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			//print_r($results);
+			/*..............................sms send end here............................................ */
 
 						
 						}

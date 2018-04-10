@@ -126,6 +126,7 @@
 						$data[1] = array(
 						'delegates_name'=>$this->input->post('delegate_to'),
 						'delegates_email'=>$this->input->post('delegate_email'),
+						'delegates_phone'=>$this->input->post('delegate_phone'),
 						);
 	
 						if($this->uri->segment(3)){
@@ -160,6 +161,16 @@
 							$this->email->send();
 
 							/* ...........................Mail sending end here!................................................*/
+			/*..............................sms send start here............................................ */
+			$send_to = implode(",",$data[1]['delegates_phone']);
+			$text="REmainder update gaurav test.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			print_r($results);
+			/*..............................sms send end here............................................ */
 
 							}
 
@@ -203,15 +214,16 @@
 
 /* ...........................Mail sending end here!................................................*/
 
-/*..............................sms send start here............................................ */
-$text="baba KIng singh gaurav ff.";	 
-$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
-curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
-curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
-$results = curl_exec($chs);
-print_r($results);
-/*..............................sms send end here............................................ */
+			/*..............................sms send start here............................................ */
+			$send_to = implode(",",$data[1]['delegates_phone']);
+			$text="quickwork insert gaurav test.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			print_r($results);
+			/*..............................sms send end here............................................ */
 
 // $text="Quickwork :";
 // // $chs = curl_init('http://bhashsms.com/api/sendmsg.php?user=Galway&pass=P@nas0n1C&sender=GALWAY&phone='.$telphone.'&text='.urlencode($text).'&priority=ndnd&stype=normal');		 

@@ -86,7 +86,7 @@
 			$this->form_validation->set_rules('task','task Name','trim|required');
 			$this->form_validation->set_rules('target_date','Target date','trim|required');
 			$this->form_validation->set_rules('remark', 'Remark', 'trim|required');
-			//$this->form_validation->set_rules('peroidic', 'peroidic', 'trim|required');
+			$this->form_validation->set_rules('venue', 'venue', 'trim|required');
 			$this->form_validation->set_rules('travel_time', 'Travel time', 'trim|required');
 			$this->form_validation->set_rules('status', 'Status','required'); //{10} for 10 digits number
 			$this->form_validation->set_rules('active','Active','trim|required');
@@ -111,7 +111,7 @@ $record_id =$this->uri->segment(3);
 		'appointment_subject'=>$this->input->post('task'),
 		'appointment_end_time'=>$this->input->post('target_date'),
 		'appointment_remark'=>$this->input->post('remark'),
-		//'appointment_periodic'=>$this->input->post('peroidic'),
+		'venue'=>$this->input->post('venue'),
 		'appointment_travel_time'=>$this->input->post('travel_time'),
 		'appointment_status'=>$this->input->post('status'),
 		'appointment_active'=>$this->input->post('active'),
@@ -121,6 +121,7 @@ $record_id =$this->uri->segment(3);
 	   $data[1] = array(
 		'delegates_name'=>$this->input->post('delegate_to'),
 		'delegates_email'=>$this->input->post('delegate_email'),
+		'delegates_phone'=>$this->input->post('delegate_phone'),
 	   );
 
 	  $contactList = "9999695537,7836984727";
@@ -139,6 +140,7 @@ $record_id =$this->uri->segment(3);
 /* ...........................Mail sending start here!.......................................*/
 
 $mail_to = implode(",",$data[1]['delegates_email']);
+$send_to = implode(",",$data[1]['delegates_phone']);
 $config = array (
 	'mailtype' => 'html',
 	'charset'  => 'utf-8',
@@ -159,6 +161,15 @@ $this->email->message($body);
 $this->email->send();
 
 /* ...........................Mail sending end here!................................................*/
+/*..............................sms send start here............................................ */
+$text="baba KIng singh gaurav ffd.";	 
+$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+$results = curl_exec($chs);
+print_r($results);
+/*..............................sms send end here............................................ */
 
 		}
 		
@@ -180,6 +191,7 @@ $this->email->send();
 /* ...........................Mail sending start here!.......................................*/
 
 $mail_to = implode(",",$data[1]['delegates_email']);
+$send_to = implode(",",$data[1]['delegates_phone']);
 $config = array (
 	'mailtype' => 'html',
 	'charset'  => 'utf-8',
@@ -203,12 +215,12 @@ $this->email->send();
 
 /*..............................sms send start here............................................ */
 $text="baba KIng singh gaurav ff.";	 
-$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
 curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
 curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
 $results = curl_exec($chs);
-print_r($results);
+//print_r($results);
 /*..............................sms send end here............................................ */
 		 
 		 }

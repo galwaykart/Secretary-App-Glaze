@@ -57,7 +57,7 @@
                                                         </div>
                                                 </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
                                                 <div class="form-group">
                                                         <label>Total days</label>
                                                         
@@ -66,6 +66,19 @@
                                                             <span class=" fa fa fa-cogs" ></span>
                                                             </div>
                                                             <div class="form-control"><input type="text" title="Total days" readonly placeholder="Total Days" value="<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                                <div class="form-group">
+                                                        <label>Remark</label>
+                                                        
+                                                        <div class="input-group">
+                                                            <div class="input-addon">
+                                                            <span class=" fa fa fa-cogs" ></span>
+                                                            </div>
+                                                            <div class="form-control"><input type="text" title="Remark"  placeholder="Total Days" value="<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_remark ;}?>"/>
                                                             </div>
                                                         </div>
                                                 </div>

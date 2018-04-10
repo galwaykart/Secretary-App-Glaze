@@ -91,6 +91,7 @@ public function add_data(){
 	$data[1] = array(
 	'weekly_periodic_delegates_name'=>$this->input->post('delegate_to'),
 	'weekly_periodic_delegates_email'=>$this->input->post('delegate_email'),
+	'phone_number'=>$this->input->post('delegate_phone'),
 	);
 	$data[2] = array(
 		'weekly_periodic_status_date'=>$this->input->post('status_date'),
@@ -132,6 +133,16 @@ public function add_data(){
 		$this->email->send();
 
 		/* ...........................Mail sending end here!................................................*/
+			/*..............................sms send start here............................................ */
+			$send_to = implode(",",$data[1]['phone_number']);
+			$text="weekly perodic update gaurav test.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			print_r($results);
+			/*..............................sms send end here............................................ */
 
 		}
 		redirect('WeeklyPeriodic/');
@@ -166,15 +177,16 @@ public function add_data(){
 						$this->email->send();
 
 /* ...........................Mail sending end here!................................................*/
-/*..............................sms send start here............................................ */
-$text="baba KIng singh gaurav ff.";	 
-$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
-curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
-curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
-$results = curl_exec($chs);
-//print_r($results);
-/*..............................sms send end here............................................ */
+			/*..............................sms send start here............................................ */
+			$send_to = implode(",",$data[1]['phone_number']);
+			$text="weekly perodic update gaurav test.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			print_r($results);
+			/*..............................sms send end here............................................ */
 		
 		redirect('WeeklyPeriodic');
 	}

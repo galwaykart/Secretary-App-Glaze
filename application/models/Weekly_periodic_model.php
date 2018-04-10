@@ -9,13 +9,15 @@
                $insert_id = $this->db->insert_id();
                $delegates_name = $data[1]['weekly_periodic_delegates_name'];
                $delegates_email = $data[1]['weekly_periodic_delegates_email'];
+               $delegates_phone = $data[1]['phone_number'];
                $totalname = sizeof($delegates_name);
                for($i=0;$i<$totalname;$i++) {
                    $insertdelegate_to = $delegates_name[$i];
                    $insertemail = $delegates_email[$i];
+                   $insertphone = $delegates_phone[$i];
                
-                   $sql = "insert into weekly_periodic_delegates(weekly_periodic_id,weekly_periodic_delegates_name,weekly_periodic_delegates_email)
-                           values('$insert_id','$insertdelegate_to','$insertemail')";
+                   $sql = "insert into weekly_periodic_delegates(weekly_periodic_id,weekly_periodic_delegates_name,weekly_periodic_delegates_email,phone_number)
+                           values('$insert_id','$insertdelegate_to','$insertemail','$insertphone')";
                    //print_r($sql);die;
                    $this->db->query($sql);
                    }
@@ -86,12 +88,15 @@
                
                $delegates_name = $data[1]['weekly_periodic_delegates_name'];
                $delegates_email = $data[1]['weekly_periodic_delegates_email'];
+               $phone = $data[1]['phone_number'];
+               
                $totalname = sizeof($delegates_name);
                for($i=0;$i<$totalname;$i++) {
                $insertdelegate_to = $delegates_name[$i];
                $insertemail = $delegates_email[$i];
-               $sql = "insert into weekly_periodic_delegates(weekly_periodic_id,weekly_periodic_delegates_name,weekly_periodic_delegates_email)
-                       values('$record_id','$insertdelegate_to','$insertemail')";
+               $insertphone = $phone[$i];
+               $sql = "insert into weekly_periodic_delegates(weekly_periodic_id,weekly_periodic_delegates_name,weekly_periodic_delegates_email,phone_number)
+                       values('$record_id','$insertdelegate_to','$insertemail','$insertphone')";
                //	print_r($sql);die;
                $this->db->query($sql);
                }
