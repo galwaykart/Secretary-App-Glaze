@@ -3,7 +3,9 @@
   <?php $this->load->view('head'); ?>
     <?php $this->load->view('header'); ?>
     <!-- user View design page start -->
-	
+	<style>
+.form_error{color:red; font-size:10px;}
+</style>
         <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Dailly Periodic task - Add</p></div>
                <form  method="POST" action="<?php echo base_url()."DailyPeriodic/add_daily_periodic/" ?>">                
 							<div class="dailly-task-add-page">
@@ -33,8 +35,9 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa  fa-calendar" ></span></div>
-                                                                            <div class="form-control"><input type="date" title="Select Start Date" required name="start_date"/></div>
-                                                                        </div>
+                                                                            <div class="form-control"><input type="date" title="Select Start Date" required name="start_date" value="<?php echo set_value('start_date');?>"/></div>
+																			<?php echo form_error('start_date', '<span class="form_error">', '</span>'); ?>
+																		</div>
                                                                 </div>
                                                          </div>
                                                         <div class="clear"></div>
@@ -42,8 +45,9 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa  fa-history" ></span></div>
-                                                                            <div class="form-control"><input type="time" title="Select Time" required name="time"/></div>
-                                                                        </div>
+                                                                            <div class="form-control"><input type="time" title="Select Time" required name="time" value="<?php echo set_value('time');?>"/></div>
+																			<?php echo form_error('time', '<span class="form_error">', '</span>'); ?>
+																		</div>
                                                                 </div>
                                                          </div>
                                                          <!--<div class="col-md-6">
@@ -59,8 +63,9 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa  fa-check-square-o" ></span></div>
-                                                                            <div class="form-control"><input type="text" placeholder="Enter Task" required name="task"/></div>
-                                                                        </div>
+                                                                            <div class="form-control"><input type="text" placeholder="Enter Task" required name="task" value="<?php echo set_value('task');?>"/></div>
+																			<?php echo form_error('task', '<span class="form_error">', '</span>'); ?>
+																		</div>
                                                                 </div>
                                                          </div>
                                                          <!--<div class="col-md-6">
@@ -76,16 +81,18 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa fa-external-link-square" ></span></div>
-                                                                            <div class="form-control"><input type="text" placeholder="Supervise by" required name="supervise_by" /></div>
-                                                                        </div>
+                                                                            <div class="form-control"><input type="text" placeholder="Supervise by" required name="supervise_by" value="<?php echo set_value('supervise_by');?>"/></div>
+																			<?php echo form_error('supervise_by', '<span class="form_error">', '</span>'); ?>
+																		</div>
                                                                 </div>
                                                          </div>
                                                          <div class="col-md-6">
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa fa-edit" ></span></div>
-                                                                            <div class="form-control"><input type="text" placeholder="Remark" required name="remark" /></div>
-                                                                        </div>
+                                                                            <div class="form-control"><input type="text" placeholder="Remark" required name="remark" value="<?php echo set_value('remark');?>" /></div>
+																			<?php echo form_error('remark', '<span class="form_error">', '</span>'); ?>								
+																	   </div>
                                                                 </div>
                                                          </div>
 													 
@@ -95,7 +102,7 @@
 																	<div class="form-group">
 																		<div class="input-group">
 																			<div class="input-addon"><span class="fa fa-external-link-square" ></span></div>
-																				<div class="form-control"><input type="text" placeholder="Delegate To" required id="delegate_name" title="Delegate To" name="delegate_to[]"/></div>
+																			<div class="form-control"><input type="text" placeholder="Delegate To" required id="delegate_name" title="Delegate To" name="delegate_to[]"/></div>
 																		</div>
 																	</div>
 																</div>
@@ -131,8 +138,9 @@
 
                                                       <div class="clear"></div>
                                                       <div class="col-md-12">
-                                                          <p><input type="radio" name="status" value=1 />&nbsp;Active&nbsp;
+                                                          <p>  <?php echo form_error('status', '<span class="form_error">', '</span>'); ?><input type="radio" required name="status" value=1 />&nbsp;Active&nbsp;
 														  <input type="radio" name="status" value=0 />Inactive</p>
+															
                                                       </div>
                                                   <div class="clear"></div>
                                                   <div class="text-center">

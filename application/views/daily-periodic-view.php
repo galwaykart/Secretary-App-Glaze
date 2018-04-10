@@ -36,7 +36,8 @@
                                                                     <div class="input-addon">
                                                                     <span class="fa fa-user" ></span>
                                                                     </div>
-                                                                    <div class="form-control"><input type="text" required title="Supervised by" value="<?php if($fetch['data1']){ echo $fetch['data1'][0]->daliy_periodic_supervise; }  ?>" /></div>
+                                                                    <div class="form-control"><input type="text" required title="Supervised by" name="supervise_by" value="<?php if($fetch['data1']){ echo $fetch['data1'][0]->daliy_periodic_supervise; } else{echo set_value('supervise_by');} ?>" /></div>
+																	<?php //echo form_error('supervise_by', '<span class="form_error">', '</span>'); ?>
                                                                 </div>
                                                         </div>
                                                

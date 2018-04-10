@@ -24,6 +24,7 @@ The status should be there to mark the attendance of the participants.
 	float:left;
 }
 .form_error{color:red; font-size:12px;}
+
 </style>
 		<div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Meeting Info</p></div>
 		<div class="col-md-12 all-mettings">
@@ -103,7 +104,10 @@ The status should be there to mark the attendance of the participants.
 								  <div class="input-group second-panel-input-group">
 									<div class="form-control">
 									  <input type="text" placeholder="Ajenda of Meeting" required="" id="search" name="agenda"  value="<?php if(isset($fetch['data2'])){ echo $fetch['data2'][0]->agenda_name;} else{ echo set_value('agenda'); } ?>" />
+
 									</div>
+									
+
 									<?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?>
 									</span>
 									</span>
@@ -442,16 +446,19 @@ The status should be there to mark the attendance of the participants.
 						dataType: 'json',
 						type: 'POST',
 						data: 'agenda='+$("#search").val(),
+						
 						success: function(data){
 							if(data.response =='true'){
-							   add(data.message); 
-							   
+								add(data.message);
+							    //add(data.message); 
+							 
 								console.log(data.message);
 							}
 							else {add(data.message).text("No found");}
 						}
 					});
 					}	
+					
 			});                 
 	    </script>
 		 
@@ -471,6 +478,7 @@ The status should be there to mark the attendance of the participants.
 		</script>
 			
 		<script type="text/javascript"> 
+		
 			$(function() {
 				$('a#add').click(function(e) {
 					e.preventDefault();

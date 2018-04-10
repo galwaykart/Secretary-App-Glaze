@@ -54,8 +54,29 @@ class DailyPeriodic extends CI_Controller {
 		}
 		
 		public function add_daily_periodic(){
+		if($this->uri->segment(3)){
+           $this->form_validation->set_rules('supervise_by','Supervise By','trim|required');
+		 }else{
+			 $this->form_validation->set_rules('day','Day','trim|required');
+			 $this->form_validation->set_rules('start_date','Start Date ','trim|required');
+			 $this->form_validation->set_rules('time','Time','trim|required');
+			 $this->form_validation->set_rules('task','Task','trim|required');
+			 $this->form_validation->set_rules('supervise_by','Supervise By','trim|required');
+			 $this->form_validation->set_rules('remark','Remark','trim|required');
+			 $this->form_validation->set_rules('status','Status	','trim|required');
+			}
+
+		 if($this->form_validation->run() == false){
+			//$this->load->view('yearly-periodic');
+			if($this->uri->segment(3)){
+				$this->listpage();
+			}else{
+				$this->add();
+			}
+		  }
+			else{
 			$record_id = $this->uri->segment(3);
-			$status = $this->input->post('status');
+			
 			$data = array();
 			$data[0] = array(
 			'daily_periodic_day'=>$this->input->post('day'),
@@ -74,7 +95,8 @@ class DailyPeriodic extends CI_Controller {
 			);
 			
 			if($this->uri->segment(3)){
-			$this->Daily_periodic_model->update_daily_periodic($data , $record_id,$status);
+				$status = $this->input->post('status');
+			$this->Daily_periodic_model->update_daily_periodic($data ,$record_id,$status);
 			$this->session->set_flashdata('msg', 'Updated Successfully!!!');
 			redirect('DailyPeriodic/listpage');
 			}
@@ -83,7 +105,8 @@ class DailyPeriodic extends CI_Controller {
 			$this->session->set_flashdata('msg', 'Saved Successfully!!!');
 			redirect('DailyPeriodic/listpage');
 			}
-		}
+		}	
+	}
  
 }	
 ?>
