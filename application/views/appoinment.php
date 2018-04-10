@@ -286,11 +286,11 @@
 
 
 <script type="text/javascript">
-  $(function() {
+  $(document).ready(function(){
   $('a#plus').click(function(e) {
   e.preventDefault();
   
-
+alert()
   var lnth = $('#delete .auto-del').length;
   $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del">
     <div class="auto-del">

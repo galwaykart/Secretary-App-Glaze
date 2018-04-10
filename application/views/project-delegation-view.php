@@ -115,7 +115,7 @@
                         <span class="fa fa-share"></span>
                       </div>
                       <div class="form-control">
-                        <input required="" type="text" id ="gm1" name="delegate_to[]" title="Delegate To" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_name;} ?>"/>
+                        <input required="" type="text" id ="gm1" name="delegate_to[]" title="Delegate To" value="<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_name;} ?>"/>
                       </div>
                     </div>
                   </div>
@@ -128,7 +128,7 @@
                         <span class="fa fa-envelope-o"></span>
                       </div>
                       <div class="form-control">
-                        <input required="" type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_email;} ?>"/>
+                        <input required="" type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_email;} ?>"/>
                       </div>
                     </div>
                   </div>
@@ -158,7 +158,7 @@
                         <label>Delegate To</label>
                         <div class="input-group">
                           <div class="form-control">
-                            <input required="" type="text" title="Delegate To" name="delegate_to[]" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_name;} ?>"/>
+                            <input required="" type="text" title="Delegate To" name="delegate_to[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_name;} ?>"/>
                           </div>
                         </div>
                       </div>
@@ -169,7 +169,7 @@
                         <div class="input-group">
 
                           <div class="form-control">
-                            <input required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_email;} ?>"/>
+                            <input required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_email;} ?>"/>
                           </div>
                         </div>
                       </div>
@@ -210,7 +210,7 @@
             <div class="clear"></div>
             <div class="delegatesheet-view">
               <div class="table-res">
-                <table >
+                <table>
                   <thead>
                     <tr>
                       <th>Sr No</th>
