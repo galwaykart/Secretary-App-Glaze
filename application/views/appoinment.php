@@ -287,48 +287,23 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-  $('a#plus').click(function(e) {
-  e.preventDefault();
   
-alert()
-  var lnth = $('#delete .auto-del').length;
-  $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del">
-    <div class="auto-del">
-      <div class="left">
-        <div class="form-group">
-          <label>Delegate To</label>
-          <div class="input-group">
-            <div class="form-control">
-              <input required="" type="text" title="Delegate To" required="" name="delegate_to[]" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="center">
-        <div class="form-group">
-          <label>Email Id</label>
-          <div class="input-group">
-            <div class="form-control">
-              <input required="" type="text" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="right text-center">
-        <div class="btn-group">
-          <a style="background: red;" href="#"  onclick="setValues('+ lnth + ')">
-            <span class="fa fa-minus" style="color: white;"></span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>');
-
+        $('a#plus').on('click',function(){
+        
+      
+        
+        
+        });
+  
+  
+  
+  
   });
-  });
-  function setValues(id){
-  document.getElementById("rm"+id).remove();
-  }
+  
+  
+  
+ 
+  
 </script>
 <script type="text/javascript"> 
           function newDoc(id) {   
