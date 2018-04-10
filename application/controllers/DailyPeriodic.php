@@ -54,6 +54,8 @@ class DailyPeriodic extends CI_Controller {
 		}
 		
 		public function add_daily_periodic(){
+			$record_id = $this->uri->segment(3);
+			$status = $this->input->post('status');
 			$data = array();
 			$data[0] = array(
 			'daily_periodic_day'=>$this->input->post('day'),
@@ -70,8 +72,17 @@ class DailyPeriodic extends CI_Controller {
 			'daily_periodic_delegates_email'=>$this->input->post('email'),
 			'daily_periodic_delegates_phone_number'=>$this->input->post('phone'),
 			);
-			$this->Daily_periodic_model->insertdaily($data);
+			
+			if($this->uri->segment(3)){
+			$this->Daily_periodic_model->update_daily_periodic($data , $record_id,$status);
+			$this->session->set_flashdata('msg', 'Updated Successfully!!!');
 			redirect('DailyPeriodic/listpage');
+			}
+			else{
+			$this->Daily_periodic_model->insertdaily($data);
+			$this->session->set_flashdata('msg', 'Saved Successfully!!!');
+			redirect('DailyPeriodic/listpage');
+			}
 		}
  
 }	

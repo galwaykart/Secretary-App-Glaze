@@ -33,12 +33,42 @@
 		}
 		
 		public function view_periodic_task($id){
-						$user_id = $this->session->userdata['id'];
+			$user_id = $this->session->userdata['id'];
 		    $this->db->select('*');
 			$this->db->from('daily_periodic');
+			$this->db->where('daily_periodic_id',$id);
 			//$this->db->where("user_id", $user_id);
-			$query = $this->db->get();
-			return $query->result();
+			$data1 = $this->db->get();
+			//return $query->result();
+			
+			$this->db->select('*');
+			$this->db->from('daily_periodic_delegates');
+			$this->db->where('daily_periodic_id',$id);
+			$data2 = $this->db->get();
+			
+			$fetch = array('data1'=>$data1->result(),
+						   'data2'=>$data2->result(),
+			);
+			return $fetch;
+		}
+		
+		public function update_daily_periodic($record_id){
+		    $this->db->delete("daily_periodic_delegates", "daily_periodic_id = $record_id");
+			
+			
+			
+			$delegates_name = $data[1]['daily_periodic_delegates_name'];
+			$delegates_email = $data[1]['yearly_periodic_delegates_email'];
+			$totalname = sizeof($delegates_name);
+			for($i=0;$i<$totalname;$i++) {
+			$insertdelegate_to = $delegates_name[$i];
+			$insertemail = $delegates_email[$i];
+			$sql = "insert into yearly_periodic_delegates(yearly_periodic_id,yearly_periodic_delegates_name,yearly_periodic_delegates_email)
+					values('$record_id','$insertdelegate_to','$insertemail')";
+			//	print_r($sql);die;
+			$this->db->query($sql);
+			}
+			
 		}
     }
     

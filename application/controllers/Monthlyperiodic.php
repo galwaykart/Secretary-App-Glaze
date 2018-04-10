@@ -97,6 +97,7 @@
 			$data[1] = array(
 			'monthly_periodic_delegates_name'=>$this->input->post('delegate_to'),
 			'monthly_periodic_delegates_email'=>$this->input->post('email'),
+			'phone_number'=>$this->input->post('phone_number'),
 			);
 			$data[2] = array(
 			'monthly_periodic_status_date'=>$this->input->post('date'),

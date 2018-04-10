@@ -168,7 +168,7 @@
                <div class="clear"></div>
 			 <div id="refresh_popup_js">  
                	<div id="delete">
-                     <div  class="auto-del">
+                    <div  class="auto-del">
                                  <div class="left">
                                      <div class="form-group">
                                        <label>Delegate To</label>
@@ -202,7 +202,7 @@
                                                     <a href="#" class="" id="add"><span class="fa fa-plus" ></span></a>
                                             </div>
                                  </div>
-                     </div>
+                    </div>
 				</div>
 			</div>						
 				<div class="clear"></div>

@@ -8,10 +8,12 @@
 			$insert_id = $this->db->insert_id();
 			$delegates_name = $data[1]['yearly_periodic_delegates_name'];
 			$delegates_email = $data[1]['yearly_periodic_delegates_email'];
+			$phone_number = $data[1]['phone_number'];
 			$totalname = sizeof($delegates_name);
 			for($i=0;$i<$totalname;$i++) {
 				$insertdelegate_to = $delegates_name[$i];
 				$insertemail = $delegates_email[$i];
+				$insertemail = $phone_number[$i];
 				$sql = "insert into yearly_periodic_delegates(yearly_periodic_id,yearly_periodic_delegates_name,yearly_periodic_delegates_email)
 						values('$insert_id','$insertdelegate_to','$insertemail')";
 				//print_r($sql);die;
@@ -21,9 +23,7 @@
 		}
 
 		public function getyear($year,$limit,$start){
-			  
-			  
-			$user_id = $this->session->userdata['id'];
+			 $user_id = $this->session->userdata['id'];
 			 $this->db->select('*');
 			 $this->db->from('yearly_periodic');
 			 $this->db->where('Year(yearly_periodic_start_date) <=',$year);
@@ -99,7 +99,7 @@
 			  }
 		 }
 		 
-		 public function changeStatus($id ,$status,$end_date){
+		 public function changeStatus($id ,$status){
 			$this->db->set('yearly_periodic_status',$status); 
 			$this->db->set('yearly_periodic_end_date',date("Y-m-d")); 
             $this->db->where("yearly_periodic_id", $id); 

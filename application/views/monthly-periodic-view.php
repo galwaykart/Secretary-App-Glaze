@@ -67,6 +67,17 @@
                                                     </div>
 										</div>
                                     </div>
+					<div class="col-md-3">
+						<div class="form-group">
+						    <label>Phone Number</label>
+							 <div class="input-group">
+							           <div class="input-addon">
+                                          <span class="fa fa-phone"></span>
+                                       </div>
+									<div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required value="<?php if($list['data2']){ echo $list['data2'][0]->phone_number; }  ?>" /></div>						
+							 </div>
+						</div>  		
+					</div>  		
                                     <div class="col-md-3" style="float:left">
                                          <div class=" margin-top">
 											                      <a href="#" class="aad btn-primary btn participater right-btn" id="add"><span class="fa fa-plus" ></span></a>
@@ -105,6 +116,17 @@
 															</div>
 															
                                                     </div>
+					<div class="col-md-3">
+						<div class="form-group">
+						    <label>Phone Number</label>
+							 <div class="input-group">
+							           <div class="input-addon">
+                                          <span class="fa fa-phone"></span>
+                                       </div>
+									<div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required value="<?php if($record){ echo $record->phone_number; }  ?>" /></div>						
+							 </div>
+						</div>  		
+					</div> 			
 									<div class="right text-center">
 									 <div class="btn-group"><a style="background: red;" href="#"  onclick="setValues1(<?php echo $j; ?>)"><span class="fa fa-minus" style="color: white;"></span></a></div></div>
 										</div>
@@ -254,7 +276,7 @@
 					$('a#add').click(function(e) {
 						e.preventDefault();
 						var lnth1 = $('#delete1 .auto-del1').length; 
-					 $('#delete1').append('<div class="clear"></div><div id="rm1'+lnth1+'" class="auto-del1" style="position:relative"><div class="col-md-3"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required/></div></div></div></div><div class="col-md-3" ><div class="form-group"><label>Email</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div><div class="col-md-4" ><div class=""><a class="right-btn-minus2" href="#"  onclick="setValues1('+ lnth1 + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div>');
+					 $('#delete1').append('<div class="clear"></div><div id="rm1'+lnth1+'" class="auto-del1" style="position:relative"><div class="col-md-3"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required/></div></div></div></div><div class="col-md-3" ><div class="form-group"><label>Email</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div><div class="center"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required  /></div></div></div></div><div class="col-md-4" ><div class=""><a class="right-btn-minus2" href="#"  onclick="setValues1('+ lnth1 + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div>');
 					  
 					});
 				});

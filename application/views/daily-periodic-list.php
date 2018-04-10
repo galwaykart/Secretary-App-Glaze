@@ -10,7 +10,10 @@
     <div class="dailly-notes-index-panel">
     <div class="delegatesheet-view "><!-- monthly periodic panel start -->
              
-               <table>
+<?php if($this->session->flashdata('msg')): ?>
+ <p style="color:red;"><?php echo $this->session->flashdata('msg'); ?></p>
+<?php endif; ?>
+    <table>
                    <thead>
                    <tr><th>Sr No.</th><th>Day</th><th>Time</th><th>Task</th><th>Supervised By</th>
                        <th>Remark</th><th>Active/Inactive</th>
@@ -45,9 +48,6 @@
    
  <div style="height:50px;"></div>
       <?php $this->load->view('footer'); ?>
-
-
-
 
     <!-- don-t change -->
     <div style="height:50px;"></div>

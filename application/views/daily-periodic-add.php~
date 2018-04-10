@@ -33,7 +33,7 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa  fa-calendar" ></span></div>
-                                                                            <div class="form-control"><input type="date" title="Select Start Date" name="start_date"/></div>
+                                                                            <div class="form-control"><input type="date" title="Select Start Date" required name="start_date"/></div>
                                                                         </div>
                                                                 </div>
                                                          </div>
@@ -42,24 +42,24 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa  fa-history" ></span></div>
-                                                                            <div class="form-control"><input type="time" title="Select Time" name="time"/></div>
+                                                                            <div class="form-control"><input type="time" title="Select Time" required name="time"/></div>
                                                                         </div>
                                                                 </div>
                                                          </div>
-                                                         <div class="col-md-6">
+                                                         <!--<div class="col-md-6">
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa fa-calendar" ></span></div>
                                                                             <div class="form-control"><input type="date" title="Select End Date" name="end_date"/></div>
                                                                         </div>
                                                                 </div>
-                                                         </div>
-                                                        <div class="clear"></div>
+                                                         </div>-->
+                                                        
                                                          <div class="col-md-6">
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa  fa-check-square-o" ></span></div>
-                                                                            <div class="form-control"><input type="text" placeholder="Enter Task" name="task"/></div>
+                                                                            <div class="form-control"><input type="text" placeholder="Enter Task" required name="task"/></div>
                                                                         </div>
                                                                 </div>
                                                          </div>
@@ -76,7 +76,7 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa fa-external-link-square" ></span></div>
-                                                                            <div class="form-control"><input type="text" placeholder="Supervise by" name="supervise_by" /></div>
+                                                                            <div class="form-control"><input type="text" placeholder="Supervise by" required name="supervise_by" /></div>
                                                                         </div>
                                                                 </div>
                                                          </div>
@@ -84,7 +84,7 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group">
                                                                             <div class="input-addon"><span class="fa fa-edit" ></span></div>
-                                                                            <div class="form-control"><input type="text" placeholder="Remark" name="remark" /></div>
+                                                                            <div class="form-control"><input type="text" placeholder="Remark" required name="remark" /></div>
                                                                         </div>
                                                                 </div>
                                                          </div>
@@ -131,8 +131,8 @@
 
                                                       <div class="clear"></div>
                                                       <div class="col-md-12">
-                                                          <p><input type="radio" name="sts" />&nbsp;Active&nbsp;
-														  <input type="radio" name="status" />Inactive</p>
+                                                          <p><input type="radio" name="status" value=1 />&nbsp;Active&nbsp;
+														  <input type="radio" name="status" value=0 />Inactive</p>
                                                       </div>
                                                   <div class="clear"></div>
                                                   <div class="text-center">
@@ -181,7 +181,7 @@
 					$('a#add').click(function(e) {
 						e.preventDefault();
 						var lnth = $('#delete .auto-del').length;
-					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><div class="input-group"><div class="form-control"><div class="input-addon"><span class="fa fa-external-link-square" ></span></div><input required type="text" title="Delegate To" required name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><div class="input-group"><div class="form-control"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><input required type="text" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><div class="input-group"><div class="form-control"><div class="input-addon"><span class="fa fa-phone" ></span></div><input type="text" name="phone[]" required /></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><div class="input-group"><div class="form-control"><div class="input-addon"><span class="fa fa-external-link-square" ></span></div><input required type="text" placeholder="Delegate To" title="Delegate To" required name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><div class="input-group"><div class="form-control"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><input required type="text" placeholder="Email" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><div class="input-group"><div class="form-control"><div class="input-addon"><span class="fa fa-phone" ></span></div><input type="text" pla name="phone[]" required /></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 					  
 					});
 				});

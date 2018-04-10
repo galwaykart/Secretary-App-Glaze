@@ -8,15 +8,16 @@
 			$insert_id = $this->db->insert_id();
 			$delegates_name = $data[1]['monthly_periodic_delegates_name'];
 			$delegates_email = $data[1]['monthly_periodic_delegates_email'];
+			$delegates_phone_number = $data[1]['phone_number'];
 			$totalname = sizeof($delegates_name);
 			for($i=0;$i<$totalname;$i++) {
 				$insertdelegate_to = $delegates_name[$i];
 				$insertemail = $delegates_email[$i];
-			
-				$sql = "insert into monthly_periodic_delegates(monthly_periodic_id,monthly_periodic_delegates_name,monthly_periodic_delegates_email)
-						values('$insert_id','$insertdelegate_to','$insertemail')";
-				//print_r($sql);die;
-				$this->db->query($sql);
+				$insertphone = $delegates_phone_number[$i];
+				$sql = "insert into monthly_periodic_delegates(monthly_periodic_id,monthly_periodic_delegates_name,monthly_periodic_delegates_email,phone_number)
+						values('$insert_id','$insertdelegate_to','$insertemail','$insertphone')";
+				print_r($sql);die;
+				//$this->db->query($sql);
 				}
 			}
 		 }
@@ -82,15 +83,17 @@
 		    $this->db->delete("monthly_periodic_delegates", "monthly_periodic_id = $record_id");
 		    $this->db->delete("monthly_periodic_status", "monthly_periodic_id = $record_id");
 
-			
 			$delegates_name = $data[1]['monthly_periodic_delegates_name'];
 			$delegates_email = $data[1]['monthly_periodic_delegates_email'];
+			$delegates_phone_number = $data[1]['phone_number'];
 			$totalname = sizeof($delegates_name);
 			for($i=0;$i<$totalname;$i++) {
 			$insertdelegate_to = $delegates_name[$i];
 			$insertemail = $delegates_email[$i];
-			$sql = "insert into monthly_periodic_delegates(monthly_periodic_id,monthly_periodic_delegates_name,monthly_periodic_delegates_email)
-					values('$record_id','$insertdelegate_to','$insertemail')";
+			$insertphone = $delegates_phone_number[$i];
+			
+			$sql = "insert into monthly_periodic_delegates(monthly_periodic_id,monthly_periodic_delegates_name,monthly_periodic_delegates_email,phone_number)
+					values('$record_id','$insertdelegate_to','$insertemail','$insertphone')";
 			//	print_r($sql);die;
 			$this->db->query($sql);
 			}
