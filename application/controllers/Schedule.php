@@ -126,7 +126,7 @@
 			
 			$data = $this->Schedule_model->reminderhourly($current_date); 
 			foreach($data as $dta){ 
-					// send Email According Email Template 
+				// send Email According Email Template 
 			}
 		}	 
 		public function reminderdaily(){ 
@@ -140,7 +140,7 @@
 			
 			$data = $this->Schedule_model->reminderdaily($current_date); 
 			foreach($data as $dta){ 
-					// send Email According Email Template 
+				// send Email According Email Template 
 			}
 		}	 
 		public function reminderweekly(){ 
@@ -153,7 +153,7 @@
 			$year  = date('Y',$date); 
 			$data = $this->Schedule_model->reminderweekly($current_date); 
 			foreach($data as $dta){ 
-					// send Email According Email Template 
+				// send Email According Email Template 
 			}
 		} 	 
 		public function remindermonthly(){ 
@@ -166,7 +166,7 @@
 			$year  = date('Y',$date); 
 			$data = $this->Schedule_model->reminderweekly($current_date); 
 			foreach($data as $dta){ 
-					// send Email According Email Template 
+				// send Email According Email Template 
 			}
 		} 	 
 		public function reminderyearly(){ 
@@ -179,7 +179,7 @@
 			$year  = date('Y',$date); 
 			$data = $this->Schedule_model->reminderweekly($current_date); 			 
 			foreach($data as $dta){ 
-					// send Email According Email Template 
+				// send Email According Email Template 
 			}
 		} 
 	}
