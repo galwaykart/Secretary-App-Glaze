@@ -1,3 +1,4 @@
+
   <?php $this->load->view('head'); ?> 
      <?php $this->load->view('header'); ?>
     <!-- user View design page start -->
@@ -60,14 +61,33 @@
                   <span class=" fa fa fa-cogs" ></span>
                 </div>
                 <div class="form-control">
-                  <input type="text" class="total-day" title="Total days" readonly="" placeholder="Total Days" value=""<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/>
+                  <input type="text" class="total-day" title="Total days" readonly="" placeholder="Total Days" value="<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/>
                 </div>
               </div>
             </div>
           </div>
+
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Remark</label>
+              <div class="input-group">
+                <div class="input-addon">
+                  <span class=" fa fa-line-chart" ></span>
+                </div>
+                <div class="form-control">
+                  <input type="text" title="Target Date" required="" value="<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_remark ;}?>"/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
         </div>
+
         <div class="clear"></div>
-        <form method="POST" action="<?php echo base_url().'/Projectdelegation/UpdateDelegates/'.$record_id;?>">                             <!-- autometic delegates start -->
+        <form method="POST" action=""
+          <?php echo base_url().'/Projectdelegation/UpdateDelegates/'.$record_id;?>">                             <!-- autometic delegates start -->
           <div>
             <div class="col-md-6">
               <div class="form-group form">
@@ -97,6 +117,7 @@
             </div>
           </div>
           <div class="clear"></div>
+                    
                     <div id="refresh_popups"> 
                         <div id="auto-dels"> 
                             <div class="auto-del">
@@ -185,7 +206,7 @@
                             <?php }?>
                         </div>
                     </div>
-                    <div class="clear"></div>  
+                    <div class="clear"></div>
                 </form>
 
 <br><br><br>
@@ -246,6 +267,7 @@
                                             echo "<td>".$i++."</td>"; 
                                             echo "<td>".$r->project_delegation_status_date."</td>"; 
                                             echo "<td>".$r->project_delegation_status_status."</td>"; 
+
                                             if($size_of_extend_date >0){
                                                 $d1 = $r->project_delegation_status_date;
                                                 $d2 = $records['delegates_date_data'][$size_of_extend_date-1]->project_delegation_dates_extend_date;
@@ -258,6 +280,7 @@
                                             }
                                             echo "<td>".$r->project_delegation_status_current_status."</td>"; 
                                             echo "<td>".$r->project_delegation_status_next_followup_date."</td>"; 
+
                                             
                                            
                                             
