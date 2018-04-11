@@ -11,6 +11,12 @@
      <div class="dailly-notes-index-panel"> 
        <div class="container-5">                     
                         <div class="col-md-12 project-del-view-main-panel">
+<<<<<<< HEAD
+ 
+                                    <h2>Perodic Task View</h2>
+                                    <div class="col-md-12"><p>Task Name : <span id="projectname"><?php echo $list['data1'][0]->weekly_periodic_work?></span></p></div>
+ 
+=======
                         <?php
                         // echo "<pre>";
                         // print_r($list);  
@@ -18,6 +24,7 @@
                                     <h2>Perodic Task View</h2>
                                     <div class="col-md-12"><p>Task Name : <span id="projectname"><?php echo $list['data1'][0]->weekly_periodic_work?></span></p></div>
                                    
+>>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
                                     <div class="clear"></div>
                                     <div class="col-md-6">
                                          <div class="form-group form">
@@ -291,40 +298,8 @@
 
     </div><!-- Main Dashbrad end -->
    
-    </form> 
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-  
+    </form>  
+ 
 
    
 

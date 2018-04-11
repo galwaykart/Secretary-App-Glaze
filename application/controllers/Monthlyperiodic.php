@@ -58,7 +58,7 @@
 			}
 		}
 		
-		public function add_data(){
+	public function add_data(){
 		if($this->uri->segment(3)){
 		  $this->form_validation->set_rules('end_date','End Date ','trim|required');
 		  $this->form_validation->set_rules('note[]','Note ','trim|required');
@@ -78,7 +78,6 @@
 			}else{
 				$this->index();
 			}
-			
 		  }
 		  else {
 			$record_id =$this->uri->segment(3); 
