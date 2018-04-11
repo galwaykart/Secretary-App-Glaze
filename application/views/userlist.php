@@ -12,7 +12,7 @@
 <?php endif; ?>		
         <div class="user-content-panel-view">
 			  <div class="left-button-fixed-panel col-md-12 text-right">
-					<a href="<?php echo site_url('user/signup') ?>"><button class="add btn" title="Add New User"><span class="fa fa-plus" ></span>&nbsp;Add</button></a>
+					<a href="<?php echo site_url('user/signup') ?>"><button class="add btn" title="Add New User"><span class="fa fa-plus" ></span></button></a>
 			   </div>
                <div class="table-res">
                    <table>

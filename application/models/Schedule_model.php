@@ -50,5 +50,80 @@
 			 
 		} 
 		 
+		public function reminderhourly($data){
+			 $date  = strtotime($data);
+			 $hour   = date('h',$date); 
+			 $day   = date('d',$date);  
+			 $month = date('m',$date);
+			 $year  = date('Y',$date); 
+			 
+			 $this->db->select('*');
+			 $this->db->from('reminder_sheet');
+			 $this->db->where('Hour(reminder_sheet_start_time) >=',$hour); 
+			 $query = $this->db->get(); 	
+			 return $query->result();
+			 
+		} 
+		
+		 
+		public function reminderdaily($data){
+			 $date  = strtotime($data);
+			 $hour   = date('h',$date); 
+			 $day   = date('d',$date);  
+			 $month = date('m',$date);
+			 $year  = date('Y',$date); 
+			 
+			 $this->db->select('*');
+			 $this->db->from('reminder_sheet'); 
+			 $this->db->where('Day(reminder_sheet_start_time) >=',$day); 
+			 $query = $this->db->get(); 	
+			 return $query->result();
+			 
+		} 
+		 
+		public function reminderweekly($data){
+			 $date  = strtotime($data);
+			 $hour   = date('h',$date); 
+			 $day   = date('d',$date);  
+			 $month = date('m',$date);
+			 $year  = date('Y',$date); 
+			 
+			 $this->db->select('*');
+			 $this->db->from('reminder_sheet'); 
+			 $this->db->where('Day(reminder_sheet_start_date) >=',$day); 
+			 $this->db->where('Month(reminder_sheet_start_date) >=',$month); 
+			 $query = $this->db->get(); 	
+			 return $query->result();
+			 
+		}
+		public function remindermonthly($data){
+			 $date  = strtotime($data);
+			 $hour   = date('h',$date); 
+			 $day   = date('d',$date);  
+			 $month = date('m',$date);
+			 $year  = date('Y',$date); 
+			 
+			 $this->db->select('*');
+			 $this->db->from('reminder_sheet'); 
+			 $this->db->where('Month(reminder_sheet_start_date) >=',$month); 
+			 $query = $this->db->get(); 	
+			 return $query->result();
+			 
+		} 
+		public function remindermonthly($data){
+			 $date  = strtotime($data);
+			 $hour   = date('h',$date); 
+			 $day   = date('d',$date);  
+			 $month = date('m',$date);
+			 $year  = date('Y',$date); 
+			 
+			 $this->db->select('*');
+			 $this->db->from('reminder_sheet'); 
+			 $this->db->where('Year(reminder_sheet_start_date) >=',$year); 
+			 $query = $this->db->get(); 	
+			 return $query->result();
+			 
+		} 
+		 
 	}
 	 

@@ -527,13 +527,18 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 .all-user-panel .user-content-panel-view table thead{}
 .all-user-panel .user-content-panel-view table thead tr{background-color: #e24545;}
 .all-user-panel .user-content-panel-view table thead tr th{font-size: 12px;padding: 8px 8px;color: white;text-align:left;}
-.all-user-panel .user-content-panel-view table tbody tr{    border-bottom: 1px solid #b9d5de;}
-.all-user-panel .user-content-panel-view table tbody tr td{    font-size: 12px;
+.all-user-panel .user-content-panel-view table tbody tr{    border-bottom: 1px solid #dae0e2;}
+.all-user-panel .user-content-panel-view table tbody tr td{   font-size: 12px;
     padding: 8px 8px;
-    color: #002653;
-    font-weight: 600;}
+    color: #1b1919;
+    font-weight: normal;}
 .all-user-panel .user-content-panel-view table tbody tr:nth-child(even) {}
-.all-user-panel .left-button-fixed-panel .add{    margin-bottom: 1%;font-size: 11px;background-color: #00abdf;color: white;height: 29px;}
+.all-user-panel .left-button-fixed-panel .add{  margin-bottom: 1%;
+    font-size: 11px;
+    background-color: #00abdf;
+    color: white;
+    padding: 7px 8px;
+    border-radius: 100%;}
 
 
 @media screen and (max-width:778px) {
@@ -1046,7 +1051,7 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
 }
 
 .tabordion section article:after {
-  background-color:#efefef;
+  background-color:whitesmoke;
   bottom: 0;
   content: "";
   display: block;
@@ -1138,8 +1143,8 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
     padding: 8px 8px;}
         .monthly-periodic-task-sheet table tbody tr {border-bottom: 1px solid #d8d7d7;height: 25px;
     color: #002653;}
-            .monthly-periodic-task-sheet table tbody tr td:nth-of-type(6) {text-align: center;}
-            .monthly-periodic-task-sheet table thead tr th:nth-of-type(6) {text-align: center;}
+            .monthly-periodic-task-sheet table tbody tr td:nth-of-type(6) {text-align: right;}
+            .monthly-periodic-task-sheet table thead tr th:nth-of-type(6) {text-align: right;}
 .tabordion section article {animation:fade 1s;transition:1s;    padding-top: 1%;}
 
 @keyframes fade {
@@ -1157,7 +1162,7 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
     width: 96%;
   }
     .tabordion section label {width:130px;}
-    .tabordion section article {left:130px;width:73%;}
+    .tabordion section article {left:130px;width:85%;}
 }
 
 @media screen and (min-width:320px) and (max-width:480px) {
@@ -1990,10 +1995,11 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
     margin-bottom: 2%;}
 	
 	.reminder-sheet table{width:100%;margin:0;margin-bottom: 2%;}
-	.reminder-sheet a.rembtn{background-color: #00abdf;
+	.reminder-sheet a.rembtn{    background-color: #00abdf;
     color: white;
-    font-size: 12px;
-    box-shadow: 0px 1px 1px 0px #2485a2;}
+    font-size: 11px;
+    box-shadow: 0px 1px 1px 0px #2485a2;
+    border-radius: 10px;}
 	.reminder-emptydiv{    height: 41px;}
 	.registration .container-3 .form-group .input-group{position:relative;}
 	.registration .container-3 .form-group .input-group  span.form_error{    position: absolute;
@@ -2656,3 +2662,32 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     color: green;
     font-weight: 600;display:none;
 }
+
+
+.tabordion section label.switch1 {position: relative;
+    display: inline-block;
+    width: 13px;
+    height: 12px;
+   
+    float: right;
+    margin-left: 4%;
+    border-radius: 10px;}
+.tabordion section label.switch1 input.checkbox1 {display:none;}
+.slider1 {position: absolute;cursor: pointer;top: 0;left: 0;right: 0;bottom: 0;background-color: #00abdf;-webkit-transition: .4s;transition: .4s;}
+.slider1:before {position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 2px;
+    bottom: 3px;
+    top: -2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border: 2px solid #00abdf;}
+input.checkbox1:checked + .slider1 {background-color: #2196F3;}
+input.checkbox1:focus + .slider1 {box-shadow: 0 0 1px #2196F3;}
+input.checkbox1:checked + .slider1:before {-webkit-transform: translateX(26px);-ms-transform: translateX(26px);transform: translateX(26px);}
+.slider1.round1 {border-radius: 34px;}
+.slider1.round1:before {border-radius: 50%;}
+.monthly-periodic-task-sheet table.monthly-task tbody tr td:nth-of-type(7) {text-align:right;}
