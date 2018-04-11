@@ -62,7 +62,8 @@
                                             echo "<td>".$r->target_date."</td>"; 
                                             echo "<td>".$r->priority."</td>"; 
                                             echo "<td>".$r->remark."</td>"; 
-                                            echo "<td>".$r->status."</td>"; 
+                                            if($r->status == 0){ echo "<td>Pending</td>";}else{echo "<td>Completed</td>";}
+                                            
                                             if($r->active == 0){ echo "<td>"."Yes"."</td>"; }else{ echo "<td>"."No"."</td>"; }
 
                                              
@@ -168,7 +169,9 @@
                             <div class="form-group">
                                        <label>Status</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input required type="text" id="task_status" name="status" title="Status" /></div>
+                                            <div class="form-control">
+                                            <select name="status" id="task_status"><option value='0'>Pending</option><option value='1'>Completed</option></select>
+                                            <!-- <input required type="text" id="task_status" name="status" title="Status" /></div> -->
                                         </div>
                            </div>
                     </div>
@@ -256,7 +259,6 @@
         $('a#plus').on('click',function(){
 
         var lnth = $('#auto-del').length;
-<<<<<<< HEAD
         console.log(lnth);
         $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required="" type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required="" type="text" name="delegate_email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');});
         });
@@ -265,16 +267,6 @@
         document.getElementById("rm"+id).remove();
         }
       </script>
-=======
-        $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_email[]"/></div></div></div></div><div class="left"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_phone[]" id="gm3"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
-					  
-					});
-				});
-					function setValues(id){     
-							document.getElementById("rm"+id).remove();
-					}
-		</script>
->>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
         <script type="text/javascript"> 
           function newDoc(id) {
             //console.log(id);   

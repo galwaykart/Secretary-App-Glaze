@@ -609,7 +609,7 @@
 
   events: [
   <?php foreach($dash_data['index_meeting']["all_data"] AS $indexMeeting){?>
-        
+   
     {   id:1, 
         title: '<?php echo $indexMeeting->agenda_name ?>' +' (INDEX MEETINGS)',
         start: '<?php echo $indexMeeting->date_of_meeting ?>'+'T'+'<?php echo $indexMeeting->index_meeting_start_time ?>',

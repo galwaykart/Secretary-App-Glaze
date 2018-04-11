@@ -178,7 +178,6 @@
  <div style="height:50px;"></div>
       <?php $this->load->view('footer'); ?>
 
-
     <!-- don-t change -->
     <div style="height:50px;"></div>
     <footer id="footer">

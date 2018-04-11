@@ -20,7 +20,8 @@
                                   <th>Department</th>
                                   <th>Outsoursing</th>
                                   <!-- <th>Delegate To</th> -->
-                                  <th>Followup form</th>
+                                  <th>Followup Form</th>
+                                  <th>Followup Form Date</th>
                                   <th>Target Date</th>
                                   <!-- <th>Extended Date</th> -->
                                   <!-- <th>Old Status Date</th> -->
@@ -45,6 +46,7 @@
                                             }
                                             
                                             // echo "<td>"."yuhi achanak kisi ko bhi"."</td>"; 
+                                            echo "<td>".$r->project_delegation_followup_from."</td>"; 
                                             echo "<td>".$r->project_delegation_followup_date."</td>"; 
                                             echo "<td>".$r->project_delegation_target_date."</td>"; 
                                             // echo "<td>"."NA"."</td>"; 
@@ -141,7 +143,7 @@
                 <div class="clear"></div>
                  <div class="col-md-12">
                    
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                             <div class="form-group">
                                        <label>Target Date</label>
                                         <div class="input-group">
@@ -150,11 +152,20 @@
                           </div>
                         
                     </div>
-                     <div class="col-md-6">
+                    <div class="col-md-3">
                             <div class="form-group">
                                        <label>Followup Date</label>
                                         <div class="input-group">
                                             <div class="form-control"><input type="date" required name="followup_date" title="Followup date" /></div>
+                                        </div>
+                          </div>
+                        
+                    </div>
+                     <div class="col-md-3">
+                            <div class="form-group">
+                                       <label>Followup From</label>
+                                        <div class="input-group">
+                                            <div class="form-control"><input type="text" required name="followup_from" title="Followup from" /></div>
                                         </div>
                           </div>
                         
@@ -233,15 +244,10 @@
 
 
 </form>
-<<<<<<< HEAD
  
 </div>
  
  
-=======
-</div>
-
->>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
     <!-- popup end -->
     <script type="text/javascript"> 
         $(function() {
