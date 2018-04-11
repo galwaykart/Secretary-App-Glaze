@@ -29,49 +29,6 @@
         <p>&copy; Copyright By Glaze India Pvt. Ltd.</p>
     </footer>
 
-              <!-- mobile menubar -->
-               <div class="mobile-menu-bar">
-                                  <aside class="" id="aside1">
-                                    <div class="accordion" id="accordion2">
-                                        <ul>
-                                            <li>
-                                                <div>Sollicitudin</div>
-                                                <ul>
-                                                    <li><a href="?11">Lorem ipsum</a></li>
-                                                    <li><a href="?12">Dolor sit</a></li>
-                                                    <li>
-                                                        <div>Commodo Rhoncus</div>
-                                                        <ul>
-                                                            <li><a href="demo.html">Current</a></li>
-                                                            <li><a href="?132">Consectetur</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <div>Quis Porttitor</div>
-                                                <ul>
-                                                    <li><a href="?21">Finibus Bonorum</a></li>
-                                                    <li><a href="?22">Sed ut</a></li>
-                                                    <li><a href="?23">Neque porro</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <div>Odio Ac</div>
-                                                <ul>
-                                                    <li><a href="?31">Minima veniam</a></li>
-                                                    <li><a href="?32">Voluptate velit</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="?4">Sapien quam</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                        </aside>
-               </div>
-            <!-- mobile menubar end -->
-  
 
 
      <!-- globle header for comman end --> 
@@ -124,7 +81,14 @@
         });
 
     </script>
-
+ <script>
+      
+			function daily_status(id) {
+			   // console.log("id ====" ,id);
+				var url = "<?php echo base_url(); ?>Dailyperiodic/listpage/"+id;
+				window.location.assign(url);
+			}
+			</script>
 
            <script>
 
@@ -136,7 +100,7 @@
                            center: 'title',
                            right: 'month,agendaWeek,agendaDay,listWeek'
                        },
-                       defaultDate: '2018-02-12',
+                       defaultDate: '2018-04-12',
                        navLinks: true, // can click day/week names to navigate views
 
                        weekNumbers: true,
@@ -145,61 +109,73 @@
 
                        editable: true,
                        eventLimit: true, // allow "more" link when too many events
+					   eventRender: function(event, element) {
+						if(event.id == 1) {
+                          element.css('background-color', 'rgb(206, 199, 127)').css('border','1px solid rgb(183, 176, 106)').css('color','black');
+   						} 
+						},
+			
                        events: [
-                         {
-                             title: 'All Day Event',
-                             start: '2018-02-01'
-                         },
-                         {
-                             title: 'Long Event',
-                             start: '2018-02-07',
-                             end: '2018-02-10'
-                         },
-                         {
-                             id: 999,
-                             title: 'Repeating Event',
-                             start: '2018-02-09T16:00:00'
-                         },
-                         {
-                             id: 999,
-                             title: 'Repeating Event',
-                             start: '2018-02-16T16:00:00'
-                         },
-                         {
-                             title: 'Conference',
-                             start: '2018-02-11',
-                             end: '2018-02-13'
-                         },
-                         {
-                             title: 'Meeting',
-                             start: '2018-02-12T10:30:00',
-                             end: '2018-02-12T12:30:00'
-                         },
-                         {
-                             title: 'Lunch',
-                             start: '2018-02-12T12:00:00'
-                         },
-                         {
-                             title: 'Meeting',
-                             start: '2018-02-12T14:30:00'
-                         },
-                         {
-                             title: 'Happy Hour',
-                             start: '2018-02-12T17:30:00'
-                         },
-                         {
-                             title: 'Dinner',
-                             start: '2018-02-12T20:00:00'
-                         },
-                         {
-                             title: 'Birthday Party',
-                             start: '2018-02-13T07:00:00'
-                         },
-                         {
-                             title: 'Click View Task',
-                             url: 'daiily-task-view-list.html',
-                             start: '2018-02-28'
-                         }
+					   <?php foreach($fetch as $daily_periodic){ ?>
+						
+						{
+                           id:1,
+						   title :'<?php echo $daily_periodic->daily_periodic_task ?>',
+						   start: '<?php echo $daily_periodic->daily_periodic_start_date ?>'+'T'+'<?php echo $daily_periodic->daily_periodic_time ?>',
+						   url :  "<?php echo base_url(); ?>Dailyperiodic/show/"+(<?php echo $daily_periodic->daily_periodic_id; ?>),
+						},	
+                         
+						<?php } ?>
+                         // {
+                             // title: 'Long Event',
+                             // start: '2018-02-07',
+                             // end: '2018-02-10'
+                         // },
+                         // {
+                             // id: 999,
+                             // title: 'Repeating Event',
+                             // start: '2018-02-09T16:00:00'
+                         // },
+                         // {
+                             // id: 999,
+                             // title: 'Repeating Event',
+                             // start: '2018-02-16T16:00:00'
+                         // },
+                         // {
+                             // title: 'Conference',
+                             // start: '2018-02-11',
+                             // end: '2018-02-13'
+                         // },
+                         // {
+                             // title: 'Meeting',
+                             // start: '2018-02-12T10:30:00',
+                             // end: '2018-02-12T12:30:00'
+                         // },
+                         // {
+                             // title: 'Lunch',
+                             // start: '2018-02-12T12:00:00'
+                         // },
+                         // {
+                             // title: 'Meeting',
+                             // start: '2018-02-12T14:30:00'
+                         // },
+                         // {
+                             // title: 'Happy Hour',
+                             // start: '2018-02-12T17:30:00'
+                         // },
+                         // {
+                             // title: 'Dinner',
+                             // start: '2018-02-12T20:00:00'
+                         // },
+                         // {
+                             // title: 'Birthday Party',
+                             // start: '2018-02-13T07:00:00'
+                         // },
+                         // {
+                             // title: 'Click View Task',
+                             // url: 'daiily-task-view-list.html',
+                             // start: '2018-02-28'
+                         // }
                        ]
                    });
 

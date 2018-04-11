@@ -23,13 +23,44 @@
 		  }
 		}
 		
-		public function get_periodic_task(){
+		public function get_periodic_task($limit,$start){
 			$user_id = $this->session->userdata['id'];
 		    $this->db->select('*');
 			$this->db->from('daily_periodic');
-			//$this->db->where("user_id", $user_id);
+			//$this->db->where('daily_periodic_id',$id);
+			$this->db->where("user_id", $user_id);
+			$this->db->limit($limit, $start);
 			$query = $this->db->get();
 			return $query->result();
+		}
+		public function record_count(){
+			$user_id = $this->session->userdata['id'];
+		    $this->db->select('*');
+			$this->db->from('daily_periodic');
+			$this->db->where("user_id", $user_id);
+			$query = $this->db->count_all_results();
+			//print_r($query);
+			return $query;
+		}
+		public function get_calender_list($limit,$start,$id){
+			$user_id = $this->session->userdata['id'];
+		    $this->db->select('*');
+			$this->db->from('daily_periodic');
+			$this->db->where('daily_periodic_id',$id);
+			$this->db->limit($limit, $start);
+			$this->db->where("user_id", $user_id);
+			$query = $this->db->get();
+			return $query->result();
+		}		
+		public function record_count_show($id){
+			$user_id = $this->session->userdata['id'];
+		    $this->db->select('*');
+			$this->db->from('daily_periodic');
+			$this->db->where('daily_periodic_id',$id);
+			$this->db->where("user_id", $user_id);
+			$query = $this->db->count_all_results();
+			//print_r($query);die;
+			return $query;
 		}
 		
 		public function view_periodic_task($id){
@@ -37,7 +68,7 @@
 		    $this->db->select('*');
 			$this->db->from('daily_periodic');
 			$this->db->where('daily_periodic_id',$id);
-			//$this->db->where("user_id", $user_id);
+			$this->db->where("user_id", $user_id);
 			$data1 = $this->db->get();
 			//return $query->result();
 			
@@ -54,7 +85,7 @@
 		
 		public function update_daily_periodic($data,$record_id,$status){
 		    $this->db->delete("daily_periodic_delegates", "daily_periodic_id = $record_id");
-			
+	
 			$this->db->set('daily_periodic_status',$status); 
 			$this->db->set('daily_periodic_end_date',date("Y-m-d")); 
             $this->db->where("daily_periodic_id", $record_id); 
@@ -74,9 +105,21 @@
 				$this->db->query($sql);
 				}
 			}
+			
+		public function view_calender(){
+			$user_id = $this->session->userdata['id'];
+		    $this->db->select('*');
+			$this->db->from('daily_periodic');
+			$this->db->where("user_id", $user_id);
+			$query = $this->db->get();
+			//print_r($query->result());
+			return $query->result();
+			
+		
+
     }
     
 
-    
+   }
 	
 ?>
