@@ -182,7 +182,7 @@
                                         </div>
                            </div>
                     </div>
-
+                   <div class='clear'></div>
                      <!-- autometic delegates start -->
                     <div id="refresh_popup"> 
                         <div id="auto-del"> 
@@ -219,7 +219,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
+                        <div class="clear"></div>
                      </div>
                    
                      <!-- autometic delegates end -->
@@ -248,11 +249,23 @@
       
 	
 	    <script type="text/javascript">
-        $(function() {
-        $('.auto-del .right a , .auto-del .right a span').click(function(e) {
-        e.preventDefault();
-        alert();
+
+
+        $(document).ready(function(){
+       
+        $('a#plus').on('click',function(){
+
         var lnth = $('#auto-del').length;
+<<<<<<< HEAD
+        console.log(lnth);
+        $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required="" type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required="" type="text" name="delegate_email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');});
+        });
+
+        function setValues(id){
+        document.getElementById("rm"+id).remove();
+        }
+      </script>
+=======
         $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_email[]"/></div></div></div></div><div class="left"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_phone[]" id="gm3"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 					  
 					});
@@ -261,6 +274,7 @@
 							document.getElementById("rm"+id).remove();
 					}
 		</script>
+>>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
         <script type="text/javascript"> 
           function newDoc(id) {
             //console.log(id);   

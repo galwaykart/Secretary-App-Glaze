@@ -1,3 +1,4 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <?php 
 	
 	// echo "<pre>";
@@ -35,6 +36,8 @@
 	<?php $this->load->view('header');?>
 
       <div class="col-md-12 heading-tag">
+                        <button class="tours">Tour <span class="fa fa-angle-down"></span>
+                      </button>
                         <p><span class="fa fa-dashboard" ></span>&nbsp;<span id="dashbiar-name">Dashboard</span></p>
                         </div>
 
@@ -43,6 +46,7 @@
                                         <div class="col-md-12">
                                                <div class="col-md-new-2">
                                                                        <div class="box-data-for-2 one-box ">
+                                                                         <div class="blur1">
                                                                            <div class="container1 ">
                                                                                         <span class="fa fa-bars new-right"></span>
                                                                                         <div class="contextMenu">
@@ -55,11 +59,14 @@
                                                                                        <!-- contect menu end -->
                                                                                         <div class="left-pop-tag"> <span class="fa fa-handshake-o one" ></span></div>
                                                                                         <div class="right-pop-tag">
-                                                                                            <h2>Mettings&nbsp; <span id=""><?php echo($dash_data['count_index_meeting'][0]->total);?></span></h2>
+                                                                                            <h3>
+                                                                                              <?php echo($dash_data['count_index_meeting'][0]->total);?>
+                                                                                            </h3>
+                                                                                            <h2>Mettings</h2>
                                                                                             <p>Today Metting <span id=""><?php echo($dash_data['index_meeting']["count"]);?></span></p>
                                                                                         </div>
                                                                             </div>
-                                                                           
+                                                                         </div>
                                                                        </div>
                                               </div>
                                               
@@ -67,192 +74,269 @@
 
                                             
                                              <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2 img">
+                                                                       <div class="box-data-for-2 twobox">
+                                                                         <div class="blur2">
                                                                            <div class="container1 ">
-                                                                                        <span class="fa fa-bars new-right"></span>
-                                                                                       <div class="contextMenu">
-                                                                                         <p>Resize</p>
-                                                                                         <ul>
-                                                                                           <li>
-                                                                                             <a href="#">Small</a>
-                                                                                           </li>
-                                                                                           <li>
-                                                                                             <a href="#">Medium</a>
-                                                                                           </li>
-                                                                                           <li>
-                                                                                             <a href="#">Large</a>
-                                                                                           </li>
-                                                                                         </ul>
-                                                                                       </div>
-                                                                                        <div class="left-pop-tag"> <span class="fa fa-file-text-o two" ></span></div>
-                                                                                        <div class="right-pop-tag">
-                                                                                            <h2>Daily Notes&nbsp;<span id="Span1"><?php echo($dash_data['count_daily_notes'][0]->total);?></span></h2>
-                                                                                            <p>Today Daily Notes <span id="Span2"><?php echo($dash_data['daily_notes']["count"]);?> </span></p>
-                                                                                        </div>
-                                                                            </div>
-                                                                        
-                                                                         
+                                                                             <span class="fa fa-bars new-right"></span>
+                                                                             <div class="contextMenu">
+                                                                               <p>Resize</p>
+                                                                               <ul>
+                                                                                 <li>
+                                                                                   <a href="#">Small</a>
+                                                                                 </li>
+                                                                                 <li>
+                                                                                   <a href="#">Medium</a>
+                                                                                 </li>
+                                                                                 <li>
+                                                                                   <a href="#">Large</a>
+                                                                                 </li>
+                                                                               </ul>
+                                                                             </div>
+                                                                             <div class="left-pop-tag">
+                                                                               <span class="fa fa-file-text-o two" ></span>
+                                                                             </div>
+                                                                             <div class="right-pop-tag">
+                                                                               <h3>
+                                                                                 <?php echo($dash_data['count_daily_notes'][0]->total);?>
+                                                                               </h3>
+                                                                               <h2>
+                                                                                 Daily Notes
+                                                                               </h2>
+                                                                               <p>
+                                                                                 Today Daily Notes <span id="Span2">
+                                                                                   <?php echo($dash_data['daily_notes']["count"]);?>
+                                                                                 </span>
+                                                                               </p>
+                                                                             </div>
+                                                                           </div>
+
+                                                                         </div>
                                                                        </div>
                                               </div>
                                              
                                              <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2 ">
+                                                                       <div class="box-data-for-2 threebox ">
+                                                                         <div class="blur3">
                                                                            <div class="container1 ">
-                                                                                       <span class="fa fa-bars new-right"></span>
-                                                                                       <div class="contextMenu">
-                                                                                         <p>Resize</p>
-                                                                                         <ul>
-                                                                                           <li>
-                                                                                             <a href="#">Small</a>
-                                                                                           </li>
-                                                                                           <li>
-                                                                                             <a href="#">Medium</a>
-                                                                                           </li>
-                                                                                           <li>
-                                                                                             <a href="#">Large</a>
-                                                                                           </li>
-                                                                                         </ul>
-                                                                                       </div>
-                                                                                        <div class="left-pop-tag"> <span class="fa fa-edit three" ></span></div>
-                                                                                        <div class="right-pop-tag">
-                                                                                            <h2>Quick Work&nbsp; <span id="Span3"><?php echo($dash_data['count_quickworks'][0]->total);?></span></h2>
-                                                                                            <p>Today Quick Work <span id="Span4"><?php echo($dash_data['quick_work'][0]->total_works);?></span></p>
-                                                                                        </div>
-                                                                            </div>
-                                                                        
+                                                                             <span class="fa fa-bars new-right"></span>
+                                                                             <div class="contextMenu">
+                                                                               <p>Resize</p>
+                                                                               <ul>
+                                                                                 <li>
+                                                                                   <a href="#">Small</a>
+                                                                                 </li>
+                                                                                 <li>
+                                                                                   <a href="#">Medium</a>
+                                                                                 </li>
+                                                                                 <li>
+                                                                                   <a href="#">Large</a>
+                                                                                 </li>
+                                                                               </ul>
+                                                                             </div>
+                                                                             <div class="left-pop-tag">
+                                                                               <span class="fa fa-edit three" ></span>
+                                                                             </div>
+                                                                             <div class="right-pop-tag">
+                                                                               <h3>
+                                                                                 <?php echo($dash_data['count_quickworks'][0]->total);?>
+                                                                               </h3>
+                                                                               <h2>
+                                                                                 Quick Work&nbsp; 
+                                                                               </h2>
+                                                                               <p>
+                                                                                 Today Quick Work <span id="Span4">
+                                                                                   <?php echo($dash_data['quick_work'][0]->total_works);?>
+                                                                                 </span>
+                                                                               </p>
+                                                                             </div>
+                                                                           </div>
+                                                                         </div>
                                                                        </div>
                                                
                                               </div>
                                               
                                              <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2 ">
+                                                                       <div class="box-data-for-2 fourbox">
+                                                                         <div class="blur4">
                                                                            <div class="container1 ">
-                                                                                        <span class="fa fa-bars new-right"></span>
-                                                                                         <div class="contextMenu">
-                                                                                           <p>Resize</p>
-                                                                                           <ul>
-                                                                                             <li>
-                                                                                               <a href="#">Small</a>
-                                                                                             </li>
-                                                                                             <li>
-                                                                                               <a href="#">Medium</a>
-                                                                                             </li>
-                                                                                             <li>
-                                                                                               <a href="#">Large</a>
-                                                                                             </li>
-                                                                                           </ul>
-                                                                                         </div>
-                                                                                        <div class="left-pop-tag"> <span class="fa fa-copy four" ></span></div>
-                                                                                        <div class="right-pop-tag">
-                                                                                            <h2>Delegation Sheet&nbsp;<span id="Span5"><?php echo($dash_data['count_projectDelegation'][0]->total);?></span></h2>
-                                                                                            <p>Today Delegation Task <span id="Span6"><?php echo($dash_data['project_delegation'][0]->total_projects);?></span></p>
-                                                                                        </div>
-                                                                            </div>
+                                                                             <span class="fa fa-bars new-right"></span>
+                                                                             <div class="contextMenu">
+                                                                               <p>Resize</p>
+                                                                               <ul>
+                                                                                 <li>
+                                                                                   <a href="#">Small</a>
+                                                                                 </li>
+                                                                                 <li>
+                                                                                   <a href="#">Medium</a>
+                                                                                 </li>
+                                                                                 <li>
+                                                                                   <a href="#">Large</a>
+                                                                                 </li>
+                                                                               </ul>
+                                                                             </div>
+                                                                             <div class="left-pop-tag">
+                                                                               <span class="fa fa-copy four" ></span>
+                                                                             </div>
+                                                                             <div class="right-pop-tag">
+                                                                               <h3>
+                                                                                 <?php echo($dash_data['count_projectDelegation'][0]->total);?>
+                                                                               </h3>
+                                                                               <h2>
+                                                                                 Delegation Sheet
+                                                                               </h2>
+                                                                               <p>
+                                                                                 Today Delegation Task <span id="Span6">
+                                                                                   <?php echo($dash_data['project_delegation'][0]->total_projects);?>
+                                                                                 </span>
+                                                                               </p>
+                                                                             </div>
+                                                                           </div>
+                                                                         </div>
                                                                         
                                                                        </div>
                                               </div>
                                              
                                              <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2 ">
-                                                                           <div class="container1 ">
-                                                                                        <span class="fa fa-bars new-right"></span>
-                                                                                         <div class="contextMenu">
-                                                                                           <p>Resize</p>
-                                                                                           <ul>
-                                                                                             <li>
-                                                                                               <a href="#">Small</a>
-                                                                                             </li>
-                                                                                             <li>
-                                                                                               <a href="#">Medium</a>
-                                                                                             </li>
-                                                                                             <li>
-                                                                                               <a href="#">Large</a>
-                                                                                             </li>
-                                                                                           </ul>
-                                                                                         </div>
-                                                                                        <div class="left-pop-tag"> <span class="fa fa-coffee five" ></span></div>
-                                                                                        <div class="right-pop-tag">
-                                                                                            <h2>Appoinment&nbsp;<span id="Span7"><?php echo($dash_data['count_appointment'][0]->total);?></span></h2>
-                                                                                            <p>Today Appoinment <span id="Span8"><?php echo($dash_data['appointment']["count"]);?></span></p>
-                                                                                        </div>
-                                                                            </div>
-                                                                        
-                                                                       </div>
-                                              </div>
+                                               <div class="box-data-for-2 fivebox">
+                                                 <div class="blur5">
+                                                   <div class="container1 ">
+                                                     <span class="fa fa-bars new-right"></span>
+                                                     <div class="contextMenu">
+                                                       <p>Resize</p>
+                                                       <ul>
+                                                         <li>
+                                                           <a href="#">Small</a>
+                                                         </li>
+                                                         <li>
+                                                           <a href="#">Medium</a>
+                                                         </li>
+                                                         <li>
+                                                           <a href="#">Large</a>
+                                                         </li>
+                                                       </ul>
+                                                     </div>
+                                                     <div class="left-pop-tag">
+                                                       <span class="fa fa-coffee five" ></span>
+                                                     </div>
+                                                     <div class="right-pop-tag">
+                                                       <h3>
+                                                         <?php echo($dash_data['count_appointment'][0]->total);?>
+                                                       </h3>
+                                                       <h2>
+                                                         Appoinment
+                                                       </h2>
+                                                       <p>
+                                                         Today Appoinment <span id="Span8">
+                                                           <?php echo($dash_data['appointment']["count"]);?>
+                                                         </span>
+                                                       </p>
+                                                     </div>
+                                                   </div>
+
+                                                 </div>
+                                                 </div>
+                                               </div>
                                              
                                              <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2 ">
+                                                                       <div class="box-data-for-2 sixbox">
+                                                                         <div class="blur6">
                                                                            <div class="container1 ">
-                                                                                       <span class="fa fa-bars new-right"></span>
-                                                                                         <div class="contextMenu">
-                                                                                           <p>Resize</p>
-                                                                                           <ul>
-                                                                                             <li>
-                                                                                               <a href="#">Small</a>
-                                                                                             </li>
-                                                                                             <li>
-                                                                                               <a href="#">Medium</a>
-                                                                                             </li>
-                                                                                             <li>
-                                                                                               <a href="#">Large</a>
-                                                                                             </li>
-                                                                                           </ul>
-                                                                                         </div>
-                                                                                        <div class="left-pop-tag"> <span class="fa fa-paw six" ></span></div>
-                                                                                        <div class="right-pop-tag">
-                                                                                            <h2>Periodic Task&nbsp; <span id="Span9"><?php echo($dash_data['count_index_meeting'][0]->total);?></span></h2>
-                                                                                            <p>Today Periodic Task <span id="Span10"><?php echo($dash_data['periodic']);?></span></p>
-                                                                                        </div>
-                                                                            </div>
-                                                                         
+                                                                             <span class="fa fa-bars new-right"></span>
+                                                                             <div class="contextMenu">
+                                                                               <p>Resize</p>
+                                                                               <ul>
+                                                                                 <li>
+                                                                                   <a href="#">Small</a>
+                                                                                 </li>
+                                                                                 <li>
+                                                                                   <a href="#">Medium</a>
+                                                                                 </li>
+                                                                                 <li>
+                                                                                   <a href="#">Large</a>
+                                                                                 </li>
+                                                                               </ul>
+                                                                             </div>
+                                                                             <div class="left-pop-tag">
+                                                                               <span class="fa fa-paw six" ></span>
+                                                                             </div>
+                                                                             <div class="right-pop-tag">
+                                                                               <h3>
+                                                                                 <?php echo($dash_data['count_index_meeting'][0]->total);?>
+                                                                               </h3>
+                                                                               <h2>
+                                                                                 Periodic Task
+                                                                               </h2>
+                                                                               <p>
+                                                                                 Today Periodic Task <span id="Span10">
+                                                                                   <?php echo($dash_data['periodic']);?>
+                                                                                 </span>
+                                                                               </p>
+                                                                             </div>
+                                                                           </div>
+                                                                         </div>
                                                                        </div>
                                               </div>
                                               
                                              <div class="col-md-new-2">
-                                                                       <div class="box-data-for-2 ">
+                                                                       <div class="box-data-for-2 sevenbox">
+                                                                         <div class="blur7">
                                                                            <div class="container1 ">
-                                                                                        <span class="fa fa-bars new-right"></span>
-                                                                                         <div class="contextMenu">
-                                                                                           <p>Resize</p>
-                                                                                           <ul>
-                                                                                             <li>
-                                                                                               <a href="#">Small</a>
-                                                                                             </li>
-                                                                                             <li>
-                                                                                               <a href="#">Medium</a>
-                                                                                             </li>
-                                                                                             <li>
-                                                                                               <a href="#">Large</a>
-                                                                                             </li>
-                                                                                           </ul>
-                                                                                         </div>
-                                                                                        <div class="left-pop-tag"> <span class="fa fa-outdent seven" ></span></div>
-                                                                                        <div class="right-pop-tag">
-                                                                                            <h2>Reminder Sheet&nbsp; <span id="Span11"><?php echo($dash_data['count_index_meeting'][0]->total);?></span></h2>
-                                                                                            <p>Today Reminder Task <span id="Span12"><?php echo($dash_data['daily_notes']["count"]);?></span></p>
-                                                                                        </div>
-                                                                            </div>
-                                                                        
+                                                                             <span class="fa fa-bars new-right"></span>
+                                                                             <div class="contextMenu">
+                                                                               <p>Resize</p>
+                                                                               <ul>
+                                                                                 <li>
+                                                                                   <a href="#">Small</a>
+                                                                                 </li>
+                                                                                 <li>
+                                                                                   <a href="#">Medium</a>
+                                                                                 </li>
+                                                                                 <li>
+                                                                                   <a href="#">Large</a>
+                                                                                 </li>
+                                                                               </ul>
+                                                                             </div>
+                                                                             <div class="left-pop-tag">
+                                                                               <span class="fa fa-outdent seven" ></span>
+                                                                             </div>
+                                                                             <div class="right-pop-tag">
+                                                                               <h3>
+                                                                                 <?php echo($dash_data['count_index_meeting'][0]->total);?>
+                                                                               </h3>
+                                                                               <h2>
+                                                                                 Reminder Sheet
+                                                                               </h2>
+                                                                               <p>
+                                                                                 Today Reminder Task <span id="Span12">
+                                                                                   <?php echo($dash_data['daily_notes']["count"]);?>
+                                                                                 </span>
+                                                                               </p>
+                                                                             </div>
+                                                                           </div>
+                                                                         </div>
                                                                        </div>
                                               </div>
-                                            <div class="col-mew-33 ">
-                                                                       <div class="box-data-for-2 temprature">
+                                            <div class="col-md-new-2 ">
+                                                                       <div class="box-data-for-2 temprature egbox">
+                                                                         <div class="blur8">
                                                                            <div class="container1 ">
-                                                                            
-                                                                                        <div class="left-pop-tag">
-                                                                                           <div id="cl-weth"> </div>
-                                                                                        </div>
-                                                                                        <div class="right-pop-tag">
-                                                                                            <h2 class="title">Wheather Forcast</h2>
-                                                                                            <p><span ></span></p>
-                                                                                             <h2 id="temprature" class="temp"></h2>
-                                                                                        </div>
-                                                                                       
-                                                                            </div>
-                                                                       
+
+                                                                             <div class="left-pop-tag">
+                                                                               <div id="cl-weth"> </div>
+                                                                             </div>
+                                                                             <div class="right-pop-tag">
+                                                                               <h2 class="title">Wheather Forcast</h2>
+                                                                               <p>
+                                                                                 <span ></span>
+                                                                               </p>
+                                                                               <h2 id="temprature" class="temp"></h2>
+                                                                             </div>
+
+                                                                           </div>
+                                                                         </div>
                                                                        </div>
                                               </div>
-                                            <div class="col-mew-33 ">
+                                            <div class="col-md-new-2">
                                               <div class="box-data-for-2 no-border-box">
                                                 <div class="container1 text-center">
                                                   <canvas id="canvas"  class="clock" width="180" >
@@ -262,9 +346,9 @@
                                                 </div>
                                               </div>
                                             </div>
-                                          <div class="col-44">
+                                          <div class="col-md-new-2">
                                                     <div class="container1 color" >
-                                                      <div id='myChart2'></div>
+                                                      <div id="piechart" ></div>
                                                     </div>
                                           </div>
                                               
@@ -465,6 +549,11 @@
         </div><!-- right deshbrad end -->
         <div class='clear'></div>
 
+<<<<<<< HEAD
+        
+<?php $c_date = date('Y-m-d', time()); ?>
+=======
+>>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
 <script>
   $(document).ready(function() {
 
@@ -475,7 +564,7 @@
   right: 'month,agendaWeek,agendaDay,listWeek'
   },
 
-  defaultDate: '2018-03-12',
+  defaultDate: '<?php echo $c_date; ?>',
   navLinks: true, // can click day/week names to navigate views
   editable: true,
   eventLimit: true, // allow "more" link when too many events
@@ -501,7 +590,7 @@
 
 
   eventMouseover: function(calEvent, jsEvent) {
-  var tooltip = '<div class="tooltipevent" ><h2 >Metting Title : ' + calEvent.title + '</h2><p> Start Time : '+  calEvent.start  + '</p></div>';
+  var tooltip = '<div class="tooltipevent" ><h2 class="title">Title</h2><h2 > ' + calEvent.title + '</h2><p> Start Time : '+  calEvent.start  + '</p></div>';
   var $tooltip = $(tooltip).appendTo('body');
 
   $(this).mouseover(function(e) {
@@ -563,10 +652,18 @@
                 $new_start_date =  $yearly_periodic->yearly_periodic_start_date;
                 while($new_start_date <=  $yearly_periodic->yearly_periodic_end_date){ 
                 ?>
+<<<<<<< HEAD
+         
+        {   id:5,
+            title: '<?php echo $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
+            start: '<?php echo $yearly_periodic->yearly_periodic_start_date ?>',
+ 
+=======
         
         {   id:5,
             title: '<?php echo $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
             start: '<?php echo $yearly_periodic->yearly_periodic_start_date ?>',
+>>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
            
         },  
         <?php 
@@ -768,151 +865,31 @@ function drawHand(ctx, pos, length, width) {
     });
     
     // chart
-    
-    
-    var myConfig = {
-
- 	type: "ring",
- 	title: {
- 	  text: "Attendence",
- 	  
- 	  "adjust-layout": true,
- 	  fontColor: "#002653",
- 	},
- 	subtitle: {
- 	  text: "View All Attendence Detail",
- 	  "font-weight": "normal"
- 	},
- 	plot: {
- 	  slice:'50%',
- 	  borderWidth:0,
- 	  backgroundColor:'#FBFCFE',
- 	  animation:{
- 	    effect:2,
- 	    sequence:3
- 	  },
- 	  valueBox: [
- 	    {
- 	      type: 'all',
- 	      text: '%t',
- 	      placement: 'out'
- 	    }, 
- 	    {
- 	      type: 'all',
- 	      text: '%npv%',
- 	      placement: 'in'
- 	    }
- 	  ]
- 	},
-  tooltip:{
- 	    fontSize:16,
- 	    anchor:'c',
- 	    x:'50%',
- 	    y:'50%',
- 	    sticky:true,
- 	    backgroundColor:'none',
- 	    borderWidth:0,
- 	    thousandsSeparator:',',
- 	    text:''
-    
-  },
- 	plotarea: {
- 	  backgroundColor: 'transparent',
- 	  borderWidth: 0,
- 	  borderRadius: "0 0 0 10",
- 	  margin: "70 0 10 0"
- 	},
- 	legend : {
-    toggleAction:'remove',
-    backgroundColor:'#FBFCFE',
-    borderWidth:0,
-    adjustLayout:true,
-    align:'center',
-    verticalAlign:'bottom',
-    marker: {
-        type:'circle',
-        cursor:'pointer',
-        borderWidth:0,
-        size:5
-    },
-    item: {
-        fontColor: "#777",
-        cursor:'pointer',
-        offsetX:-6,
-        fontSize:12
-    },
-    mediaRules:[
-        {
-            maxWidth:500,
-            visible:false
-        }
-    ]
- 	},
- 	scaleR:{
- 	  refAngle:270
- 	},
-	series : [
-		{
-		    text: "Late Arrival",
-			values : [106541],
-			lineColor: "#00BAF2",
-			backgroundColor: "#00BAF2",
-			lineWidth: 1,
-			marker: {
-			  backgroundColor: '#00BAF2'
-			}
-		},
-		{
-		    text: "Mispunch",
-			values : [56711],
-			lineColor: "#E80C60",
-			backgroundColor: "#E80C60",
-			lineWidth: 1,
-			marker: {
-			  backgroundColor: '#E80C60'
-			}
-		},
-		{
-		  text: "Tour Gone",
-			values : [43781],
-			lineColor: "#9B26AF",
-			backgroundColor: "#9B26AF",
-			lineWidth: 1,
-			marker: {
-			  backgroundColor: '#9B26AF'
-			}
-		}
-	]
-};
- 
-zingchart.render({ 
-	id : 'myChart2', 
-  data: {
-    gui:{
-      contextMenu:{
-        
-        position: "right",
-        backgroundColor:"", /*sets background for entire contextMenu*/
-        docked: true, 
-        item:{
-          backgroundColor:"#306EAA",
-          borderColor:"#306EAA",
-          borderWidth: 0,
-          fontFamily: "Lato",
-          color:"#fff"
-        }
-      
-      },
-    },
-    graphset: [myConfig]
-  },
-	
-});
-    
-    
-    
+  
 </script>
-             
+<script type="text/javascript">
+  // Load google charts
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  // Draw the chart and set the chart values
+  function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Tasks', ''],
+  ['Meetings', 4],
+  ['Appoinment', 3],
+  ['Task', 3]
+
+  ]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Daiily Log', 'width':230, 'height':220};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
 <?php $this->load->view('footer'); ?>
 
 

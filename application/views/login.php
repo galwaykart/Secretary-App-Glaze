@@ -23,58 +23,64 @@
 <body class="log_body">
 <div >
    <div class='login-section'>
-	<h1>Secretary Application</h1>
-    <div class="panel">
+	<p><?php if(isset($title)) { echo $title; } ?></p>
+    <div class="panel2">
         <div class="body-tag">
-		<p><?php if(isset($title)) { echo $title; } ?></p>
-            <p>Sign in to start your session</p> 
-			<?php  
-               $success_msg = $this->session->flashdata('success_msg');
-               $error_msg   = $this->session->flashdata('error_msg');
-              //  $error_msg   = $this->session->flashdata('error_msg');
-
-                  if($success_msg){
-                    ?>
-                    <div class="alert alert-success">
-                      <?php echo $success_msg; ?>
-                    </div>
-                  <?php
-                  }  
-                  if($error_msg){
-                    ?>
-                    <div class="alert alert-danger">
-                      <?php echo $error_msg; ?> 
-					  
-                    </div>
-                    <?php
-                  }  
-                  ?>
+		
+           <h2>Welcome !</h2>
+			<p style="color: white;text-align: left;margin-left: 13px;font-family: sans-serif;font-size: 13px;">Login to continue</p>
 			   <form role="form" method="post" action="<?php echo base_url('user/login_user'); ?>">
 					<div class="form-group">
 						 <div class="input-group">
 							 <div class="input-addon"><span class="fa fa-user"></span></div>
-							 <div class="input-feild"><input type="text" placeholder="User Name" id="username" name="username" tabindex="1" required /></div> 
+							 <div class="input-feild"><input type="text" placeholder="User Name" id="username" name="username" value="" tabindex="1" required /></div> 
 						 </div>
 					 </div>
 					<div class="form-group">
 					<div class="form-group">
 						 <div class="input-group">
 							 <div class="input-addon"><span class="fa fa-unlock-alt"></span></div>
-							 <div class="input-feild"><input type="password" placeholder="Password" id="password" name="password" tabindex="2" required /></div>
+							 <div class="input-feild"><input type="password" placeholder="Password" id="password" name="password" value="" tabindex="2" required /></div>
 						 </div>
 					 </div>
-					<input type="submit" id="btn" value="sign In" class="btn-log " tabindex="3" /><br />
+					
+
+					<button id="btn"  " tabindex="3" >Sign In &nbsp;&nbsp;<span class="fa fa-long-arrow-right"></span></button><br />
                </form>  
             <span id="eror" style=" font-size: 10px;color: red;font-weight: 700;"></span>
             <br />
-            <span class="fa fa-spinner glyphicon-refresh glyphicon-refresh-animate"></span>
+          
 
 		</div>
+		<?php  
+               $success_msg = $this->session->flashdata('success_msg');
+               $error_msg   = $this->session->flashdata('error_msg');
+              //  $error_msg   = $this->session->flashdata('error_msg');
 
+                  if($success_msg){
+                    ?>
+                    <div class="alert alert-success" class="text-align:left;color:white;">
+                    <p class="log-eror" style="">  <?php echo $success_msg; ?></p>
+                    </div>
+                  <?php
+                  }  
+                  if($error_msg){
+                    ?>
+                    <div class="alert alert-danger">
+                    <p class="log-ero2">  <?php echo $error_msg; ?></p> 
+					  
+                    </div>
+                    <?php
+                  }  
+                  ?>
     </div>
      
 </div>
+<script>
 
+
+$('#btn').on('click',function(){$('.log-ero2 , .log-eror').css('display','block');});
+</script>
   
 </body>
 </html>
