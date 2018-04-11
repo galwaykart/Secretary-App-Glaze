@@ -49,6 +49,7 @@ class Appointment_model extends CI_model{
 
         $name= $data[1]['delegates_name'];
         $email= $data[1]['delegates_email'];
+        $phone= $data[1]['delegates_phone'];
 
 
         $fLen = count($total_participants);
@@ -59,6 +60,7 @@ class Appointment_model extends CI_model{
             $p_data = array(
                 'appointment_with_name'=>$name[$i],
                 'appointment_with_email'=>$email[$i],
+                'phone_number'=>$phone[$i],
                );
 
             $existing_array = array();
@@ -102,6 +104,7 @@ class Appointment_model extends CI_model{
 
                     $delegates_name= $data[1]['delegates_name'];
                     $delegates_email= $data[1]['delegates_email'];
+                    $phone= $data[1]['delegates_phone'];
             
             
                     $fLen = count($delegates_name);
@@ -116,6 +119,8 @@ class Appointment_model extends CI_model{
                         $p_data = array(
                             'appointment_with_name'=>$delegates_name[$i],
                             'appointment_with_email'=>$delegates_email[$i],
+                            'phone_number'=>$phone[$i],
+                            
                            );
             
                         $existing_array = array();

@@ -549,8 +549,11 @@
         </div><!-- right deshbrad end -->
         <div class='clear'></div>
 
+<<<<<<< HEAD
         
 <?php $c_date = date('Y-m-d', time()); ?>
+=======
+>>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
 <script>
   $(document).ready(function() {
 
@@ -649,11 +652,18 @@
                 $new_start_date =  $yearly_periodic->yearly_periodic_start_date;
                 while($new_start_date <=  $yearly_periodic->yearly_periodic_end_date){ 
                 ?>
+<<<<<<< HEAD
          
         {   id:5,
             title: '<?php echo $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
             start: '<?php echo $yearly_periodic->yearly_periodic_start_date ?>',
  
+=======
+        
+        {   id:5,
+            title: '<?php echo $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
+            start: '<?php echo $yearly_periodic->yearly_periodic_start_date ?>',
+>>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
            
         },  
         <?php 

@@ -8,12 +8,14 @@
 			$insert_id = $this->db->insert_id();
 			$delegates_name = $data[1]['yearly_periodic_delegates_name'];
 			$delegates_email = $data[1]['yearly_periodic_delegates_email'];
+			$delegates_phone = $data[1]['phone_number'];
 			$totalname = sizeof($delegates_name);
 			for($i=0;$i<$totalname;$i++) {
 				$insertdelegate_to = $delegates_name[$i];
 				$insertemail = $delegates_email[$i];
-				$sql = "insert into yearly_periodic_delegates(yearly_periodic_id,yearly_periodic_delegates_name,yearly_periodic_delegates_email)
-						values('$insert_id','$insertdelegate_to','$insertemail')";
+				$insertphone = $delegates_phone[$i];
+				$sql = "insert into yearly_periodic_delegates(yearly_periodic_id,yearly_periodic_delegates_name,yearly_periodic_delegates_email,phone_number)
+						values('$insert_id','$insertdelegate_to','$insertemail','$insertphone')";
 				//print_r($sql);die;
 				$this->db->query($sql);
 				}
@@ -75,12 +77,14 @@
 		    $this->db->delete("yearly_periodic_status", "yearly_periodic_id = $record_id");
 			$delegates_name = $data[1]['yearly_periodic_delegates_name'];
 			$delegates_email = $data[1]['yearly_periodic_delegates_email'];
+			$delegates_phone = $data[1]['phone_number'];
 			$totalname = sizeof($delegates_name);
 			for($i=0;$i<$totalname;$i++) {
 			$insertdelegate_to = $delegates_name[$i];
 			$insertemail = $delegates_email[$i];
-			$sql = "insert into yearly_periodic_delegates(yearly_periodic_id,yearly_periodic_delegates_name,yearly_periodic_delegates_email)
-					values('$record_id','$insertdelegate_to','$insertemail')";
+			$insertphone= $delegates_phone[$i];
+			$sql = "insert into yearly_periodic_delegates(yearly_periodic_id,yearly_periodic_delegates_name,yearly_periodic_delegates_email,phone_number)
+					values('$record_id','$insertdelegate_to','$insertemail','$insertphone')";	
 			//	print_r($sql);die;
 			$this->db->query($sql);
 			}
@@ -97,7 +101,7 @@
 			  }
 		 }
 		 
-		 public function changeStatus($id ,$status,$end_date){
+		 public function changeStatus($id ,$status){
 			$this->db->set('yearly_periodic_status',$status); 
 			$this->db->set('yearly_periodic_end_date',date("Y-m-d")); 
             $this->db->where("yearly_periodic_id", $id); 

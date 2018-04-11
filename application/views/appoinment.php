@@ -23,7 +23,7 @@
                     <div class="table-view">
                         <table>
                             <thead>
-                                <tr><th>Sr No</th><th>Start Time</th><th>End Time</th><th>Subject</th><th>Travel Time</th><th>Remerk</th><th>Status</th><th>Active/Inactive</th></tr>
+                                <tr><th>Sr No</th><th>Start Time</th><th>End Time</th><th>Subject</th><th>Travel Time</th><th>Remerk</th><th>Status</th><th>Venue</th><th>Active/Inactive</th></tr>
                             </thead>
                             <tbody>
 
@@ -40,6 +40,7 @@
                                             echo "<td>".$r->appointment_travel_time."</td>"; 
                                             echo "<td>".$r->appointment_remark."</td>"; 
                                             echo "<td>".$r->appointment_status."</td>";
+                                            echo "<td>".$r->venue."</td>";
                                             if($r->appointment_active == 0){echo "<td>NO</td>";}else{echo "<td>Yes</td>";} 
                                              
 
@@ -135,7 +136,7 @@
               <label>Venue :</label>
               <div class="input-group">
                 <div class="form-control">
-                  <input required="" type="text" placeholder="Venue"/>
+                  <input required="" type="text" placeholder="Venue" name="venue"/>
                 </div>
 
               </div>
@@ -146,7 +147,7 @@
               <label>Travel Time :</label>
               <div class="input-group">
                 <div class="form-control">
-                  <input required="" type="text" id="appointment_travel_time" name="travel_time" title="Task" />
+                  <input required="" type="time" id="appointment_travel_time" name="travel_time" title="Task" />
                 </div>
 
               </div>
@@ -159,7 +160,7 @@
 
           <div class="col-md-12">
             <div class="form-group">
-              <label>Target Date</label>
+              <label>End Date</label>
               <div class="input-group">
                 <div class="form-control">
                   <input required="" type="date" id="task_traget_date" name="target_date" title="Target Date" />
@@ -218,7 +219,7 @@
               <div class="auto-del">
                 <div class="left">
                   <div class="form-group">
-                    <label>Delegate To</label>
+                    <label>Appointment With</label>
                     <div class="input-group">
                       <div class="form-control">
                         <input required="" type="text" id ="gm1" name="delegate_to[]" title="Delegate To" />
@@ -233,6 +234,16 @@
                     <div class="input-group">
                       <div class="form-control">
                         <input required="" type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="left">
+                  <div class="form-group">
+                    <label>Phone Number</label>
+                    <div class="input-group">
+                      <div class="form-control">
+                        <input required="" type="text" id="gm3" placeholder="Phone Number"  name="delegate_phone[]"/>
                       </div>
                     </div>
                   </div>
@@ -264,6 +275,7 @@
           <button type="submit" class="btn-primary btn">Save</button>
           <input required="" class="btn-primary btn" type="reset" value="Reset">
             <!-- <a href="#">Reset</a> -->
+            <span id="set_submail"></span>
           </div>
 
       </div>
@@ -278,6 +290,7 @@
 
 
 <script type="text/javascript">
+<<<<<<< HEAD
   $(document).ready(function(){
 
   $('a#plus').on('click',function(){
@@ -286,6 +299,55 @@
   $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required="" type="text" title="Delegate To" required="" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required="" type="text" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 
 
+=======
+  $(function() {
+  $('a#plus').click(function(e) {
+  e.preventDefault();
+  alert()
+
+  var lnth = $('#delete .auto-del').length;
+  $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del">
+    <div class="auto-del">
+      <div class="left">
+        <div class="form-group">
+          <label>Appointment With</label>
+          <div class="input-group">
+            <div class="form-control">
+              <input required="" type="text" title="Delegate To" required="" name="delegate_to[]" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="center">
+        <div class="form-group">
+          <label>Email Id</label>
+          <div class="input-group">
+            <div class="form-control">
+              <input required="" type="text" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="left">
+                  <div class="form-group">
+                    <label>Phone Number</label>
+                    <div class="input-group">
+                      <div class="form-control">
+                        <input required="" type="text" id="gm3" placeholder="Phone Number"  name="delegate_phone[]"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      <div class="right text-center">
+        <div class="btn-group">
+          <a style="background: red;" href="#"  onclick="setValues('+ lnth + ')">
+            <span class="fa fa-minus" style="color: white;"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>');
+>>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
 
   });
 
@@ -321,11 +383,13 @@
                     document.getElementById("active").value = data_json.insidequickwork[0].appointment_active;
                     document.getElementById("gm1").value = data_json.insidequickwork[0].appointment_with_name;
                     document.getElementById("gm2").value = data_json.insidequickwork[0].appointment_with_email;
+                    document.getElementById("gm3").value = data_json.insidequickwork[0].phone_number;
                     document.getElementById("my2Form").action = "<?php echo base_url(); ?>Appoinment/req/"+data_json.insidequickwork[0].appointment_id;
-                    
+                    document.getElementById("set_submail").innerHTML = "<input type='submit' name='submail' class='btn-primary btn check_mail' value='submit & Mail'></input>";
+
                     for(var i=0; i<data_json.insidequickwork.length ; i++){
                         var j = i +1 ;
-                        $('#auto-del').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" value="'+ data_json.insidequickwork[j].appointment_with_name +'" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_email[]" value="'+data_json.insidequickwork[j].appointment_with_email+'"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+                        $('#auto-del').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Appointment With</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" value="'+ data_json.insidequickwork[j].appointment_with_name +'" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_email[]" value="'+data_json.insidequickwork[j].appointment_with_email+'"/></div></div></div></div><div class="left"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_phone[]" value="'+data_json.insidequickwork[j].phone_number+'"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 
                     }
                 }

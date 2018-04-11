@@ -98,7 +98,9 @@
 			 $this->form_validation->set_rules('Employee[]','Employee Type','trim|required');
 			 $this->form_validation->set_rules('parti_name[]','Name of Paticipants','trim|required');
 			 $this->form_validation->set_rules('parti_email[]','Email','trim|required|valid_email');
+			 $this->form_validation->set_rules('parti_phone[]','Phone number','trim|required');
 
+			 
 
 			 
 			//  $this->form_validation->set_rules('venue', 'venue', 'trim|required|valid_email');
@@ -109,6 +111,7 @@
 			//  $this->form_validation->set_rules('type','Type','trim|required');
 
 
+			
 			if($this->form_validation->run() == false)
 			{
 				$this->daillynote_view();
@@ -142,6 +145,7 @@
 						'employee'=>$this->input->post('Employee'),
 						'name'=>$this->input->post('parti_name'),
 						'email'=>$this->input->post('parti_email'),
+						'Phone_number'=>$this->input->post('parti_phone'),
 					   );
 					
 					//print_r($data[1]);
@@ -150,6 +154,44 @@
 						if($result)
 						{
 						$param1 =  "<h2>Successfully updated</h2>";
+						$submail = $this->input->post('submail');
+						if($submail){
+							
+						/* ...........................Mail sending start here!.......................................*/
+
+						$mail_to = implode(",",$data[1]['email']);
+						$config = array (
+						'mailtype' => 'html',
+						'charset'  => 'utf-8',
+						'priority' => '1'
+						);
+						$this->email->initialize($config);
+						$this->email->set_newline("\r\n");
+						$this->email->from('gaurav.gupta0705@gmail.com', 'Gaurav');
+						$data_quick["mail_data"] = $data;
+						$this->email->to($mail_to);
+
+						$this->email->subject('Dailnotes');
+
+						$body = $this->load->view('email_template/dailynotes.php',$data_quick,TRUE);
+
+						$this->email->message($body);
+
+						$this->email->send();
+
+						/* ...........................Mail sending end here!................................................*/
+			/*..............................sms send start here............................................ */
+			$send_to = implode(",",$data[1]['Phone_number']);
+			$text="dailynotes gaurav test.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			//print_r($results);
+			/*..............................sms send end here............................................ */
+
+						}
 						
 						}
 						else
@@ -189,6 +231,17 @@
 						$this->email->send();
 
 /* ...........................Mail sending end here!................................................*/
+
+			/*..............................sms send start here............................................ */
+			$send_to = implode(",",$data[1]['Phone_number']);
+			$text="dailynotes insert gaurav test.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			//print_r($results);
+			/*..............................sms send end here............................................ */
 
 						
 						}

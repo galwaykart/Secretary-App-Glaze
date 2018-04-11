@@ -11,6 +11,7 @@
 			$employee= $data[1]['employee'];
 			$name= $data[1]['name'];
 			$email= $data[1]['email'];
+			$phone= $data[1]['Phone_number'];
 
 
 			$fLen = count($total_participants);
@@ -23,6 +24,7 @@
 					'employee'=>$employee[$i],
 					'name'=>$name[$i],
 					'p_email'=>$email[$i],
+					'phone_number'=>$phone[$i],
 				);
 
 				$existing_array = array();
@@ -110,6 +112,7 @@
 			$employee= $data[1]['employee'];
 			$name= $data[1]['name'];
 			$email= $data[1]['email'];
+			$phone= $data[1]['Phone_number'];
 			
 			
 					$fLen = count($total_participants);
@@ -122,6 +125,7 @@
 					'employee'=>$employee[$i],
 					'name'=>$name[$i],
 					'p_email'=>$email[$i],
+					'phone_number'=>$phone[$i],
 					);
 	
 				$existing_array = array();

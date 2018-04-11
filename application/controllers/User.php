@@ -15,6 +15,7 @@ class User extends CI_Controller
 	
 	public function index(){  
 			if($this->session->user == 'logged_in'){
+				//echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 				$this->dashboard();
 			}else{
 				 $this->load->view("login");
@@ -138,6 +139,15 @@ class User extends CI_Controller
 			  $this->user_model->register_user($user);
 				$this->session->set_flashdata('msg', 'Registered successfully.Now login to your account.');
 /* ...........................Mail sending start here!.......................................*/
+/*..............................sms send start here............................................ */
+$text="baba KIng singh gaurav ff.";	 
+$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+$results = curl_exec($chs);
+print_r($results);
+/*..............................sms send end here............................................ */
 
 		$mail_to = $user['email'];
 		$config = array (

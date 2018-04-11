@@ -58,7 +58,7 @@
 			}
 		}
 		
-		public function add_data(){
+	public function add_data(){
 		if($this->uri->segment(3)){
 		  $this->form_validation->set_rules('end_date','End Date ','trim|required');
 		  $this->form_validation->set_rules('note[]','Note ','trim|required');
@@ -78,7 +78,6 @@
 			}else{
 				$this->index();
 			}
-			
 		  }
 		  else {
 			$record_id =$this->uri->segment(3); 
@@ -97,6 +96,7 @@
 			$data[1] = array(
 			'monthly_periodic_delegates_name'=>$this->input->post('delegate_to'),
 			'monthly_periodic_delegates_email'=>$this->input->post('email'),
+			'phone_number'=>$this->input->post('phone_number'),
 			);
 			$data[2] = array(
 			'monthly_periodic_status_date'=>$this->input->post('date'),
@@ -106,12 +106,49 @@
 			if($this->uri->segment(3)){
 			$this->Monthly_periodic_model->updatetask($data , $record_id);
 			$this->session->set_flashdata('msg', 'Updated Successfully!!!');
+			$submail = $this->input->post('submail');
+			if($submail){
+				
+/*..............................sms send end here............................................ */
+
+$mail_to = implode(",",$data[1]['monthly_periodic_delegates_email']);
+$config = array (
+'mailtype' => 'html',
+'charset'  => 'utf-8',
+'priority' => '1'
+);
+$this->email->initialize($config);
+$this->email->set_newline("\r\n");
+$this->email->from('surender.singh@glazegalway.com', 'Surender');
+$data_quick["mail_data"] = $data;
+$this->email->to($mail_to);
+
+$this->email->subject('Monthly Periodic Task');
+
+$body = $this->load->view('email_template/monthlyPeriodic.php',$data_quick,TRUE);
+
+$this->email->message($body);
+
+$this->email->send();
+
+/* ...........................Mail sending end here!................................................*/
+
+			}
 			redirect('Monthlyperiodic/');
 			}
 			else{
 			$this->Monthly_periodic_model->insertmonthly($data);
 			$this->session->set_flashdata('msg', 'Saved Successfully!!!');
 /* ...........................Mail sending start here!.......................................*/
+/*..............................sms send start here............................................ */
+$text="baba KIng singh gaurav ff.";	 
+$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+$results = curl_exec($chs);
+print_r($results);
+/*..............................sms send end here............................................ */
 
 			$mail_to = implode(",",$data[1]['monthly_periodic_delegates_email']);
 			$config = array (

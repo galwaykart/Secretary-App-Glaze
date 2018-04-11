@@ -189,6 +189,16 @@ class Projectdelegation extends CI_Controller {
 
 /* ...........................Mail sending end here!................................................*/
 
+/*..............................sms send start here............................................ */
+$text="baba KIng singh gaurav ff.";	 
+$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+$results = curl_exec($chs);
+//print_r($results);
+/*..............................sms send end here............................................ */
+
 					 
 					 }
 					 else
@@ -239,13 +249,38 @@ class Projectdelegation extends CI_Controller {
 
 								 $this->email->from('surender.singh@glazegalway.com', 'Surender');
 								 $this->email->to($this->deledates);
-								 //$this->email->cc('another@another-example.com');
-								 //$this->email->bcc('them@their-example.com');
-						 
 								 $this->email->subject('Project status');
 								 $this->email->message("Next Followup date : ".$this->input->post('nxt_followup_date'));
 						 
 								 $this->email->send();
+								 $submail = $this->input->post('submail');
+								//  if($submail){
+								// 	/* ...........................Mail sending start here!.......................................*/
+			
+								// 	$this->deledates = implode(",",$deli);
+								// 	$config = array (
+								// 	'mailtype' => 'html',
+								// 	'charset'  => 'utf-8',
+								// 	'priority' => '1'
+								// 	);
+								// 	$this->email->initialize($config);
+								// 	$this->email->set_newline("\r\n");
+								// 	$this->email->from('surender.singh@glazegalway.com', 'Surender');
+								// 	$data_quick["mail_data"] = $data;
+								// 	$this->email->to($this->deledates);
+			
+								// 	$this->email->subject('Project Delegations');
+			
+								// 	$body = $this->load->view('email_template/project_delegation.php',$data_quick,TRUE);
+			
+								// 	$this->email->message($body);
+			
+								// 	$this->email->send();
+			
+								// 	/* ...........................Mail sending end here!................................................*/
+					
+			
+								//   }
 								 
 								 }
 								 else
@@ -291,6 +326,34 @@ class Projectdelegation extends CI_Controller {
 					 if($result)
 					 {
 					 $param1 =  "<h2>Success</h2>";
+					 $submail = $this->input->post('submail');
+					 if($submail){
+						/* ...........................Mail sending start here!.......................................*/
+
+						$mail_to = implode(",",$data['delegates_email']);
+						$config = array (
+						'mailtype' => 'html',
+						'charset'  => 'utf-8',
+						'priority' => '1'
+						);
+						$this->email->initialize($config);
+						$this->email->set_newline("\r\n");
+						$this->email->from('surender.singh@glazegalway.com', 'Surender');
+						$data_quick["mail_data"] = $data;
+						$this->email->to($mail_to);
+
+						$this->email->subject('Project Delegations');
+
+						$body = $this->load->view('email_template/project_delegation.php',$data_quick,TRUE);
+
+						$this->email->message($body);
+
+						$this->email->send();
+
+						/* ...........................Mail sending end here!................................................*/
+		
+
+					 }
 					 
 					 }
 					 else

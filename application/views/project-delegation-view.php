@@ -17,6 +17,7 @@
       <?php if($message){
                         echo "<div style='color:#1dd670'>".$message."</div>";
                         } ?>
+<<<<<<< HEAD
 
       <div class="col-md-12">
         <p>
@@ -117,6 +118,97 @@
                       <div class="form-control">
                         <input required="" type="text" id ="gm1" name="delegate_to[]" title="Delegate To" value="<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_name;} ?>"/>
                       </div>
+=======
+                                    <h2>Project Status</h2>
+                                    <div class="col-md-12"><p>Project Name : <span id="projectname"> <?php echo $records['delegates_data'][0]->project_delegation_project; ?> </span></p></div>
+                                   
+                                    <div class="clear"></div>
+                                    <!-- <div class="col-md-4">
+                                                 <div class="form-group">
+                                                        <label>Delegate To</label>
+                                                        
+                                                        <div class="input-group">
+                                                            <div class="input-addon">
+                                                                <span class="fa fa-share" ></span>
+                                                            </div>
+                                                            <div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" /></div>
+                                                        </div>
+                                                </div>
+                                    </div> -->
+                                    <div class="col-md-4">
+                                                <div class="form-group">
+                                                        <label>Start Date</label>
+                                                        
+                                                        <div class="input-group">
+                                                            <div class="input-addon">
+                                                            <span class="fa fa-calendar" ></span>
+                                                            </div>
+                                                            <div class="form-control"><input type="date" title="Start date" required value="<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_date ;}?>"  /></div>
+                                                        </div>
+                                                </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                                <div class="form-group">
+                                                        <label>Target date</label>
+                                                        
+                                                        <div class="input-group">
+                                                            <div class="input-addon">
+                                                            <span class=" fa fa-line-chart" ></span>
+                                                            </div>
+                                                            <div class="form-control"><input type="date" title="Target Date" required value="<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_target_date ;}?>"/></div>
+                                                        </div>
+                                                </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                                <div class="form-group">
+                                                        <label>Total days</label>
+                                                        
+                                                        <div class="input-group">
+                                                            <div class="input-addon">
+                                                            <span class=" fa fa fa-cogs" ></span>
+                                                            </div>
+                                                            <div class="form-control"><input type="text" title="Total days" readonly placeholder="Total Days" value="<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                                <div class="form-group">
+                                                        <label>Remark</label>
+                                                        
+                                                        <div class="input-group">
+                                                            <div class="input-addon">
+                                                            <span class=" fa fa fa-cogs" ></span>
+                                                            </div>
+                                                            <div class="form-control"><input type="text" title="Remark"  placeholder="Total Days" value="<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_remark ;}?>"/>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                    </div>
+                        </div><!-- col-md-12 end -->
+                        <div class="clear"></div>
+
+                <form method="POST" action="<?php echo base_url().'/Projectdelegation/UpdateDelegates/'.$record_id;?>">                             <!-- autometic delegates start -->
+                    <div>
+                        <div class="left">
+                            <div class="form-group">
+                                <label>Extended date</label>
+                                <div class="input-group">
+                                    <div class="form-control"><input  type="date" id ="extend_date" name="extend_date" title="extend_date" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <div class="form-group">
+                                <label>Reason</label>
+                                <div class="input-group">
+                                    <div class="form-control">
+                                        <input  type="text" id="reason"   name="reason" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+>>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
                     </div>
                   </div>
                 </div>
@@ -163,6 +255,7 @@
                         </div>
                       </div>
                     </div>
+<<<<<<< HEAD
                     <div class="col-md-6">
                       <div class="form-group form">
                         <label>Email Id</label>
@@ -171,6 +264,14 @@
                           <div class="form-control">
                             <input required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_email;} ?>"/>
                           </div>
+=======
+                    <div class="footer">
+                        <div class="col-md-12">
+                            <button type="submit" class="btargetDatetn-primary btn">Save</button>
+                            <?php if($this->uri->segment(3)){?>
+                            <input type="submit" name="submail" class="btn-primary btn" value="submit & Mail"></input>
+                            <?php }?>
+>>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
                         </div>
                       </div>
                     </div>
@@ -387,6 +488,7 @@
                                    <!-- <a href="#">Add</a> -->
                                    <input required class="btn-primary btn" type="reset" value="Reset">
                                    <!-- <a href="#">Reset</a> -->
+
                     </div>
                     
             </div><!-- footer end -->
