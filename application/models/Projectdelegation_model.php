@@ -42,6 +42,7 @@ class Projectdelegation_model extends CI_model{
 	
 			$name= $data[1]['delegates_name'];
 			$email= $data[1]['delegates_email'];
+			$phone= $data[1]['phone_number'];
 	
 	
 			$fLen = count($total_participants);
@@ -52,6 +53,7 @@ class Projectdelegation_model extends CI_model{
 				$p_data = array(
 					'project_delegation_delegated_name'=>$name[$i],
 					'project_delegation_delegated_email'=>$email[$i],
+					'phone_number'=>$phone[$i],
 				   );
 	
 				$existing_array = array();
@@ -178,7 +180,9 @@ class Projectdelegation_model extends CI_model{
 				for($i=0; $i<sizeof($data['delegates_name']) ; $i++){
 					$name = $data['delegates_name'][$i];
 					$email = $data['delegates_email'][$i];
-					$res = $this->db->query("INSERT INTO project_delegation_delegates (project_delegation_id, project_delegation_delegated_name, project_delegation_delegated_email) VALUES ($record_id,'$name','$email')");
+					$phone= $data['phone_number'][$i];
+
+					$res = $this->db->query("INSERT INTO project_delegation_delegates (project_delegation_id, project_delegation_delegated_name, project_delegation_delegated_email ,phone_number) VALUES ($record_id,'$name','$email','$phone')");
 				}
 				if($data['extend_date'] != null && $data['reason'] != null){
 					$output_extend_date = $this->db->insert('project_delegation_dates', $extend_date__data);

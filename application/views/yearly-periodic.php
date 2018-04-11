@@ -61,7 +61,6 @@
 																     <td><?php echo $i++; ?></td>
 																	 <td><?php if($list->yearly_periodic_month==1){echo "Jan";}if($list->yearly_periodic_month==2){echo "Feb";} if($list->yearly_periodic_month==3){echo "Mar";} if($list->yearly_periodic_month==4){echo "Apr";} if($list->yearly_periodic_month==5){echo "May";} if($list->yearly_periodic_month==6){echo "June";} if($list->yearly_periodic_month==7){echo "July";} if($list->yearly_periodic_month==8){echo "Aug";} if($list->yearly_periodic_month==9){echo "Sept";} if($list->yearly_periodic_month==10){echo "Oct";} if($list->yearly_periodic_month==11){echo "Nov";} if($list->yearly_periodic_month==12){echo "Dec";}?></td>
 																	 <td><?php echo $list->yearly_periodic_start_date;?></td>
-																	<!-- <td><?php// echo $list->yearly_periodic_end_date;?></td>-->
 																	 <td><?php echo $list->yearly_periodic_task_name;?></td>
 																	 <td><?php echo $list->yearly_periodic_remark;?></td>
 																	 <td><?php if($list->yearly_periodic_status==1){echo "Active";}else{echo "Inactive";} ?></td>
@@ -278,8 +277,7 @@
 																 <label>Start Date</label>
                                                                         <div class="input-group">
                                                                            
-                                                                            <div class="form-control"><input type="date" title="Select Start Date"  required name="start_date" value="<?php// echo set_value('start_date'); ?>" />
-																			<?php //echo form_error('start_date', '<span class="form_error">', '</span>'); ?></span>
+                                                                            <div class="form-control"><input type="date" title="Select Start Date"  required name="start_date" value="" />																			
 																			</div>
                                                                         </div>
                                                                 </div>

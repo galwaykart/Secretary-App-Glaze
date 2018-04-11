@@ -39,7 +39,17 @@
                                             // echo "<td>".$r->appointment_periodic."</td>"; 
                                             echo "<td>".$r->appointment_travel_time."</td>"; 
                                             echo "<td>".$r->appointment_remark."</td>"; 
-                                            echo "<td>".$r->appointment_status."</td>";
+                                            if($r->appointment_status ==0){
+                                              echo "<td>Done</td>";
+                                            }elseif($r->appointment_status ==1){
+                                              echo "<td>Preponed</td>";
+                                            }elseif($r->appointment_status ==2){
+                                              echo "<td>Postponed</td>";
+                                            }elseif($r->appointment_status ==3){  
+                                              echo "<td>On Hold</td>";
+                                            }else{ 
+                                              echo "<td>Cancelled</td>";
+                                            } 
                                             echo "<td>".$r->venue."</td>";
                                             if($r->appointment_active == 0){echo "<td>NO</td>";}else{echo "<td>Yes</td>";} 
                                              
@@ -203,11 +213,19 @@
               <label>Status</label>
               <div class="input-group">
                 <div class="form-control">
-                  <input required="" type="text" id="task_status" name="status" title="Status" />
+                  <!-- <input required="" type="text" id="task_status" name="status" title="Status" /> -->
+                  <select name="status" id="task_status">
+                    <option value='0' >Done</option>
+                    <option value='1'>preponed</option>
+                    <option value='2' >Postponed</option>
+                    <option value='3'>On Hold</option>
+                    <option value='4' >Cancelled</option>
+                  </select>
                 </div>
               </div>
             </div>
           </div>
+          
           <div class="col-md-6">
             <div class="form-group">
               <label>Active/Inactive</label>
@@ -290,7 +308,7 @@
       <!-- footer end -->
 
     </div>
-    </form>
+    </form><div class="left"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_phone[]" value="'+data_json.insidequickwork[j].phone_number+'"/></div></div></div></div>
     <!-- popup ends -->
 	</div>
  

@@ -62,7 +62,8 @@
                                             echo "<td>".$r->target_date."</td>"; 
                                             echo "<td>".$r->priority."</td>"; 
                                             echo "<td>".$r->remark."</td>"; 
-                                            echo "<td>".$r->status."</td>"; 
+                                            if($r->status == 0){ echo "<td>Pending</td>";}else{echo "<td>Completed</td>";}
+                                            
                                             if($r->active == 0){ echo "<td>"."Yes"."</td>"; }else{ echo "<td>"."No"."</td>"; }
 
                                              
@@ -168,7 +169,9 @@
                             <div class="form-group">
                                        <label>Status</label>
                                         <div class="input-group">
-                                            <div class="form-control"><input required type="text" id="task_status" name="status" title="Status" /></div>
+                                            <div class="form-control">
+                                            <select name="status" id="task_status"><option value='0'>Pending</option><option value='1'>Completed</option></select>
+                                            <!-- <input required type="text" id="task_status" name="status" title="Status" /></div> -->
                                         </div>
                            </div>
                     </div>

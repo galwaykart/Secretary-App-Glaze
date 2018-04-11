@@ -27,7 +27,7 @@
 				
 					  $config["total_rows"] = $this->Appointment_model->record_count();
 				
-					  $config["per_page"] = 1;
+					  $config["per_page"] = 10;
 				
 					  $config["uri_segment"] = 3;
 				

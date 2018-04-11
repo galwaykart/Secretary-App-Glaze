@@ -128,6 +128,7 @@ class Projectdelegation extends CI_Controller {
 					'project_delegation_outsourcing'=>$this->input->post('outsource'),
 					'project_delegation_target_date'=>$this->input->post('target_date'),
 					'project_delegation_followup_date'=>$this->input->post('followup_date'),
+					'project_delegation_followup_from'=>$this->input->post('followup_from'),
 					'project_delegation_remark'=>$this->input->post('remark'),
 					'user_id'=>$this->user_id,
 
@@ -136,6 +137,7 @@ class Projectdelegation extends CI_Controller {
 				   $data[1] = array(
 					'delegates_name'=>$this->input->post('delegate_to'),
 					'delegates_email'=>$this->input->post('delegate_email'),
+					'phone_number'=>$this->input->post('delegate_phone'),
 				   );
 
 				  
@@ -189,15 +191,16 @@ class Projectdelegation extends CI_Controller {
 
 /* ...........................Mail sending end here!................................................*/
 
-/*..............................sms send start here............................................ */
-$text="baba KIng singh gaurav ff.";	 
-$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
-curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
-curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
-$results = curl_exec($chs);
-//print_r($results);
-/*..............................sms send end here............................................ */
+			/*..............................sms send start here............................................ */
+			$send_to = implode(",",$data[1]['phone_number']);
+			$text="Project delegations insert gaurav test.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			//print_r($results);
+			/*..............................sms send end here............................................ */
 
 					 
 					 }
@@ -307,7 +310,7 @@ $results = curl_exec($chs);
 			$result = $this->Projectdelegation_model->joinData();
 		}
 
-		public function UpdateDelegates(){
+		public function UpdateDelegatesdate(){
 			$record_id =$this->uri->segment(3); 
 
 
@@ -317,6 +320,7 @@ $results = curl_exec($chs);
 						'project_delegation_id' => $record_id,
 						'delegates_name'=>$this->input->post('delegate_to'),
 						'delegates_email'=>$this->input->post('delegate_email'),
+						'phone_number'=>$this->input->post('delegate_phone'),
 						'extend_date'=>$this->input->post('extend_date'),
 						'reason'=>$this->input->post('reason'),
 
@@ -351,6 +355,16 @@ $results = curl_exec($chs);
 						$this->email->send();
 
 						/* ...........................Mail sending end here!................................................*/
+					/*..............................sms send start here............................................ */
+					$send_to = implode(",",$data['phone_number']);
+					$text="Project delegations update gaurav test.";	 
+					$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+					curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+					curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+					curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+					$results = curl_exec($chs);
+					//print_r($results);
+					/*..............................sms send end here............................................ */
 		
 
 					 }
