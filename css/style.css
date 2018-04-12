@@ -2691,3 +2691,13 @@ input.checkbox1:checked + .slider1:before {-webkit-transform: translateX(26px);-
 .slider1.round1 {border-radius: 34px;}
 .slider1.round1:before {border-radius: 50%;}
 .monthly-periodic-task-sheet table.monthly-task tbody tr td:nth-of-type(7) {text-align:right;}
+.ui-autocomplete.ui-widget {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 10px;
+  color:red !important;
+}
+
+.ui-corner-all{
+	  color:red !important;
+
+}

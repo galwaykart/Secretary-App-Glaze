@@ -106,17 +106,10 @@ The status should be there to mark the attendance of the participants.
 									  <input type="text" placeholder="Ajenda of Meeting" required="" id="search" name="agenda"  value="<?php if(isset($fetch['data2'])){ echo $fetch['data2'][0]->agenda_name;} else{ echo set_value('agenda'); } ?>" />
 
 									</div>
-<<<<<<< HEAD
+ 
                     <div class="metting-search"><?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?>
 </div>
-									
-=======
-									
-
-									<?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?>
-									</span>
-									</span>
->>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
+									 
 								  </div>
 								</div>
 							  </div> 

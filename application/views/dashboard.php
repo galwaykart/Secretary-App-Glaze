@@ -486,7 +486,7 @@
                                          } 
                                         }
                               ?>
-                                                                       <tr>
+                                                                       <!-- <tr>
                                                                            
                                                                             <td>today </td>
                                                                             
@@ -521,7 +521,7 @@
                                                                             <td>Immideaiet effact</td>
                                                                              <td><span class="next">Next</span></td>
                                                                         </tr> 
-                                                                         
+                                                                          -->
                                                                     </tbody>
                                                                 </table>
                                
@@ -548,9 +548,15 @@
 
         </div><!-- right deshbrad end -->
         <div class='clear'></div>
+<<<<<<< HEAD
  
         
 <?php $c_date = date('Y-m-d', time()); ?> 
+=======
+
+        
+<?php $c_date = date('Y-m-d', time()); ?>
+>>>>>>> e6f226ad113d0fa4b516f01576632d2ac2658eb3
 <script>
   $(document).ready(function() {
 
@@ -649,12 +655,12 @@
                 $new_start_date =  $yearly_periodic->yearly_periodic_start_date;
                 while($new_start_date <=  $yearly_periodic->yearly_periodic_end_date){ 
                 ?>
+ 
   
         {   id:5,
             title: '<?php echo $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
             start: '<?php echo $yearly_periodic->yearly_periodic_start_date ?>',
-  
-           
+     
         },  
         <?php 
                                 $n_start_d = new DateTime($new_start_date);

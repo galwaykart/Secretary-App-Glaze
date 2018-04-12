@@ -110,7 +110,7 @@
 			 return $query->result();
 			 
 		} 
-		public function remindermonthly($data){
+		public function reminderyearly($data){
 			 $date  = strtotime($data);
 			 $hour   = date('h',$date); 
 			 $day   = date('d',$date);  

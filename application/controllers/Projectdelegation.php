@@ -310,7 +310,7 @@ class Projectdelegation extends CI_Controller {
 			$result = $this->Projectdelegation_model->joinData();
 		}
 
-		public function UpdateDelegatesdate(){
+		public function UpdateDelegates(){
 			$record_id =$this->uri->segment(3); 
 
 
