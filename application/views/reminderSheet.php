@@ -1,4 +1,4 @@
-<?php $this->load->view('head'); ?>
+ <?php $this->load->view('head'); ?>
 <?php $this->load->view('header'); ?>
 				<style>
 				.auto-del .left{width:27%;}
@@ -196,7 +196,7 @@
                                                     </div>
                                                 </div>
                                         </div>
-                                 </div>
+                                   </div>
                                  <div class="right text-center">
                                             <div class="btn-group">
                                                     <a href="#" class="" id="add"><span class="fa fa-plus" ></span></a>

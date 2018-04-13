@@ -66,7 +66,7 @@
 																	 <td><?php echo $list->yearly_periodic_remark;?></td>
 																	 <td><?php if($list->yearly_periodic_status==1){echo "Active";}else{echo "Inactive";} ?>
                                        <label class="switch1" title="Active / Inactive">
-                                         <input type='checkbox' class='checkbox1' id=''<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1>
+                                         <input type='checkbox' class='checkbox1' id='<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1>
                                          <span class="slider1 round1"> </span>
                                        </label>
                                    </td>
@@ -122,19 +122,14 @@
 																	 <!--<td><?php //echo $list->yearly_periodic_end_date;?></td>-->
 																	 <td><?php echo $list->yearly_periodic_task_name;?></td>
 																	 <td><?php echo $list->yearly_periodic_remark;?></td>
-																	 <td><?php if($list->yearly_periodic_status==1){echo "Active";}else{echo "Inactive";} ?></td>
-																	 </tr>  
-																	<tr>
-																	<td>
-																   <div class="col-md-12">
-																		<p class="active-para">Active/Deactivate</p>
-																			<label class="switch">
-																			 <input type='checkbox' id='<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1>
-																			 <span class="slider round"> </span>	
-																			</label>
-																	</div>
+																	 <td><?php if($list->yearly_periodic_status==1){echo "Active";}else{echo "Inactive";} ?>
+										<label class="switch1" title="Active / Inactive">
+                                         <input type='checkbox' class='checkbox1' id='<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1>
+                                         <span class="slider1 round1"> </span>
+                                       </label>
 																	 </td>
-																  </tr>
+																	 </tr>  
+																
 																	  <?php }  }?>
                                                                   </tbody>
                                                               </table>
@@ -184,20 +179,14 @@
 																	 <!-- <td><?php // echo $list->yearly_periodic_end_date;?></td> -->
 																	 <td><?php echo $list->yearly_periodic_task_name;?></td>
 																	 <td><?php echo $list->yearly_periodic_remark;?></td>
-																	 <td><?php if($list->yearly_periodic_status==1){echo "Active";}else{echo "Inactive";} ?></td>
-																  </tr>  
-																	<tr>
-																	<td>
-																    <div class="col-md-12">
-																		<p class="active-para">Active/Deactivate</p>
-																			<label class="switch">
-																			 <input type='checkbox' id='<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1>
-																			<span class="slider round"> </span>	
-																			</label>
-																	</div>
+																	 <td><?php if($list->yearly_periodic_status==1){echo "Active";}else{echo "Inactive";} ?>
+							           <label class="switch1" title="Active / Inactive">
+                                         <input type='checkbox' class='checkbox1' id='<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1>
+                                         <span class="slider1 round1"> </span>
+                                       </label>
 																	 </td>
-																  </tr>
-																			
+																  </tr>  
+																
 																	  <?php }  }?>
                                                                   </tbody>
                                                               </table>

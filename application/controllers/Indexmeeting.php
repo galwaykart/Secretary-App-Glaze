@@ -82,7 +82,7 @@
 				if(!$data['fetch']){
 					redirect('Indexmeeting/metting_info');
 				}
-			//	print_r($this->Indexmeeting_model->get_meeting($id));die;
+	
 				$this->load->view('metting-info',$data);
 
 			  }
@@ -235,11 +235,10 @@ print_r($results);
 		}
 	}		
 		public function get_agenda(){
-			
 			$keyword = $this->input->post('agenda');  
             $data['response'] = 'false'; //Set default response  
             $query = $this->Indexmeeting_model->getagenda($keyword); //Search DB  
-            if( ! empty($query) ) {  
+            if(! empty($query) ) {  
             $data['response'] = 'true'; //Set response  
             $data['message'] = array(); //Create array  
 			//$data['auto_com'] = array();

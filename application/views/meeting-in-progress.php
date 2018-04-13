@@ -34,7 +34,6 @@ In case of first meeting - Previous Date = NA
 							   <th>No of Meeting</th>
 							   <th>Next Meeting Date</th>
 							   <th>Meeting Called By (Name & Department)</th>
-							   <th>Remarks</th>
 							   <th>Active/Inactive</th>
 						   </tr>
                        </thead>

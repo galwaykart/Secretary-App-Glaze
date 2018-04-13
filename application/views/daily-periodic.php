@@ -10,26 +10,21 @@
                                             </div>
                                 <div class="dailly-task "><!-- monthly periodic panel start -->	
                                         <div id='calendar'></div>
-                                        <br /><br /><br /><br />
+                                        <br/><br /><br /><br />
 
                                 </div><!-- right deshbrad end -->
                                 </div>
-                                
-            
- 
+        
        <div style="height:50px;"></div>
       <?php $this->load->view('footer'); ?>
 
     </div><!-- Main Dashbrad end -->
-   
 
     <!-- don-t change -->
     <div style="height:50px;"></div>
     <footer id="footer">
         <p>&copy; Copyright By Glaze India Pvt. Ltd.</p>
     </footer>
-
-
 
      <!-- globle header for comman end --> 
     <script>
@@ -58,9 +53,6 @@
 
             });
 
-
-
-
             // window resize option
             $(window).bind('resize', function () {
                 if ($(window).width() > 768) {
@@ -81,14 +73,14 @@
         });
 
     </script>
- <script>
+		<script>
       
 			function daily_status(id) {
 			   // console.log("id ====" ,id);
 				var url = "<?php echo base_url(); ?>Dailyperiodic/listpage/"+id;
 				window.location.assign(url);
 			}
-			</script>
+		</script>
 
            <script>
 

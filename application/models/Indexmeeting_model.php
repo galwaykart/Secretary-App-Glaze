@@ -143,7 +143,7 @@ class Indexmeeting_model extends CI_model{
 			  for($i=0 ;$i<$counting ; $i++){
 					//echo $res[$i]->agenda_id;
 					$agenda_id = $res[$i]->agenda_id;
-					$query = $this->db->query("SELECT DISTINCT index_meeting.agenda_id ,index_meeting.index_meeting_next_date,index_meeting_agenda.agenda_name ,meeting_called_by,(select count(index_meeting.agenda_id) from index_meeting where index_meeting.agenda_id = $agenda_id) as counter FROM index_meeting JOIN index_meeting_agenda on index_meeting.agenda_id=index_meeting_agenda.agenda_id where index_meeting.agenda_id = $agenda_id");
+					$query = $this->db->query("SELECT DISTINCT index_meeting.agenda_id ,index_meeting.index_meeting_next_date,index_meeting_agenda.agenda_name ,meeting_called_by,(select count(index_meeting.agenda_id) from index_meeting where index_meeting.agenda_id = $agenda_id) as counter FROM index_meeting JOIN index_meeting_agenda on index_meeting.agenda_id=index_meeting_agenda.agenda_id where index_meeting.agenda_id = $agenda_id and index_meeting.user_id=$user_id ");
 					$output = $query->result();
 					$result[$i] =  $output[0];
 			  }
