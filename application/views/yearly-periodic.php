@@ -65,7 +65,7 @@
 																	 <td><?php echo $list->yearly_periodic_remark;?></td>
 																	 <td><?php if($list->yearly_periodic_status==1){echo "Active";}else{echo "Inactive";} ?>
                                        <label class="switch1" title="Active / Inactive">
-                                         <input type='checkbox' class='checkbox1' id=''<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1>
+                                         <input type='checkbox' class='checkbox1' id="<?php echo $list->yearly_periodic_id; ?>" onChange="toggle(<?php echo $list->yearly_periodic_id; ?>)"$var1>
                                          <span class="slider1 round1"> </span>
                                        </label>
                                    </td>

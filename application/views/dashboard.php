@@ -547,16 +547,9 @@
                                             <!--  quick work calender end -->
 
         </div><!-- right deshbrad end -->
-        <div class='clear'></div>
-<<<<<<< HEAD
- 
+        <div class='clear'></div> 
         
-<?php $c_date = date('Y-m-d', time()); ?> 
-=======
-
-        
-<?php $c_date = date('Y-m-d', time()); ?>
->>>>>>> e6f226ad113d0fa4b516f01576632d2ac2658eb3
+<?php $c_date = date('Y-m-d', time()); ?>  
 <script>
   $(document).ready(function() {
 

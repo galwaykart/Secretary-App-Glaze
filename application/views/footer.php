@@ -14,11 +14,9 @@
                   <div id="notepad-tagheader">
                     <span class="fa fa-edit"></span>
                   </div>
-        </div>
+        </div> 
 
-
-
-
+ 
            <!-- notepad start -->
 <div class="notepad-overlap">
 	<div class="notePad" id="">
@@ -27,9 +25,42 @@
 			 <span class="close2">&times;</div>
                 <textarea id="cktextarea" class="notepad-area" cols="12" rows="10"></textarea>
             </div>
+ 				<div id="autoSave"></div>  
     </div>
 </div>
 
+
+ <script>  
+ $(document).ready(function(){  
+      function autoSave()  
+      {      
+           var draft_Message = CKEDITOR.instances.cktextarea.getData();
+            if(draft_Message != '')  
+           {    
+                $.ajax({  
+                     url:'<?php echo base_url(); ?>/Draft/index',  
+                     method:'POST',  
+                     dataType:'text', 
+                    data:{DraftMessage:draft_Message},  	 
+                     success:function(data)  
+                     {  console.log(data);
+                          if(data != '')  
+                          {  
+                               $('#user_id').val(data);  
+                          }  
+                          $('#autoSave').text("Post save as draft");  
+                          setInterval(function(){  
+                               $('#autoSave').text('');  
+                          }, 10);  
+                     }  
+                });  
+           }            
+      }  
+      setInterval(function(){   
+           autoSave();   
+           }, 1000);  
+ });  
+ </script>
 
    
 
@@ -181,7 +212,13 @@
                 // instance, using default configuration.
                 CKEDITOR.replace( 'cktextarea' );
     </script>
-	 
+<script>
+  $(function(){
+
+  $('.notepad-tag').draggable();;
+
+  });
+</script>
  
 </body>
 </html>
