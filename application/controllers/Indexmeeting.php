@@ -263,6 +263,23 @@ print_r($results);
             $this->load->view('metting-info',$data); //Load html view of search results  
         }  		 
 	}
+	
+		public function changeStatus(){
+
+			if(isset($_GET["id"])){
+				$id = $_GET["id"];
+				$status = $_GET["status"];
+
+				if($status == "false"){
+					$this->Indexmeeting_model->changeStatus($id ,$status);
+					//$sql = "UPDATE PAGE SET status='0' WHERE ID = $id";
+				}
+				else{
+					$this->Indexmeeting_model->changeStatus($id ,$status);
+					//$sql = "UPDATE PAGE SET status='1' WHERE ID = $id"; 
+				}
+			}
+					}
 }
 
 ?>

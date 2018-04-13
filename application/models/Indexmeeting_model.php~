@@ -143,7 +143,7 @@ class Indexmeeting_model extends CI_model{
 			  for($i=0 ;$i<$counting ; $i++){
 					//echo $res[$i]->agenda_id;
 					$agenda_id = $res[$i]->agenda_id;
-					$query = $this->db->query("SELECT DISTINCT index_meeting.agenda_id ,index_meeting.index_meeting_next_date,index_meeting_agenda.agenda_name ,meeting_called_by,(select count(index_meeting.agenda_id) from index_meeting where index_meeting.agenda_id = $agenda_id) as counter FROM index_meeting JOIN index_meeting_agenda on index_meeting.agenda_id=index_meeting_agenda.agenda_id where index_meeting.agenda_id = $agenda_id");
+					$query = $this->db->query("SELECT DISTINCT index_meeting.agenda_id ,index_meeting.index_meeting_next_date,index_meeting_agenda.agenda_name ,meeting_called_by,agenda_status,(select count(index_meeting.agenda_id) from index_meeting where index_meeting.agenda_id = $agenda_id) as counter FROM index_meeting JOIN index_meeting_agenda on index_meeting.agenda_id=index_meeting_agenda.agenda_id where index_meeting.agenda_id = $agenda_id and index_meeting.user_id=$user_id ");
 					$output = $query->result();
 					$result[$i] =  $output[0];
 			  }
@@ -234,7 +234,7 @@ class Indexmeeting_model extends CI_model{
 			$email = $data[1]['email'];
 			$emp = $data[1]['employee'];
 			$is_employee = $data[1]['is_employee'];
-			$is_employee = $data[1]['is_employee'];
+			$phone_number = $data[1]['phone_number'];
 			// insert 2 or more data
 			$totalname = sizeof($name);
 			for($i=0;$i<$totalname;$i++) {
@@ -243,9 +243,10 @@ class Indexmeeting_model extends CI_model{
 			$insertemail=$email[$i];
 			$insertemp=$emp[$i];
 			$insertis_employee=$is_employee[$i];
+			$insertphone_number = $phone_number[$i];
 			
-			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee,is_employee)
-					 values ('$record_id', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee')";
+			$sql1 = "insert into index_meeting_participants (index_meeting_id, name, department, email, employee,is_employee,phone_number)
+					 values ('$record_id', '$insertname', '$insertdept', '$insertemail', '$insertemp','$insertis_employee','$insertphone_number')";
 			$this->db->query($sql1);
 			 }
 			  $conclusion_type= $data[2]['conclusion_type'];
@@ -276,4 +277,11 @@ class Indexmeeting_model extends CI_model{
 			$query = $this->db->get();
 			return $query->result();
         }
+		
+		public function changeStatus($id ,$status){
+			$this->db->set('yearly_periodic_status',$status);
+            $this->db->where("yearly_periodic_id", $id); 
+            $this->db->update("yearly_periodic");
+			 //echo "Hurray i am in";
+		 }
 }

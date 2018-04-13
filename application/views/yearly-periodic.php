@@ -57,18 +57,17 @@
 																	  foreach($fetch as $list){
 														
 																  ?>
-																  <tr onclick='status(<?php echo $list->yearly_periodic_id; ?>)'>
-																     <td><?php echo $i++; ?></td>
-																	 <td><?php if($list->yearly_periodic_month==1){echo "Jan";}if($list->yearly_periodic_month==2){echo "Feb";} if($list->yearly_periodic_month==3){echo "Mar";} if($list->yearly_periodic_month==4){echo "Apr";} if($list->yearly_periodic_month==5){echo "May";} if($list->yearly_periodic_month==6){echo "June";} if($list->yearly_periodic_month==7){echo "July";} if($list->yearly_periodic_month==8){echo "Aug";} if($list->yearly_periodic_month==9){echo "Sept";} if($list->yearly_periodic_month==10){echo "Oct";} if($list->yearly_periodic_month==11){echo "Nov";} if($list->yearly_periodic_month==12){echo "Dec";}?></td>
-																	 <td><?php echo $list->yearly_periodic_start_date;?></td>
-																	<!-- <td><?php// echo $list->yearly_periodic_end_date;?></td>-->
-																	 <td><?php echo $list->yearly_periodic_task_name;?></td>
-																	 <td><?php echo $list->yearly_periodic_remark;?></td>
+																  <tr >
+																     <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php echo $i++; ?></td>
+																	 <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php if($list->yearly_periodic_month==1){echo "Jan";}if($list->yearly_periodic_month==2){echo "Feb";} if($list->yearly_periodic_month==3){echo "Mar";} if($list->yearly_periodic_month==4){echo "Apr";} if($list->yearly_periodic_month==5){echo "May";} if($list->yearly_periodic_month==6){echo "June";} if($list->yearly_periodic_month==7){echo "July";} if($list->yearly_periodic_month==8){echo "Aug";} if($list->yearly_periodic_month==9){echo "Sept";} if($list->yearly_periodic_month==10){echo "Oct";} if($list->yearly_periodic_month==11){echo "Nov";} if($list->yearly_periodic_month==12){echo "Dec";}?></td>
+																	 <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php echo $list->yearly_periodic_start_date;?></td>
+																	 <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php echo $list->yearly_periodic_task_name;?></td>
+																	 <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php echo $list->yearly_periodic_remark;?></td>
 																	 <td><?php if($list->yearly_periodic_status==1){echo "Active";}else{echo "Inactive";} ?>
-                                       <label class="switch1" title="Active / Inactive">
-                                         <input type='checkbox' class='checkbox1' id='<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1>
-                                         <span class="slider1 round1"> </span>
-                                       </label>
+																	   <label class="switch1" title="Active / Inactive">
+																		 <input type='checkbox' class='checkbox1' id='<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1 <?php  if($list->yearly_periodic_status==0){echo "checked";} ?>>
+																		 <span class="slider1 round1"> </span>
+																	   </label>
                                    </td>
 																  </tr>  
 																	
@@ -115,18 +114,18 @@
 																
 				
 																  ?>
-																  <tr onclick='status(<?php echo $list->yearly_periodic_id; ?>)'>
-																     <td><?php echo $i++; ?></td>
-																	 <td><?php if($list->yearly_periodic_month==1){echo "Jan";}if($list->yearly_periodic_month==2){echo "Feb";} if($list->yearly_periodic_month==3){echo "Mar";} if($list->yearly_periodic_month==4){echo "Apr";} if($list->yearly_periodic_month==5){echo "May";} if($list->yearly_periodic_month==6){echo "June";} if($list->yearly_periodic_month==7){echo "July";} if($list->yearly_periodic_month==8){echo "Aug";} if($list->yearly_periodic_month==9){echo "Sept";} if($list->yearly_periodic_month==10){echo "Oct";} if($list->yearly_periodic_month==11){echo "Nov";} if($list->yearly_periodic_month==12){echo "Dec";}?></td>
-																	 <td><?php echo $list->yearly_periodic_start_date;?></td>
+																  <tr >
+																     <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php echo $i++; ?></td>
+																	 <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php if($list->yearly_periodic_month==1){echo "Jan";}if($list->yearly_periodic_month==2){echo "Feb";} if($list->yearly_periodic_month==3){echo "Mar";} if($list->yearly_periodic_month==4){echo "Apr";} if($list->yearly_periodic_month==5){echo "May";} if($list->yearly_periodic_month==6){echo "June";} if($list->yearly_periodic_month==7){echo "July";} if($list->yearly_periodic_month==8){echo "Aug";} if($list->yearly_periodic_month==9){echo "Sept";} if($list->yearly_periodic_month==10){echo "Oct";} if($list->yearly_periodic_month==11){echo "Nov";} if($list->yearly_periodic_month==12){echo "Dec";}?></td>
+																	 <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php echo $list->yearly_periodic_start_date;?></td>
 																	 <!--<td><?php //echo $list->yearly_periodic_end_date;?></td>-->
-																	 <td><?php echo $list->yearly_periodic_task_name;?></td>
-																	 <td><?php echo $list->yearly_periodic_remark;?></td>
-																	 <td><?php if($list->yearly_periodic_status==1){echo "Active";}else{echo "Inactive";} ?>
-										<label class="switch1" title="Active / Inactive">
-                                         <input type='checkbox' class='checkbox1' id='<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1>
-                                         <span class="slider1 round1"> </span>
-                                       </label>
+																	 <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php echo $list->yearly_periodic_task_name;?></td>
+																	 <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php echo $list->yearly_periodic_remark;?></td>
+																	 <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php if($list->yearly_periodic_status==1){echo "Active";}else{echo "Inactive";} ?>
+																		<label class="switch1" title="Active / Inactive">
+																		 <input type='checkbox' class='checkbox1' id='<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1 <?php  if($list->yearly_periodic_status==0){echo "checked";} ?>>
+																		 <span class="slider1 round1"> </span>
+																	   </label>
 																	 </td>
 																	 </tr>  
 																
@@ -172,18 +171,18 @@
 
 		
 																  ?>
-																  <tr onclick='status(<?php echo $list->yearly_periodic_id; ?>)'>
-																     <td><?php echo $i++; ?></td>
-																	 <td><?php if($list->yearly_periodic_month==1){echo "Jan";}if($list->yearly_periodic_month==2){echo "Feb";} if($list->yearly_periodic_month==3){echo "Mar";} if($list->yearly_periodic_month==4){echo "Apr";} if($list->yearly_periodic_month==5){echo "May";} if($list->yearly_periodic_month==6){echo "June";} if($list->yearly_periodic_month==7){echo "July";} if($list->yearly_periodic_month==8){echo "Aug";} if($list->yearly_periodic_month==9){echo "Sept";} if($list->yearly_periodic_month==10){echo "Oct";} if($list->yearly_periodic_month==11){echo "Nov";} if($list->yearly_periodic_month==12){echo "Dec";}?></td>
-																	 <td><?php echo $list->yearly_periodic_start_date;?></td>
+																  <tr >
+																     <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php echo $i++; ?></td>
+																	 <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php if($list->yearly_periodic_month==1){echo "Jan";}if($list->yearly_periodic_month==2){echo "Feb";} if($list->yearly_periodic_month==3){echo "Mar";} if($list->yearly_periodic_month==4){echo "Apr";} if($list->yearly_periodic_month==5){echo "May";} if($list->yearly_periodic_month==6){echo "June";} if($list->yearly_periodic_month==7){echo "July";} if($list->yearly_periodic_month==8){echo "Aug";} if($list->yearly_periodic_month==9){echo "Sept";} if($list->yearly_periodic_month==10){echo "Oct";} if($list->yearly_periodic_month==11){echo "Nov";} if($list->yearly_periodic_month==12){echo "Dec";}?></td>
+																	 <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php echo $list->yearly_periodic_start_date;?></td>
 																	 <!-- <td><?php // echo $list->yearly_periodic_end_date;?></td> -->
-																	 <td><?php echo $list->yearly_periodic_task_name;?></td>
-																	 <td><?php echo $list->yearly_periodic_remark;?></td>
-																	 <td><?php if($list->yearly_periodic_status==1){echo "Active";}else{echo "Inactive";} ?>
-							           <label class="switch1" title="Active / Inactive">
-                                         <input type='checkbox' class='checkbox1' id='<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1>
-                                         <span class="slider1 round1"> </span>
-                                       </label>
+																	 <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php echo $list->yearly_periodic_task_name;?></td>
+																	 <td onclick='status(<?php echo $list->yearly_periodic_id; ?>)'><?php echo $list->yearly_periodic_remark;?></td>
+																	 <td ><?php if($list->yearly_periodic_status==1){echo "Active";}else{echo "Inactive";} ?>
+																	   <label class="switch1" title="Active / Inactive">
+																		 <input type='checkbox' class='checkbox1' id='<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1 <?php  if($list->yearly_periodic_status==0){echo "checked";} ?>>
+																		 <span class="slider1 round1"> </span>
+																	   </label>
 																	 </td>
 																  </tr>  
 																
@@ -262,8 +261,7 @@
 																 <label>Start Date</label>
                                                                         <div class="input-group">
                                                                            
-                                                                            <div class="form-control"><input type="date" title="Select Start Date"  required name="start_date" value="<?php// echo set_value('start_date'); ?>" />
-																			<?php //echo form_error('start_date', '<span class="form_error">', '</span>'); ?></span>
+                                                                            <div class="form-control"><input type="date" title="Select Start Date"  required name="start_date" value="" />																			
 																			</div>
                                                                         </div>
                                                                 </div>

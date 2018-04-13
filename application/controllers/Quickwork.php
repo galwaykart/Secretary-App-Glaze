@@ -30,7 +30,7 @@
 					  $config["total_rows"] = $this->Quickwork_model->record_count();
 					  //echo $this->Quickwork_model->record_count();
 				
-					  $config["per_page"] = 1;
+					  $config["per_page"] = 10;
 				
 					  $config["uri_segment"] = 3;
 				
@@ -161,7 +161,8 @@
 							$this->email->send();
 
 							/* ...........................Mail sending end here!................................................*/
-			/*..............................sms send start here............................................ */
+
+							/*..............................sms send start here............................................ */
 			$send_to = implode(",",$data[1]['delegates_phone']);
 			$text="REmainder update gaurav test.";	 
 			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 

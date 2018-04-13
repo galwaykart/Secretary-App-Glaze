@@ -15,7 +15,6 @@ public function login_user($username,$pass){
 	  $this->db->from('user');
 	  $this->db->where('username',$username);
 	  $this->db->where('password',$pass);
-
 	  if($query = $this->db->get())
 	  {
 		  return $query->row_array();
@@ -23,7 +22,6 @@ public function login_user($username,$pass){
 	  else{
 		return false;
 	  }
-
 
 	}
 public function username_check($username){

@@ -1198,7 +1198,8 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
     padding: 14px;
     border:3px solid #ff4282;
     border-radius: 100%;
-    z-index: 99999;
+    z-index: 999999999999;width: 20px;
+    height: 20px;
     animation: top-to-bottom 1s;
     color: #002653;
     transition: 1s;
@@ -2691,3 +2692,33 @@ input.checkbox1:checked + .slider1:before {-webkit-transform: translateX(26px);-
 .slider1.round1 {border-radius: 34px;}
 .slider1.round1:before {border-radius: 50%;}
 .monthly-periodic-task-sheet table.monthly-task tbody tr td:nth-of-type(7) {text-align:right;}
+.ui-autocomplete.ui-widget {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 10px;
+  color:red !important;
+}
+
+.ui-corner-all{
+	  color:red !important;
+
+}
+.col-md-222 {width: 19.6%;
+    float: left;}
+.participater8 {
+    font-size: 12px;
+    padding: 4px 7px;
+    border-radius: 100%;
+    position: absolute;
+    top: -11px;
+    right: 22px;
+}
+.removebtn8 {    position: absolute;
+    top: 2px;
+    right: -24px;
+    padding: 3px 7px;
+    border: 2px solid #de4d44;
+    /* line-height: 23px; */
+    font-size: 10px;
+    margin-top: 3px;
+    width: 27px;
+}

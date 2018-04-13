@@ -16,8 +16,8 @@
 				$insertphone = $delegates_phone_number[$i];
 				$sql = "insert into monthly_periodic_delegates(monthly_periodic_id,monthly_periodic_delegates_name,monthly_periodic_delegates_email,phone_number)
 						values('$insert_id','$insertdelegate_to','$insertemail','$insertphone')";
-				print_r($sql);die;
-				//$this->db->query($sql);
+				
+				$this->db->query($sql);
 				}
 			}
 		 }

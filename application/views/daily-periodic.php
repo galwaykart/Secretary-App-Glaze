@@ -31,8 +31,6 @@
         $(document).ready(function () {
             var count = 0;
             var count2 = 0;
-
-
             $('#sec-header #toggle-btn-box span#bar').click(function () {
                 if ($(window).width() >= 769) {
                     if (count % 2 == 0) { $('#aside').css('display', 'none'); $('.main-area-dashboard #left').css('width', '0%'); $('.main-area-dashboard #right').css('width', '100%'); }
