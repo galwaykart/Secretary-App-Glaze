@@ -19,41 +19,32 @@
 	<div class="container-5">
     
                  <div class="col-md-12">
-                            <div class="col-md-12"><p>Task Name :
-										        <?php if($list){ echo $list['data1'][0]->yearly_periodic_task_name;} ?>
-									          <span id="projectname"></span></p></div>
-                                   
-                            <div class="clear"></div>
-                              <div class="col-md-3">
+                            <div class="col-md-12"><p>Task Name :<?php if($list){ echo $list['data1'][0]->yearly_periodic_task_name;} ?><span id="projectname"></span></p></div>
+                             <div class="clear"></div>
+                             <div class="col-md-4">
                                          <div class="form-group">
                                                         <label>End Date</label>
-                                                        
                                                         <div class="input-group">
-                                                            <div class="input-addon">
-                                                            <span class="fa fa-calendar" ></span>
-                                                            </div>
+                                                            <div class="input-addon"><span class="fa fa-calendar" ></span></div>
                                                             <div class="form-control">
-															<input type="date" name="end_date" title="End date" required value="<?php if($list){ echo $list['data1'][0]->yearly_periodic_end_date; }  ?>" /></div>
-                                                        </div>
-                                                </div>
-                                               
-                                    </div>
-							<div id="delete1" class="auto-del"  style="position:relative">
-                                    <div class="col-md-3" >
-                                         <div class="form-group">
-                                                   <label>Delegate To</label>
-                                                        <div class="input-group">
-                                                            <div class="input-addon">
-                                                                <span class="fa fa-share" ></span>
+                                                              <input type="date" name="end_date" title="End date" required value="<?php if($list){ echo $list['data1'][0]->yearly_periodic_end_date; }  ?>" />
                                                             </div>
-                                                     <div class="form-control">
-															  <input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required value="<?php if($list['data2']){ echo $list['data2'][0]->yearly_periodic_delegates_name; }  ?>"/>
-													</div>
+                                                        </div>
+                                           </div>
+                                               
+                             </div>
+					                          		<div id="delete1" class="auto-del"  style="position:relative">
+                                                   <div class="col-md-4" >
+                                                       <div class="form-group">
+                                                               <label>Delegate To</label>
+                                                               <div class="input-group">
+                                                                          <div class="input-addon"><span class="fa fa-share" ></span></div>
+                                                                          <div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required value="<?php if($list['data2']){ echo $list['data2'][0]->yearly_periodic_delegates_name; }  ?>"/></div>
 															
                                                         </div>
 										 </div>
                                     </div>
-									 <div class="col-md-3">
+									 <div class="col-md-4">
                                          <div class="form-group">
                                                <label>Email</label>
                                                         
@@ -68,7 +59,7 @@
                                                     </div>
 										</div>
                                     </div>
-					<div class="col-md-3">
+					<div class="col-md-4">
 						<div class="form-group">
 						    <label>Phone Number</label>
 							 <div class="input-group">
@@ -79,7 +70,7 @@
 							 </div>
 						</div>  		
 					</div> 	
-                                    <div class="col-md-3">
+                                    <div class="rigth">
                                          <div class=" margin-top">
 											                      <a href="#" class="ad btn-primary btn participater right-btn" id="add" title="Add Delegate"><span class="fa fa-plus" ></span></a>
 										                      </div>           

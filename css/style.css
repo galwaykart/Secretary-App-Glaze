@@ -89,7 +89,7 @@ outline:0;
 
 /*aside */
 
-#aside {background-color:#bbe4f1;
+#aside {
     height: 100%;
     overflow: auto;
     min-height: 920px;
@@ -198,7 +198,7 @@ position:relative;border-top:6px solid initial;border-bottom-width:0px;border-le
 #accordion ul li ul li ul.has-menu {display:none;background-color:white;}
     #accordion ul li ul li ul.has-menu a {color:#094c61;
     }
-#accordion ul li ul li {position:relative;       border-bottom: 1px solid #aad3e0;}
+#accordion ul li ul li {position:relative;       }
 #accordion ul li ul li div.has-menu-div span.fa-angle-down , #accordion ul li ul li div.has-menu-div span.fa-angle-up{position: absolute;
     padding-left: 10px;
     top: 12px;
@@ -456,14 +456,14 @@ table.task-tag tbody tr td:nth-child(3) {text-align:right}
 .registration .container-3 .top-feaild  .form-group .input-group  .input-addon{width:1%;margin-right:1%;}
 .registration .container-3 .top-feaild  .form-group .input-group  .input-addon span{color:#002653}
 .registration .container-3 .top-feaild .form-group .input-group {margin-left:0;}
-.registration .container-3 .mybtn {    margin-top: 8%;font-size: 11px;padding: 6px 44px;color: white;background-color: #03A9F4;border:1px solid #03A9F4;}
+.registration .container-3 .mybtn {    margin-top: 8%;font-size: 11px;padding: 6px 32px;color: white;background-color: #03A9F4;border:1px solid #03A9F4;border-radius: 16px;}
 .registration .container-3 .reset {background-color: white;border: 1px solid #cec1c1;color: black;}
 .registration .container-3 .empty-box {height:40px;}
 .registration .container-3 .mybtn:hover {box-shadow: 0px 2px 3px -1px #483b3b}
 .registration .container-3 .del {background-color: #fd5f5f;
     border: 1px solid #fd5f5f;
     margin-right: 4px;
-    padding: 4px 44px;
+    padding: 4px 44px;border-radius: 16px;
     padding-bottom: 5px;}
 
 @media screen and (min-width:320px) and (max-width:480px) {
@@ -799,10 +799,10 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 .dailly-notes-index-panel table{width: 100%;border-collapse: collapse;margin-bottom: 3%;}
 .dailly-notes-index-panel table thead tr {color: white;
    background-color: #e24545;}
-.dailly-notes-index-panel table thead tr th {font-size: 12px;
-    text-align: left;
+.dailly-notes-index-panel table thead tr th {font-size: 12px;border: 1px solid #e24545;
+    text-align: center;
     padding: 8px 8px;}
-.dailly-notes-index-panel table tbody tr td {font-size: 12px;text-align: left;padding: 8px 8px;color: #002653;}
+.dailly-notes-index-panel table tbody tr td {font-size: 12px;text-align: center;padding: 8px 8px;color: #002653;border: 1px solid #ead4d4;}
 .dailly-notes-index-panel table tbody tr {border-bottom: 1px solid #c9dbe0;cursor:pointer;}
 .dailly-notes-index-panel table thead tr th:nth-child(10) {text-align:center;}
 .dailly-notes-index-panel table tbody tr td:nth-child(10) {text-align:center;}
@@ -919,7 +919,7 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 }
 .popup .content .form-group .input-group .form-control select:last-child {
 
-    width:100%;margin:0;
+    width:98%;margin:0;
 }
 
 table.app-tag tbody tr:nth-child(even) {    background-color: #ffffff;}
@@ -969,10 +969,7 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
     width: 100%;    border: 1px solid #d5e2e6;
 
 }
-.auto-del {max-height:200px;width:100%;}
-.auto-del .left {float:left;width:45%;}
-.auto-del .center {float:left;width:45%;}
-.auto-del .right {float:left;width:10%;}
+
 .auto-del .right a {    background-color: black;
     color: white;
     padding: 5px 7px;
@@ -988,16 +985,16 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
     border: 1px solid #eae3e3;
     color: grey;
     font-size: 11px;
-    width: 95%;
+    width: 100%;
     padding: 5px;}
 .container-5 .form-group .input-group .input-addon {margin:0;}
 
 .container-5 .form-group .input-group {    margin-top: 1%;
     margin-left: 10%;}
-.container-5 p {color: #e24545;
-    margin-bottom: 1%;
-    font-size: 13px;
-    font-weight: 600;}
+.container-5 p {color: #ca1e1e;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 2%;}
 .container-5 p span#projectname {color: grey;}
 .delegatesheet-view {width: 97%;
     margin: 0% 2%;}
@@ -1935,7 +1932,7 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
 	.popup-main{background-color: #80808052;
     height: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;display:none;
     left: 0;
@@ -2337,9 +2334,9 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
     font-size: 10px;
     margin-top: 1px;
     width: 27px;}
-.project-panel-top {    background-color: whitesmoke;
+.project-panel-top {    
     padding: 10px;
-    border: 1px solid #e6e0e0;
+   
     margin: 0% 2%;
     padding: 35px 0px;
 }
@@ -2477,9 +2474,9 @@ a.delgate-minus3 {
     background-color: #e24545;
     color: white;
     padding: 5px 7px;
-    top: 29px;
+    top: 31px;
     position: absolute;
-    left: 66%;
+    right: -13px;
     font-size: 12px;
 }
     .box-data-for-2 {border: 0px solid #f5f5f5;
@@ -2721,4 +2718,40 @@ input.checkbox1:checked + .slider1:before {-webkit-transform: translateX(26px);-
     font-size: 10px;
     margin-top: 3px;
     width: 27px;
+}
+
+.col-md-new33 {width:30%;float:left;}
+
+.auto-del {max-height:200px;width:100%;}
+.auto-del .left {float:left;width:30%;}
+.auto-del .center {float:left;width:30%;}
+.auto-del .right {float:left;width:10%;}
+
+.container-5 .form .input-group{margin-left: 7%;}
+.container-5 .form label {    margin-left: 6.5%;}
+.container-5 .form .input-group .form-control {}
+.container-5 .form .input-group .form-control input{margin-left: 1%;    width: 96%;}
+.auto-del .right a.proAddbtn {    top: 26px;
+    background-color: #00abdf;
+    border-radius: 100%;}
+.auto-del .right a.prominus-btn {top: 26px;}
+
+
+
+.container-5 .form1 {    margin-left: 5px;
+}
+.container-5 .form1 .input-group{margin-left: 0;}
+.container-5 .form1 label {  margin-left: 0;  }
+.container-5 .form1 .input-group .form-control {}
+.container-5 .form1 .input-group .form-control input{}
+.btn-submit-project {border-radius: 4px;
+    padding: 7px 33px;
+    margin-top: 3%;
+}
+
+.container-5 .projectHeadding {margin-bottom: 2%;
+    font-size: 18px;
+    color: #39383a;
+}
+.dailly-notes-index-panel a.addProjectStatus {
 }

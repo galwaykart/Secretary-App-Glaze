@@ -149,7 +149,7 @@
                 </div>
                 <div class="clear"></div>
                   <div class="col-md-12">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                             <div class="form-group">
                                        <label>Active/Inactive :</label>
                                         <div class="input-group">
