@@ -1,4 +1,4 @@
-<?php $this->load->view('head'); ?>
+ <?php $this->load->view('head'); ?>
 <?php $this->load->view('header'); ?>
 				<style>
 				.auto-del .left{width:27%;}
@@ -149,7 +149,7 @@
                 </div>
                 <div class="clear"></div>
                   <div class="col-md-12">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                             <div class="form-group">
                                        <label>Active/Inactive :</label>
                                         <div class="input-group">
@@ -196,7 +196,7 @@
                                                     </div>
                                                 </div>
                                         </div>
-                                 </div>
+                                   </div>
                                  <div class="right text-center">
                                             <div class="btn-group">
                                                     <a href="#" class="" id="add"><span class="fa fa-plus" ></span></a>

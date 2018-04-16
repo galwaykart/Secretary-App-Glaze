@@ -551,6 +551,10 @@
 
         
 <?php $c_date = date('Y-m-d', time()); ?>
+
+        <div class='clear'></div> 
+        
+<?php $c_date = date('Y-m-d', time()); ?>  
 <script>
   $(document).ready(function() {
 
@@ -582,9 +586,6 @@
   }
 
   },
-
-
-
 
   eventMouseover: function(calEvent, jsEvent) {
   var tooltip = '<div class="tooltipevent" ><h2 class="title">Title</h2><h2 > ' + calEvent.title + '</h2><p> Start Time : '+  calEvent.start  + '</p></div>';
@@ -649,12 +650,25 @@
                 $new_start_date =  $yearly_periodic->yearly_periodic_start_date;
                 while($new_start_date <=  $yearly_periodic->yearly_periodic_end_date){ 
                 ?>
+ 
          
         {   id:5,
             title: '<?php echo $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
             start: '<?php echo $yearly_periodic->yearly_periodic_start_date ?>',
  
+
+        
+        {   id:5,
+            title: '<?php echo $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
+            start: '<?php echo $yearly_periodic->yearly_periodic_start_date ?>',
            
+
+ 
+  
+        {   id:5,
+            title: '<?php echo $yearly_periodic->yearly_periodic_task_name ?>' +' (Yearly Periodic)',
+            start: '<?php echo $yearly_periodic->yearly_periodic_start_date ?>',
+     
         },  
         <?php 
                                 $n_start_d = new DateTime($new_start_date);
@@ -869,7 +883,6 @@ function drawHand(ctx, pos, length, width) {
   ['Meetings', 4],
   ['Appoinment', 3],
   ['Task', 3]
-
   ]);
 
   // Optional; add a title and set the width and height of the chart

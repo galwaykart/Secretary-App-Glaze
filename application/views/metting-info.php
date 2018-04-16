@@ -24,8 +24,10 @@ The status should be there to mark the attendance of the participants.
 	float:left;
 }
 .form_error{color:red; font-size:12px;}
-
+           
 </style>
+         
+ 
 		<div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Meeting Info</p></div>
 		<div class="col-md-12 all-mettings">
 
@@ -106,17 +108,17 @@ The status should be there to mark the attendance of the participants.
 									  <input type="text" placeholder="Ajenda of Meeting" required="" id="search" name="agenda"  value="<?php if(isset($fetch['data2'])){ echo $fetch['data2'][0]->agenda_name;} else{ echo set_value('agenda'); } ?>" />
 
 									</div>
-<<<<<<< HEAD
                     <div class="metting-search"><?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?>
-</div>
-									
-=======
-									
-
+                    </div>
+							
 									<?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?>
 									</span>
 									</span>
->>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
+
+ 
+                    <div class="metting-search"><?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?>
+</div>
+									 
 								  </div>
 								</div>
 							  </div> 
@@ -197,7 +199,7 @@ The status should be there to mark the attendance of the participants.
 											<div class="form-group">
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-phone" ></span></div>
-													<div class="form-control"><input type="text" placeholder="Phone Number" required  name="phone_number[]" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->phone_number;} else{echo set_value('phone_number[]');} ?>"/></div>
+													<div class="form-control"><input type="text" placeholder="Phone Number" required  name="phone_number[]" pattern="[789][0-9]{9}" value="<?php if(isset($fetch['data1'])){ echo $fetch['data1'][0]->phone_number;} else{echo set_value('phone_number[]');} ?>"/></div>
 													<?php echo form_error('phone_number', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
@@ -274,7 +276,7 @@ The status should be there to mark the attendance of the participants.
 											<div class="form-group">
 												<div class="input-group">
 													<div class="input-addon"><span class="fa fa-phone" ></span></div>
-													<div class="form-control"><input type="text" placeholder="Phone Number" required  name="phone_number[]" value="<?php if($record){ echo $record->phone_number;} else{echo set_value('phone_number[]');} ?>"/></div>
+													<div class="form-control"><input type="text" placeholder="Phone Number" required  name="phone_number[]" pattern="[789][0-9]{9}" value="<?php if($record){ echo $record->phone_number;} else{echo set_value('phone_number[]');} ?>"/></div>
 													<?php echo form_error('phone_number', '<span class="form_error">', '</span>'); ?></span>
 												</div>
 											</div>
@@ -292,9 +294,6 @@ The status should be there to mark the attendance of the participants.
 												</div>
 											</div>
 										</div>   
-										<div class="" class="">								 
-											<div class="margin-top" style="text-align:center">
-												<a href="#"  onclick="setValues(<?php echo $i; ?>)" class="ad btn-eror btn removebtn">&times;</a>
 												<div class="col-md-2" class="RegSpLeft">								 
 													<div class="btn-group margin-top" style="text-align:center">
 														<a href="#"  onclick="setValues(<?php echo $i; ?>)" class="btn-eror btn">Delete</a>
@@ -372,7 +371,6 @@ The status should be there to mark the attendance of the participants.
 								if(isset($fetch['data3'])){									
 									foreach($fetch['data3'] as $record1){	 
 										if($j != '0'){  ?>
-											
 											<div id="rm1<?php echo $j; ?>" style="margin: 27px 0;" class="col-md-12 customclass1"> 
 												<div class="canclution-inner-body  ">
 													<div class="body-input-tabs">
@@ -452,7 +450,6 @@ The status should be there to mark the attendance of the participants.
 						dataType: 'json',
 						type: 'POST',
 						data: 'agenda='+$("#search").val(),
-						
 						success: function(data){
 							if(data.response =='true'){
 								add(data.message);
@@ -475,7 +472,7 @@ The status should be there to mark the attendance of the participants.
 					e.preventDefault();
 					  var lnth = $('#one .customclass').length; 
 					console.log(lnth);
-				   $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-66" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-66" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="employee[]" ><option value="1" >Yes</option><option value="0" >No</option></select></div></div></div></div><div class="col-md-66" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" required pattern="[a-zA-Z ]{1,100}" title="Name should only contain letters. e.g. john"   id="name"  name="name[]"></div></div></div></div><div class="col-md-66" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-66" id="number"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-phone"></span></div><div class="form-control"><input type="text" placeholder="Phone Number" required="" name="phone_number[]" value=""></div></div></div></div><div class="col-md-66" class="RegSpLeft" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o" ></span></div><div class="form-control"><select name="is_employee[]" ><option value="1" >Present</option><option value="0" >Absent</option></select></div></div></div><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn removebtn">&times;</a></div></div>');
+				   $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-66" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" required id="department" name="department[]"></div></div></div></div><div class="col-md-66" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="employee[]" ><option value="1" >Yes</option><option value="0" >No</option></select></div></div></div></div><div class="col-md-66" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" required pattern="[a-zA-Z ]{1,100}" title="Name should only contain letters. e.g. john"   id="name"  name="name[]"></div></div></div></div><div class="col-md-66" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" title ="Please enter valid email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email[]"></div></div></div></div><div class="col-md-66" id="number"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-phone"></span></div><div class="form-control"><input type="text" placeholder="Phone Number" required="" name="phone_number[]" pattern="[789][0-9]{9}" value=""></div></div></div></div><div class="col-md-66" class="RegSpLeft" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o" ></span></div><div class="form-control"><select name="is_employee[]" ><option value="1" >Present</option><option value="0" >Absent</option></select></div></div></div><a href="#"  onclick="setValues('+ lnth + ')"  class="ad btn-eror btn removebtn">&times;</a></div></div>');
 				});
 			});
 			function setValues(id){

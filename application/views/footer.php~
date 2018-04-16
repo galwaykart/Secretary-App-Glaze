@@ -41,7 +41,7 @@
                      dataType:'text', 
                     data:{DraftMessage:draft_Message},  	 
                      success:function(data)  
-                     { 
+                     { data.Text('Auto');
 					 console.log(data);
                           if(data != '')  
                           {  

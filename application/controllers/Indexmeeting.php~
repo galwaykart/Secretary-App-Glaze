@@ -82,7 +82,7 @@
 				if(!$data['fetch']){
 					redirect('Indexmeeting/metting_info');
 				}
-			//	print_r($this->Indexmeeting_model->get_meeting($id));die;
+	
 				$this->load->view('metting-info',$data);
 
 			  }
@@ -101,10 +101,11 @@
 		 $this->form_validation->set_rules('index_meeting_next_date','Next Meeting Date ','trim|required');
 		 $this->form_validation->set_rules('index_meeting_start_time','Start Time','trim|required');
 		 $this->form_validation->set_rules('index_meeting_end_time','End Time','trim|required');
-		 $this->form_validation->set_rules('meeting_called_by','Meeting Called Bsy','trim|required');
+		 $this->form_validation->set_rules('meeting_called_by','Meeting Called By','trim|required');
 		 $this->form_validation->set_rules('agenda','agenda ','trim|required');
 		 $this->form_validation->set_rules('department[]','department ','trim|required');
 		 $this->form_validation->set_rules('name[]','Name ','trim|required');
+		 $this->form_validation->set_rules('phone_number[]','Phone Number ','trim|required');
 		 $this->form_validation->set_rules('email[]', 'Email', 'trim|required|valid_email');
 		 $this->form_validation->set_rules('conclusion_textarea[]', 'Textarea', 'trim|required');
 		 $this->form_validation->set_rules('targetdate[]', 'Target Date', 'trim|required');
@@ -133,7 +134,8 @@
 		 'department'=>$this->input->post('department'),
 		 'email'=>$this->input->post('email'),
 		 'employee'=>$this->input->post('employee'),
-		 'is_employee'=>$this->input->post('is_employee')
+		 'is_employee'=>$this->input->post('is_employee'),
+		 'phone_number'=>$this->input->post('phone_number')
 		 );
 		$data[2] = array(
 		 
@@ -141,7 +143,6 @@
 		 'conclusion_textarea'=>$this->input->post('conclusion_textarea'),
 		 'targetdate'=>$this->input->post('targetdate'),
 		 'delegated_dept'=>$this->input->post('delegated_dept'),
-
 		 'delegated_name'=>$this->input->post('delegated_name'));
 
 		$data[3]=array(
@@ -151,29 +152,46 @@
 		if($this->uri->segment(3)){
 		   $this->Indexmeeting_model->updatemeeting($data , $record_id);
 		   $this->session->set_flashdata('msg', 'Updated Successfully!!!');
-		   		   						/* ...........................Mail sending start here!.......................................*/
+		   $submail = $this->input->post('submail');
+		   if($submail){
+			   
+		   /* ...........................Mail sending start here!.......................................*/
 
-											  $mail_to = implode(",",$data[1]['email']);
-											  $config = array (
-											  'mailtype' => 'html',
-											  'charset'  => 'utf-8',
-											  'priority' => '1'
-											  );
-											  $this->email->initialize($config);
-											  $this->email->set_newline("\r\n");
-											  $this->email->from('surender.singh@glazegalway.com', 'Surender');
-											  $data_quick["mail_data"] = $data;
-											  $this->email->to($mail_to);
-					  
-											  $this->email->subject('Index Meeting');
-					  
-											  $body = $this->load->view('email_template/index_meeting.php',$data_quick,TRUE);
-					  
-											  $this->email->message($body);
-					  
-											  $this->email->send();
-					  
-					  /* ...........................Mail sending end here!................................................*/
+		   $mail_to = implode(",",$data[1]['email']);
+		   $send_to = implode(",",$data[1]['phone_number']);
+		   $config = array (
+		   'mailtype' => 'html',
+		   'charset'  => 'utf-8',
+		   'priority' => '1'
+		   );
+		   $this->email->initialize($config);
+		   $this->email->set_newline("\r\n");
+		   $this->email->from('gaurav.gupta0705@gmail.com', 'Gaurav');
+		   $data_quick["mail_data"] = $data;
+		   $this->email->to($mail_to);
+
+		   $this->email->subject('Index Meeting');
+
+		   $body = $this->load->view('email_template/index_meeting.php',$data_quick,TRUE);
+
+		   $this->email->message($body);
+
+		   $this->email->send();
+
+		   /* ...........................Mail sending end here!................................................*/
+
+		   /*..............................sms send start here............................................ */
+			$text="baba KIng singh gaurav ffupdate.";	 
+			$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+			curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+			$results = curl_exec($chs);
+			print_r($results);
+			/*..............................sms send end here............................................ */
+
+		   }
+
 			redirect('indexmeeting');
            }else{
            $this->Indexmeeting_model->form_insert($data,$this->input->post('agenda'));
@@ -181,6 +199,7 @@
 		   						/* ...........................Mail sending start here!.......................................*/
 
 								   $mail_to = implode(",",$data[1]['email']);
+								   $send_to = implode(",",$data[1]['phone_number']);
 								   $config = array (
 								   'mailtype' => 'html',
 								   'charset'  => 'utf-8',
@@ -201,6 +220,16 @@
 								   $this->email->send();
 		   
 		   /* ...........................Mail sending end here!................................................*/
+/*..............................sms send start here............................................ */
+$text="baba KIng singh gaurav ffinsert.";	 
+$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to='.$send_to.'&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+$results = curl_exec($chs);
+print_r($results);
+/*..............................sms send end here............................................ */
+
 		   redirect('indexmeeting');
             }
 		}
@@ -209,10 +238,11 @@
 			$keyword = $this->input->post('agenda');  
             $data['response'] = 'false'; //Set default response  
             $query = $this->Indexmeeting_model->getagenda($keyword); //Search DB  
-            if( ! empty($query) ) {  
+            if(! empty($query) ) {  
             $data['response'] = 'true'; //Set response  
             $data['message'] = array(); //Create array  
-			//$data['auto_com'] = array();  
+			//$data['auto_com'] = array();
+           			
             foreach( $query as $row )  
             {  
                 $data['message'][] = array(   
@@ -220,8 +250,10 @@
                                         'value' => $row->agenda_name,''  
                                      );  //Add a row to array  
             }
+			
 				//$data['auto_com'][] = $row->agenda_name;			
 			}
+			
         if('IS_AJAX')  
         {  
             echo json_encode($data); //echo json string if ajax request  
@@ -231,6 +263,24 @@
             $this->load->view('metting-info',$data); //Load html view of search results  
         }  		 
 	}
+	
+		public function changeStatus(){
+
+			if(isset($_GET["id"])){
+				$id = $_GET["id"];
+				$status = $_GET["status"];
+				$end_date = $_GET["end_date"];
+				
+				if($status == "false"){
+					$this->Indexmeeting_model->changeStatus($id ,$status,$end_date);
+					//$sql = "UPDATE PAGE SET status='0' WHERE ID = $id";
+				}
+				else{
+					$this->Indexmeeting_model->changeStatus($id ,$status,$end_date);
+					//$sql = "UPDATE PAGE SET status='1' WHERE ID = $id"; 
+				}
+			}
+					}
 }
 
 ?>

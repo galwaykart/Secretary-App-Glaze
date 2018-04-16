@@ -16,7 +16,6 @@ class DailyPeriodic extends CI_Controller {
 			if($this->session->user == 'logged_in'){
 				$this->user_id = $this->session->userdata['id'];
 				}
-
 		} 
 	 
 		public function index(){  

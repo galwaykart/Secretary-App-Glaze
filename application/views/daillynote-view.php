@@ -222,8 +222,15 @@
                         <!--col-md-3 end -->
                         
                         <hr  class="spalsh" />
-                        <div  class="toggle notesview-lastPanel">
-                            <div class="col-md-2">
+                        <div  class="toggle notesview-lastPanel" >
+                          <div class="col-md-12 padding-btn "  style="position:relative;">
+                            <!-- <input type="button" value="Add" /> -->
+                            <a href="#" class="ad btn-primary btn participater8" title="Add New Participate">
+                              <span class="fa fa-plus"></span>
+                            </a>
+                          </div>
+                          <div clas="clear"></div>
+                            <div class="col-md-222">
                             <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-addon"><span class="fa fa-building-o" ></span></div>
@@ -232,7 +239,7 @@
                                                 </div>
                             </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-222">
                             <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-addon"><span class="fa fa-user-o" ></span></div>
@@ -242,7 +249,7 @@
                                             </div>
                             </div>
                                 </div>
-                            <div class="col-md-2">
+                            <div class="col-md-222">
                             <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-addon"><span class="fa fa-edit" ></span></div>
@@ -251,7 +258,7 @@
                                             </div>
                             </div>
                                 </div>
-                            <div class="col-md-2">
+                            <div class="col-md-222">
                                 <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
@@ -260,7 +267,7 @@
                                              </div>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-222">
                                 <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
@@ -269,12 +276,7 @@
                                              </div>
                                 </div>
                             </div>
-                            <div class="col-md-2 padding-btn">
-                                                <!-- <input type="button" value="Add" /> -->
-                                                <a href="#" class="ad btn-primary btn participater">
-                                                  <span class="fa fa-plus"></span>
-                                                </a>
-                                </div>
+                         
 
 <div id ="one">
                                 <?php
@@ -440,7 +442,7 @@
             $('a.ad').click(function(e) {
             e.preventDefault();
             var lnth = $('#one .customclass').length; 
-         $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass"><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="department" name="part_dept[]"></div></div></div></div><div class="col-md-2" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="Employee[]" > <option value="1" >Yes</option><option value="0" >No</option> </select></div></div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="name" name="parti_name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" name="parti_email[]"></div></div></div></div><div class="col-md-2" id="phone"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="phone number"  required  id="phone" name="parti_phone[]"></div></div></div></div><div class="col-md-2"><div class="btn-group  padding-btn" style="text-align:left"><a href="#"  onclick="setValues('+ lnth +')"  class="ad btn-eror removebtn1 ">&times;</a></div></div></div>');
+         $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass" style="position:relative;"><div class="col-md-222" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="department" name="part_dept[]"></div></div></div></div><div class="col-md-222" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="Employee[]" > <option value="1" >Yes</option><option value="0" >No</option> </select></div></div></div></div><div class="col-md-222" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="name" name="parti_name[]"></div></div></div></div><div class="col-md-222" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" name="parti_email[]"></div></div></div></div><div class="col-md-222" id="phone"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="phone number"  required  id="phone" name="parti_phone[]"></div></div></div></div><div class=""><div class="btn-group  padding-btn" style="text-align:right;float:left;"><a href="#"  onclick="setValues('+ lnth +')"  class="ad btn-eror removebtn8 ">&times;</a></div></div></div>');
 
         });
         

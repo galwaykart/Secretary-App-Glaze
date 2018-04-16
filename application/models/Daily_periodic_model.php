@@ -85,7 +85,6 @@
 		
 		public function update_daily_periodic($data,$record_id,$status){
 		    $this->db->delete("daily_periodic_delegates", "daily_periodic_id = $record_id");
-	
 			$this->db->set('daily_periodic_status',$status); 
 			$this->db->set('daily_periodic_end_date',date("Y-m-d")); 
             $this->db->where("daily_periodic_id", $record_id); 
@@ -115,10 +114,7 @@
 			//print_r($query->result());
 			return $query->result();
 			
-		
-
     }
-    
 
    }
 	
