@@ -276,7 +276,7 @@
                                                 </a>
                                 </div>
 
-        <div id ="one">
+<div id ="one">
                                 <?php
          for($i=1; $i<sizeof($records) ; $i++){
             $j = $i - 1;
@@ -284,25 +284,67 @@
         
          <div class="clear"></div>
          
-         <div id="<?php   echo "rm".$j ?>"  class="customclass">
-         <div class="col-md-2" id="addmr">
-         <div class="form-group">
+    <div id="<?php   echo "rm".$j ?>"  class="customclass">
+        <div class="col-md-2" id="addmr">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-addon"><span class="fa fa-building-o"></span></div>
+                    <div class="form-control"><input type="text" placeholder="Department" value="<?php if($records){ echo $records[$i]->p_department; } ?>" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="department" name="part_dept[]"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2" id="addmr"><div class="form-group">
             <div class="input-group">
-            <div class="input-addon"><span class="fa fa-building-o"></span></div>
-            <div class="form-control"><input type="text" placeholder="Department" value="<?php if($records){ echo $records[$i]->p_department; } ?>" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="department" name="part_dept[]"></div>
+                <div class="input-addon"><span class="fa fa-user-o"></span></div>
+                <div class="form-control">
+                    <select name="Employee[]" > <option value="1" <?php if($records){ if($records[0]->employee == "1"){ echo "selected"; }} ?> >Yes</option><option value="0" <?php if($records){ if($records[0]->employee == "0"){ echo "selected"; }} ?>>No</option> </select>
+                </div>
+            </div>
         </div>
+
+
+
+    </div>
+            <div class="col-md-2" id="name">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-addon"><span class="fa fa-edit"></span>
+                        </div>
+                        <div class="form-control"><input type="text" placeholder="Name" value="<?php if($records){ echo $records[$i]->name; } ?>" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="name" name="parti_name[]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" id="email">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-addon"><span class="fa fa-envelope-o"></span>
+                        </div>
+                    <div class="form-control"><input type="text" placeholder="Email Id" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" value="<?php if($records){ echo $records[$i]->p_email; } ?>" name="parti_email[]">
+                    </div>
+                </div>
+            </div>
+
+        <div class="col-md-2" id="phone">
+            <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
+                                                    <div class="form-control"><input type="text" required placeholder="phone number"  title="Please provide valid Email address" name="parti_phone[]" value="<?php if($records){ echo $records[$i]->phone_number; } ?>" /></div>
+                                                    <?php echo form_error('parti_phone[]', '<span class="form_error">', '</span>'); ?>
+                        </div>
+            </div>
         </div>
+
         </div>
-            <div class="col-md-2" id="addmr"><div class="form-group">
-                <div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div>
-                <div class="form-control"><select name="Employee[]" > <option value="1" <?php if($records){ if($records[0]->employee == "1"){ echo "selected"; }} ?> >Yes</option><option value="0" <?php if($records){ if($records[0]->employee == "0"){ echo "selected"; }} ?>>No</option> </select></div>
-                </div></div></div><div class="col-md-2" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" value="<?php if($records){ echo $records[$i]->name; } ?>" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="name" name="parti_name[]"></div></div></div></div><div class="col-md-2" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" value="<?php if($records){ echo $records[$i]->p_email; } ?>" name="parti_email[]"></div></div></div></div><div class="col-md-2"><div class="btn-group margin-top" style=""><a href="#"  onclick="setValues(<?php echo $j; ?>)"  class="btn-eror  removebtn1">&times;</a>
-         </div>
-         </div>
-         </div>
+        <div class="col-md-2">
+            <div class="btn-group margin-top" style=""><a href="#"  onclick="setValues(<?php echo $j; ?>)"  class="btn-eror  removebtn1">&times;</a>
+            </div>
+        </div>
+    <!-- </div> -->
        
          <?php }?>  
-         </div>
+</div>
                         </div>
 
                             <!-- div participate end -->
