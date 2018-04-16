@@ -68,10 +68,9 @@
 																		 <input type='checkbox' class='checkbox1' id='<?php echo $list->yearly_periodic_id; ?>' onChange='toggle(<?php echo $list->yearly_periodic_id; ?>)'$var1 <?php  if($list->yearly_periodic_status==0){echo "checked";} ?>>
 																		 <span class="slider1 round1"> </span>
 																	   </label>
-                                   </td>
+																	</td>
 																  </tr>  
 																	
-
 																	  <?php }  }?>
                                                                   </tbody>
                                                               </table>
@@ -202,10 +201,6 @@
                     </div><!-- verticle tabs end -->
                     <div class="clear"></div>
 					
-        
-
-
-
     </div><!-- monthly periodic panel end -->
   
     
@@ -302,7 +297,7 @@
                                        <label>Remark</label>
                                         <div class="input-group">
                                             <div class="form-control">
-                                               <textarea id="Textarea1"  required class="" name="remark" value="<?php //echo set_value('remark'); ?>"></textarea>
+                                               <textarea id="Textarea1"  required name="remark" value="<?php //echo set_value('remark'); ?>"></textarea>
 											   <?php //echo form_error('remark', '<span class="form_error">', '</span>'); ?></span>
                                             </div>
                                         </div>
@@ -338,7 +333,7 @@
 						<div class="form-group">
 						    <label>Phone Number</label>
 							 <div class="input-group">
-									<div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required  /></div>						
+									<div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required pattern="[789][0-9]{9}"  /></div>						
 							 </div>
 						</div> 
 			    </div>  
@@ -393,7 +388,7 @@ function toggle(id) {
 					$('a#add').click(function(e) {
 						e.preventDefault();
 						var lnth = $('#delete .auto-del').length;
-					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" required name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="center"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" id="phone" name="phone_number[]" required  /></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" required name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="center"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" id="phone" name="phone_number[]" required pattern="[789][0-9]{9}" /></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 					  
 					});
 				});

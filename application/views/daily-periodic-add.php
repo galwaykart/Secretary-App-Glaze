@@ -122,7 +122,7 @@
 																<div class="input-group">
 																	<div class="form-control">
 																		<div class="input-addon"><span class="fa fa-phone" ></span></div>
-																		<input type="text" placeholder="Phone Number" id="phone" name="phone[]" required />
+																		<input type="text" placeholder="Phone Number" id="phone" name="phone[]" required  pattern="[789][0-9]{9}" />
 																	</div>
 																</div>
 															</div>
@@ -189,7 +189,8 @@
 					$('a#add').click(function(e) {
 						e.preventDefault();
 						var lnth = $('#delete .auto-del').length;
-					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><div class="input-group"><div class="form-control"><div class="input-addon"><span class="fa fa-external-link-square" ></span></div><input required type="text" placeholder="Delegate To" title="Delegate To" required name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><div class="input-group"><div class="form-control"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><input required type="text" placeholder="Email" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><div class="input-group"><div class="form-control"><div class="input-addon"><span class="fa fa-phone" ></span></div><input type="text" placeholder="Phone Number" name="phone[]" required /></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+						console.log(lnth);
+					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><div class="input-group"><div class="form-control"><div class="input-addon"><span class="fa fa-external-link-square" ></span></div><input required type="text" placeholder="Delegate To" title="Delegate To" required name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><div class="input-group"><div class="form-control"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><input required type="text" placeholder="Email" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><div class="input-group"><div class="form-control"><div class="input-addon"><span class="fa fa-phone" ></span></div><input type="text" placeholder="Phone Number" name="phone[]" required  pattern="[789][0-9]{9}" /></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 					  
 					});
 				});
