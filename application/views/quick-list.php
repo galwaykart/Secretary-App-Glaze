@@ -165,16 +165,20 @@
                      
                 <div class="clear"></div>
                  <div class="col-md-12">
-                    <div class="col-md-6">
-                            <div class="form-group">
-                                       <label>Status</label>
-                                        <div class="input-group">
-                                            <div class="form-control">
-                                            <select name="status" id="task_status"><option value='0'>Pending</option><option value='1'>Completed</option></select>
-                                            <!-- <input required type="text" id="task_status" name="status" title="Status" /></div> -->
-                                        </div>
-                           </div>
-                    </div>
+                   <div class="col-md-6">
+                     <div class="form-group">
+                       <label>Status</label>
+                       <div class="input-group">
+                         <div class="form-control">
+                           <select name="status" id="task_status">
+                             <option value='0'>Pending</option>
+                             <option value='1'>Completed</option>
+                           </select>
+                           <!-- <input required type="text" id="task_status" name="status" title="Status" /></div> -->
+                         </div>
+                       </div>
+                     </div>
+                   </div> 
                     <div class="col-md-6">
                             <div class="form-group">
                                        <label>Active/Inactive</label>
@@ -198,7 +202,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="center">
+                                <div class="left">
                                     <div class="form-group">
                                         <label>Email Id</label>
                                         <div class="input-group">
@@ -297,7 +301,7 @@
                     //$('#set_submail').append('<input type="submit" name="submail" class="btn-primary btn" value="submit & Mail"></input>');
                     for(var i=0; i<data_json.insidequickwork.length ; i++){
                         var j = i +1 ;
-                        $('#auto-del').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" value="'+ data_json.insidequickwork[j].delegates_name +'" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="'+data_json.insidequickwork[j].delegates_email+'"/></div></div></div></div><div class="left"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_phone[]" id="gm3"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+                        $('#auto-del').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" value="'+ data_json.insidequickwork[j].delegates_name +'" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="'+data_json.insidequickwork[j].delegates_email+'"/></div></div></div></div><div class="center"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_phone[]" id="gm3"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 
                     }
                     
