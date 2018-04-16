@@ -106,7 +106,7 @@
 			$this->db->set('yearly_periodic_end_date',date("Y-m-d")); 
             $this->db->where("yearly_periodic_id", $id); 
             $this->db->update("yearly_periodic");
-			 //echo "Hurray i am in";
+			 echo "Hurray i am in";
 		 }
 	}
 	

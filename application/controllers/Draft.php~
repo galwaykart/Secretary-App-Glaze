@@ -11,7 +11,8 @@
 		
 		    public function index(){ 
 				$DraftMessage = $this->input->post('DraftMessage');
-				$data = array("DraftMessage" => $DraftMessage);
+				$data = array("DraftMessage" => $DraftMessage);		
+				//	print_r($DraftMessage);die;
 				$data = $this->Draft_model->index($data);	
 		    }
 	}

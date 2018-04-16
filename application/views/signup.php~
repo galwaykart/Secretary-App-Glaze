@@ -136,7 +136,7 @@
                     </div>
                     <div class="clear"></div>
                     <div class="col-md-12 sign-up-btn" style="text-align:center;">
-                      <a href="
+                      <a href=""
                         <?php if($list){echo base_url() . "User/delete_id/" . $list[0]->id; }?>" class="btn mybtn del">Delete
                       </a>
                       <input type="submit" value="Registration" class="btn mybtn" />

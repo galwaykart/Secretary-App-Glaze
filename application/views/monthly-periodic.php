@@ -66,7 +66,10 @@
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_start_date;?></td>
 																	   <td><?php echo $record->monthly_periodic_end_date;?></td>
-																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?></td>
+																	   <td><?php if($record->monthly_periodic_status == 1){ echo "Yes"; }else{ echo "No" ;}?>
+																		
+																	   
+																	   </td>
                                                                       </tr>
 																	<?php 
 																	//} 

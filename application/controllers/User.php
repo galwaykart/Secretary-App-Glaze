@@ -137,7 +137,7 @@ class User extends CI_Controller
 		   }
 			if($username_check){
 			  $this->user_model->register_user($user);
-				$this->session->set_flashdata('msg', 'Registered successfully.Now login to your account.');
+			  $this->session->set_flashdata('msg', 'Registered successfully.Now login to your account.');
 /* ...........................Mail sending start here!.......................................*/
 /*..............................sms send start here............................................ */
 $text="baba KIng singh gaurav ff.";	 

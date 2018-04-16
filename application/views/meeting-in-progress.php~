@@ -38,7 +38,7 @@ In case of first meeting - Previous Date = NA
 						   </tr>
                        </thead>
                        <tbody>
-					   <?php 	//print_r($meeting); ?>
+					   <?php 	print_r($meeting); ?>
 					   <?php  $i=1;
 					     foreach($meeting as $arr){?>
 						 <!--newDoc is a function to passed the Id from the database-->
@@ -48,7 +48,7 @@ In case of first meeting - Previous Date = NA
 							 <td onclick='newDoc(<?php echo $arr->agenda_id; ?>)'><?php echo $arr->counter;?></td>
 							 <td onclick='newDoc(<?php echo $arr->agenda_id; ?>)'><?php echo $arr->index_meeting_next_date;?></td>
 							 <td onclick='newDoc(<?php echo $arr->agenda_id; ?>)'><?php echo $arr->meeting_called_by?></td>
-						     <td><?php if($arr->agenda_status==1) { echo "Active"; }  else{ echo "Inactive"; }  ?>
+						     <td><?php if($arr->agenda_status==1) { echo "Active"; }  else{ echo "         	Inactive"; }  ?>
 								
 								<label class="switch" title="Active / Inactive">
 									<input type='checkbox' class='checkbox1' id='<?php echo $arr->index_meeting_id; ?>' onChange='toggle(<?php echo $arr->index_meeting_id; ?>)'$var1 <?php  if($arr->agenda_status==0){echo "checked";} ?>>

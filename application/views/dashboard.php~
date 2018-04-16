@@ -552,6 +552,7 @@
         
 <?php $c_date = date('Y-m-d', time()); ?>
 
+
         <div class='clear'></div> 
         
 <?php $c_date = date('Y-m-d', time()); ?>  
@@ -586,6 +587,9 @@
   }
 
   },
+
+
+
 
   eventMouseover: function(calEvent, jsEvent) {
   var tooltip = '<div class="tooltipevent" ><h2 class="title">Title</h2><h2 > ' + calEvent.title + '</h2><p> Start Time : '+  calEvent.start  + '</p></div>';
@@ -880,9 +884,10 @@ function drawHand(ctx, pos, length, width) {
   function drawChart() {
   var data = google.visualization.arrayToDataTable([
   ['Tasks', ''],
-  ['Meetings', 4],
+  ['Meetings', '<?php echo($dash_data['count_index_meeting'][0]->total);?>],
   ['Appoinment', 3],
   ['Task', 3]
+
   ]);
 
   // Optional; add a title and set the width and height of the chart

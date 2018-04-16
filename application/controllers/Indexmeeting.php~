@@ -269,13 +269,14 @@ print_r($results);
 			if(isset($_GET["id"])){
 				$id = $_GET["id"];
 				$status = $_GET["status"];
-
+				$end_date = $_GET["end_date"];
+				
 				if($status == "false"){
-					$this->Indexmeeting_model->changeStatus($id ,$status);
+					$this->Indexmeeting_model->changeStatus($id ,$status,$end_date);
 					//$sql = "UPDATE PAGE SET status='0' WHERE ID = $id";
 				}
 				else{
-					$this->Indexmeeting_model->changeStatus($id ,$status);
+					$this->Indexmeeting_model->changeStatus($id ,$status,$end_date);
 					//$sql = "UPDATE PAGE SET status='1' WHERE ID = $id"; 
 				}
 			}
