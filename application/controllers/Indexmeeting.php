@@ -110,6 +110,8 @@
 		 $this->form_validation->set_rules('conclusion_textarea[]', 'Textarea', 'trim|required');
 		 $this->form_validation->set_rules('targetdate[]', 'Target Date', 'trim|required');
 		 $this->form_validation->set_rules('delegated_dept[]', 'Delegate', 'trim|required');
+		 $this->form_validation->set_rules('phone_number', 'Mobile Number ', 'required|regex_match[/^[0-9]{10}$/]');
+
 	      if($this->form_validation->run() == false)
 		  {
 			$this->load->view('metting-info');

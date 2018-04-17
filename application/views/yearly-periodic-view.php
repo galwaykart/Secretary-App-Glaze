@@ -181,9 +181,7 @@
                                               <span class="fa fa fa-edit" ></span>
                                        </div>
                                           <div class="form-control">
-                                              <textarea id="Textarea1" class="textarea" required class="" name="note[]"  >
-											  <?php if($list['data3']){ echo $list['data3'][0]->yearly_periodic_status_note; }  ?>
-											  </textarea>
+                                              <textarea id="Textarea1" class="textarea" required class="" name="note[]"  ><?php if($list['data3']){ echo $list['data3'][0]->yearly_periodic_status_note; }  ?></textarea>
                                          </div>
                                    </div>
                            
@@ -224,9 +222,7 @@
                                               <span class="fa fa-edit" ></span>
                                        </div>
                                           <div class="form-control">
-                                              <textarea id="Textarea1" class="textarea" name="note[]"  >
-											<?php if($record){ echo $record->yearly_periodic_status_note; } ?>
-											  </textarea>
+                                              <textarea id="Textarea1" class="textarea" name="note[]"  ><?php if($record){ echo $record->yearly_periodic_status_note; } ?></textarea>
                                          </div>
                                    </div>
                            

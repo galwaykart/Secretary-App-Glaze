@@ -55,7 +55,10 @@
                 <div class="form-group form1">
                   <label>Total days</label>
 
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 313f26b0486953ec148dccd540ae494c5e3950f4
                   <div class="input-group">
                     <div class="input-addon">
                       <span class=" fa fa fa-cogs" ></span>
@@ -64,6 +67,7 @@
                       <input type="text" class="total-day" title="Total days" readonly="" placeholder="Total Days" value=""<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/>
                     </div>
                   </div>
+<<<<<<< HEAD
                
             <!--  <div class="input-group">
                 <div class="input-addon">
@@ -72,6 +76,8 @@
                 <div class="form-control">
                   <input type="text" class="total-day" title="Total days" readonly="" placeholder="Total Days" value="<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/>
 
+=======
+>>>>>>> 313f26b0486953ec148dccd540ae494c5e3950f4
                 </div>
                 -->
                 

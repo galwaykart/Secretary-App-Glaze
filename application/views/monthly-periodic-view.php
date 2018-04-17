@@ -163,11 +163,15 @@
                                               <span class="fa fa-edit" ></span>
                                        </div>
                                           <div class="form-control">
+<<<<<<< HEAD
+                                              <textarea id="Textarea1" required class="" name="note[]"  ><?php if($list['data3']){ echo $list['data3'][0]->monthly_periodic_status_note; }  ?></textarea>
+=======
                                               <textarea id="Textarea1" required class="" name="note[]"  >
 											  <?php if($list['data3']){
                         echo $list['data3'][0]->monthly_periodic_status_note;
                         }  ?>
 											  </textarea>
+>>>>>>> 11599f8a991c83f41c01f34b7e2da2fe0eb019de
                                          </div>
                                    </div>
                            

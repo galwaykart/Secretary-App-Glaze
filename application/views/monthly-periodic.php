@@ -228,7 +228,7 @@
 																	//if($apr_month==4){
 																  ?>
                                                                        <tr onclick='status(<?php echo $record->monthly_periodic_id; ?>)'>
-																	  <td><?php  echo $i++; ?></td>
+																	   <td><?php  echo $i++; ?></td>
 																	   <td><?php echo $record->monthly_periodic_time;?></td>
 																	   <td><?php echo $record->monthly_periodic_work;?></td>
 																	   <td><?php echo $record->monthly_start_date;?></td>
@@ -789,7 +789,7 @@
 						<div class="form-group">
 						    <label>Phone Number</label>
 							 <div class="input-group">
-									<div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required  /></div>						
+									<div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required  pattern="[789][0-9]{9}" /></div>						
 							 </div>
 						</div> 
 			    </div> 
@@ -829,7 +829,7 @@
 					$('a#add').click(function(e) {
 						e.preventDefault();
 						var lnth = $('#delete .auto-del').length;
-					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text"  title="Delegate To" required name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="center"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" id="phone" name="phone_number[]" required  /></div></div></div></div> <div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+					 $('#delete').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text"  title="Delegate To" required name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="email[]" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="center"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" id="phone" name="phone_number[]" required  pattern="[789][0-9]{9}" /></div></div></div></div> <div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 					  
 					});
 				});

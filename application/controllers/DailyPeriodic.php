@@ -99,6 +99,8 @@ class DailyPeriodic extends CI_Controller {
 			 $this->form_validation->set_rules('supervise_by','Supervise By','trim|required');
 			 $this->form_validation->set_rules('remark','Remark','trim|required');
 			 $this->form_validation->set_rules('status','Status	','trim|required');
+			 $this->form_validation->set_rules('phone', 'Mobile Number ', 'required|regex_match[/^[0-9]{10}$/]');
+
 			}
 
 		 if($this->form_validation->run() == false){
