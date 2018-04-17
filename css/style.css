@@ -2772,3 +2772,11 @@ input.checkbox1:checked + .slider1:before {-webkit-transform: translateX(26px);-
     .box-data-for-2 h3 {    left: 43%;}
 
 }
+.form-yearly-view-first-line-top {}
+.form-yearly-view-first-line-top .form-group {}
+.form-yearly-view-first-line-top .form-group label{    margin-left: 3.5%;}
+.form-yearly-view-first-line-top .form-group .input-group{margin-left: 3.8%;}
+.form-yearly-view-first-line-top .form-group .input-group .input-addon{}
+.form-yearly-view-first-line-top .form-group .input-group .input-addon span{}
+.form-yearly-view-first-line-top .form-group .input-group .form-control{}
+.form-yearly-view-first-line-top .form-group .input-group .form-control input{}
