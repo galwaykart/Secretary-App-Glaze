@@ -11,10 +11,15 @@
 		
 		    public function index(){ 
 				$DraftMessage = $this->input->post('DraftMessage');
-				$data = array("DraftMessage" => $DraftMessage);		
-				//	print_r($DraftMessage);die;
+				$data = array("DraftMessage" => $DraftMessage);
 				$data = $this->Draft_model->index($data);	
 		    }
+			
+			public function draft(){
+				$data['list'] = $this->Draft_model->get_list();
+				this->load->view('footer',$data);	
+
+			}
 	}
 ?>	
 		
