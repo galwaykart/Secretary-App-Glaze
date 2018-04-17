@@ -1201,7 +1201,7 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
     color: #002653;
     transition: 1s;
     animation: zoomanimation 1s ease-in-out infinite;
-    cursor: pointer;
+    cursor: move;
     bottom: 12%;}
 
     .notepad-tag span {font-size: 22px;
@@ -2755,3 +2755,28 @@ input.checkbox1:checked + .slider1:before {-webkit-transform: translateX(26px);-
 }
 .dailly-notes-index-panel a.addProjectStatus {
 }
+
+
+@media screen and (min-width:100px) and (max-width:480px) {
+
+    .main-area-body-box .col-md-new-2 {width: 90%;margin: 1% 5%;}
+    .left-pop-tag span {    margin-top: 16%;margin-left: 42%;}
+    .box-data-for-2 h3 {    left: 43%;}
+
+}
+
+@media screen and (min-width:481px) and (max-width:768px) {
+
+    .main-area-body-box .col-md-new-2 {width: 50%;float:left;background-color:white;}
+    .left-pop-tag span {    margin-top: 16%;margin-left: 42%;}
+    .box-data-for-2 h3 {    left: 43%;}
+
+}
+.form-yearly-view-first-line-top {}
+.form-yearly-view-first-line-top .form-group {}
+.form-yearly-view-first-line-top .form-group label{    margin-left: 3.5%;}
+.form-yearly-view-first-line-top .form-group .input-group{margin-left: 3.8%;}
+.form-yearly-view-first-line-top .form-group .input-group .input-addon{}
+.form-yearly-view-first-line-top .form-group .input-group .input-addon span{}
+.form-yearly-view-first-line-top .form-group .input-group .form-control{}
+.form-yearly-view-first-line-top .form-group .input-group .form-control input{}

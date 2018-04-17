@@ -272,51 +272,61 @@
         </script>
 
     <script>
-        $(document).ready(function () {
-            var count = 0;
-            var count2 = 0;
+      $(document).ready(function () {
+      var count = 0;
+      var count2 = 0;
 
-            $('#sec-header #toggle-btn-box span#bar').click(function () {
-                if ($(window).width() >= 769) {
-                    if (count % 2 == 0) { $('#aside').css('display', 'none'); $('.main-area-dashboard #left').css('width', '0%'); $('.main-area-dashboard #right').css('width', '100%'); }
-                    else { $('#aside').css('display', 'block'); $('.main-area-dashboard #left').css('width', '15%'); $('.main-area-dashboard #right').css('width', '85%'); }
-                    count++;
-                }
-                else {
+      $('#sec-header #toggle-btn-box span#bar').click(function () {
+      if ($(window).width() >= 769) {
+      if (count % 2 == 0) { $('#aside').css('display', 'none'); $('.main-area-dashboard #left').css('width', '0%'); $('.main-area-dashboard #right').css('width', '100%'); }
+      else { $('#aside').css('display', 'block'); $('.main-area-dashboard #left').css('width', '15%'); $('.main-area-dashboard #right').css('width', '85%'); }
+      count++;
+      }
+      else {
 
-                    if (count2 % 2 == 0) { $('.mobile-menu-bar').css('display', 'block'); }
-                    else { $('.mobile-menu-bar').css('display', 'none'); }
-                    count2++;
-                }
+      if (count2 % 2 == 0) { $('.mobile-menu-bar').css('display', 'block'); }
+      else { $('.mobile-menu-bar').css('display', 'none'); }
+      count2++;
+      }
 
-            });
+      });
 
-            $('.log-popup').on('click', function () {
-                $('.log-up-body').toggle('slow');
+      $('.log-popup').on('click', function () {
+      $('.log-up-body').toggle('slow');
 
-            });
+      });
 
-            // window resize option
-            $(window).bind('resize', function () {
-                if ($(window).width() > 768) {
-                    $('#aside').css('display', 'block'); $('.mobile-menu-bar').css('display', 'none');
-                    $('.main-area-dashboard #right').css('width', '85%');
-                    $('.main-area-dashboard #left').css('width', '15%');
-                }
-                else {
-                    $('#aside').css('display', 'none');
-                    $('.main-area-dashboard #right').css('width', '100%'); $('.mobile-menu-bar').css('display', 'none');
-                }
-            });
-        });
+      // window resize option
+      $(window).bind('resize', function () {
+      if ($(window).width() > 768) {
+      $('#aside').css('display', 'block'); $('.mobile-menu-bar').css('display', 'none');
+      $('.main-area-dashboard #right').css('width', '85%');
+      $('.main-area-dashboard #left').css('width', '15%');
+      }
+      else {
+      $('#aside').css('display', 'none');
+      $('.main-area-dashboard #right').css('width', '100%'); $('.mobile-menu-bar').css('display', 'none');
+      }
+      });
+      });
 
 
+      $('#open-popup').on('click', function () { $('.popup , .popup-main').css('display', 'block'); });
+      $('#close-popup').on('click', function () {
+
+<<<<<<< HEAD
+      $('.popup , .popup-main').css('display', 'none');
+      location.href=location.href;
+      window.locatiuon="Reminder";
+      })
+=======
         $('#open-popup').on('click', function () { $('.popup , .popup-main').css('display', 'block'); });
         $('#close-popup').on('click', function () {
 			$('.popup , .popup-main').css('display', 'none');
  			  $( ".auto-del.ss" ).remove();
 
 		})
+>>>>>>> 313f26b0486953ec148dccd540ae494c5e3950f4
     </script>
  <?php $this->load->view('footer'); ?>
 </div>
