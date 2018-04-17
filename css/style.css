@@ -1201,7 +1201,7 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
     color: #002653;
     transition: 1s;
     animation: zoomanimation 1s ease-in-out infinite;
-    cursor: pointer;
+    cursor: move;
     bottom: 12%;}
 
     .notepad-tag span {font-size: 22px;
@@ -2754,4 +2754,21 @@ input.checkbox1:checked + .slider1:before {-webkit-transform: translateX(26px);-
     color: #39383a;
 }
 .dailly-notes-index-panel a.addProjectStatus {
+}
+
+
+@media screen and (min-width:100px) and (max-width:480px) {
+
+    .main-area-body-box .col-md-new-2 {width: 90%;margin: 1% 5%;}
+    .left-pop-tag span {    margin-top: 16%;margin-left: 42%;}
+    .box-data-for-2 h3 {    left: 43%;}
+
+}
+
+@media screen and (min-width:481px) and (max-width:768px) {
+
+    .main-area-body-box .col-md-new-2 {width: 50%;float:left;background-color:white;}
+    .left-pop-tag span {    margin-top: 16%;margin-left: 42%;}
+    .box-data-for-2 h3 {    left: 43%;}
+
 }
