@@ -11,6 +11,7 @@
      <div class="dailly-notes-index-panel"> 
        <div class="container-5">                     
                         <div class="col-md-12 project-del-view-main-panel">
+<<<<<<< HEAD
                                   
                               <div class="col-md-12"><p>Task Name : <span id="projectname"><?php echo $list['data1'][0]->weekly_periodic_work?></span></p></div>
  
@@ -27,6 +28,27 @@
                                       <div class="form-control">
                                         <input type="date" class="input2" title="End date" value = ""<?php echo $list['data1'][0]->weekly_periodic_end_date?>" />
                                       </div>
+=======
+ 
+
+                                    <h2>Perodic Task View</h2>
+                                    <div class="col-md-12"><p>Task Name : <span id="projectname"><?php echo $list['data1'][0]->weekly_periodic_work?></span></p></div>
+ 
+                                  
+                                    <div class="clear"></div>
+                                    <div class="col-md-6">
+                                         <div class="form-group form">
+                                                        <label>End Date</label>
+                                                        
+                                                        <div class="input-group">
+                                                            <div class="input-addon">
+                                                            <span class="fa fa-calendar" ></span>
+                                                            </div>
+                                                            <div class="form-control"><input type="date" title="End date" value = "<?php echo $list['data1'][0]->weekly_periodic_end_date?>" /></div>
+                                                        </div>
+                                                </div>
+                                               
+>>>>>>> 44c379a214139c9c7477b8bc6c4cdb4d3a8b00c8
                                     </div>
                                   </div>
 
@@ -87,7 +109,7 @@
                                                 <span class="fa fa-envelope-o" ></span>
                                                 </div>
                                                     <div class="form-control">
-                                                        <input required type="text" id="gm3"   name="delegate_phone[]" value="<?php echo $list['data2'][0]->phone_number ?>"/>
+                                                        <input required type="tel" pattern="[789][0-9]{9}" id="gm3"   name="delegate_phone[]" value="<?php echo $list['data2'][0]->phone_number ?>"/>
                                                     </div>
                                                 </div>
                                             </div>

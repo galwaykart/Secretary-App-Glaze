@@ -33,7 +33,7 @@
                       <span class="fa fa-calendar" ></span>
                     </div>
                     <div class="form-control">
-                      <input type="date" title="Start date" required="" value="<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_date ;}?>"  />
+                      <input type="date" title="Start date" required="" value=""<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_date ;}?>"  />
                     </div>
                   </div>
                 </div>
@@ -46,7 +46,7 @@
                       <span class=" fa fa-line-chart" ></span>
                     </div>
                     <div class="form-control">
-                      <input type="date" title="Target Date" required="" value="<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_target_date ;}?>"/>
+                      <input type="date" title="Target Date" required="" value=""<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_target_date ;}?>"/>
                     </div>
                   </div>
                 </div>
@@ -60,7 +60,7 @@
                       <span class=" fa fa fa-cogs" ></span>
                     </div>
                     <div class="form-control">
-                      <input type="text" class="total-day" title="Total days" readonly="" placeholder="Total Days" value="<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/>
+                      <input type="text" class="total-day" title="Total days" readonly="" placeholder="Total Days" value=""<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/>
                     </div>
                   </div>
                 </div>
@@ -108,7 +108,7 @@
                           <Span class="fa fa-share"></Span>
                         </div>
                         <div class="form-control">
-                          <input required="" type="text" id ="gm1" name="delegate_to[]" title="Delegate To" value="<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_name;} ?>"/>
+                          <input required="" type="text" id ="gm1" name="delegate_to[]" title="Delegate To" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_name;} ?>"/>
                         </div>
                       </div>
                     </div>
@@ -121,7 +121,7 @@
                           <Span class="fa fa-envelope-o"></Span>
                         </div>
                         <div class="form-control">
-                          <input required="" type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_email;} ?>"/>
+                          <input required="" type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_email;} ?>"/>
                         </div>
                       </div>
                     </div>
@@ -134,7 +134,7 @@
                           <Span class="fa fa-phone"></Span>
                         </div>
                         <div class="form-control">
-                          <input required="" type="text" id="gm3"   name="delegate_phone[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][0]->phone_number;} ?>"/>
+                          <input required="" type="text" id="gm3"   name="delegate_phone[]" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][0]->phone_number;} ?>"/>
                         </div>
                       </div>
                     </div>
@@ -147,11 +147,13 @@
                     </div>
                   </div>
                 </div>
+<<<<<<< HEAD
+=======
               </div>
             </div>
           </div>
           <div class="clear"></div>
- 
+<<<<<<< HEAD
           <div id="refresh_popups">
             <div id="auto-dels">
               <div class="auto-del">
@@ -194,17 +196,18 @@
                                                         </div>
                                                 </div>
                                     </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label>Target date</label>
+                                    <div class="col-md-4">
+                                                <div class="form-group">
+                                                        <label>Target date</label>
                                                         
-                        <div class="input-group">
-                        <div class="input-addon">
-                        <span class=" fa fa-line-chart" ></span>
+                                                        <div class="input-group">
+                                                            <div class="input-addon">
+                                                            <span class=" fa fa-line-chart" ></span>
                                                             </div>
                                                             <div class="form-control"><input type="date" title="Target Date" required value="<?php if($records['delegates_data'][0]){echo $records['delegates_data'][0]->project_delegation_target_date ;}?>"/></div>
                                                         </div>
                                                 </div>
+=======
                     <div id="refresh_popups"> 
                         <div id="auto-dels"> 
                             <div class="auto-del">
@@ -214,6 +217,7 @@
                                         <div class="input-group">
                                             <div class="form-control"><input required type="text" id ="gm1" name="delegate_to[]" title="Delegate To" value="<?php if($records['delegates_data']){echo $records['delegates_data'][0]->project_delegation_delegated_name;} ?>"/></div>
                                         </div>
+>>>>>>> fedc76506bb625ae0f389c2aa96118252d480a02
                                     </div>
                                 </div>
                                 <div class="center">
@@ -241,6 +245,7 @@
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
                         </div>
                     </div>
                   </div>
@@ -266,6 +271,9 @@
                   </div>
                 </div>
               </div>
+=======
+>>>>>>> fedc76506bb625ae0f389c2aa96118252d480a02
+>>>>>>> 86e0470b1fa66a2f3413a049be39368ffbd8eb4b
 
                 <!-- auto generation already added delegates -->
                 <div id="one">
@@ -278,19 +286,22 @@
                   <div id=""
                     <?php   echo "rm".$j ?>" class="auto-del">
                     <div class="auto-del">
-						<div class="left">
-							<div class="form-group">
-							  <label>Delegate To</label>
-							  <div class="input-group">
-								<div class="input-addon">
-								  <Span class="fa fa-share"></Span>
-								</div>
-								<div class="form-control">
-								  <input required="" type="text" title="Delegate To" name="delegate_to[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_name;} ?>"/>
-								</div>
-							  </div>
-							</div> 
-						</div>
+                      <div class="left">
+                        <div class="form-group">
+                          <label>Delegate To</label>
+                          <div class="input-group">
+                            <div class="input-addon">
+                              <Span class="fa fa-share"></Span>
+                            </div>
+<<<<<<< HEAD
+                            <div class="form-control">
+                              <input required="" type="text" title="Delegate To" name="delegate_to[]" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_name;} ?>"/>
+                            </div>
+                          </div>
+=======
+                        </div> 
+                    </div>
+<<<<<<< HEAD
 						<div class="col-md-6">
                       <div class="form-group form">
                         <label>Email Id</label>
@@ -300,12 +311,15 @@
                             <input required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_email;} ?>"/>
                           </div>
 
+=======
+>>>>>>> fedc76506bb625ae0f389c2aa96118252d480a02
                     <div class="footer">
                         <div class="col-md-12">
                             <button type="submit" class="btargetDatetn-primary btn">Save</button>
                             <?php if($this->uri->segment(3)){?>
                             <input type="submit" name="submail" class="btn-primary btn" value="submit & Mail"></input>
                             <?php }?>
+>>>>>>> 86e0470b1fa66a2f3413a049be39368ffbd8eb4b
                         </div>
                       </div>
                       <div class="center">
@@ -317,7 +331,7 @@
                               <Span class="fa fa-envelope-o"></Span>
                             </div>
                             <div class="form-control">
-                              <input required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_email;} ?>"/>
+                              <input required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->project_delegation_delegated_email;} ?>"/>
                             </div>
                           </div>
                         </div>
@@ -330,7 +344,7 @@
                               <Span class="fa fa-phone"></Span>
                             </div>
                             <div class="form-control">
-                              <input required="" type="text"  name="delegate_phone[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->phone_number;} ?>"/>
+                              <input required="" type="text"  name="delegate_phone[]" value=""<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->phone_number;} ?>"/>
                             </div>
                           </div>
                         </div>

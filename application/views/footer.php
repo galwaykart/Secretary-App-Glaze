@@ -15,19 +15,30 @@
                     <span class="fa fa-edit"></span>
                   </div>
         </div>  
-           <!-- notepad start -->
+         <!-- notepad start -->
+	
 <div class="notepad-overlap">
 	<div class="notePad" id="">
-	        
+	
+	
+			
             <div class="notepad-container">
 			 <span class="close2">&times;</div>
-                <textarea id="cktextarea" class="notepad-area" cols="12" rows="10" onchange('autoSave()'); ></textarea>
-					
+                <textarea id="cktextarea" class="notepad-area" cols="12" rows="10" onchange('autoSave()');>
+				<?php
+			$CI =& get_instance();
+			$CI->load->model('Draft_model');
+			$result = $CI->Draft_model->get_list();   
+			 // print_r($result);die;
+			 if($result){
+			  echo $result[0]->message; 
+			 }
+			   ?> 
+			</textarea>
 			</div>
  				<div id="autoSave"></div>  
     </div>
 </div>
-
 
  <script>  
  $(document).ready(function(){  
@@ -37,7 +48,7 @@
             if(draft_Message != '')  
            {    
                 $.ajax({  
-                     url:'<?php echo base_url(); ?>/Draft/index',  
+                     url:'<?php echo base_url(); ?>/Draft/index/',  
                      method:'POST',  
                      dataType:'text', 
                     data:{DraftMessage:draft_Message},  	 

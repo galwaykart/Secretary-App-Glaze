@@ -117,7 +117,7 @@ The status should be there to mark the attendance of the participants.
 
  
                     <div class="metting-search"><?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?>
-</div>
+					</div>
 									 
 								  </div>
 								</div>
@@ -459,7 +459,6 @@ The status should be there to mark the attendance of the participants.
 						}
 					});
 					}	
-					
 			});                 
 	    </script>
 		 

@@ -3544,7 +3544,7 @@
 <form id="myForm"  method="POST" action="<?php echo base_url();?>WeeklyPeriodic/add_data" >
             <div class="popup">
                 <div class="header">
-                    <h3>Project Delegation Sheet- <span id="work">Add</span></h3>
+                    <h3>Weekly Periodic Sheet- <span id="work">Add</span></h3>
                     <span id="close-popup"  title="Close">&times;</span>
                 </div>
               <div class="content">
@@ -3555,7 +3555,7 @@
                       <label>Time :</label>
                       <div class="input-group">
                         <div class="form-control">
-                          <input type="time" title="Time" name="weekly_periodic_time"/>
+                          <input type="time" required title="Time" name="weekly_periodic_time"/>
                         </div>
                       </div>
                     </div>
@@ -3565,7 +3565,7 @@
                       <label>Work :</label>
                       <div class="input-group">
                         <div class="form-control">
-                          <input type="text" title="Work" name="work"/>
+                          <input type="text" required title="Work" name="work"/>
                         </div>
                       </div>
                     </div>
@@ -3580,23 +3580,8 @@
                       <label>End Date :</label>
                       <div class="input-group">
                         <div class="form-control">
-                          <input type="date" title="End Date" name="end_date"/>
+                          <input type="date" required title="End Date" name="end_date"/>
                         </div>
-<<<<<<< HEAD
-                <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Active/Inactive</label>
-                                <div class="input-group">
-                                    <div class="form-control"><select name="status">
-                                            <option>Select Status</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Inacive</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div> 
-                  </div>
-=======
                       </div>
                     </div>
                   </div>
@@ -3605,13 +3590,11 @@
                       <label>Active/Inactive</label>
                       <div class="input-group">
                         <div class="form-control">
-                          <select name="status">
-                            <option>Select Status</option>
-                            <option value="Active">Active</option>
-                            <option value="Inactive">Inacive</option>
+                          <select name="status" required>
+                            <option value="1">Active</option>
+                            <option value="0">Inacive</option>
                           </select>
                         </div>
->>>>>>> b0cec028f3171ce64aa79500a4aa5eb377b5ce17
                       </div>
                     </div>
                   </div>
@@ -3625,7 +3608,7 @@
                       <label>Day :</label>
                       <div class="input-group">
                         <div class="form-control">
-                          <input type="text" title="Day" name="day"/>
+                          <input type="text" required title="Day" name="day"/>
                         </div>
                       </div>
                     </div>
@@ -3635,7 +3618,7 @@
                       <label>Supervision</label>
                       <div class="input-group">
                         <div class="form-control">
-                          <input type="text" title="Supervision" name="supervision"/>
+                          <input type="text" required title="Supervision" name="supervision"/>
                         </div>
                       </div>
                     </div>
@@ -3649,7 +3632,7 @@
                     <label>Remark</label>
                     <div class="input-group">
                       <div class="form-control">
-                        <textarea id="Textarea1" class="" name="remark"></textarea>
+                        <textarea id="Textarea1" required class="" name="remark"></textarea>
                       </div>
                     </div>
 
@@ -3665,7 +3648,7 @@
                           <label>Delegate To</label>
                           <div class="input-group">
                             <div class="form-control">
-                              <input required="" type="text" id ="gm1" name="delegate_to[]" title="Delegate To" />
+                              <input required  type="text" id ="gm1" name="delegate_to[]" title="Delegate To" />
                             </div>
                           </div>
                         </div>
@@ -3675,7 +3658,7 @@
                           <label>Email Id</label>
                           <div class="input-group">
                             <div class="form-control">
-                              <input required="" type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/>
+                              <input required type="text" id="gm2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/>
                             </div>
                           </div>
                         </div>
@@ -3685,7 +3668,7 @@
                           <label>Phone number</label>
                           <div class="input-group">
                             <div class="form-control">
-                              <input required="" type="text" id="gm3"   name="delegate_phone[]"/>
+                              <input required type="tel" pattern="[789][0-9]{9}" id="gm3"   name="delegate_phone[]"/>
                             </div>
                           </div>
                         </div>

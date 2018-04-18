@@ -271,7 +271,7 @@
                                 <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
-                                                                            <div class="form-control"><input type="text" required placeholder="phone number"  title="Please provide valid Email address" name="parti_phone[]" value="<?php if($records){ echo $records[0]->phone_number; } ?>" /></div>
+                                                                            <div class="form-control"><input type="tel" pattern="[789][0-9]{9}" required placeholder="phone number"  title="Please provide valid Email address" name="parti_phone[]" value="<?php if($records){ echo $records[0]->phone_number; } ?>" /></div>
                                                                             <?php echo form_error('parti_phone[]', '<span class="form_error">', '</span>'); ?>
                                              </div>
                                 </div>
@@ -287,7 +287,7 @@
          <div class="clear"></div>
          
     <div id="<?php   echo "rm".$j ?>"  class="customclass">
-        <div class="col-md-2" id="addmr">
+        <div class="col-md-222" id="addmr">
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-addon"><span class="fa fa-building-o"></span></div>
@@ -296,7 +296,7 @@
             </div>
         </div>
 
-        <div class="col-md-2" id="addmr"><div class="form-group">
+        <div class="col-md-222" id="addmr"><div class="form-group">
             <div class="input-group">
                 <div class="input-addon"><span class="fa fa-user-o"></span></div>
                 <div class="form-control">
@@ -308,7 +308,7 @@
 
 
     </div>
-            <div class="col-md-2" id="name">
+            <div class="col-md-222" id="name">
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-addon"><span class="fa fa-edit"></span>
@@ -318,7 +318,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2" id="email">
+            <div class="col-md-222" id="email">
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-addon"><span class="fa fa-envelope-o"></span>
@@ -328,11 +328,11 @@
                 </div>
             </div>
 
-        <div class="col-md-2" id="phone">
+        <div class="col-md-222" id="phone">
             <div class="form-group">
                     <div class="input-group">
                         <div class="input-addon"><span class="fa fa-envelope-o" ></span></div>
-                                                    <div class="form-control"><input type="text" required placeholder="phone number"  title="Please provide valid Email address" name="parti_phone[]" value="<?php if($records){ echo $records[$i]->phone_number; } ?>" /></div>
+                                                    <div class="form-control"><input type="tel" pattern="[789][0-9]{9}" required placeholder="phone number"  title="Please provide valid Email address" name="parti_phone[]" value="<?php if($records){ echo $records[$i]->phone_number; } ?>" /></div>
                                                     <?php echo form_error('parti_phone[]', '<span class="form_error">', '</span>'); ?>
                         </div>
             </div>
@@ -442,7 +442,7 @@
             $('a.ad').click(function(e) {
             e.preventDefault();
             var lnth = $('#one .customclass').length; 
-         $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass" style="position:relative;"><div class="col-md-222" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="department" name="part_dept[]"></div></div></div></div><div class="col-md-222" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="Employee[]" > <option value="1" >Yes</option><option value="0" >No</option> </select></div></div></div></div><div class="col-md-222" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="name" name="parti_name[]"></div></div></div></div><div class="col-md-222" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" name="parti_email[]"></div></div></div></div><div class="col-md-222" id="phone"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="phone number"  required  id="phone" name="parti_phone[]"></div></div></div></div><div class=""><div class="btn-group  padding-btn" style="text-align:right;float:left;"><a href="#"  onclick="setValues('+ lnth +')"  class="ad btn-eror removebtn8 ">&times;</a></div></div></div>');
+         $('#one').append('<div class="clear"></div><div id="rm'+lnth+'" class="customclass" style="position:relative;"><div class="col-md-222" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-building-o"></span></div><div class="form-control"><input type="text" placeholder="Department" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="department" name="part_dept[]"></div></div></div></div><div class="col-md-222" id="addmr"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-user-o"></span></div><div class="form-control"><select name="Employee[]" > <option value="1" >Yes</option><option value="0" >No</option> </select></div></div></div></div><div class="col-md-222" id="name"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="text" placeholder="Name" title="Only Alphabets allowed" required  pattern="[A-Z a-z ]{1,30}" id="name" name="parti_name[]"></div></div></div></div><div class="col-md-222" id="email"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o"></span></div><div class="form-control"><input type="text" placeholder="Email Id" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please provide valid Email address" name="parti_email[]"></div></div></div></div><div class="col-md-222" id="phone"><div class="form-group"><div class="input-group"><div class="input-addon"><span class="fa fa-edit"></span></div><div class="form-control"><input type="tel" pattern="[789][0-9]{9}" placeholder="phone number"  required  id="phone" name="parti_phone[]"></div></div></div></div><div class=""><div class="btn-group  padding-btn" style="text-align:right;float:left;"><a href="#"  onclick="setValues('+ lnth +')"  class="ad btn-eror removebtn8 ">&times;</a></div></div></div>');
 
         });
         
