@@ -85,6 +85,7 @@
             </div>
 			    
 				<a href="#" class="addmeeingsbtn btn" id="addnotes"><span class="fa fa-plus" >&nbsp;Add</span></a>
+
 				<div class="clear"></div>
 				 <div id="container" class="pagination">
 			       <p><?php echo $links; ?></p>
@@ -165,6 +166,7 @@
                      
                 <div class="clear"></div>
                  <div class="col-md-12">
+
                    <div class="col-md-6">
                      <div class="form-group">
                        <label>Status</label>
@@ -189,11 +191,14 @@
                                         </div>
                            </div>
                     </div>
+                </div>
                    <div class='clear'></div>
+
                      <!-- autometic delegates start -->
                     <div id="refresh_popup"> 
                         <div id="auto-del"> 
                             <div class="auto-del">
+
                                 <div class="left">
                                     <div class="form-group">
                                         <label>Delegate To</label>
@@ -202,6 +207,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="left">
                                     <div class="form-group">
                                         <label>Email Id</label>
@@ -212,6 +218,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="left">
                                     <div class="form-group"><label>Phone Number</label>
                                         <div class="input-group">
@@ -220,14 +227,19 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="right text-center">
                                     <div class="btn-group">
                                         <a href="#" class="plus" id="plus"><span class="fa fa-plus" ></span></a>
                                     </div>
                                 </div>
+
                             </div>
+                            <div class="backbone"></div>
                         </div>
+
                         <div class="clear"></div>
+
                      </div>
                    
                      <!-- autometic delegates end -->
@@ -262,15 +274,17 @@
        
         $('a#plus').on('click',function(){
 
-        var lnth = $('#auto-del').length;
-        console.log(lnth);
-        $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required="" type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required="" type="text" name="delegate_email[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');});
+        var lnth = $('#auto-del .auto-del').length;
+        alert(lnth);
+        $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required="" type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required="" type="text" name="delegate_email[]"/></div></div></div></div><div class="left"> <div class="form-group"><label>Phone Number</label> <div class="input-group"> <div class="form-control"><input required type="text" name="delegate_phone[]" id="gm3"/> </div> </div> </div> </div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');});
         });
 
         function setValues(id){
         document.getElementById("rm"+id).remove();
         }
+
       </script>
+
         <script type="text/javascript"> 
           function newDoc(id) {
             //console.log(id);   
