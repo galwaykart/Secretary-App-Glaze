@@ -69,6 +69,7 @@
 		 $this->form_validation->set_rules('remark','Remark','trim|required');
 		 $this->form_validation->set_rules('monthly_periodic_time','Time','trim|required');
 		 $this->form_validation->set_rules('work','Work','trim|required');
+		 $this->form_validation->set_rules('phone_number', 'Mobile Number ', 'required|regex_match[/^[0-9]{10}$/]');
 			}
 
 		 if($this->form_validation->run() == false){

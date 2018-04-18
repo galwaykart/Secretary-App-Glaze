@@ -117,7 +117,7 @@ The status should be there to mark the attendance of the participants.
 
  
                     <div class="metting-search"><?php echo form_error('agenda', '<span class="form_error">', '</span>'); ?>
-</div>
+					</div>
 									 
 								  </div>
 								</div>
@@ -325,9 +325,7 @@ The status should be there to mark the attendance of the participants.
 												<div class="body-input-tabs">
 													<div class="col-md-3">  <label>Conclusion of Meeting : </label></div>
 													<div class="col-md-9">
-														<textarea class="conclu-text" required  name="conclusion_textarea[]">
-															<?php if(isset($fetch['data3'])){ echo htmlspecialchars($fetch['data3'][0]->conclusion_textarea); } else{echo set_value('conclusion_textarea[]');} ?>
-														</textarea>
+														<textarea class="conclu-text" required  name="conclusion_textarea[]"><?php if(isset($fetch['data3'])){ echo htmlspecialchars($fetch['data3'][0]->conclusion_textarea); } else{echo set_value('conclusion_textarea[]');} ?></textarea>
 														<?php echo form_error('conclusion_textarea[]', '<span class="form_error">', '</span>'); ?>
 
 													</div>
@@ -461,7 +459,6 @@ The status should be there to mark the attendance of the participants.
 						}
 					});
 					}	
-					
 			});                 
 	    </script>
 		 

@@ -21,7 +21,7 @@
                  <div class="col-md-12">
                             <div class="col-md-12"><p>Task Name :<?php if($list){ echo $list['data1'][0]->yearly_periodic_task_name;} ?><span id="projectname"></span></p></div>
                              <div class="clear"></div>
-                             <div class="col-md-4">
+                             <div class="col-md-12 form-yearly-view-first-line-top">
                                          <div class="form-group">
                                                         <label>End Date</label>
                                                         <div class="input-group">
@@ -33,8 +33,9 @@
                                            </div>
                                                
                              </div>
+                            <div class="clear"></div>
 					                          		<div id="delete1" class="auto-del"  style="position:relative">
-                                                   <div class="col-md-4" >
+                                                   <div class="col-md-3" >
                                                        <div class="form-group">
                                                                <label>Delegate To</label>
                                                                <div class="input-group">
@@ -42,34 +43,34 @@
                                                                           <div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required value="<?php if($list['data2']){ echo $list['data2'][0]->yearly_periodic_delegates_name; }  ?>"/></div>
 															
                                                         </div>
-										 </div>
+									                  	 </div>
                                     </div>
-									 <div class="col-md-4">
-                                         <div class="form-group">
-                                               <label>Email</label>
+									                 <div class="col-md-3">
+                                                         <div class="form-group">
+                                                               <label>Email</label>
                                                         
-                                                    <div class="input-group">
-                                                        <div class="input-addon">
-                                                              <span class="fa fa fa-envelope-o" ></span>
-                                                         </div>
-                                                            <div class="form-control">
-															  <input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($list['data2']){ echo $list['data2'][0]->yearly_periodic_delegates_email; }  ?>"/>
-															</div>
+                                                                    <div class="input-group">
+                                                                        <div class="input-addon">
+                                                                              <span class="fa fa fa-envelope-o" ></span>
+                                                                         </div>
+                                                                            <div class="form-control">
+															                  <input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($list['data2']){ echo $list['data2'][0]->yearly_periodic_delegates_email; }  ?>"/>
+															                </div>
 															
-                                                    </div>
-										</div>
+                                                                    </div>
+										                </div>
                                     </div>
-					<div class="col-md-4">
-						<div class="form-group">
-						    <label>Phone Number</label>
-							 <div class="input-group">
-							           <div class="input-addon">
-                                          <span class="fa fa-phone"></span>
-                                       </div>
-									<div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required value="<?php if($list['data2']){ echo $list['data2'][0]->phone_number; }  ?>" /></div>						
-							 </div>
-						</div>  		
-					</div> 	
+					                      <div class="col-md-3">
+						                      <div class="form-group">
+						                          <label>Phone Number</label>
+							                       <div class="input-group">
+							                                 <div class="input-addon">
+                                                                <span class="fa fa-phone"></span>
+                                                             </div>
+									                      <div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required value="<?php if($list['data2']){ echo $list['data2'][0]->phone_number; }  ?>" /></div>						
+							                       </div>
+						                      </div>  		
+					                      </div> 	
                                     <div class="rigth">
                                          <div class=" margin-top">
 											                      <a href="#" class="ad btn-primary btn participater right-btn" id="add" title="Add Delegate"><span class="fa fa-plus" ></span></a>
@@ -181,9 +182,7 @@
                                               <span class="fa fa fa-edit" ></span>
                                        </div>
                                           <div class="form-control">
-                                              <textarea id="Textarea1" class="textarea" required class="" name="note[]"  >
-											  <?php if($list['data3']){ echo $list['data3'][0]->yearly_periodic_status_note; }  ?>
-											  </textarea>
+                                              <textarea id="Textarea1" class="textarea" required class="" name="note[]"  ><?php if($list['data3']){ echo $list['data3'][0]->yearly_periodic_status_note; }  ?></textarea>
                                          </div>
                                    </div>
                            
@@ -224,9 +223,7 @@
                                               <span class="fa fa-edit" ></span>
                                        </div>
                                           <div class="form-control">
-                                              <textarea id="Textarea1" class="textarea" name="note[]"  >
-											<?php if($record){ echo $record->yearly_periodic_status_note; } ?>
-											  </textarea>
+                                              <textarea id="Textarea1" class="textarea" name="note[]"  ><?php if($record){ echo $record->yearly_periodic_status_note; } ?></textarea>
                                          </div>
                                    </div>
                            

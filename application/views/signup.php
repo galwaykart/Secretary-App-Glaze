@@ -132,7 +132,7 @@
                       <label class="switch">
                         <input type="checkbox"  name="status" value="active" >
                           <span class="slider round"> </span>
-                        </label>
+                      </label>
                     </div>
                     <div class="clear"></div>
                     <div class="col-md-12 sign-up-btn" style="text-align:center;">

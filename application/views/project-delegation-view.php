@@ -1,4 +1,4 @@
-  <?php $this->load->view('head'); ?> 
+<?php $this->load->view('head'); ?> 
      <?php $this->load->view('header'); ?>
     <!-- user View design page start -->
     <div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Project Status</p></div>
@@ -60,7 +60,7 @@
                   <span class=" fa fa fa-cogs" ></span>
                 </div>
                 <div class="form-control">
-                  <input type="text" class="total-day" title="Total days" readonly="" placeholder="Total Days" value="<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/>
+                  <input type="text" class="total-day" title="Total days" readonly="" placeholder="Total Days" value=""<?php if($total_no_of_days){ echo $total_no_of_days; } ?>"/>
                 </div>
               </div>
             </div>
@@ -161,7 +161,7 @@
                                             <div class="left">
                                                 <div class="form-group"><label>Phone Number</label>
                                                     <div class="input-group">
-                                                        <div class="form-control"><input required type="tel" pattern="[789][0-9]{9}"  name="delegate_phone[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->phone_number;} ?>"/></div>
+                                                        <div class="form-control"><input required type="text"  name="delegate_phone[]" value="<?php if($records['delegates_data']){echo $records['delegates_data'][$i]->phone_number;} ?>"/></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -374,7 +374,7 @@
 					$('a#plus').click(function(e) {
 						e.preventDefault();
 						var lnth = $('#auto-dels').length; 
-					 $('#auto-dels').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_email[]"/></div></div></div></div><div class="left"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input required type="tel" pattern="[789][0-9]{9}" name="delegate_phone[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+					 $('#auto-dels').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="center"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_email[]"/></div></div></div></div><div class="left"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input required type="text" name="delegate_phone[]"/></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
 					  
 					});
 				});
