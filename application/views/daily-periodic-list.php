@@ -7,6 +7,10 @@
     <!-- user View design page start -->
 	<div class="clear"></div>
 	<div class="col-md-12 heading-tag"><p><span class="fa fa-home" ></span>&nbsp;Home / Dailly Periodic task</p></div>
+  <div class="container">
+
+    <h2 class="headingDaiilyNotes"> Dailly Periodic Task  List</h2>
+  </div>
     <div class="dailly-notes-index-panel">
     <div class="delegatesheet-view "><!-- monthly periodic panel start -->
              
@@ -44,63 +48,10 @@
     </div><!-- Main Dashbrad end -->
 				<div class="clear"></div>
 
-
- <div style="height:50px;"></div>
+  <div style="height:50px;"></div>
       <?php $this->load->view('footer'); ?>
 
-    <!-- don-t change -->
-    <div style="height:50px;"></div>
-    <footer id="footer">
-        <p>&copy; Copyright By Glaze India Pvt. Ltd.</p>
-    </footer>
-
-
-
-     <!-- globle header for comman end --> 
-    <script>
-        $(document).ready(function () {
-            var count = 0;
-            var count2 = 0;
-
-
-            $('#sec-header #toggle-btn-box span#bar').click(function () {
-                if ($(window).width() >= 769) {
-                    if (count % 2 == 0) { $('#aside').css('display', 'none'); $('.main-area-dashboard #left').css('width', '0%'); $('.main-area-dashboard #right').css('width', '100%'); }
-                    else { $('#aside').css('display', 'block'); $('.main-area-dashboard #left').css('width', '15%'); $('.main-area-dashboard #right').css('width', '85%'); }
-                    count++;
-                }
-                else {
-
-                    if (count2 % 2 == 0) { $('.mobile-menu-bar').css('display', 'block'); }
-                    else { $('.mobile-menu-bar').css('display', 'none'); }
-                    count2++;
-                }
-
-            });
-
-            $('.log-popup').on('click', function () {
-                $('.log-up-body').toggle('slow');
-
-            });
-
-
-
-
-            // window resize option
-            $(window).bind('resize', function () {
-                if ($(window).width() > 768) {
-                    $('#aside').css('display', 'block'); $('.mobile-menu-bar').css('display', 'none');
-                    $('.main-area-dashboard #right').css('width', '85%');
-                    $('.main-area-dashboard #left').css('width', '15%');
-                }
-                else {
-                    $('#aside').css('display', 'none');
-                    $('.main-area-dashboard #right').css('width', '100%'); $('.mobile-menu-bar').css('display', 'none');
-                }
-            });
-        });
-
-    </script>
+   
 		 <script>
       
 			function daily_status(id) {

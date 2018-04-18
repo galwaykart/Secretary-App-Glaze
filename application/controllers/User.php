@@ -16,7 +16,7 @@ class User extends CI_Controller
 	public function index(){  
 			if($this->session->user == 'logged_in'){
 				//echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
-				$this->dashboard();
+				$this->dashboard(); 
 			}else{
 				 $this->load->view("login");
 			}
@@ -46,34 +46,10 @@ class User extends CI_Controller
 		
 	// to view dashboard
 	public function dashboard() {
-			$data["dash_data"] = $this->user_model->getDashboardDetails();
-			/*
-			
-			$this->load->library('email');
-			$config['protocol']    = 'smtp';
-			$config['smtp_host']    = 'ssl://smtp.gmail.com';
-			$config['smtp_port']    = '465';
-			$config['smtp_timeout'] = '7';
-			$config['smtp_user']    = 'ssbannaji@gmail.com';
-			$config['smtp_pass']    = 'dream@123';
-			$config['charset']    = 'utf-8';
-			$config['newline']    = "\r\n";
-			$config['mailtype'] = 'text'; // or html
-			$config['validation'] = TRUE; // bool whether to validate email or not      
-			$this->email->initialize($config);
-			$this->email->from('ssbannaji@gmail.com', 'surender');
-			$this->email->to('surender.singh@glazegalway.com'); 
-			$this->email->subject('Email Test');
-			$this->email->message('Testing the email class.');  
-			$this->email->send();
-
-			echo $this->email->print_debugger();
-            */
-
-
-			 $this->load->view("dashboard" ,$data); 
+			$data["dash_data"] = $this->user_model->getDashboardDetails(); 
+			$this->load->view("dashboard" ,$data);  
 		}
-		
+	 	 
 			// get data 
 	public function userlist() {
 		if($this->session->user == 'logged_in'){
@@ -138,16 +114,16 @@ class User extends CI_Controller
 			if($username_check){
 			  $this->user_model->register_user($user);
 			  $this->session->set_flashdata('msg', 'Registered successfully.Now login to your account.');
-/* ...........................Mail sending start here!.......................................*/
-/*..............................sms send start here............................................ */
-$text="baba KIng singh gaurav ff.";	 
-$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
-curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
-curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
-$results = curl_exec($chs);
-print_r($results);
-/*..............................sms send end here............................................ */
+				/* ...........................Mail sending start here!.......................................*/
+				/*..............................sms send start here............................................ */
+				$text="baba KIng singh gaurav ff.";	 
+				$chs = curl_init('http://203.212.70.200/smpp/sendsms?username=glazegalway&password=del12345&to=9999695537,7836984727&from=SECAPP&text='.urlencode($text).'&category=bulk');		 
+				curl_setopt($chs, CURLOPT_CUSTOMREQUEST, "GET");
+				curl_setopt($chs, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($chs, CURLOPT_HTTPHEADER, array("Content-Type", "application/json" ));
+				$results = curl_exec($chs);
+				print_r($results);
+				/*..............................sms send end here............................................ */
 
 		$mail_to = $user['email'];
 		$config = array (
@@ -211,19 +187,6 @@ print_r($results);
 		$data = $this->user_model->login_user($user_login['username'],$user_login['password']);
 		  if($data)
 		  {
-
-				
-
-// $this->email->from('surender.singh@glazegalway.com', 'Surender');
-// $this->email->to('gaurav.gupta0705@gmail.com');
-// //$this->email->cc('another@another-example.com');
-// //$this->email->bcc('them@their-example.com');
-
-// $this->email->subject('Email Test');
-// $this->email->message('Testing the email class in Codeigniter by suri id.');
-
-// $this->email->send();
-
 			$this->session->set_userdata('id',$data['id']);
 			$this->session->set_userdata('username',$data['username']);
 			$this->session->set_userdata('firstname',$data['firstname']);

@@ -3,7 +3,8 @@
 		</div>
 	   <div style="height:50px;"></div> 
 		<!-- don-t change -->
-		<div style="height:50px;"></div>
+		<div style="height:50px;"></div>  
+ 
 		<footer id="footer">
 			<p>&copy; Copyright By Glaze India Pvt. Ltd.</p>
 		</footer>
@@ -108,26 +109,31 @@
                         </aside>
         </div>
             <!-- mobile menubar end -->
-            <!-- daily notification start -->
-            
-        <div class="notification">
-                    <div class="header"><span class="close" id="" >&times;</span></div>
+            <!-- daily notification start --> 
+       <div class="notification">
+			<?php
+			 $CI =& get_instance();
+			$CI->load->model('User_model');
+			$result= $CI->User_model->footer();        
+			  foreach($result as $row){ ?> 
+					
+            <div class="close-<?php echo $row->index_meeting_id; ?> notifyPOP">
+                    <div class="header"><span class="close" id="close-<?php echo $row->index_meeting_id; ?>" onClick="reply_click(this.id)">&times;</span></div>
                     <div class="left"><br /><span>TODAY</span><p> Next Metting</p></div>
                     <div class="right">
                         <h2>After 15 Minuts</h2>
                         <p>In Galway 2nd Flor</p>
 
                     </div>
-
-
-        </div>
-            
-            <!-- daily notification end -->
-
-     
-     <!-- globle header for comman end --> 
+            </div> 
+			<?php }  ?> 
+        </div> 
+		
+		 
+		 <!-- daily notification end -->
+		 <!-- globle header for comman end --> 
 	 
-	 <script>
+	 <script type="text/javascript">
         $(document).ready(function () {
 
           var  count = 0;
@@ -175,16 +181,16 @@
     </script>
 
     <!-- notification script -->
-    <script>
-       
-        $(function () {
-	
-            $('.close').on('click', function () { $('.notification').hide(400) });
+    <script type="text/javascript">
+       function reply_click(clicked_id)
+		{ 
+		    $('.'+clicked_id).hide(400)  
             $('.notepad-tag , .notepad-tag span').on('click', function () { $('.notepad-overlap').css('display','block'); });
 			      $('.notePad span.close2').on('click', function () { $('.notepad-overlap').css('display','none'); });
-        }); 
+         
+		}
     </script>
-    <script>
+    <script type="text/javascript">
       var count=0;
       $('#accordion ul li ul li div.has-menu-div').on('click',function(){
       if(count%2==0){
@@ -198,7 +204,7 @@
       });
     </script>
 		
-	   <script type="text/javascript" src="<?php echo base_url(); ?>js/forcast.js"></script> 
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/forcast.js"></script> 
     <script type="text/javascript" src="<?php echo base_url(); ?>js/caleandar.js"></script> 
     <script type="text/javascript" src="<?php echo base_url(); ?>js/popup.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/forcast.js"></script>
@@ -206,14 +212,14 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/thems.js"></script>
     <script src="<?php echo base_url(); ?>js/ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/utils.js"></script>
-<script>
+<script type="text/javascript">
                 //console.log("editor enabled");
                 // Replace the <textarea id="editor1"> with a CKEditor
                 // instance, using default configuration.
                 CKEDITOR.replace( 'cktextarea' );
 					
     </script>
-<script>
+<script type="text/javascript">
   $(function(){
   $('.notepad-tag').draggable();;
 

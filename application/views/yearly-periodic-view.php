@@ -190,7 +190,7 @@
                    </div>
 						<div class="col-md-2"> 
 							<div class=" margin-top" style="text-align:left">
-								<a href="#" class="ad btn-primary btn participater3 right-btn" id="add1"><span class="fa fa-plus" ></span></a>
+								<a href="#" class="ad btn-primary btn participater3 right-btn" title="Add New Status" id="add1"><span class="fa fa-plus" ></span></a>
 							</div>	
 						</div> 
 							 <?php  
@@ -241,7 +241,7 @@
         <br></br>
 				<button type="submit" class="btn-primary btn">Submit</button>
 				<?php if($this->uri->segment(3)){?>
-					<input type="submit" name="submail" class="btn-primary btn" value="submit & Mail"></input>
+					<button  name="submail" class="btn-primary btn" >submit & Mail &nbsp;&nbsp;<Span class="fa fa-long-arrow-right"></Span></button>
                 <?php }?>
 			</div>	
 	</form>
@@ -270,9 +270,7 @@
 					$('a#add').click(function(e) {
 						e.preventDefault();
 						var lnth1 = $('#delete1 .auto-del1').length; 
-					 $('#delete1').append('<div class="clear"><div class="auto-del"></div></div><div id="rm1'+lnth1+'" class="auto-del1"><div class="col-md-3"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required/></div></div></div></div><div class="col-md-3" ><div class="form-group"><label>Email</label><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="center"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required  /></div></div></div></div><div class="col-md-4 " style="float:left;position:relative"><div class="" ><a class="right-btn-minus" href="#"  onclick="setValues1('+ lnth1 + ')"><span class="fa fa-minus " ></span></a></div></div></div>');
-					  
-					});
+					 $('#delete1').append('<div class="clear"><div class="auto-del"></div></div><div id="rm1'+lnth1+'" class="auto-del1"><div class="col-md-3"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required/></div></div></div></div><div class="col-md-3" ><div class="form-group"><label>Email</label><div class="input-group"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="col-md-3"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="input-addon"><span class="fa fa-phone"></span></div><div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required  /></div></div></div></div><div class="" style="float:left;position:relative"><div class="" ><a class="right-btn-minus" href="#"  onclick="setValues1('+ lnth1 + ')"><span class="fa fa-minus " ></span></a></div></div></div>');});
 				});
 					function setValues1(id){     
 						document.getElementById("rm1"+id).remove();

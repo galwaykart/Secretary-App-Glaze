@@ -11,35 +11,40 @@
      <div class="dailly-notes-index-panel"> 
        <div class="container-5">                     
                         <div class="col-md-12 project-del-view-main-panel">
-  
-                                    <h2>Perodic Task View</h2>
-                                    <div class="col-md-12"><p>Task Name : <span id="projectname"><?php echo $list['data1'][0]->weekly_periodic_work?></span></p></div>
+                                  
+                              <div class="col-md-12"><p>Task Name : <span id="projectname"><?php echo $list['data1'][0]->weekly_periodic_work?></span></p></div>
  
-                                    <div class="clear"></div>
-                                    <div class="col-md-6">
-                                         <div class="form-group form">
-                                                        <label>End Date</label>
-                                                        
-                                                        <div class="input-group">
-                                                            <div class="input-addon">
-                                                            <span class="fa fa-calendar" ></span>
-                                                            </div>
-                                                            <div class="form-control"><input type="date" title="End date" value = "<?php echo $list['data1'][0]->weekly_periodic_end_date?>" /></div>
-                                                        </div>
-                                                </div>
-                                               
+                              <div class="clear"></div>
+                              <div class="col-md-12">
+                                <div class="col-md-6 margin-top">
+                                  <div class="form-group form">
+                                    <label>End Date</label>
+
+                                    <div class="input-group">
+                                      <div class="input-addon">
+                                        <span class="fa fa-calendar" ></span>
+                                      </div>
+                                      <div class="form-control">
+                                        <input type="date" class="input2" title="End date" value = ""<?php echo $list['data1'][0]->weekly_periodic_end_date?>" />
+                                      </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group form">
-                                            <label>Supervised by:</label>
-                                            <div class="input-group">
-                                                <div class="input-addon">
-                                                <span class="fa fa-american-sign-language-interpreting" ></span>
-                                                </div>
-                                                <div class="form-control"><input type="text" title="Supervised by:" placeholder="Supervised by" value = "<?php echo $list['data1'][0]->weekly_periodic_supervision?>"/></div>
-                                            </div>
-                                        </div>
+                                  </div>
+
+                                </div>
+                                <div class="col-md-6 margin-top">
+                                  <div class="form-group form">
+                                    <label>Supervised by:</label>
+                                    <div class="input-group">
+                                      <div class="input-addon">
+                                        <span class="fa fa-american-sign-language-interpreting" ></span>
+                                      </div>
+                                      <div class="form-control">
+                                        <input type="text" title="Supervised by:" placeholder="Supervised by" value = ""<?php echo $list['data1'][0]->weekly_periodic_supervision?>"/>
+                                      </div>
                                     </div>
+                                  </div>
+                                </div>
+                              </div>
                               <div class="clear"></div>
 
  
@@ -50,8 +55,8 @@
         
                                 <div id="auto-del">
                                     <div class="auto-del">
-                                        <div class="col-md-4">
-                                            <div class="form-group form">
+                                        <div class="col-md-3">
+                                            <div class="form-group form1">
                                                 <label>Delegate To</label>
                                                 <div class="input-group">
 												                            <div class="input-addon">
@@ -61,10 +66,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group form">
+                                        <div class="col-md-3">
+                                            <div class="form-group form1">
                                                 <label>Email Id</label>
-                                                <div class="input-group form">
+                                                <div class="input-group ">
 												                            <div class="input-addon">
                                                 <span class="fa fa-envelope-o" ></span>
                                                 </div>
@@ -74,10 +79,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group form">
+                                        <div class="col-md-3">
+                                            <div class="form-group form1">
                                                 <label>Phone Number</label>
-                                                <div class="input-group form">
+                                                <div class="input-group ">
 												                            <div class="input-addon">
                                                 <span class="fa fa-envelope-o" ></span>
                                                 </div>
@@ -89,7 +94,7 @@
                                         </div>
                                         <div class="pro-del-btn" style="float:right;">
                                             <div class="btn-group">
-                                                <a href="#" class="plus delgate-plus3" id="plus"><span class="fa fa-plus" ></span></a>
+                                                <a href="#" class="plus delgate-plus3" id="plus"><span class="fa fa-plus" title="Add New "></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -99,10 +104,10 @@
                                         $j = $i - 1;
                                     ?>
                                     <div id="<?php   echo "rm".$j ?>" class="auto-del">
-                                            <div class="col-md-6">
-                                                <div class="form-group form">
+                                            <div class="col-md-3">
+                                                <div class="form-group form1">
                                                     <label>Delegate To</label>
-                                                    <div class="input-group form">
+                                                    <div class="input-group ">
                                                       
                                                         <div class="input-addon">
                                                           <span class="fa fa-share" ></span>
@@ -111,8 +116,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group form">
+                                            <div class="col-md-3">
+                                                <div class="form-group form1">
                                                     <label>Email Id</label>
                                                     <div class="input-group">
                                                         <div class="input-addon">
@@ -124,8 +129,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group form">
+                                            <div class="col-md-3">
+                                                <div class="form-group form1">
                                                     <label>Phone number</label>
                                                     <div class="input-group">
                                                         <div class="input-addon">
@@ -155,7 +160,7 @@
                                 </div><!-- col-md-12 end -->
                                 <div class="clear"></div>
                         <div class="delegatesheet-view">
-                                <div class="">
+                                <div class="margin-top">
                                         <table >
                                             <thead>
                                                 <tr>
@@ -218,7 +223,7 @@
                 </div>
                 <div class=" text-center" style="float:left;">
                     <div class="btn-group">
-                        <a href="#" class="plus delgate-plus3" id="plus1"><span class="fa fa-plus" ></span></a>
+                        <a href="#" class="plus delgate-plus3" id="plus1"><span class="fa fa-plus" title="Add New status"></span></a>
                     </div>
                 </div>
             </div>
@@ -256,7 +261,7 @@
                         </div>
                     </div>
                     <div class="right text-center" style="float:left">
-                        <div class="btn-group"><a style="background: #d4554d;" href="#"  onclick="dsetValues(<?php echo $j; ?>)"><span class="fa fa-minus" style="color: white;"></span></a>
+                        <div class="btn-group"><a href="#"  onclick="dsetValues(<?php echo $j; ?>)"><span class="fa fa-minus" style="color: white;"></span></a>
                         </div>
                     </div>                                    
             </div>
@@ -265,10 +270,10 @@
             ?>
         </div>
 
-            <div class="col-md-12">
-                <button type="submit" class="btargetDatetn-primary btn">Save</button>
+            <div class="col-md-12 text-center margin-top btn-group">
+                <button type="submit" class="btn-primary btn">Save</button>
                 <?php if($this->uri->segment(3)){?>
-                <input type="submit" name="submail" class="btn-primary btn" value="Save & Mail"></input>
+                <button  name="submail" class="btn-primary btn" >Save & Mail&nbsp;&nbsp;   <span class="fa fa-long-arrow-right"></span></button>
                 <?php }?>
                 <!-- <a href="#">Add</a> -->
             </div>  
@@ -286,19 +291,20 @@
 
             
 
-    </div><!-- Main Dashbrad end -->
+    
    
-    </form>  
- 
+    </form>
 
-   
+<div class="clear"></div>
+
+   </div>
 
     <script type="text/javascript"> 
         $(function() {
             $('a#plus').click(function(e) {
                 e.preventDefault();
                 var lnth = $('#auto-del .auto-del').length; 
-                $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="col-md-4"><div class="form-group form"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="col-md-4"><div class="form-group form"><label>Email Id</label><div class="input-group form"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/></div></div></div></div><div class="col-md-4"><div class="form-group form"><label>Phone Number</label><div class="input-group form"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><div class="form-control"><input required type="text" name="delegate_phone[]" id="gm3"/></div></div></div></div><div class="pro-del-btn" style="float:right;"><div class="btn-group"><a style="background: #d4554d;" href="#" class="delgate-minus3"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
+                $('#auto-del').append('<div class="clear"></div><div id="rm'+lnth+'" class="auto-del"><div class="auto-del"><div class="col-md-3"><div class="form-group form1"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input required type="text" title="Delegate To" name="delegate_to[]" /></div></div></div></div><div class="col-md-3"><div class="form-group form1"><label>Email Id</label><div class="input-group form"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><div class="form-control"><input required type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="delegate_email[]"/></div></div></div></div><div class="col-md-3"><div class="form-group form1"><label>Phone Number</label><div class="input-group form"><div class="input-addon"><span class="fa fa-envelope-o" ></span></div><div class="form-control"><input required type="text" name="delegate_phone[]" id="gm3"/></div></div></div></div><div class="pro-del-btn" style="float:right;"><div class="btn-group"><a style="background: red;" href="#" class="delgate-minus3"  onclick="setValues('+ lnth + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div></div>');
                 
             });
         });
@@ -320,4 +326,4 @@
             }
     </script>
 
-  
+<?php $this->load->view('footer'); ?>

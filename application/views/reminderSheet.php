@@ -215,11 +215,8 @@
               </div>
    
 	</form>
-</div>	
-      <!--  pop up end -->
-    </div><!-- right Dashboard end -->
-    </div><!-- Main Dashboard end --> 
-  
+</div>
+<div class="clear"></div>
 	    <script> 
 				$(function() {
 					$('a#add').click(function(e) {
@@ -258,7 +255,7 @@
     				document.getElementById("reminder_form").action = "<?php echo base_url(); ?>Reminder/insert_sheet/"+data_json.insidereminder[0].reminder_sheet_id;
                     document.getElementById("set_submail").innerHTML = "<input type='submit' name='submail' class='btn-primary btn check_mail' value='submit & Mail'></input>";
 
-                    for(var i=0; i<data_json.insidereminder.length ; i++){
+                    for(var i=0; i<data_json.insidereminder.length; i++){
                         var j = i + 1 ;
                         $('#delete').append('<div class="clear"></div><div id="rm'+i+'" class="auto-del" ><div  class="auto-del"><div class="left"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="form-control"><input type="text" required id="delegate_name" title="Delegate To" name="delegate_to[]" value="'+ data_json.insidereminder[j].reminder_sheet_delegates_name +'" /></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><label>Email Id</label><div class="input-group"><div class="form-control"><input type="text" name="email[]" required id="delegate_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="'+ data_json.insidereminder[j].reminder_sheet_delegates_email +'" /></div></div></div></div><div class="center" class="col-md-3"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" id="phone" name="phone[]" required value="'+ data_json.insidereminder[j].reminder_sheet_delegates_phone +'" /></div></div></div></div></div><div class="right text-center"><div class="btn-group"><a style="background: red;" href="#"  onclick="setValues('+ i + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div>');
                     }
@@ -275,60 +272,5 @@
             
         </script>
 
-    <script>
-      $(document).ready(function () {
-      var count = 0;
-      var count2 = 0;
-
-      $('#sec-header #toggle-btn-box span#bar').click(function () {
-      if ($(window).width() >= 769) {
-      if (count % 2 == 0) { $('#aside').css('display', 'none'); $('.main-area-dashboard #left').css('width', '0%'); $('.main-area-dashboard #right').css('width', '100%'); }
-      else { $('#aside').css('display', 'block'); $('.main-area-dashboard #left').css('width', '15%'); $('.main-area-dashboard #right').css('width', '85%'); }
-      count++;
-      }
-      else {
-
-      if (count2 % 2 == 0) { $('.mobile-menu-bar').css('display', 'block'); }
-      else { $('.mobile-menu-bar').css('display', 'none'); }
-      count2++;
-      }
-
-      });
-
-      $('.log-popup').on('click', function () {
-      $('.log-up-body').toggle('slow');
-
-      });
-
-      // window resize option
-      $(window).bind('resize', function () {
-      if ($(window).width() > 768) {
-      $('#aside').css('display', 'block'); $('.mobile-menu-bar').css('display', 'none');
-      $('.main-area-dashboard #right').css('width', '85%');
-      $('.main-area-dashboard #left').css('width', '15%');
-      }
-      else {
-      $('#aside').css('display', 'none');
-      $('.main-area-dashboard #right').css('width', '100%'); $('.mobile-menu-bar').css('display', 'none');
-      }
-      });
-      });
-
-
-      $('#open-popup').on('click', function () { $('.popup , .popup-main').css('display', 'block'); });
-      $('#close-popup').on('click', function () {
-
-<<<<<<< HEAD
-      $('.popup , .popup-main').css('display', 'none');
-      location.href=location.href;
-      window.locatiuon="Reminder";
-      })
-=======
-        $('#open-popup').on('click', function () { $('.popup , .popup-main').css('display', 'block'); });
-        $('#close-popup').on('click', function () { $('.popup , .popup-main').css('display', 'none');
-		window.location="Reminder";
-		})
->>>>>>> 313f26b0486953ec148dccd540ae494c5e3950f4
-    </script>
+  
  <?php $this->load->view('footer'); ?>
-</div>

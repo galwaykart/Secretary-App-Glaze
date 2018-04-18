@@ -133,12 +133,7 @@ public function username_check($username){
 			//"count_daily_notes" => $total_daily_notes->result(),
 
 		);
-
-		// echo $user_id;
-		// echo "<pre>";
-		// print_r( $total_dashboard_details);
-		// echo "</pre>";		
-
+ 
 		return $total_dashboard_details;
 
 	}
@@ -150,7 +145,15 @@ public function username_check($username){
 		$this->db->from('user');
 		$query = $this->db->get();
 		return $query->result();
-       }
+       } 
+
+    public function footer(){
+	
+		$this->db->select("*"); 
+		$this->db->from('index_meeting');
+		$query = $this->db->get();
+		return $query->result();
+       } 
 	     
     public function get_user($id){
 	
@@ -161,17 +164,17 @@ public function username_check($username){
 		return $query->result();
        }
 	   
-	   public function updateuser($data,$record_id){
-		  $this->db->set($data); 
-          $this->db->where("id", $record_id); 
-          $this->db->update("user", $data);
-	   }
-	   
-	   public function delete_user($record_id){
-		 $this->db->delete("user", "id = $record_id");
-
-	   }
+	public function updateuser($data,$record_id){
+		$this->db->set($data); 
+        $this->db->where("id", $record_id); 
+        $this->db->update("user", $data);
 	}
+	   
+	public function delete_user($record_id){
+		$this->db->delete("user", "id = $record_id");
+
+    }
+}
 
 
 ?>

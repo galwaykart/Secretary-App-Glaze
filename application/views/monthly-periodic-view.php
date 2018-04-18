@@ -20,7 +20,7 @@
                                     
                                     <div class="col-md-12"><p>Task Name : <span id="projectname"><?php if($list['data1']){ echo $list['data1'][0]->monthly_periodic_work;} ?></span></p></div>
                                     <div class="clear"></div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-12 form-yearly-view-first-line-top">
                                             <div class="form-group">
                                                         <label>End Date</label>
                                                         <div class="input-group">
@@ -33,8 +33,9 @@
                                             </div>
                                                
                                     </div>
-							                      <div id="delete1" class="auto-del" style="position:relative">
-                                              <div class="col-md-4" >
+                                    <div class="clear"></div>
+							                      <div id="delete1" class="auto-del margin-top" style="position:relative">
+                                              <div class="col-md-3" >
                                                        <div class="form-group">
                                                                       <label>Delegate To</label>
                                                                       <div class="input-group">
@@ -43,7 +44,7 @@
 															                                        </div>
 										                                   </div>
                                              </div>
-									                           <div class="col-md-4">
+									                           <div class="col-md-3">
                                                        <div class="form-group">
                                                                     <label>Email</label>
                                                                     <div class="input-group">
@@ -52,7 +53,7 @@
                                                                     <div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($list['data2']){ echo $list['data2'][0]->monthly_periodic_delegates_email; }  ?>"/></div></div>
 								                                  		</div>
                                             </div>
-					                                  <div class="col-md-4">
+					                                  <div class="col-md-3">
 						                                          <div class="form-group">
 						                                                   <label>Phone Number</label>
 						                                                	 <div class="input-group"><div class="input-addon"><span class="fa fa-phone"></span></div>
@@ -141,7 +142,7 @@
    </div><!-- container 5 end -->
 
 		<div class="col-md-12 monthly-view-list-input leftItemsonBotton-yearly-task-view" id="delete">
-		  	
+      
 					<div class="col-md-3">
 						<div class="form-group">
 							<label>Status Date</label>
@@ -172,7 +173,7 @@
                     </div>
 						<div class="col-md-3"> 
 							<div class=" margin-top" style="text-align:left">
-								<a href="#" class="ad btn-primary btn participater3" id="add1"><span class="fa fa-plus" ></span></a>
+								<a href="#" class="ad btn-primary btn participater4" id="add1"><span class="fa fa-plus" ></span></a>
 							</div>	
 						</div> 
 										

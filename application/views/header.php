@@ -42,7 +42,7 @@
                     <aside  id="aside">
                                    <div class="profile">
                                      <div class="col-md-3">
-                                          <img src="http://192.168.10.32/Secretary-App-Glaze/img/person.jpg" alt="person image"  />
+                                       <img src=""<?php echo base_url(); ?>img/galway_logo.png" alt="logo" />
                                      </div>
                                      <div class="col-md-9">
                                           <h2><span class="name">Surendar Singh</span></h2>
