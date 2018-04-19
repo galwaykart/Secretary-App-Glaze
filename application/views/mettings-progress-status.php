@@ -25,7 +25,7 @@
                            <tr>
 							               <th>SR No.</th>
 							               <th>Ajenda of Meeting</th>
-							               <th>Previous Meetings Date</th>
+							               <th>Previews Meetings Date</th>
 							               <th>Next Meeting Date</th>
 						               </tr>
                        </thead>

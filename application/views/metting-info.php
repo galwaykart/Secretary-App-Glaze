@@ -37,7 +37,7 @@ The status should be there to mark the attendance of the participants.
 						<div class="container4">
 							<div class="col-md-4">
 								<div class="form-group">
-									<label>Preview Meeting Date</label>
+									<label>Previews Meeting Date</label>
 									<div class="input-group">
 										<div class="form-control">
 											<input type="date" title="Prev Meeting Date" name="previous_date"  value="<?php if(isset($fetch['data1'])){echo $fetch['data1'][0]->date_of_meeting;} //else{echo set_value('previous_date'); }  ?>" />

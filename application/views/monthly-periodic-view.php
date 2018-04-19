@@ -21,17 +21,10 @@
                                     <div class="col-md-12"><p>Task Name :
 										<?php if($list['data1']){ echo $list['data1'][0]->monthly_periodic_work;} ?>
 									<span id="projectname"></span></p></div>
-                                   
                                     <div class="clear"></div>
-<<<<<<< HEAD
                                     <div class="col-md-12 form-yearly-view-first-line-top">
                                             <div class="form-group">
-=======
-                                    <div class="col-md-3">
-                                         <div class="form-group">
->>>>>>> 44c379a214139c9c7477b8bc6c4cdb4d3a8b00c8
                                                         <label>End Date</label>
-                                                        
                                                         <div class="input-group">
                                                             <div class="input-addon">
                                                             <span class="fa fa-calendar" ></span>
@@ -40,11 +33,9 @@
 															<input type="date" title="End date" required name = "end_date" value="<?php if($list){ echo $list['data1'][0]->monthly_periodic_end_date; }  ?>" /></div>
                                                         </div>
                                                 </div>
-                                               
                                     </div>
-<<<<<<< HEAD
-                                    <div class="clear"></div>
-							                      <div id="delete1" class="auto-del margin-top" style="position:relative">
+                                     <div class="clear"></div>
+							            <div id="delete1" class="auto-del margin-top" style="position:relative">
                                               <div class="col-md-3" >
                                                        <div class="form-group">
                                                                       <label>Delegate To</label>
@@ -54,7 +45,7 @@
 															                                        </div>
 										                                   </div>
                                              </div>
-									                           <div class="col-md-3">
+									         <div class="col-md-3">
                                                        <div class="form-group">
                                                                     <label>Email</label>
                                                                     <div class="input-group">
@@ -63,78 +54,29 @@
                                                                     <div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($list['data2']){ echo $list['data2'][0]->monthly_periodic_delegates_email; }  ?>"/></div></div>
 								                                  		</div>
                                             </div>
-					                                  <div class="col-md-3">
-						                                          <div class="form-group">
-						                                                   <label>Phone Number</label>
-						                                                	 <div class="input-group"><div class="input-addon"><span class="fa fa-phone"></span></div>
-                                                               <div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required value="<?php if($list['data2']){ echo $list['data2'][0]->phone_number; }  ?>" /></div>						</div>
-                                                      </div>  		
-					                                  </div>  		
+					                         <div class="col-md-3">
+						                         <div class="form-group">
+						                            <label>Phone Number</label>
+						                             <div class="input-group"><div class="input-addon"><span class="fa fa-phone"></span></div>
+                                                     <div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required value="<?php if($list['data2']){ echo $list['data2'][0]->phone_number; }  ?>" /></div>						</div>
+                                                 </div>  		
+					                         </div>  		
                                             <div class="col-md-3" style="float:left">
                                                  <div class=" margin-top">
-											                              <a href="#" class="aad btn-primary btn participater right-btn" id="add"><span class="fa fa-plus" ></span></a>
-										                              </div>           
+											       <a href="#" class="aad btn-primary btn participater right-btn" id="add"><span class="fa fa-plus" ></span></a>
+										         </div>           
                                             </div>
-                                      <?php  $j = 0;
-=======
-							<div id="delete1" class="auto-del" style="position:relative">
-                                    <div class="col-md-3" >
-                                         <div class="form-group">
-                                                   <label>Delegate To</label>
-                                                        <div class="input-group">
-                                                            <div class="input-addon">
-                                                                <span class="fa fa-share" ></span>
-                                                            </div>
-                                                     <div class="form-control">
-															  <input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required value="<?php if($list['data2']){ echo $list['data2'][0]->monthly_periodic_delegates_name; }  ?>"/>
-													</div>
-															
-                                                        </div>
-										</div>
-                                    </div>
-									 <div class="col-md-3">
-                                         <div class="form-group">
-                                               <label>Email</label>
-                                                        
-                                                    <div class="input-group">
-                                                        <div class="input-addon">
-                                                              <span class="fa fa-share" ></span>
-                                                         </div>
-                                                            <div class="form-control">
-															  <input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($list['data2']){ echo $list['data2'][0]->monthly_periodic_delegates_email; }  ?>"/>
-															</div>
-															
-                                                    </div>
-										</div>
-                                    </div>
-					<div class="col-md-3">
-						<div class="form-group">
-						    <label>Phone Number</label>
-							 <div class="input-group">
-							           <div class="input-addon">
-                                          <span class="fa fa-phone"></span>
-                                       </div>
-									<div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required value="<?php if($list['data2']){ echo $list['data2'][0]->phone_number; }  ?>" /></div>						
-							 </div>
-						</div>  		
-					</div>  		
-                                    <div class="col-md-3" style="float:left">
-                                         <div class=" margin-top">
-											                      <a href="#" class="aad btn-primary btn participater right-btn" id="add"><span class="fa fa-plus" ></span></a>
-										                      </div>           
-                                    </div>        
-						 <?php  $j = 0;
->>>>>>> 44c379a214139c9c7477b8bc6c4cdb4d3a8b00c8
+                                      <?php  $j = 0; 
 								if($list){									
 									foreach($list['data2'] as $record){	 
 									//print_r($list['data2']);
 						     	if($j != '0'){  ?>
 								<div class="clear"></div>
 							      <div id="rm1<?php echo $j; ?>"  class="auto-del" style="position:relative">
-                      <div class="col-md-4" >
+                                    <div class="col-md-3" >
                                          <div class="form-group">
-                                                   <label>Delegate To</label>
-                                                        <div class="input-group">
+                                                 <label>Delegate To</label>
+                                                 <div class="input-group">
                                                             <div class="input-addon">
                                                                 <span class="fa fa-share" ></span>
                                                             </div>
@@ -142,37 +84,40 @@
 															  <input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required value="<?php if($record){ echo $record->monthly_periodic_delegates_name; }  ?>"/>
 													</div>
 															
-                                                        </div>
+                                               </div>
 										</div>
                                     </div>
-									 <div class="col-md-4" >
+									 <div class="col-md-3">
                                          <div class="form-group">
                                                <label>Email</label>
-                                                    <div class="input-group">
+                                         <div class="input-group">
                                                         <div class="input-addon">
                                                               <span class="fa fa-share" ></span>
                                                          </div>
-                                                            <div class="form-control">
-															  <input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($record){ echo $record->monthly_periodic_delegates_email; }  ?>"/>
-															</div>
+                                            <div class="form-control">
+												<input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php if($record){ echo $record->monthly_periodic_delegates_email; }  ?>"/>
+											</div>
 															
-                                                    </div>
-					<div class="col-md-3">
-						<div class="form-group">
-						    <label>Phone Number</label>
-							 <div class="input-group">
-							           <div class="input-addon">
-                                          <span class="fa fa-phone"></span>
+                                         </div>
                                        </div>
-									<div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required value="<?php if($record){ echo $record->phone_number; }  ?>" /></div>						
-							 </div>
-						</div>  		
-					</div> 			
-									<div class="right text-center">
-									 <div class="btn-group"><a style="background: red;" href="#"  onclick="setValues1(<?php echo $j; ?>)"><span class="fa fa-minus" style="color: white;"></span></a></div></div>
-										</div>
                                     </div>
-                             </div>		 
+									<div class="col-md-3">
+										<div class="form-group">
+											<label>Phone Number</label>
+											 <div class="input-group">
+													   <div class="input-addon">
+														  <span class="fa fa-phone"></span>
+													   </div>
+													<div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required value="<?php if($record){ echo $record->phone_number; }  ?>" /></div>						
+											 </div>
+										</div>  		
+									</div> 			
+									<div class="right text-center">
+										 <div class="btn-group">
+											<a style="background: red;" href="#"  onclick="setValues1(<?php echo $j; ?>)"><span class="fa fa-minus" style="color: white;"></span></a>
+										 </div>
+									 </div>
+								</div> 
 								<?php } $j++;  } }  ?>
                        
 					 </div>  
@@ -204,14 +149,9 @@
                </div>
 
    </div><!-- container 5 end -->
-
-<<<<<<< HEAD
+ 
 		<div class="col-md-12 monthly-view-list-input leftItemsonBotton-yearly-task-view" id="delete">
-      
-=======
-		<div  id="delete">
-		  	
->>>>>>> 44c379a214139c9c7477b8bc6c4cdb4d3a8b00c8
+       
 					<div class="col-md-3">
 						<div class="form-group">
 							<label>Status Date</label>
@@ -233,12 +173,9 @@
                                               <span class="fa fa-edit" ></span>
                                        </div>
                                           <div class="form-control">
-<<<<<<< HEAD
-                                              <textarea id="Textarea1" required class="" name="note[]"  ><?php if($list['data3']){ echo $list['data3'][0]->monthly_periodic_status_note; }  ?></textarea>
-=======
-                               <textarea id="Textarea1" required class="" name="note[]"><?php if($list['data3']){ echo $list['data3'][0]->monthly_periodic_status_note; }  ?></textarea>
  
->>>>>>> 41d033570ac9a5eaa868070b552f13e171173650
+                               <textarea id="Textarea1" required class="" name="note[]"><?php if($list['data3']){ echo $list['data3'][0]->monthly_periodic_status_note; }  ?></textarea>
+  
                                          </div>
                                    </div>
                            
@@ -328,7 +265,7 @@
 					$('a#add').click(function(e) {
 						e.preventDefault();
 						var lnth1 = $('#delete1 .auto-del1').length; 
-					 $('#delete1').append('<div class="clear"></div><div id="rm1'+lnth1+'" class="auto-del1" style="position:relative"><div class="col-md-3"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required/></div></div></div></div><div class="col-md-3" ><div class="form-group"><label>Email</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div><div class="center"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required  /></div></div></div></div><div class="col-md-4" ><div class=""><a class="right-btn-minus2" href="#"  onclick="setValues1('+ lnth1 + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div>');
+					 $('#delete1').append('<div class="clear"></div><div id="rm1'+lnth1+'" class="auto-del1" style="position:relative"><div class="col-md-3"><div class="form-group"><label>Delegate To</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate To" name="delegate_to[]" required/></div></div></div></div><div class="col-md-3" ><div class="form-group"><label>Email</label><div class="input-group"><div class="input-addon"><span class="fa fa-share" ></span></div><div class="form-control"><input type="text" title="Delegate To" placeholder="Delegate Email" name="email[]" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/></div></div></div></div><div class="col-md-3"><div class="form-group"><label>Phone Number</label><div class="input-group"><div class="form-control"><input type="text" placeholder="Phone Number" id="phone" name="phone_number[]" required  /></div></div></div></div><div class="col-md-4" ><div class=""><a class="right-btn-minus2" href="#"  onclick="setValues1('+ lnth1 + ')"><span class="fa fa-minus" style="color: white;"></span></a></div></div></div>');
 					  
 					});
 				});

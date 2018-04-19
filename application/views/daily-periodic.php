@@ -34,27 +34,43 @@
 
            <script>
 
-               $(document).ready(function () {
+             $(document).ready(function () {
 
-                   $('#calendar').fullCalendar({
-                       header: {
-                           left: 'prev,next today',
-                           center: 'title',
-                           right: 'month,agendaWeek,agendaDay,listWeek'
-                       },
-                       defaultDate: '2018-04-12',
-                       navLinks: true, // can click day/week names to navigate views
+             $('#calendar').fullCalendar({
+             header: {
+             left: 'prev,next today',
+             center: 'title',
+             right: 'month,agendaWeek,agendaDay,listWeek'
+             },
+             defaultDate: '2018-04-12',
+             navLinks: true, // can click day/week names to navigate views
+             eventMouseover: function(calEvent, jsEvent) {
+             var tooltip = '<div class="tooltipevent" >
+               <h2 class="title">Title</h2>
+               <h2 > ' + calEvent.title + '</h2>
+               <p> Start Time : '+  calEvent.start  + '</p>
+             </div>';
+             var $tooltip = $(tooltip).appendTo('body');
 
-                       weekNumbers: true,
-                       weekNumbersWithinDays: true,
-                       weekNumberCalculation: 'ISO',
+             $(this).mouseover(function(e) {
+             $(this).css('z-index', 10000);
+             $tooltip.fadeIn('500');
+             $tooltip.fadeTo('10', 1.9);
+             }).mousemove(function(e) {
+             $tooltip.css('top', e.pageY + 10);
+             $tooltip.css('left', e.pageX + 20);
+             });
+             },
+             weekNumbers: true,
+             weekNumbersWithinDays: true,
+             weekNumberCalculation: 'ISO',
 
-                       editable: true,
-                       eventLimit: true, // allow "more" link when too many events
-					  
-			
-                       events: [
-					   <?php foreach($fetch as $daily_periodic){ ?>
+             editable: true,
+             eventLimit: true, // allow "more" link when too many events
+
+
+             events: [
+             <?php foreach($fetch as $daily_periodic){ ?>
 						
 						{
                            id:1,

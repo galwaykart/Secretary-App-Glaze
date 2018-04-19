@@ -223,7 +223,7 @@
                                                          <?php echo($dash_data['count_appointment'][0]->total);?>
                                                        </h3>
                                                        <h2>
-                                                         Appoinment
+                                                         Appointment
                                                        </h2>
                                                        <p>
                                                          Today Appoinment <span id="Span8">
@@ -321,15 +321,12 @@
                                                                          <div class="blur8">
                                                                            <div class="container1 ">
 
-                                                                             <div class="left-pop-tag">
-                                                                               <div id="cl-weth"> </div>
-                                                                             </div>
+                                                                            
                                                                              <div class="right-pop-tag">
-                                                                               <h2 class="title">Wheather Forcast</h2>
-                                                                               <p>
-                                                                                 <span ></span>
-                                                                               </p>
+                                                                               <h2 class="title">Weather Forecast</h2>
+                                                                              
                                                                                <h2 id="temprature" class="temp"></h2>
+                                                                               <div id="cl-weth" class="text-center"></div>
                                                                              </div>
 
                                                                            </div>
@@ -348,7 +345,7 @@
                                             </div>
                                           <div class="col-md-new-2">
                                                     <div class="container1 color" >
-                                                      <div id="piechart" ></div>
+                                                      <div id="piechart" style="width:100%;"></div>
                                                     </div>
                                           </div>
                                               
@@ -365,7 +362,7 @@
                                                 <div class="left">
 
                                                     <div class="header">
-                                                        <p>Appoinment</p>
+                                                        <p>Appointment</p>
                                                         <div class="panel style-5">
                                                             <table class="app-tag">
                                                                     <tbody>
@@ -709,60 +706,7 @@
 
         }}   ?>      
 
-    // {
-    //   title: 'All Day Event',
-    //   start: '2018-03-01',
-    // },
-    // {
-    //   title: 'Long Event',
-    //   start: '2018-03-07',
-    //   end: '2018-03-10'
-    // },
-    // {
-    //   id: 999,
-    //   title: 'Repeating Event',
-    //   start: '2018-03-09T16:00:00'
-    // },
-    // {
-    //   id: 999,
-    //   title: 'Repeating Event',
-    //   start: '2018-03-16T16:00:00'
-    // },
-    // {
-    //   title: 'Conference',
-    //   start: '2018-03-11',
-    //   end: '2018-03-13'
-    // },
-    // {
-    //   title: 'Meeting',
-    //   start: '2018-03-12T10:30:00',
-    //   end: '2018-03-12T12:30:00'
-    // },
-    // {
-    //   title: 'Lunch',
-    //   start: '2018-03-12T12:00:00'
-    // },
-    // {
-    //   title: 'Meeting',
-    //   start: '2018-03-12T14:30:00'
-    // },
-    // {
-    //   title: 'Happy Hour',
-    //   start: '2018-03-12T17:30:00'
-    // },
-    // {
-    //   title: 'Dinner',
-    //   start: '2018-03-12T20:00:00'
-    // },
-    // {
-    //   title: 'Birthday Party',
-    //   start: '2018-03-13T07:00:00'
-    // },
-    // {
-    //   title: 'Click for Google',
-    //   url: 'http://google.com/',
-    //   start: '2018-03-28'
-    // }
+    
   ]
 });
 
@@ -886,7 +830,11 @@ function drawHand(ctx, pos, length, width) {
   ]);
 
   // Optional; add a title and set the width and height of the chart
-  var options = {'title':'Daiily Log', 'width':230, 'height':220};
+  var options = {'title':'Dailly Logs', titleTextStyle: {
+  color: 'orange',
+  fontSize: 13 ,  bold: false,
+  }, 'height':220, pieSliceText: 'value' , tooltip: {
+  text: 'value'} , legend: {  alignment: 'start',  position: 'none' }};
 
   // Display the chart inside the <div> element with id="piechart"
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));

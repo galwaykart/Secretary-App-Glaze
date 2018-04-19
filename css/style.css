@@ -1,7 +1,7 @@
 .body {  
       font-family: "wf_segoe-ui_normal", "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;background-color: whitesmoke;position:relative;   }
 .log_body{background-image: url(../img/main/loginbg1.jpeg);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;background-size: cover;
 }
 tr {cursor:pointer;}
 div {box-sizing:content-box;}
@@ -201,7 +201,7 @@ position:relative;border-top:6px solid initial;border-bottom-width:0px;border-le
 #accordion ul li ul li {position:relative;       }
 #accordion ul li ul li div.has-menu-div span.fa-angle-down , #accordion ul li ul li div.has-menu-div span.fa-angle-up{position: absolute;
     padding-left: 10px;
-    top: 12px;
+    top: 12px;color:black;
     font-size: 16px;
     font-weight: 700;}
 
@@ -387,16 +387,15 @@ table.task-tag tbody tr td{      font-size: 13px;padding: 13px;    /*color: #002
 
 
 table.task-tag tbody tr:nth-child(even) {    background-color: #f9f6fd;}
-#footer {width: 100%;max-width: 100%;background-color: #00abdf;height: 20px;position: fixed;bottom: 0;z-index:999999;}#footer p {margin: 0;font-size: 10px;line-height: 0;margin-top: 10px;font-weight: 700;padding-left: 3%;color: white;z-index:999999999;}
+#footer {width: 100%;max-width: 100%;background-color: #00abdf;height: 20px;position: fixed;bottom: 0;z-index:9999999999999;}#footer p {margin: 0;font-size: 10px;line-height: 0;margin-top: 10px;font-weight: 700;padding-left: 3%;color: white;z-index:999999999;}
 
 
 @media screen and (min-width:481px) and (max-width:768px) {
 
 .col-md-new {width: 25%;float: left;padding: 3px;}
 .col-md-new:last-child {width: 50%;float: left;padding: 3px;}
-.second-main-portion .left {width: 50%;float: left;padding: 0px 14px;padding-left: 7px;}
-.second-main-portion .center {width: 50%;float: left;padding: 0px 14px;padding-left: 7px;}
-.second-main-portion .right {width: 100%;float: left;padding: 0px 14px;padding-left: 7px;}
+.second-main-portion .left , .second-main-portion .center , .second-main-portion .right {    width: 100%;padding: 0;float: left;}
+
 .second-main-portion .left .header .panel {border: 1px solid #9ab9bf;height: auto;overflow: auto;min-height: 100px;margin-bottom: 5%;}
 .second-main-portion .center .header1 .panel {border: 1px solid #78b8de;height: auto;overflow: auto;margin-bottom: 6%;min-height: 100px;}
 .col-md-12 {width:100%;}
@@ -997,7 +996,7 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
     font-weight: 600;
     margin-top: 2%;}
 .container-5 p span#projectname {color: grey;}
-.delegatesheet-view {width: 97%;
+.delegatesheet-view {width: 97%;overflow:auto;
     margin: 0% 2%;}
 
 .monthly-periodic-task-sheet {position:relative;}
@@ -1160,13 +1159,13 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
     width: 96%;
   }
     .tabordion section label {width:130px;}
-    .tabordion section article {left:130px;width:85%;}
+    .tabordion section article {left:130px;width:80%;}
 }
 
 @media screen and (min-width:320px) and (max-width:480px) {
     .monthly-periodic-task-sheet table {width:800px;
     }
-    .container-5 .form-group .input-group .form-control {width:95%;}
+    .container-5 .form-group .input-group .form-control {width:81%;}
 }
 
 
@@ -1206,7 +1205,7 @@ table.task-tag tbody tr:nth-child(even) {    background-color: #f8fafb;}
     bottom: 12%;}
 
     .notepad-tag span {font-size: 22px;
-    font-weight: 700;
+    font-weight: 700;color:black;
     }
 
     .notepad-tag:hover {background-color: #eae9e4;
@@ -1284,7 +1283,7 @@ transition:-webkit-transform .3s ease-out;transition:transform .3s ease-out;tran
 .mobile-menu-bar { position: fixed;
     height: 100%;
     width: 50%; 
-    background-color: #f5f8f9;
+    background-color: white;
     top: 50px;
     z-index: 999999;
     box-shadow: 0px 0px 1px 2px #cac3c3;
@@ -1292,20 +1291,37 @@ transition:-webkit-transform .3s ease-out;transition:transform .3s ease-out;tran
 
 
 
-.accordion ul {padding:0;margin:0;list-style:none;color:white;}
+.accordion ul {padding:0;margin:0;list-style:none;color:white;margin-top:3%;}
 .accordion .top > a, .accordion .top > div { padding-left: 16px;
     padding-top: 12px;
     padding-bottom: 12px;
     font-size: 12px;
     color: #002653;
     border-bottom: 1px solid #e8e1e1;}
-.accordion li li > a, .accordion li li > div {padding-left:30px;padding-top:8px;padding-bottom:8px;font-size:12px;color:#002653;}
+.accordion li li > a, .accordion li li > div {    padding-left: 30px;
+    padding-top: 8px;
+    /* padding-bottom: 8px; */
+    font-size: 12px;
+    color: black;}
 .accordion li li li > a, .accordion li li li > div { padding-left:50px; }
-.accordion li > div{ font-size:large;color:#002653;}
+.accordion li > div{     font-size: large;
+    color: black;
+    font-size: 12px;
+    padding-left: 20px;
+    padding-top: 9px;}
 .accordion .active > div{color:#00abdf;}
 .accordion li {font-size:13px;padding: 0;margin:0;overflow:hidden;cursor: pointer;}
-.accordion a {color:white;font-weight:normal;font-size:13px;text-decoration:none;display:block;line-height:1;transition:all 0.3s;}
-.accordion a:hover {color:#002653;}
+.accordion a {color: black;
+    font-weight: normal;
+    font-size: 13px;
+    text-decoration: none;
+    display: block;
+    line-height: 1;
+    transition: all 0.3s;
+    line-height: 28px;
+    font-size: 12px;
+    padding: 2px 20px;}
+
 .accordion a.active {color: #fafcff;
     background-color: rgb(0, 171, 223);
     font-weight: bold;}
@@ -1563,19 +1579,15 @@ span#dashbiar-name {    font-size: 12px;
 }
 @media screen and (min-width:769px) and (max-width:1000px) {
 
-      .col-md-new-2 {
-    width: 33.33%;
-    float: left;
 }
 
     .box-data-for-2 h2 {font-size:10px;}
 
-    .second-main-portion .center, .second-main-portion .left  {width:50%;float:left;}
-    .second-main-portion .right {width:100%;float:left;}
+    
 
    .col-md-new-2 .box-data-for-2 img {width: 41px;
     margin-top: 17px}
-}
+
 
 
 @media screen and (min-width:1001px) and (max-width:1200px) {
@@ -1962,8 +1974,8 @@ fc-button-group button.fc-state-active {background-image:none;background-color:w
 	{
 		.registration .container-3{    width: 80%;padding: 0;margin: 0% 5%;padding: 0% 5%;margin-top: 5%;padding-bottom: 35px;}
 		.registration .container-3 h2{padding-top: 7%;padding-bottom: 5%;}
-		.main-area-dashboard #left{width:30%;}
-		.main-area-dashboard #right{width:70%;}
+		
+		
 	}
 	
 	@media screen and (min-width:769px) and (max-width:920px)
@@ -2499,13 +2511,13 @@ a.delgate-minus3 {
 .no-border-box {}
 
 
-.main-area-body-box .one-box {background-image:url('../img/main/img1.jpg');background-size: cover;}
-.main-area-body-box .blur1 {background-color: #1ec38c78;
+.main-area-body-box .one-box {background-image:url('../img/main/img1.jpg');background-size: cover;    background-position: center top;}
+.main-area-body-box .blur1 {background-color: #da734e52;
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
-    bottom: 0;}
+    bottom: 0;;}
 
 .main-area-body-box .one-box h2 {color:white;
 }
@@ -2523,16 +2535,18 @@ a.delgate-minus3 {
 }
 
 
-.main-area-body-box .twobox {background-image:url('../img/main/img2.jpeg');background-size: cover;}
-.main-area-body-box .blur2 {background-color: #2a39d88f;
+.main-area-body-box .twobox {    background-image: url(../img/main/img2.jpeg);
+    background-size: cover;
+    background-position: center top;}
+.main-area-body-box .blur2 {background-color: #12648a8f;
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;}
 
-.main-area-body-box .threebox {background-image:url('../img/main/img3.jpeg');background-size: cover;}
-.main-area-body-box .blur3 {background-color: #ea3f5d57;
+.main-area-body-box .threebox {background-image:url('../img/main/img3.jpeg');background-size: cover; background-position: center top;}
+.main-area-body-box .blur3 {background-color: #70735f57;
     position: absolute;
     top: 0;
     right: 0;
@@ -2850,7 +2864,7 @@ input.checkbox1:checked + .slider1:before {-webkit-transform: translateX(26px);-
     white-space: nowrap;
     }
 
-.notifyPOP {float: left;width: 100%;background: white;box-shadow: 0px 0px 4px 0px #bfbcbc;margin-bottom:5px;}
+.notifyPOP {float: left;width: 100%;background: white;box-shadow: 0px 2px 2px 0px #b5acac;margin-bottom:5px;}
 
 
 .dailly-task2 #calendar table tbody tr td {border: 1px solid #dddddd;
@@ -2921,3 +2935,82 @@ a.plus-icon-for-project-del {color: white;
 }
 .popup label {margin-left:0;
 }
+
+
+/*responsive code style*/
+
+@media screen and (min-width:100px) and (max-width:480px) {
+    .tabordion input[name="sections"]:checked ~ article {display: block;top: 43px;}
+    .tabordion section article {margin:0;width:95%;}
+    .popup {margin-top: 29%;}
+    .container-5 .form .input-group .form-control input {margin-left: 14px;width: 100%;}
+    .popup .content .form-group label {font-size: 10px;}
+    .main-area-body-box .col-md-new-2:last-child {display:none;}
+}
+
+@media screen and (min-width:100px) and (max-width:600px) {
+    .reminder-sheet {width: 76%;margin: 0% 5%;}
+    .reminder-sheet table {width: 900px;}
+    .monthly-periodic-task-sheet table {width: 1200px;}
+    .popup {margin-top: 28%;}
+    .form-yearly-view-first-line-top .form-group .input-group .form-control input {margin-top: 2%;}
+    .form-yearly-view-first-line-top .form-group .input-group .input-addon span {top: 14px;left: -1px;}
+    .leftItemsonBotton-yearly-task-view .participater3 {top: -72px;left: 182%;font-size: 11px;}
+    #delete .auto-del .right a {top: -43px;left: -18px;}
+    .add-task-view-button a {right: 101%;top: 1%;}
+    .delegatesheet-view {width: 92%;overflow: auto;margin: 0% 2%;}
+    .dailly-notes-index-panel table {width:1600px;margin-bottom:13px;}
+    .container-5 h2.prodelegationviewbottomheadiline {margin-top: 5%;}
+    .container-5 .form-group .input-group {margin-left:0;margin-right: 0;}
+    .container-5 .form-group .input-group .input-addon {margin: 0;width: 10%;}
+    .form-group .input-group .form-control {width: 85%;float: left;margin: 1% 0%;}
+    .container-5 .form .input-group .form-control input {margin-left:7px;}
+    .container-5 .form-group .input-group .form-control input.total-day {width:100%;}
+    .container-5 .form-group label {margin-left:0;}
+    .meeting-info-panel .form-group .input-group .form-control{width:100%;}
+    .col-md-66 {width:100%;float:none;}
+    .bottompanel-one .form-group {margin: 0% 1%;margin-top: 3%;}
+    .canclution-inner-body {margin:0;}
+}
+
+@media screen and (min-width:601px) and (max-width:920px) {
+
+    .reminder-sheet a.rembtn {margin-top:3%;}
+     .reminder-sheet table {width: 900px;}
+      .monthly-periodic-task-sheet table {width: 1200px;}
+     .monthly-periodic-task-sheet table {width: 1200px;}
+     .popup {margin-top: 18%;}
+     .dailly-notes-index-panel table {width:1600px;margin-bottom:13px;}
+}
+
+@media screen and (min-width:601px) and (max-width:1200px) {
+    .add-task-view-button a {top: -15px;border-radius:0;
+    }
+}
+
+
+@media screen and (min-width:769px) and (max-width:920px) {
+    .container-5 .form-group .input-group .form-control input.total-day {width: 99%;}
+   
+}
+
+
+
+
+
+@media screen and (min-width:920px) and (max-width:1200px) {
+
+    .monthly-periodic-task-sheet table {width: 95%;}
+    
+}
+@media screen and (max-width:1200px) and (min-width:769px) { .col-md-new-2 {width: 25%;float: left;}
+}
+
+.accordion li:hover {color: white;background-color: #00abdf;}
+.accordion li:hover a , span{color: white;}
+.accordion li li{color:black;}
+    .accordion li li:hover a {color:black;}
+
+
+.accordion li span {color: black;
+    margin-right: 16px;}

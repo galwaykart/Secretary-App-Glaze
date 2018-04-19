@@ -82,40 +82,79 @@
         <div class="mobile-menu-bar">
                                   <aside class="" id="aside1">
                                     <div class="accordion" id="accordion2">
-                                        <ul>
+                                      <ul>
+                                        <li>
+                                          <a href=""
+                                            <?php echo site_url('indexmeeting'); ?>"><span class="fa fa-dashboard"></span> Dashboard
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href=""
+                                            <?php echo site_url('indexmeeting'); ?>"><span class="fa fa-handshake-o"></span> Index Meeting in Progress
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href=""
+                                            <?php echo site_url('Daillynote'); ?>"><span class="fa fa-file-text"></span> Daily Notes
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href=""
+                                            <?php echo site_url('Quickwork'); ?>"><span class="fa fa-edit"></span> Quick Work
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href=""
+                                            <?php echo site_url('Appoinment'); ?>"><span class="fa fa-coffee"></span> Appointments
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href=""
+                                            <?php echo site_url('Projectdelegation'); ?>"><span class="fa fa-copy"></span> Project Delegation
+                                          </a>
+                                        </li>
+                                        <li>
+
+                                          <div class="has-menu-div">
+                                            <span class="fa  fa-puzzle-piece"></span> Periodic tasks <span class="fa fa-angle-down checge"></span>
+                                          </div>
+                                          <ul class="has-menu">
                                             <li>
-                                                <div>Sollicitudin</div>
-                                                <ul>
-                                                    <li><a href="?11">Lorem ipsum</a></li>
-                                                    <li><a href="?12">Dolor sit</a></li>
-                                                    <li>
-                                                        <div>Commodo Rhoncus</div>
-                                                        <ul>
-                                                            <li><a href="demo.html">Current</a></li>
-                                                            <li><a href="?132">Consectetur</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
+                                              <a href=""
+                                                <?php echo site_url('yearlyperiodic') ?>">Yearly periodic Task
+                                              </a>
                                             </li>
                                             <li>
-                                                <div>Quis Porttitor</div>
-                                                <ul>
-                                                    <li><a href="?21">Finibus Bonorum</a></li>
-                                                    <li><a href="?22">Sed ut</a></li>
-                                                    <li><a href="?23">Neque porro</a></li>
-                                                </ul>
+                                              <a href=""
+                                                <?php echo site_url('Monthlyperiodic') ?>">Monthly periodic Task
+                                              </a>
                                             </li>
                                             <li>
-                                                <div>Odio Ac</div>
-                                                <ul>
-                                                    <li><a href="?31">Minima veniam</a></li>
-                                                    <li><a href="?32">Voluptate velit</a></li>
-                                                </ul>
+                                              <a href=""
+                                                <?php echo site_url('Dailyperiodic') ?>">Everyday periodic Task
+                                              </a>
                                             </li>
                                             <li>
-                                                <a href="?4">Sapien quam</a>
+                                              <a href=""
+                                                <?php echo site_url('WeeklyPeriodic') ?>">Weekly periodic Task
+                                              </a>
                                             </li>
-                                        </ul>
+                                          </ul>
+                                        </li>
+                                        <li>
+                                          <a href=""
+                                            <?php echo site_url('Reminder') ?>"><span class="fa fa-history"></span> Reminder Sheet
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href=""
+                                            <?php echo site_url('user/userlist'); ?>"><span class="fa  fa-users"></span> Users
+                                          </a>
+                                        </li>
+
+                                      </ul>
+                                      </li>
+                                      </ul>
                                     </div>
                         </aside>
         </div>
@@ -152,7 +191,7 @@
          
               
                 $('#sec-header #toggle-btn-box span#bar').click(function () {
-                    if ($(window).width() >= 769) {
+                    if ($(window).width() >= 920) {
                         if (count % 2 == 0) { $('#aside').css('display', 'none'); $('.main-area-dashboard #left').css('width', '0%'); $('.main-area-dashboard #right').css('width', '100%'); }
                         else { $('#aside').css('display', 'block'); $('.main-area-dashboard #left').css('width', '15%'); $('.main-area-dashboard #right').css('width', '85%'); }
                         count++;
@@ -177,7 +216,7 @@
 
             // window resize option
             $(window).bind('resize', function () {
-                if ($(window).width() > 768) {
+                if ($(window).width() > 920) {
                     $('#aside').css('display', 'block'); $('.mobile-menu-bar').css('display', 'none');
                     $('.main-area-dashboard #right').css('width', '85%');
                     $('.main-area-dashboard #left').css('width', '15%');
@@ -232,7 +271,7 @@
     </script>
 <script type="text/javascript">
   $(function(){
-  $('.notepad-tag').draggable();;
+  $('.notepad-tag').draggable({ containment: "window" });
 
   });
 </script>

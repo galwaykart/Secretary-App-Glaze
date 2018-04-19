@@ -4,22 +4,25 @@
                 //change city variable dynamically as required
                 $.getJSON("https://query.yahooapis.com/v1/public/yql?q=" + searchtext + "&format=json").done(function (data) {
                     console.log(data);
-                    $('#temprature').html(data.query.results.channel.item.condition.temp + " &#8451;");
-                    if (data.query.results.channel.item.condition.temp < 45 && data.query.results.channel.item.condition.temp>25)
+                    var valuess = data.query.results.channel.item.condition.temp;
+                    valuess = parseInt(valuess) + 2;
+                    $('#temprature').html(valuess + " &#8451;");
+                    if (valuess < 45 && valuess > 25)
                     {
-                        //$('#cl-weth').append('<object type="image/svg+xml" data="img/cloudy-day-3.svg" class="icon"></object>');
+                        $('#cl-weth object').remove();
+                       $('#cl-weth').append('<object type="image/svg+xml" data="img/cloudy-day-3.svg" class="icon"></object>');
 
                     }
-                    if (data.query.results.channel.item.condition.temp < 25 && data.query.results.channel.item.condition.temp > 15) {
-                       // $('#cl-weth').append('<object type="image/svg+xml" data="img/day.svg" class="icon"></object>');
+                    if (valuess < 25 && valuess > 15) {
+                       $('#cl-weth').append('<object type="image/svg+xml" data="img/day.svg" class="icon"></object>');
 
                     }
-                    if (data.query.results.channel.item.condition.temp < 15 && data.query.results.channel.item.condition.temp > 10) {
-                       // $('#cl-weth').append('<object type="image/svg+xml" data="img/weather.svg" class="icon"></object>');
+                    if (valuess < 15 && valuess > 10) {
+                        $('#cl-weth').append('<object type="image/svg+xml" data="img/weather.svg" class="icon"></object>');
 
                     }
-                    if (data.query.results.channel.item.condition.temp < 15 && data.query.results.channel.item.condition.temp > 0) {
-                       // $('#cl-weth').append('<object type="image/svg+xml" data="img/snowy-3.svg" class="icon"></object>');
+                    if (valuess < 15 && valuess > 0) {
+                        $('#cl-weth').append('<object type="image/svg+xml" data="img/snowy-3.svg" class="icon"></object>');
 
                     }
                 });

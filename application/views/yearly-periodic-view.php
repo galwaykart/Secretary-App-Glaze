@@ -201,7 +201,7 @@
 								if($i != '0'){  ?>
 								<div class="clear"></div>		
 					<div id="rm<?php echo $i; ?>"  class="auto-del">
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<div class="form-group">
 									<label>Status Date</label>
 									   <div class="input-group">

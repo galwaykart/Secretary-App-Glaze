@@ -19,10 +19,47 @@
     <!-- <link href="<?php echo base_url(); ?>calender/fullcalendar.print.min.css" rel="stylesheet" /> -->
 	 <script src="<?php echo base_url(); ?>calender/moment.min.js"></script>
      <script src="<?php echo base_url(); ?>calender/fullcalendar.min.js"></script>
-     <script src=""
-       <?php echo base_url(); ?>js/dragable.js">
-     </script>
-      
+     <script src=""<?php echo base_url(); ?>js/dragable.js"></script>
+     <script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+     <script type="text/javascript" src="https://www.amcharts.com/lib/3/pie.js"></script>
+     <script type="text/javascript">
+       AmCharts.makeChart("chartdiv",
+       {
+       "type": "pie",
+       "balloonText": "[[title]]<br>
+         <span style='font-size:14px'>
+           <b>[[value]]</b> ([[percents]]%)
+         </span>",
+         "gradientType": "linear",
+         "innerRadius": 0,
+         "titleField": "category",
+         "valueField": "column-1",
+         "theme": "default",
+         "allLabels": [],
+         "balloon": {},
+         "legend": {
+         "enabled": true,
+         "align": "center",
+         "markerType": "circle"
+         },
+         "titles": [],
+         "dataProvider": [
+         {
+         "category": "Task",
+         "column-1": 8
+         },
+         {
+         "category": "Appoinment",
+         "column-1": 6
+         },
+         {
+         "category": "Mettings",
+         "column-1": 2
+         }
+         ]
+         }
+         );
+       </script>
 </head>
 <body class="body style-6"><!-- body tag start -->
 

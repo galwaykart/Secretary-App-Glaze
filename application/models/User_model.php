@@ -148,9 +148,10 @@ public function username_check($username){
        } 
 
     public function footer(){
-	
+	   $user_id = $this->session->userdata['id'];
 		$this->db->select("*"); 
 		$this->db->from('index_meeting');
+		$this->db->where('user_id',$user_id);
 		$query = $this->db->get();
 		return $query->result();
        } 
